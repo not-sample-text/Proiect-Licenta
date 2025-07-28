@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "adafruit_feather-eagle-import")(type "KiCad")(uri "/home/user/Desktop/Proiect Licenta/adafruit_feather/adafruit_feather-eagle-import.kicad_sym")(options "")(descr ""))
+)

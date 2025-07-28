@@ -1,0 +1,83 @@
+# KiCad .gitignore file
+# Excludes cache, backups, and temporary files while preserving footprints and symbols
+
+# KiCad temporary files
+*.tmp
+*.bak
+*.bck
+*~
+*.lck
+~*
+
+# KiCad cache files
+fp-info-cache
+*.cache
+
+# KiCad backup directories and files
+*-backups/
+*.zip
+
+# KiCad rescue files
+*-rescue.lib
+*-rescue.dcm
+*-rescue.kicad_sym
+
+# KiCad auto-generated files
+*.kicad_prl
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# PlatformIO (for firmware development)
+.pio/
+.pioenvs/
+.piolibdeps/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Logs
+*.log
+
+# Keep these important KiCad files (explicit inclusion comments for clarity)
+# *.kicad_sch (schematic files) - KEEP
+# *.kicad_pcb (PCB layout files) - KEEP
+# *.kicad_pro (project files) - KEEP
+# *.kicad_wks (worksheet files) - KEEP
+# *.kicad_sym (symbol library files) - KEEP
+# *.kicad_mod (footprint files) - KEEP
+# *.pretty/ (footprint library directories) - KEEP
+# sym-lib-table - KEEP
+# fp-lib-table - KEEP
