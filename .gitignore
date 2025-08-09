@@ -16,6 +16,7 @@ fp-info-cache
 # KiCad backup directories and files
 *-backups/
 *.zip
+*save*
 
 # KiCad rescue files
 *-rescue.lib
