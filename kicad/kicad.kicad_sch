@@ -1516,9 +1516,9 @@
 				)
 			)
 		)
-		(symbol "Switch:SW_Wuerth_450301014042"
+		(symbol "Switch:SW_SPDT"
 			(pin_names
-				(offset 1) hide)
+				(offset 0) hide)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -1530,7 +1530,7 @@
 					)
 				)
 			)
-			(property "Value" "SW_Wuerth_450301014042"
+			(property "Value" "SW_SPDT"
 				(at 0 -5.08 0)
 				(effects
 					(font
@@ -1538,8 +1538,8 @@
 					)
 				)
 			)
-			(property "Footprint" "Button_Switch_THT:SW_Slide-03_Wuerth-WS-SLTV_10x2.5x6.4_P2.54mm"
-				(at 0 -10.16 0)
+			(property "Footprint" ""
+				(at 0 0 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -1547,7 +1547,7 @@
 					(hide yes)
 				)
 			)
-			(property "Datasheet" "https://www.we-online.com/components/products/datasheet/450301014042.pdf"
+			(property "Datasheet" "~"
 				(at 0 -7.62 0)
 				(effects
 					(font
@@ -1556,7 +1556,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Switch slide, single pole double throw"
+			(property "Description" "Switch, single pole double throw"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1565,7 +1565,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_keywords" "changeover single-pole opposite-side-connection double-throw spdt ON-ON"
+			(property "ki_keywords" "switch single-pole double-throw spdt ON-ON"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1574,16 +1574,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_fp_filters" "SW*Wuerth*WS*SLTV*10x2.5x6.4*P2.54mm*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "SW_Wuerth_450301014042_0_1"
+			(symbol "SW_SPDT_0_1"
 				(circle
 					(center -2.032 0)
 					(radius 0.4572)
@@ -1630,7 +1621,7 @@
 					)
 				)
 			)
-			(symbol "SW_Wuerth_450301014042_1_1"
+			(symbol "SW_SPDT_1_1"
 				(rectangle
 					(start -3.175 3.81)
 					(end 3.175 -3.81)
@@ -1643,9 +1634,9 @@
 					)
 				)
 				(pin passive line
-					(at -5.08 0 0)
+					(at 5.08 2.54 180)
 					(length 2.54)
-					(name "B"
+					(name "A"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1661,9 +1652,9 @@
 					)
 				)
 				(pin passive line
-					(at 5.08 -2.54 180)
+					(at -5.08 0 0)
 					(length 2.54)
-					(name "C"
+					(name "B"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1679,9 +1670,9 @@
 					)
 				)
 				(pin passive line
-					(at 5.08 2.54 180)
+					(at 5.08 -2.54 180)
 					(length 2.54)
-					(name "A"
+					(name "C"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1916,114 +1907,124 @@
 		)
 	)
 	(junction
-		(at 196.85 168.91)
+		(at 217.17 140.97)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "1c685cd8-3739-453a-9f1a-6949d0a3175e")
+	)
+	(junction
+		(at 222.25 153.67)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "322660cc-4924-4d29-9a03-538047a3db62")
+	)
+	(junction
+		(at 200.66 161.29)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "361b216d-d8fd-4072-9a3f-926312ba19ec")
 	)
 	(junction
-		(at 214.63 181.61)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "37ecd3ca-a02c-4d5e-bdc4-40aebbc5d7fc")
-	)
-	(junction
-		(at 201.93 201.93)
+		(at 205.74 194.31)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "39c08536-9f2f-45f8-9d6e-785bf0554dfe")
 	)
 	(junction
-		(at 214.63 201.93)
+		(at 200.66 181.61)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "4c190921-e689-4bbe-88bc-739713dd09b9")
+		(uuid "53491907-84ee-45d8-ad82-a2b6999e72fa")
 	)
 	(junction
-		(at 201.93 161.29)
+		(at 205.74 214.63)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "63b7bb8b-c5e3-4352-a693-df08de736c3e")
+	)
+	(junction
+		(at 205.74 153.67)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "6bc03c2f-8d0e-4b95-9e4b-bcf8b4a648f2")
 	)
 	(junction
-		(at 209.55 148.59)
+		(at 217.17 161.29)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "7e5c761e-98ee-4903-b4ad-9a297228a3ac")
+		(uuid "7f028c84-35e7-47fd-b6cf-b24784c37a6e")
 	)
 	(junction
-		(at 201.93 181.61)
+		(at 222.25 214.63)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "80ae127f-3cfc-401a-9c4b-b56dfba87885")
+	)
+	(junction
+		(at 205.74 173.99)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "9337ca28-ed34-4f37-9d79-9c845d8225ab")
 	)
 	(junction
-		(at 209.55 168.91)
+		(at 200.66 140.97)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "b735073d-6348-44ac-baf9-8326d718175a")
+		(uuid "aa64799c-a875-425e-88b3-6c88259be8a1")
 	)
 	(junction
-		(at 222.25 168.91)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "b77910bd-f135-4f6f-86ed-1a4f3ce8709b")
-	)
-	(junction
-		(at 227.33 161.29)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "bb7113b1-5a44-4c48-9d4d-6b458a91b220")
-	)
-	(junction
-		(at 184.15 168.91)
+		(at 184.15 161.29)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "c4554234-a287-4950-88a0-3646d400306b")
 	)
 	(junction
-		(at 222.25 148.59)
+		(at 184.15 181.61)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "cbc47b91-7e68-4112-b781-0a6a9e7c25fb")
+		(uuid "cdbc27df-c639-4f73-9ef9-15041f63cf5b")
 	)
 	(junction
-		(at 227.33 181.61)
+		(at 222.25 194.31)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "d3207593-d696-41a4-b0c4-417bda2b6a1b")
+		(uuid "cffdb1ff-4399-4cdd-bbb0-f0a22780337e")
 	)
 	(junction
-		(at 214.63 161.29)
+		(at 217.17 181.61)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "d4467017-2902-428f-aaa2-280f36fc8991")
+		(uuid "da32ffd1-67f8-48e9-87d9-22ed63bf983a")
 	)
 	(junction
-		(at 196.85 148.59)
+		(at 222.25 173.99)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "e2016dbf-8d91-4559-aff0-a501b18e75e8")
+		(uuid "e7e3dd5a-d94c-4239-bb87-6c4c5c14191e")
 	)
 	(junction
-		(at 227.33 201.93)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "f92e698b-0a87-414e-9d87-e9315367261c")
-	)
-	(junction
-		(at 184.15 148.59)
+		(at 184.15 140.97)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "fbd49288-41ab-49c0-b559-a1f778efcbca")
 	)
 	(no_connect
-		(at 283.21 175.26)
+		(at 283.21 180.34)
 		(uuid "c5bd67b7-9a3f-4732-926c-5d0ff4346d3c")
 	)
 	(wire
 		(pts
-			(xy 209.55 168.91) (xy 209.55 189.23)
+			(xy 189.23 214.63) (xy 205.74 214.63)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "014dcabc-6474-4d74-8dea-0d4731b126e3")
+	)
+	(wire
+		(pts
+			(xy 217.17 161.29) (xy 217.17 181.61)
 		)
 		(stroke
 			(width 0)
@@ -2033,7 +2034,7 @@
 	)
 	(wire
 		(pts
-			(xy 285.75 151.13) (xy 284.48 151.13)
+			(xy 285.75 153.67) (xy 284.48 153.67)
 		)
 		(stroke
 			(width 0)
@@ -2043,7 +2044,7 @@
 	)
 	(wire
 		(pts
-			(xy 184.15 168.91) (xy 184.15 189.23)
+			(xy 184.15 161.29) (xy 184.15 181.61)
 		)
 		(stroke
 			(width 0)
@@ -2053,7 +2054,7 @@
 	)
 	(polyline
 		(pts
-			(xy 332.74 161.29) (xy 332.74 161.29)
+			(xy 332.74 165.1) (xy 332.74 161.29)
 		)
 		(stroke
 			(width 0)
@@ -2063,7 +2064,7 @@
 	)
 	(wire
 		(pts
-			(xy 285.75 153.67) (xy 284.48 153.67)
+			(xy 285.75 156.21) (xy 284.48 156.21)
 		)
 		(stroke
 			(width 0)
@@ -2071,19 +2072,19 @@
 		)
 		(uuid "0af5b84c-b940-4892-884a-5df305f2c5c6")
 	)
-	(polyline
+	(wire
 		(pts
-			(xy 252.73 212.09) (xy 304.8 212.09)
+			(xy 222.25 173.99) (xy 228.6 173.99)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "0b070435-a18c-4627-bfd2-59e107e2db20")
+		(uuid "0bcd2042-4ffd-4d78-a694-2fcab216d35a")
 	)
 	(wire
 		(pts
-			(xy 196.85 148.59) (xy 196.85 168.91)
+			(xy 200.66 140.97) (xy 200.66 161.29)
 		)
 		(stroke
 			(width 0)
@@ -2093,13 +2094,13 @@
 	)
 	(wire
 		(pts
-			(xy 222.25 168.91) (xy 222.25 189.23)
+			(xy 228.6 214.63) (xy 222.25 214.63)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "1357e5b2-c33d-47b1-bd20-2d2b537ac6d5")
+		(uuid "0ef6830e-5ffd-4f59-b59f-0c9fdf24400e")
 	)
 	(polyline
 		(pts
@@ -2111,9 +2112,29 @@
 		)
 		(uuid "15b95e41-9c62-49af-88da-a400cdd34a6b")
 	)
+	(wire
+		(pts
+			(xy 205.74 194.31) (xy 222.25 194.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2053d24d-2c25-4072-9899-361e461d4a5c")
+	)
 	(polyline
 		(pts
-			(xy 332.74 125.73) (xy 332.74 161.29)
+			(xy 171.45 212.09) (xy 171.45 219.71)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "210bf0de-13eb-45ef-8a41-393a4e202a4d")
+	)
+	(polyline
+		(pts
+			(xy 332.74 125.73) (xy 332.74 165.1)
 		)
 		(stroke
 			(width 0)
@@ -2123,7 +2144,7 @@
 	)
 	(wire
 		(pts
-			(xy 285.75 146.05) (xy 284.48 146.05)
+			(xy 285.75 148.59) (xy 284.48 148.59)
 		)
 		(stroke
 			(width 0)
@@ -2133,7 +2154,27 @@
 	)
 	(wire
 		(pts
-			(xy 184.15 148.59) (xy 184.15 168.91)
+			(xy 222.25 194.31) (xy 228.6 194.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "27d94e8e-8564-487c-93be-5c4fafd27141")
+	)
+	(wire
+		(pts
+			(xy 189.23 153.67) (xy 205.74 153.67)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "282aa8b3-4416-4189-95dc-cee22e6802b4")
+	)
+	(wire
+		(pts
+			(xy 184.15 140.97) (xy 184.15 161.29)
 		)
 		(stroke
 			(width 0)
@@ -2141,29 +2182,19 @@
 		)
 		(uuid "2850fd14-9ce8-4b71-8bf7-2a54175dd0b1")
 	)
-	(polyline
+	(wire
 		(pts
-			(xy 171.45 212.09) (xy 254 212.09)
+			(xy 205.74 173.99) (xy 222.25 173.99)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "2e9e584d-e2ca-47b8-9c8f-520f18888409")
+		(uuid "2cabd638-9967-4716-8cca-9e1b456b4a01")
 	)
 	(wire
 		(pts
-			(xy 214.63 181.61) (xy 227.33 181.61)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "320be5ee-d016-4133-a674-bdf7f7499a88")
-	)
-	(wire
-		(pts
-			(xy 271.78 201.93) (xy 273.05 201.93)
+			(xy 271.78 208.28) (xy 273.05 208.28)
 		)
 		(stroke
 			(width 0)
@@ -2173,7 +2204,7 @@
 	)
 	(polyline
 		(pts
-			(xy 254 182.88) (xy 304.8 182.88)
+			(xy 254 189.23) (xy 304.8 189.23)
 		)
 		(stroke
 			(width 0)
@@ -2181,19 +2212,19 @@
 		)
 		(uuid "3c377dbe-d36f-4406-832a-a9f36e85abf9")
 	)
-	(wire
+	(polyline
 		(pts
-			(xy 189.23 181.61) (xy 201.93 181.61)
+			(xy 332.74 165.1) (xy 332.74 219.71)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "51c5268b-fc9f-4ffa-9c0f-d88d0ac575b6")
+		(uuid "48df497d-1d14-4b50-92b4-16360f71d0be")
 	)
 	(wire
 		(pts
-			(xy 284.48 180.34) (xy 283.21 180.34)
+			(xy 284.48 185.42) (xy 283.21 185.42)
 		)
 		(stroke
 			(width 0)
@@ -2203,7 +2234,7 @@
 	)
 	(wire
 		(pts
-			(xy 209.55 148.59) (xy 209.55 168.91)
+			(xy 217.17 140.97) (xy 217.17 161.29)
 		)
 		(stroke
 			(width 0)
@@ -2213,7 +2244,7 @@
 	)
 	(wire
 		(pts
-			(xy 271.78 207.01) (xy 273.05 207.01)
+			(xy 271.78 213.36) (xy 273.05 213.36)
 		)
 		(stroke
 			(width 0)
@@ -2223,67 +2254,57 @@
 	)
 	(wire
 		(pts
-			(xy 222.25 148.59) (xy 222.25 168.91)
+			(xy 205.74 214.63) (xy 222.25 214.63)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "61cf8ff0-fa74-4739-b13e-d493f97580be")
+		(uuid "612415f6-448f-4526-a074-4c64f187b6da")
 	)
-	(wire
+	(polyline
 		(pts
-			(xy 201.93 201.93) (xy 214.63 201.93)
+			(xy 254 219.71) (xy 304.8 219.71)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "6971e115-d549-4b81-9e5d-320aa8e7f170")
+		(uuid "69517f95-d3b6-4e9d-a238-823538615928")
 	)
 	(wire
 		(pts
-			(xy 201.93 181.61) (xy 214.63 181.61)
+			(xy 189.23 173.99) (xy 205.74 173.99)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "70ea6243-7afd-406f-a262-0c78ada2c252")
+		(uuid "6f320477-bf9c-4fbb-9d45-04c3c92cc8bf")
 	)
-	(wire
+	(polyline
 		(pts
-			(xy 240.03 181.61) (xy 227.33 181.61)
+			(xy 171.45 219.71) (xy 254 219.71)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "73589a73-fd41-4b2f-b3b6-e278af7ad6f9")
+		(uuid "70f7271c-8bf3-423e-b03e-5e9de79a253c")
 	)
 	(wire
 		(pts
-			(xy 189.23 201.93) (xy 201.93 201.93)
+			(xy 217.17 181.61) (xy 217.17 201.93)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "7a5300d7-baff-4a5c-aa8b-a0d2e8a05bc3")
+		(uuid "820c40f1-f119-4af2-9d6e-9759ac2fa46b")
 	)
 	(wire
 		(pts
-			(xy 214.63 161.29) (xy 227.33 161.29)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7edd2325-a03b-47e7-b9a3-5af512599375")
-	)
-	(wire
-		(pts
-			(xy 196.85 142.24) (xy 196.85 148.59)
+			(xy 200.66 139.7) (xy 200.66 140.97)
 		)
 		(stroke
 			(width 0)
@@ -2291,9 +2312,29 @@
 		)
 		(uuid "8696d591-d69b-40b5-9a4a-98851783b4b8")
 	)
+	(wire
+		(pts
+			(xy 184.15 181.61) (xy 184.15 201.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "886f51ec-8980-44f8-b938-256f09a65ba6")
+	)
 	(polyline
 		(pts
-			(xy 332.74 212.09) (xy 304.8 212.09)
+			(xy 254 219.71) (xy 254 219.71)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "90caaabf-2c7b-4f24-abe8-b078103a560d")
+	)
+	(polyline
+		(pts
+			(xy 332.74 219.71) (xy 304.8 219.71)
 		)
 		(stroke
 			(width 0)
@@ -2303,7 +2344,7 @@
 	)
 	(wire
 		(pts
-			(xy 289.56 201.93) (xy 288.29 201.93)
+			(xy 289.56 208.28) (xy 288.29 208.28)
 		)
 		(stroke
 			(width 0)
@@ -2313,13 +2354,13 @@
 	)
 	(wire
 		(pts
-			(xy 189.23 161.29) (xy 201.93 161.29)
+			(xy 205.74 153.67) (xy 222.25 153.67)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "a23d869c-b9cf-470c-a032-24d29ac63247")
+		(uuid "aa4f1928-176e-4550-99c9-9c913db490f9")
 	)
 	(polyline
 		(pts
@@ -2331,29 +2372,9 @@
 		)
 		(uuid "ab74f63a-1328-4001-be78-cb1b56d50e68")
 	)
-	(wire
-		(pts
-			(xy 214.63 201.93) (xy 227.33 201.93)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b4950df9-7562-4f46-b994-dc3c2d3f1039")
-	)
 	(polyline
 		(pts
-			(xy 332.74 161.29) (xy 332.74 212.09)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c523d356-8fba-43cd-a4e8-1b289d741f4b")
-	)
-	(polyline
-		(pts
-			(xy 304.8 212.09) (xy 304.8 212.09)
+			(xy 304.8 219.71) (xy 304.8 212.09)
 		)
 		(stroke
 			(width 0)
@@ -2363,17 +2384,17 @@
 	)
 	(wire
 		(pts
-			(xy 227.33 161.29) (xy 240.03 161.29)
+			(xy 228.6 153.67) (xy 222.25 153.67)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "c658c728-700c-4fc2-bfd7-f39dacdb118e")
+		(uuid "c876e3a8-31c7-46e9-9583-8e7a0e7e9d89")
 	)
 	(wire
 		(pts
-			(xy 209.55 142.24) (xy 209.55 148.59)
+			(xy 217.17 139.7) (xy 217.17 140.97)
 		)
 		(stroke
 			(width 0)
@@ -2383,7 +2404,7 @@
 	)
 	(wire
 		(pts
-			(xy 196.85 168.91) (xy 196.85 189.23)
+			(xy 200.66 161.29) (xy 200.66 181.61)
 		)
 		(stroke
 			(width 0)
@@ -2393,17 +2414,17 @@
 	)
 	(wire
 		(pts
-			(xy 227.33 201.93) (xy 240.03 201.93)
+			(xy 189.23 194.31) (xy 205.74 194.31)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "dad301d5-50f5-4ac9-8268-f69f423a22aa")
+		(uuid "ce5486a3-51c7-4f64-ac83-c79012c0e95e")
 	)
 	(polyline
 		(pts
-			(xy 254 125.73) (xy 254 212.09)
+			(xy 254 125.73) (xy 254 219.71)
 		)
 		(stroke
 			(width 0)
@@ -2411,19 +2432,9 @@
 		)
 		(uuid "de2ebd21-ba00-4ef9-a406-8a075394b5ca")
 	)
-	(wire
-		(pts
-			(xy 222.25 142.24) (xy 222.25 148.59)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e3a0066f-8f36-4311-8a4b-a0ae093c4be5")
-	)
 	(polyline
 		(pts
-			(xy 254 161.29) (xy 304.8 161.29)
+			(xy 254 165.1) (xy 304.8 165.1)
 		)
 		(stroke
 			(width 0)
@@ -2433,7 +2444,7 @@
 	)
 	(wire
 		(pts
-			(xy 285.75 148.59) (xy 284.48 148.59)
+			(xy 285.75 151.13) (xy 284.48 151.13)
 		)
 		(stroke
 			(width 0)
@@ -2443,17 +2454,17 @@
 	)
 	(wire
 		(pts
-			(xy 201.93 161.29) (xy 214.63 161.29)
+			(xy 271.78 210.82) (xy 273.05 210.82)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "e800006e-b6d6-4e71-bd12-ee4c65dbe700")
+		(uuid "e9a35d3b-14d8-4d34-b8ff-3f4d88fcc1f5")
 	)
 	(wire
 		(pts
-			(xy 184.15 142.24) (xy 184.15 148.59)
+			(xy 184.15 139.7) (xy 184.15 140.97)
 		)
 		(stroke
 			(width 0)
@@ -2463,17 +2474,17 @@
 	)
 	(wire
 		(pts
-			(xy 271.78 204.47) (xy 273.05 204.47)
+			(xy 200.66 181.61) (xy 200.66 201.93)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "f1526a1b-9f1b-4f58-9d01-3faec56b1397")
+		(uuid "f1b48f4a-3dc6-4e10-80e0-fc2dff6acd43")
 	)
 	(polyline
 		(pts
-			(xy 304.8 125.73) (xy 304.8 212.09)
+			(xy 304.8 125.73) (xy 304.8 219.71)
 		)
 		(stroke
 			(width 0)
@@ -2483,7 +2494,7 @@
 	)
 	(polyline
 		(pts
-			(xy 304.8 161.29) (xy 332.74 161.29)
+			(xy 304.8 165.1) (xy 332.74 165.1)
 		)
 		(stroke
 			(width 0)
@@ -2505,7 +2516,7 @@
 	)
 	(text "Main Board"
 		(exclude_from_sim no)
-		(at 318.77 166.37 0)
+		(at 317.5 172.72 0)
 		(effects
 			(font
 				(size 2.54 2.54)
@@ -2539,7 +2550,7 @@
 	)
 	(text "SPDT Switch \nfor Mode Switching"
 		(exclude_from_sim no)
-		(at 280.67 165.1 0)
+		(at 280.67 170.18 0)
 		(effects
 			(font
 				(size 1.905 1.905)
@@ -2549,7 +2560,7 @@
 	)
 	(text "EC11 Rotary Encoder\nwith push button"
 		(exclude_from_sim no)
-		(at 280.67 187.96 0)
+		(at 280.67 194.31 0)
 		(effects
 			(font
 				(size 1.905 1.905)
@@ -2557,9 +2568,9 @@
 		)
 		(uuid "aea9c089-91e8-4636-a865-fbd8ed1b8585")
 	)
-	(text "SSD1306 1.3\" \nOLED Display"
+	(text "SSD1306 128 x 32\nOLED Display"
 		(exclude_from_sim no)
-		(at 278.13 135.89 0)
+		(at 278.13 136.144 0)
 		(effects
 			(font
 				(size 1.905 1.905)
@@ -2569,51 +2580,51 @@
 	)
 	(global_label "ROW0"
 		(shape input)
-		(at 318.77 196.85 180)
+		(at 317.5 208.28 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right)
+			(justify left)
 		)
 		(uuid "11c57c66-f6f2-409b-899d-744b0032bcfa")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 310.5234 196.85 0)
+			(at 325.7466 208.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 				(hide yes)
 			)
 		)
 	)
 	(global_label "OLED_SDA"
 		(shape input)
-		(at 318.77 204.47 180)
+		(at 317.5 210.82 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right)
+			(justify left)
 		)
 		(uuid "18581f98-145f-4fd4-b7a5-edb43bbe2974")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 306.4715 204.47 0)
+			(at 329.7985 210.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 				(hide yes)
 			)
 		)
 	)
 	(global_label "OLED_SDA"
 		(shape input)
-		(at 285.75 153.67 0)
+		(at 285.75 156.21 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2623,7 +2634,7 @@
 		)
 		(uuid "2126712d-6445-42a9-95bd-08a9bb5b02bc")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 298.0485 153.67 0)
+			(at 298.0485 156.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2635,7 +2646,7 @@
 	)
 	(global_label "COL0"
 		(shape input)
-		(at 184.15 142.24 90)
+		(at 184.15 139.7 90)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2645,7 +2656,7 @@
 		)
 		(uuid "3d0b1066-cad8-4ae2-8c47-79f019da325a")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 184.15 134.4167 90)
+			(at 184.15 131.8767 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2657,51 +2668,51 @@
 	)
 	(global_label "ENC_DT"
 		(shape input)
-		(at 318.77 176.53 180)
+		(at 317.5 182.88 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right)
+			(justify left)
 		)
 		(uuid "3fdab613-efe4-4687-b2f0-1080d4e3c670")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 308.8301 176.53 0)
+			(at 327.4399 182.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 				(hide yes)
 			)
 		)
 	)
 	(global_label "COL0"
 		(shape input)
-		(at 318.77 186.69 180)
+		(at 317.5 193.04 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right)
+			(justify left)
 		)
 		(uuid "42bb8dfc-865e-4673-8bce-82f1278f9765")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 310.9467 186.69 0)
+			(at 325.3233 193.04 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 				(hide yes)
 			)
 		)
 	)
 	(global_label "ENC_CLK"
 		(shape input)
-		(at 271.78 201.93 180)
+		(at 271.78 208.28 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2711,7 +2722,7 @@
 		)
 		(uuid "4ac871d8-25d1-4072-a6cd-eb2045604b83")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 260.5096 201.93 0)
+			(at 260.5096 208.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2723,7 +2734,7 @@
 	)
 	(global_label "COL2"
 		(shape input)
-		(at 209.55 142.24 90)
+		(at 217.17 139.7 90)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2733,7 +2744,7 @@
 		)
 		(uuid "509e14f0-db3d-4406-919b-5b4e67ff7871")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 209.55 134.4167 90)
+			(at 217.17 131.8767 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2745,7 +2756,7 @@
 	)
 	(global_label "ROW2"
 		(shape input)
-		(at 240.03 201.93 0)
+		(at 228.6 194.31 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2755,7 +2766,7 @@
 		)
 		(uuid "55a3fa02-65ac-4931-ace8-3b240c5b4808")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 248.2766 201.93 0)
+			(at 236.8466 194.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2767,7 +2778,7 @@
 	)
 	(global_label "ENC_DT"
 		(shape input)
-		(at 271.78 207.01 180)
+		(at 271.78 213.36 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2777,7 +2788,7 @@
 		)
 		(uuid "58999f56-41f8-4187-8a88-cc457765b5d6")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 261.8401 207.01 0)
+			(at 261.8401 213.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2787,9 +2798,9 @@
 			)
 		)
 	)
-	(global_label "COL3"
+	(global_label "BT_SELECT"
 		(shape input)
-		(at 222.25 142.24 90)
+		(at 317.5 185.42 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2797,9 +2808,53 @@
 			)
 			(justify left)
 		)
-		(uuid "6296a3d7-31ff-492f-b2b5-f24e36c13f5b")
+		(uuid "6f100558-6b0d-4ce7-805f-94c1bf2078eb")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 222.25 134.4167 90)
+			(at 330.4636 185.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "OLED_SCL"
+		(shape input)
+		(at 317.5 213.36 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "72cf7a66-0b1f-482b-ae65-01d3298aa44f")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 329.738 213.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "ROW1"
+		(shape input)
+		(at 317.5 205.74 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "767fa6a3-4c63-4633-a829-0ec0a5eeaf09")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 325.7466 205.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2811,73 +2866,7 @@
 	)
 	(global_label "BT_SELECT"
 		(shape input)
-		(at 318.77 179.07 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "6f100558-6b0d-4ce7-805f-94c1bf2078eb")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 305.8064 179.07 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "OLED_SCL"
-		(shape input)
-		(at 318.77 207.01 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "72cf7a66-0b1f-482b-ae65-01d3298aa44f")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 306.532 207.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "ROW1"
-		(shape input)
-		(at 318.77 199.39 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "767fa6a3-4c63-4633-a829-0ec0a5eeaf09")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 310.5234 199.39 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "BT_SELECT"
-		(shape input)
-		(at 273.05 177.8 180)
+		(at 273.05 182.88 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2887,85 +2876,107 @@
 		)
 		(uuid "8b442a3a-6b04-4215-ad74-c280ca1f8767")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 260.0864 177.8 0)
+			(at 260.0864 182.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "ROW3"
+		(shape input)
+		(at 228.6 214.63 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "8f3eb4b9-7bd6-4ac1-bc2d-0f418115389c")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 236.8466 214.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
 				(hide yes)
 			)
 		)
 	)
 	(global_label "COL1"
 		(shape input)
-		(at 318.77 189.23 180)
+		(at 317.5 195.58 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right)
+			(justify left)
 		)
 		(uuid "9023ebbe-6ea5-49c4-ab3f-e3d316d0a17d")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 310.9467 189.23 0)
+			(at 325.3233 195.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 				(hide yes)
 			)
 		)
 	)
 	(global_label "ENC_CLK"
 		(shape input)
-		(at 318.77 184.15 180)
+		(at 317.5 190.5 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right)
+			(justify left)
 		)
 		(uuid "a7894b4a-0a92-4086-8591-10a435545ea4")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 307.4996 184.15 0)
+			(at 328.7704 190.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 				(hide yes)
 			)
 		)
 	)
 	(global_label "ROW2"
 		(shape input)
-		(at 318.77 201.93 180)
+		(at 317.5 203.2 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right)
+			(justify left)
 		)
 		(uuid "bcba17ad-7c85-4c84-be75-5dddaaad93ac")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 310.5234 201.93 0)
+			(at 325.7466 203.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 				(hide yes)
 			)
 		)
 	)
 	(global_label "ENC_SW"
 		(shape input)
-		(at 288.29 207.01 0)
+		(at 288.29 213.36 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2975,7 +2986,7 @@
 		)
 		(uuid "c3929deb-e7a9-45c0-bd69-5120ded7f757")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 298.6532 207.01 0)
+			(at 298.6532 213.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2987,29 +2998,29 @@
 	)
 	(global_label "COL2"
 		(shape input)
-		(at 318.77 191.77 180)
+		(at 317.5 198.12 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right)
+			(justify left)
 		)
 		(uuid "c930e65e-cb03-4756-8e9e-e56b0fe85443")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 310.9467 191.77 0)
+			(at 325.3233 198.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 				(hide yes)
 			)
 		)
 	)
 	(global_label "COL1"
 		(shape input)
-		(at 196.85 142.24 90)
+		(at 200.66 139.7 90)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3019,7 +3030,7 @@
 		)
 		(uuid "cfe2d37a-da48-4c05-a780-2dc5cb110631")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 196.85 134.4167 90)
+			(at 200.66 131.8767 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3031,7 +3042,7 @@
 	)
 	(global_label "ROW1"
 		(shape input)
-		(at 240.03 181.61 0)
+		(at 228.6 173.99 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3041,7 +3052,7 @@
 		)
 		(uuid "d052ba5f-0db1-4815-8977-c1ecb9b67fbd")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 248.2766 181.61 0)
+			(at 236.8466 173.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3053,7 +3064,7 @@
 	)
 	(global_label "OLED_SCL"
 		(shape input)
-		(at 285.75 151.13 0)
+		(at 285.75 153.67 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3063,7 +3074,7 @@
 		)
 		(uuid "d3124a95-93b5-4d9a-bb74-283aad935024")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 297.988 151.13 0)
+			(at 297.988 153.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3075,7 +3086,7 @@
 	)
 	(global_label "ROW0"
 		(shape input)
-		(at 240.03 161.29 0)
+		(at 228.6 153.67 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3085,7 +3096,7 @@
 		)
 		(uuid "d54ab5ad-1a1f-4b73-8e18-b490b3c9e9c8")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 248.2766 161.29 0)
+			(at 236.8466 153.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3097,60 +3108,59 @@
 	)
 	(global_label "ENC_SW"
 		(shape input)
-		(at 318.77 181.61 180)
+		(at 317.5 187.96 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right)
+			(justify left)
 		)
 		(uuid "de411b8e-6b32-4ea6-aa8a-5fa9b2b783da")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 308.4068 181.61 0)
+			(at 327.8632 187.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 				(hide yes)
 			)
 		)
 	)
-	(global_label "COL3"
+	(global_label "ROW3"
 		(shape input)
-		(at 318.77 194.31 180)
+		(at 317.5 200.66 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right)
+			(justify left)
 		)
 		(uuid "fd33603b-ae0b-4cf5-a96f-7e46069ec994")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 310.9467 194.31 0)
+			(at 325.7466 200.66 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 				(hide yes)
 			)
 		)
 	)
 	(symbol
 		(lib_id "ScottoKeebs:Placeholder_Keyswitch")
-		(at 186.69 171.45 0)
+		(at 186.69 163.83 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "08498508-3575-4716-929d-86e8cddff712")
-		(property "Reference" "S5"
-			(at 186.69 163.83 0)
+		(property "Reference" "S4"
+			(at 194.31 163.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3158,15 +3168,15 @@
 			)
 		)
 		(property "Value" "Keyswitch"
-			(at 186.69 166.37 0)
+			(at 194.31 166.37 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "PCM_Switch_Keyboard_Hotswap_Kailh:SW_Hotswap_Kailh_MX_1.00u"
-			(at 186.69 171.45 0)
+		(property "Footprint" "ScottoKeebs_Scotto:MX_Hotswap_1.00u"
+			(at 186.69 163.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3175,7 +3185,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 186.69 171.45 0)
+			(at 186.69 163.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3184,7 +3194,7 @@
 			)
 		)
 		(property "Description" "Push button switch, normally open, two pins, 45° tilted"
-			(at 186.69 171.45 0)
+			(at 186.69 163.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3201,7 +3211,7 @@
 		(instances
 			(project "kicad"
 				(path "/ca9ba2d9-89c9-46e3-92f6-4a1ef1b0894f"
-					(reference "S5")
+					(reference "S4")
 					(unit 1)
 				)
 			)
@@ -3209,7 +3219,8 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 318.77 173.99 270)
+		(at 317.5 180.34 90)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3217,8 +3228,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0a41829b-14d7-402c-803f-b0dc661e5d03")
-		(property "Reference" "#PWR06"
-			(at 312.42 173.99 0)
+		(property "Reference" "#PWR04"
+			(at 323.85 180.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3227,7 +3238,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 314.96 173.9901 90)
+			(at 321.31 180.3401 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3236,7 +3247,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 318.77 173.99 0)
+			(at 317.5 180.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3245,7 +3256,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 318.77 173.99 0)
+			(at 317.5 180.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3254,7 +3265,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 318.77 173.99 0)
+			(at 317.5 180.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3268,78 +3279,7 @@
 		(instances
 			(project "kicad"
 				(path "/ca9ba2d9-89c9-46e3-92f6-4a1ef1b0894f"
-					(reference "#PWR06")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Switch:SW_Wuerth_450301014042")
-		(at 278.13 177.8 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "0ab5c2b5-e81e-4e80-bf6c-c21c78641a80")
-		(property "Reference" "SW2"
-			(at 278.13 168.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "SW_Wuerth_450301014042"
-			(at 278.13 171.45 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Button_Switch_THT:SW_Slide-03_Wuerth-WS-SLTV_10x2.5x6.4_P2.54mm"
-			(at 278.13 187.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.adafruit.com/product/805"
-			(at 278.13 185.42 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Switch slide, single pole double throw"
-			(at 278.13 177.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "3"
-			(uuid "038825b8-945e-450a-ab0a-c045e906895f")
-		)
-		(pin "2"
-			(uuid "32b9fc8e-699c-4307-a538-2e4c9e143776")
-		)
-		(pin "1"
-			(uuid "d1573e63-f6db-44f1-9381-d69be450de82")
-		)
-		(instances
-			(project ""
-				(path "/ca9ba2d9-89c9-46e3-92f6-4a1ef1b0894f"
-					(reference "SW2")
+					(reference "#PWR04")
 					(unit 1)
 				)
 			)
@@ -3347,16 +3287,15 @@
 	)
 	(symbol
 		(lib_id "ScottoKeebs:Placeholder_Keyswitch")
-		(at 199.39 171.45 0)
+		(at 203.2 163.83 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "156f33b3-d64e-4569-9407-7de956bfa146")
-		(property "Reference" "S6"
-			(at 199.39 163.83 0)
+		(property "Reference" "S5"
+			(at 210.82 163.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3364,15 +3303,15 @@
 			)
 		)
 		(property "Value" "Keyswitch"
-			(at 199.39 166.37 0)
+			(at 210.82 166.37 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "PCM_Switch_Keyboard_Hotswap_Kailh:SW_Hotswap_Kailh_MX_1.00u"
-			(at 199.39 171.45 0)
+		(property "Footprint" "ScottoKeebs_Scotto:MX_Hotswap_1.00u"
+			(at 203.2 163.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3381,7 +3320,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 199.39 171.45 0)
+			(at 203.2 163.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3390,7 +3329,7 @@
 			)
 		)
 		(property "Description" "Push button switch, normally open, two pins, 45° tilted"
-			(at 199.39 171.45 0)
+			(at 203.2 163.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3407,7 +3346,7 @@
 		(instances
 			(project "kicad"
 				(path "/ca9ba2d9-89c9-46e3-92f6-4a1ef1b0894f"
-					(reference "S6")
+					(reference "S5")
 					(unit 1)
 				)
 			)
@@ -3415,15 +3354,15 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 289.56 201.93 90)
+		(at 289.56 208.28 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(uuid "19d6e2f5-5f85-47cd-97c0-5ea007587d4d")
-		(property "Reference" "#PWR04"
-			(at 295.91 201.93 0)
+		(property "Reference" "#PWR06"
+			(at 295.91 208.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3432,7 +3371,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 294.64 201.93 90)
+			(at 294.64 208.28 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3440,7 +3379,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 289.56 201.93 0)
+			(at 289.56 208.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3449,7 +3388,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 289.56 201.93 0)
+			(at 289.56 208.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3458,7 +3397,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 289.56 201.93 0)
+			(at 289.56 208.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3472,77 +3411,7 @@
 		(instances
 			(project "kicad"
 				(path "/ca9ba2d9-89c9-46e3-92f6-4a1ef1b0894f"
-					(reference "#PWR04")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "PCM_Diode_AKL:1N4148")
-		(at 227.33 177.8 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "20e88111-cd2b-4d4b-b1e2-7be9f325f7bb")
-		(property "Reference" "D8"
-			(at 229.87 176.5299 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "1N4148"
-			(at 229.87 179.0699 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "PCM_Diode_THT_AKL:D_DO-35_SOD27_P7.62mm_Horizontal"
-			(at 227.33 177.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://datasheet.octopart.com/1N4148TR-ON-Semiconductor-datasheet-42765246.pdf"
-			(at 227.33 177.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "DO-35 Diode, Small Signal, Fast Switching, 75V, 150mA, 4ns, Alternate KiCad Library"
-			(at 227.33 177.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "adebd6a4-a0c5-47c0-8efc-51a4cffbe518")
-		)
-		(pin "2"
-			(uuid "6906644b-a51a-4fde-907e-fe8f104a3ae6")
-		)
-		(instances
-			(project "kicad"
-				(path "/ca9ba2d9-89c9-46e3-92f6-4a1ef1b0894f"
-					(reference "D8")
+					(reference "#PWR06")
 					(unit 1)
 				)
 			)
@@ -3614,7 +3483,7 @@
 	)
 	(symbol
 		(lib_id "power:+3.3V")
-		(at 285.75 148.59 270)
+		(at 285.75 151.13 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3622,8 +3491,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "31aabfff-3df6-4d6a-ad7e-ad4c5b94c41c")
-		(property "Reference" "#PWR05"
-			(at 281.94 148.59 0)
+		(property "Reference" "#PWR02"
+			(at 281.94 151.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3632,7 +3501,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 289.56 148.5899 90)
+			(at 289.56 151.1299 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3641,7 +3510,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 285.75 148.59 0)
+			(at 285.75 151.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3650,7 +3519,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 285.75 148.59 0)
+			(at 285.75 151.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3659,7 +3528,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 285.75 148.59 0)
+			(at 285.75 151.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3673,7 +3542,7 @@
 		(instances
 			(project ""
 				(path "/ca9ba2d9-89c9-46e3-92f6-4a1ef1b0894f"
-					(reference "#PWR05")
+					(reference "#PWR02")
 					(unit 1)
 				)
 			)
@@ -3681,7 +3550,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 284.48 180.34 90)
+		(at 284.48 185.42 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3689,8 +3558,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "35b9630a-71e5-4592-89df-c864d76bd3cc")
-		(property "Reference" "#PWR02"
-			(at 290.83 180.34 0)
+		(property "Reference" "#PWR05"
+			(at 290.83 185.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3699,7 +3568,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 288.29 180.3399 90)
+			(at 288.29 185.4199 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3708,7 +3577,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 284.48 180.34 0)
+			(at 284.48 185.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3717,7 +3586,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 284.48 180.34 0)
+			(at 284.48 185.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3726,7 +3595,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 284.48 180.34 0)
+			(at 284.48 185.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3740,7 +3609,77 @@
 		(instances
 			(project "kicad"
 				(path "/ca9ba2d9-89c9-46e3-92f6-4a1ef1b0894f"
-					(reference "#PWR02")
+					(reference "#PWR05")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "PCM_Diode_AKL:1N4148")
+		(at 205.74 210.82 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "36bef17d-8881-46ba-a6c9-485208145874")
+		(property "Reference" "D11"
+			(at 208.28 209.5499 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "1N4148"
+			(at 208.28 212.0899 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal"
+			(at 205.74 210.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://datasheet.octopart.com/1N4148TR-ON-Semiconductor-datasheet-42765246.pdf"
+			(at 205.74 210.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "DO-35 Diode, Small Signal, Fast Switching, 75V, 150mA, 4ns, Alternate KiCad Library"
+			(at 205.74 210.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "b6b6d974-2fc3-4d20-898f-eea2b4064703")
+		)
+		(pin "2"
+			(uuid "c0037a42-b239-4909-aea1-eeaf9051db10")
+		)
+		(instances
+			(project "kicad"
+				(path "/ca9ba2d9-89c9-46e3-92f6-4a1ef1b0894f"
+					(reference "D11")
 					(unit 1)
 				)
 			)
@@ -3748,16 +3687,15 @@
 	)
 	(symbol
 		(lib_id "ScottoKeebs:Placeholder_Keyswitch")
-		(at 212.09 191.77 0)
+		(at 219.71 184.15 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "3a7508da-a2e7-423a-8118-a6d7edfe131e")
-		(property "Reference" "S11"
-			(at 212.09 184.15 0)
+		(property "Reference" "S9"
+			(at 227.33 184.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3765,15 +3703,15 @@
 			)
 		)
 		(property "Value" "Keyswitch"
-			(at 212.09 186.69 0)
+			(at 227.33 186.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "PCM_Switch_Keyboard_Hotswap_Kailh:SW_Hotswap_Kailh_MX_1.00u"
-			(at 212.09 191.77 0)
+		(property "Footprint" "ScottoKeebs_Scotto:MX_Hotswap_1.00u"
+			(at 219.71 184.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3782,7 +3720,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 212.09 191.77 0)
+			(at 219.71 184.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3791,7 +3729,7 @@
 			)
 		)
 		(property "Description" "Push button switch, normally open, two pins, 45° tilted"
-			(at 212.09 191.77 0)
+			(at 219.71 184.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3808,75 +3746,7 @@
 		(instances
 			(project "kicad"
 				(path "/ca9ba2d9-89c9-46e3-92f6-4a1ef1b0894f"
-					(reference "S11")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "ScottoKeebs:Placeholder_Keyswitch")
-		(at 224.79 151.13 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "3caf7dbe-97e9-48f1-9884-00546da80f15")
-		(property "Reference" "S4"
-			(at 224.79 143.51 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Keyswitch"
-			(at 224.79 146.05 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "PCM_Switch_Keyboard_Hotswap_Kailh:SW_Hotswap_Kailh_MX_1.00u"
-			(at 224.79 151.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 224.79 151.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Push button switch, normally open, two pins, 45° tilted"
-			(at 224.79 151.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "708f7999-b382-4ba4-82b7-977a34255c62")
-		)
-		(pin "1"
-			(uuid "37b38e22-1802-4927-9370-bcce887a2446")
-		)
-		(instances
-			(project "kicad"
-				(path "/ca9ba2d9-89c9-46e3-92f6-4a1ef1b0894f"
-					(reference "S4")
+					(reference "S9")
 					(unit 1)
 				)
 			)
@@ -3884,7 +3754,7 @@
 	)
 	(symbol
 		(lib_id "PCM_Diode_AKL:1N4148")
-		(at 201.93 177.8 270)
+		(at 205.74 170.18 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3892,8 +3762,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "417c73fb-0cf4-4e59-9bd5-577ba137f7be")
-		(property "Reference" "D6"
-			(at 204.47 176.5299 90)
+		(property "Reference" "D5"
+			(at 208.28 168.9099 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3902,7 +3772,7 @@
 			)
 		)
 		(property "Value" "1N4148"
-			(at 204.47 179.0699 90)
+			(at 208.28 171.4499 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3910,8 +3780,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "PCM_Diode_THT_AKL:D_DO-35_SOD27_P7.62mm_Horizontal"
-			(at 201.93 177.8 0)
+		(property "Footprint" "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal"
+			(at 205.74 170.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3920,7 +3790,7 @@
 			)
 		)
 		(property "Datasheet" "https://datasheet.octopart.com/1N4148TR-ON-Semiconductor-datasheet-42765246.pdf"
-			(at 201.93 177.8 0)
+			(at 205.74 170.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3929,7 +3799,7 @@
 			)
 		)
 		(property "Description" "DO-35 Diode, Small Signal, Fast Switching, 75V, 150mA, 4ns, Alternate KiCad Library"
-			(at 201.93 177.8 0)
+			(at 205.74 170.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3946,7 +3816,7 @@
 		(instances
 			(project "kicad"
 				(path "/ca9ba2d9-89c9-46e3-92f6-4a1ef1b0894f"
-					(reference "D6")
+					(reference "D5")
 					(unit 1)
 				)
 			)
@@ -3954,77 +3824,7 @@
 	)
 	(symbol
 		(lib_id "PCM_Diode_AKL:1N4148")
-		(at 227.33 157.48 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "42c39306-7d11-44a2-9339-852937e2c66b")
-		(property "Reference" "D4"
-			(at 229.87 156.2099 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "1N4148"
-			(at 229.87 158.7499 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "PCM_Diode_THT_AKL:D_DO-35_SOD27_P7.62mm_Horizontal"
-			(at 227.33 157.48 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://datasheet.octopart.com/1N4148TR-ON-Semiconductor-datasheet-42765246.pdf"
-			(at 227.33 157.48 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "DO-35 Diode, Small Signal, Fast Switching, 75V, 150mA, 4ns, Alternate KiCad Library"
-			(at 227.33 157.48 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "b918ba62-e673-498a-9bdd-297e24ba728e")
-		)
-		(pin "2"
-			(uuid "1ea67752-9bda-42e1-8c2c-c7c26afe9584")
-		)
-		(instances
-			(project "kicad"
-				(path "/ca9ba2d9-89c9-46e3-92f6-4a1ef1b0894f"
-					(reference "D4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "PCM_Diode_AKL:1N4148")
-		(at 214.63 157.48 270)
+		(at 222.25 149.86 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4033,7 +3833,7 @@
 		(fields_autoplaced yes)
 		(uuid "447e8354-050f-4fc4-a771-c1de22ebfa07")
 		(property "Reference" "D3"
-			(at 217.17 156.2099 90)
+			(at 224.79 148.5899 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4042,7 +3842,7 @@
 			)
 		)
 		(property "Value" "1N4148"
-			(at 217.17 158.7499 90)
+			(at 224.79 151.1299 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4050,8 +3850,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "PCM_Diode_THT_AKL:D_DO-35_SOD27_P7.62mm_Horizontal"
-			(at 214.63 157.48 0)
+		(property "Footprint" "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal"
+			(at 222.25 149.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4060,7 +3860,7 @@
 			)
 		)
 		(property "Datasheet" "https://datasheet.octopart.com/1N4148TR-ON-Semiconductor-datasheet-42765246.pdf"
-			(at 214.63 157.48 0)
+			(at 222.25 149.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4069,7 +3869,7 @@
 			)
 		)
 		(property "Description" "DO-35 Diode, Small Signal, Fast Switching, 75V, 150mA, 4ns, Alternate KiCad Library"
-			(at 214.63 157.48 0)
+			(at 222.25 149.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4087,6 +3887,143 @@
 			(project "kicad"
 				(path "/ca9ba2d9-89c9-46e3-92f6-4a1ef1b0894f"
 					(reference "D3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "ScottoKeebs:Placeholder_Keyswitch")
+		(at 219.71 204.47 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "4c5d725e-5e7c-437d-8148-c68ed248bb5a")
+		(property "Reference" "S12"
+			(at 227.33 204.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Keyswitch"
+			(at 227.33 207.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "ScottoKeebs_Scotto:MX_Hotswap_1.00u"
+			(at 219.71 204.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 219.71 204.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Push button switch, normally open, two pins, 45° tilted"
+			(at 219.71 204.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "77afebf6-0827-4c40-a552-dbfc2e402aa6")
+		)
+		(pin "1"
+			(uuid "abae1cd9-56d2-44d9-bb2c-4550bfee93ff")
+		)
+		(instances
+			(project "kicad"
+				(path "/ca9ba2d9-89c9-46e3-92f6-4a1ef1b0894f"
+					(reference "S12")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "PCM_Diode_AKL:1N4148")
+		(at 189.23 210.82 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "4d824b22-0a0a-4628-a61d-03e3a1884877")
+		(property "Reference" "D10"
+			(at 191.77 209.5499 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "1N4148"
+			(at 191.77 212.0899 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal"
+			(at 189.23 210.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://datasheet.octopart.com/1N4148TR-ON-Semiconductor-datasheet-42765246.pdf"
+			(at 189.23 210.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "DO-35 Diode, Small Signal, Fast Switching, 75V, 150mA, 4ns, Alternate KiCad Library"
+			(at 189.23 210.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "364fa8db-9e0f-4657-9575-c8cd143f8dfd")
+		)
+		(pin "2"
+			(uuid "51fb5756-6981-456b-b6c6-81e7c34108a9")
+		)
+		(instances
+			(project "kicad"
+				(path "/ca9ba2d9-89c9-46e3-92f6-4a1ef1b0894f"
+					(reference "D10")
 					(unit 1)
 				)
 			)
@@ -4158,7 +4095,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 285.75 146.05 90)
+		(at 285.75 148.59 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4167,7 +4104,7 @@
 		(fields_autoplaced yes)
 		(uuid "51799619-3173-4519-bd1b-92d486f11f92")
 		(property "Reference" "#PWR01"
-			(at 292.1 146.05 0)
+			(at 292.1 148.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4176,7 +4113,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 289.56 146.0499 90)
+			(at 289.56 148.5899 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4185,7 +4122,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 285.75 146.05 0)
+			(at 285.75 148.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4194,7 +4131,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 285.75 146.05 0)
+			(at 285.75 148.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4203,7 +4140,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 285.75 146.05 0)
+			(at 285.75 148.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4225,7 +4162,7 @@
 	)
 	(symbol
 		(lib_id "PCM_Diode_AKL:1N4148")
-		(at 201.93 198.12 270)
+		(at 205.74 190.5 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4233,8 +4170,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "550cb550-3bf1-4cb5-bac3-e9d0ebeff787")
-		(property "Reference" "D10"
-			(at 204.47 196.8499 90)
+		(property "Reference" "D8"
+			(at 208.28 189.2299 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4243,7 +4180,7 @@
 			)
 		)
 		(property "Value" "1N4148"
-			(at 204.47 199.3899 90)
+			(at 208.28 191.7699 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4251,8 +4188,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "PCM_Diode_THT_AKL:D_DO-35_SOD27_P7.62mm_Horizontal"
-			(at 201.93 198.12 0)
+		(property "Footprint" "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal"
+			(at 205.74 190.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4261,7 +4198,7 @@
 			)
 		)
 		(property "Datasheet" "https://datasheet.octopart.com/1N4148TR-ON-Semiconductor-datasheet-42765246.pdf"
-			(at 201.93 198.12 0)
+			(at 205.74 190.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4270,7 +4207,7 @@
 			)
 		)
 		(property "Description" "DO-35 Diode, Small Signal, Fast Switching, 75V, 150mA, 4ns, Alternate KiCad Library"
-			(at 201.93 198.12 0)
+			(at 205.74 190.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4287,41 +4224,39 @@
 		(instances
 			(project "kicad"
 				(path "/ca9ba2d9-89c9-46e3-92f6-4a1ef1b0894f"
-					(reference "D10")
+					(reference "D8")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "Connector_Generic:Conn_01x15")
-		(at 323.85 189.23 0)
+		(lib_id "ScottoKeebs:Placeholder_Keyswitch")
+		(at 186.69 204.47 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "5ca5309c-e370-40b7-8219-89feb0f033d1")
-		(property "Reference" "J2"
-			(at 319.278 208.788 0)
+		(uuid "5c7d4c94-d45e-4d95-9ebf-b153a4a0b616")
+		(property "Reference" "S10"
+			(at 194.31 204.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
-		(property "Value" "Conn_01x15"
-			(at 315.468 210.566 0)
+		(property "Value" "Keyswitch"
+			(at 194.31 207.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
-		(property "Footprint" ""
-			(at 323.85 189.23 0)
+		(property "Footprint" "ScottoKeebs_Scotto:MX_Hotswap_1.00u"
+			(at 186.69 204.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4330,7 +4265,77 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 323.85 189.23 0)
+			(at 186.69 204.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Push button switch, normally open, two pins, 45° tilted"
+			(at 186.69 204.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "80e9f62c-caaa-4838-bdf4-7a9866301cad")
+		)
+		(pin "1"
+			(uuid "7a049a3c-c688-4c1b-a13e-f47deddf3ced")
+		)
+		(instances
+			(project "kicad"
+				(path "/ca9ba2d9-89c9-46e3-92f6-4a1ef1b0894f"
+					(reference "S10")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector_Generic:Conn_01x15")
+		(at 312.42 195.58 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "5ca5309c-e370-40b7-8219-89feb0f033d1")
+		(property "Reference" "J2"
+			(at 316.992 215.138 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Conn_01x15"
+			(at 320.802 216.916 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x15_P2.54mm_Vertical"
+			(at 312.42 195.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 312.42 195.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4339,7 +4344,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x15, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 323.85 189.23 0)
+			(at 312.42 195.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4403,16 +4408,15 @@
 	)
 	(symbol
 		(lib_id "ScottoKeebs:Placeholder_Keyswitch")
-		(at 224.79 171.45 0)
+		(at 203.2 204.47 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "662f127a-24e4-4465-a46d-0e06ce2b7f85")
-		(property "Reference" "S8"
-			(at 224.79 163.83 0)
+		(uuid "66820ec1-3e38-447a-bccc-a36f999fb4b4")
+		(property "Reference" "S11"
+			(at 210.82 204.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4420,15 +4424,15 @@
 			)
 		)
 		(property "Value" "Keyswitch"
-			(at 224.79 166.37 0)
+			(at 210.82 207.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "PCM_Switch_Keyboard_Hotswap_Kailh:SW_Hotswap_Kailh_MX_1.00u"
-			(at 224.79 171.45 0)
+		(property "Footprint" "ScottoKeebs_Scotto:MX_Hotswap_1.00u"
+			(at 203.2 204.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4437,7 +4441,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 224.79 171.45 0)
+			(at 203.2 204.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4446,7 +4450,7 @@
 			)
 		)
 		(property "Description" "Push button switch, normally open, two pins, 45° tilted"
-			(at 224.79 171.45 0)
+			(at 203.2 204.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4455,15 +4459,86 @@
 			)
 		)
 		(pin "2"
-			(uuid "68843a4b-1dbf-4fa3-9183-87c336a246f5")
+			(uuid "63957186-2a32-4a32-a4a8-032aa5f2f954")
 		)
 		(pin "1"
-			(uuid "09418342-b2ae-4f80-9193-4d92fe8e249e")
+			(uuid "5239a78b-d7eb-4a22-9029-2c29ec990966")
 		)
 		(instances
 			(project "kicad"
 				(path "/ca9ba2d9-89c9-46e3-92f6-4a1ef1b0894f"
-					(reference "S8")
+					(reference "S11")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "PCM_Diode_AKL:1N4148")
+		(at 222.25 210.82 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "66f90755-df47-4310-bdad-7946b33b3506")
+		(property "Reference" "D12"
+			(at 224.79 209.5499 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "1N4148"
+			(at 224.79 212.0899 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal"
+			(at 222.25 210.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://datasheet.octopart.com/1N4148TR-ON-Semiconductor-datasheet-42765246.pdf"
+			(at 222.25 210.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "DO-35 Diode, Small Signal, Fast Switching, 75V, 150mA, 4ns, Alternate KiCad Library"
+			(at 222.25 210.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ed25dfb2-408a-43c5-877b-e636ea326b03")
+		)
+		(pin "2"
+			(uuid "8291beea-c0af-4579-b434-4dfdb3a214d4")
+		)
+		(instances
+			(project "kicad"
+				(path "/ca9ba2d9-89c9-46e3-92f6-4a1ef1b0894f"
+					(reference "D12")
 					(unit 1)
 				)
 			)
@@ -4471,15 +4546,15 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 271.78 204.47 270)
+		(at 271.78 210.82 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(uuid "6ea1a8f1-b37a-4bf7-b150-f33b057e41f5")
-		(property "Reference" "#PWR03"
-			(at 265.43 204.47 0)
+		(property "Reference" "#PWR07"
+			(at 265.43 210.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4488,7 +4563,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 266.7 204.47 90)
+			(at 266.7 210.82 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4496,7 +4571,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 271.78 204.47 0)
+			(at 271.78 210.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4505,7 +4580,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 271.78 204.47 0)
+			(at 271.78 210.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4514,7 +4589,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 271.78 204.47 0)
+			(at 271.78 210.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4528,7 +4603,7 @@
 		(instances
 			(project "kicad"
 				(path "/ca9ba2d9-89c9-46e3-92f6-4a1ef1b0894f"
-					(reference "#PWR03")
+					(reference "#PWR07")
 					(unit 1)
 				)
 			)
@@ -4536,7 +4611,7 @@
 	)
 	(symbol
 		(lib_id "PCM_Diode_AKL:1N4148")
-		(at 214.63 198.12 270)
+		(at 222.25 190.5 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4544,8 +4619,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "734eab39-f4f8-4c42-86d5-11964d22cfe8")
-		(property "Reference" "D11"
-			(at 217.17 196.8499 90)
+		(property "Reference" "D9"
+			(at 224.79 189.2299 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4554,7 +4629,7 @@
 			)
 		)
 		(property "Value" "1N4148"
-			(at 217.17 199.3899 90)
+			(at 224.79 191.7699 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4562,8 +4637,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "PCM_Diode_THT_AKL:D_DO-35_SOD27_P7.62mm_Horizontal"
-			(at 214.63 198.12 0)
+		(property "Footprint" "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal"
+			(at 222.25 190.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4572,7 +4647,7 @@
 			)
 		)
 		(property "Datasheet" "https://datasheet.octopart.com/1N4148TR-ON-Semiconductor-datasheet-42765246.pdf"
-			(at 214.63 198.12 0)
+			(at 222.25 190.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4581,7 +4656,7 @@
 			)
 		)
 		(property "Description" "DO-35 Diode, Small Signal, Fast Switching, 75V, 150mA, 4ns, Alternate KiCad Library"
-			(at 214.63 198.12 0)
+			(at 222.25 190.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4598,7 +4673,7 @@
 		(instances
 			(project "kicad"
 				(path "/ca9ba2d9-89c9-46e3-92f6-4a1ef1b0894f"
-					(reference "D11")
+					(reference "D9")
 					(unit 1)
 				)
 			)
@@ -4606,16 +4681,15 @@
 	)
 	(symbol
 		(lib_id "ScottoKeebs:Placeholder_Keyswitch")
-		(at 212.09 171.45 0)
+		(at 219.71 163.83 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "77dae360-6e04-4bd8-9fd4-6baad12618a6")
-		(property "Reference" "S7"
-			(at 212.09 163.83 0)
+		(property "Reference" "S6"
+			(at 227.33 163.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4623,15 +4697,15 @@
 			)
 		)
 		(property "Value" "Keyswitch"
-			(at 212.09 166.37 0)
+			(at 227.33 166.37 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "PCM_Switch_Keyboard_Hotswap_Kailh:SW_Hotswap_Kailh_MX_1.00u"
-			(at 212.09 171.45 0)
+		(property "Footprint" "ScottoKeebs_Scotto:MX_Hotswap_1.00u"
+			(at 219.71 163.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4640,7 +4714,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 212.09 171.45 0)
+			(at 219.71 163.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4649,7 +4723,7 @@
 			)
 		)
 		(property "Description" "Push button switch, normally open, two pins, 45° tilted"
-			(at 212.09 171.45 0)
+			(at 219.71 163.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4666,7 +4740,7 @@
 		(instances
 			(project "kicad"
 				(path "/ca9ba2d9-89c9-46e3-92f6-4a1ef1b0894f"
-					(reference "S7")
+					(reference "S6")
 					(unit 1)
 				)
 			)
@@ -4674,16 +4748,15 @@
 	)
 	(symbol
 		(lib_id "ScottoKeebs:Placeholder_Keyswitch")
-		(at 199.39 151.13 0)
+		(at 203.2 143.51 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "814c1443-bd98-4417-a43e-105a0cbd4917")
 		(property "Reference" "S2"
-			(at 199.39 143.51 0)
+			(at 210.82 143.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4691,15 +4764,15 @@
 			)
 		)
 		(property "Value" "Keyswitch"
-			(at 199.39 146.05 0)
+			(at 210.82 146.05 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "PCM_Switch_Keyboard_Hotswap_Kailh:SW_Hotswap_Kailh_MX_1.00u"
-			(at 199.39 151.13 0)
+		(property "Footprint" "ScottoKeebs_Scotto:MX_Hotswap_1.00u"
+			(at 203.2 143.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4708,7 +4781,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 199.39 151.13 0)
+			(at 203.2 143.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4717,7 +4790,7 @@
 			)
 		)
 		(property "Description" "Push button switch, normally open, two pins, 45° tilted"
-			(at 199.39 151.13 0)
+			(at 203.2 143.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4742,15 +4815,15 @@
 	)
 	(symbol
 		(lib_id "Device:RotaryEncoder_Switch")
-		(at 280.67 204.47 0)
+		(at 280.67 210.82 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(uuid "86b65d91-c75a-4c2f-a67e-adfdd309838e")
-		(property "Reference" "SW1"
-			(at 275.336 193.802 0)
+		(property "Reference" "SW2"
+			(at 275.336 200.152 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4759,7 +4832,7 @@
 			)
 		)
 		(property "Value" "RotaryEncoder_Switch"
-			(at 275.336 196.342 0)
+			(at 275.336 202.692 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4768,7 +4841,7 @@
 			)
 		)
 		(property "Footprint" "ScottoKeebs_Scotto:Encoder_EC11_MX"
-			(at 276.86 200.406 0)
+			(at 276.86 206.756 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4777,7 +4850,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.adafruit.com/product/377"
-			(at 280.67 197.866 0)
+			(at 280.67 204.216 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4786,7 +4859,7 @@
 			)
 		)
 		(property "Description" "Rotary encoder, dual channel, incremental quadrate outputs, with switch"
-			(at 280.67 204.47 0)
+			(at 280.67 210.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4812,7 +4885,80 @@
 		(instances
 			(project ""
 				(path "/ca9ba2d9-89c9-46e3-92f6-4a1ef1b0894f"
-					(reference "SW1")
+					(reference "SW2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "ScottoKeebs:OLED_128x64")
+		(at 281.94 152.4 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "8d660b4c-be05-4a9d-ad5c-56400c4a80da")
+		(property "Reference" "J1"
+			(at 264.16 158.75 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "OLED_128x64"
+			(at 264.16 161.29 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "ScottoKeebs_Components:OLED_128x64"
+			(at 267.97 152.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 281.94 153.67 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 281.94 152.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "f4d8fe27-9f0e-43c6-9d3a-52ed0e336b4c")
+		)
+		(pin "4"
+			(uuid "c9212be5-76a1-401a-8634-8bc4f4e96d02")
+		)
+		(pin "3"
+			(uuid "34dacd8f-891c-482e-9845-d99d9f573f7c")
+		)
+		(pin "2"
+			(uuid "29d67f23-11fc-488e-8725-5cc5d1d50dda")
+		)
+		(instances
+			(project ""
+				(path "/ca9ba2d9-89c9-46e3-92f6-4a1ef1b0894f"
+					(reference "J1")
 					(unit 1)
 				)
 			)
@@ -4820,7 +4966,7 @@
 	)
 	(symbol
 		(lib_id "PCM_Diode_AKL:1N4148")
-		(at 189.23 157.48 270)
+		(at 189.23 149.86 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4829,7 +4975,7 @@
 		(fields_autoplaced yes)
 		(uuid "911cc741-3dca-44e3-bec1-594e437e2e3c")
 		(property "Reference" "D1"
-			(at 191.77 156.2099 90)
+			(at 191.77 148.5899 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4838,7 +4984,7 @@
 			)
 		)
 		(property "Value" "1N4148"
-			(at 191.77 158.7499 90)
+			(at 191.77 151.1299 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4846,8 +4992,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "PCM_Diode_THT_AKL:D_DO-35_SOD27_P7.62mm_Horizontal"
-			(at 189.23 157.48 0)
+		(property "Footprint" "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal"
+			(at 189.23 149.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4856,7 +5002,7 @@
 			)
 		)
 		(property "Datasheet" "https://datasheet.octopart.com/1N4148TR-ON-Semiconductor-datasheet-42765246.pdf"
-			(at 189.23 157.48 0)
+			(at 189.23 149.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4865,7 +5011,7 @@
 			)
 		)
 		(property "Description" "DO-35 Diode, Small Signal, Fast Switching, 75V, 150mA, 4ns, Alternate KiCad Library"
-			(at 189.23 157.48 0)
+			(at 189.23 149.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4889,87 +5035,16 @@
 		)
 	)
 	(symbol
-		(lib_id "PCM_Diode_AKL:1N4148")
-		(at 227.33 198.12 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "917b12d0-633d-4f19-a073-d8525975a290")
-		(property "Reference" "D12"
-			(at 229.87 196.8499 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "1N4148"
-			(at 229.87 199.3899 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "PCM_Diode_THT_AKL:D_DO-35_SOD27_P7.62mm_Horizontal"
-			(at 227.33 198.12 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://datasheet.octopart.com/1N4148TR-ON-Semiconductor-datasheet-42765246.pdf"
-			(at 227.33 198.12 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "DO-35 Diode, Small Signal, Fast Switching, 75V, 150mA, 4ns, Alternate KiCad Library"
-			(at 227.33 198.12 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "959c9a7f-f13c-49af-8e62-3958f9d657cd")
-		)
-		(pin "2"
-			(uuid "5b6f404e-4e9a-4e87-bc7b-bd3b79602cac")
-		)
-		(instances
-			(project "kicad"
-				(path "/ca9ba2d9-89c9-46e3-92f6-4a1ef1b0894f"
-					(reference "D12")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "ScottoKeebs:Placeholder_Keyswitch")
-		(at 186.69 191.77 0)
+		(at 186.69 184.15 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "9545caaa-2429-43be-a84f-87f1be7342a3")
-		(property "Reference" "S9"
-			(at 186.69 184.15 0)
+		(property "Reference" "S7"
+			(at 194.31 184.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4977,15 +5052,15 @@
 			)
 		)
 		(property "Value" "Keyswitch"
-			(at 186.69 186.69 0)
+			(at 194.31 186.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "PCM_Switch_Keyboard_Hotswap_Kailh:SW_Hotswap_Kailh_MX_1.00u"
-			(at 186.69 191.77 0)
+		(property "Footprint" "ScottoKeebs_Scotto:MX_Hotswap_1.00u"
+			(at 186.69 184.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4994,7 +5069,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 186.69 191.77 0)
+			(at 186.69 184.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5003,7 +5078,7 @@
 			)
 		)
 		(property "Description" "Push button switch, normally open, two pins, 45° tilted"
-			(at 186.69 191.77 0)
+			(at 186.69 184.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5020,7 +5095,7 @@
 		(instances
 			(project "kicad"
 				(path "/ca9ba2d9-89c9-46e3-92f6-4a1ef1b0894f"
-					(reference "S9")
+					(reference "S7")
 					(unit 1)
 				)
 			)
@@ -5092,16 +5167,15 @@
 	)
 	(symbol
 		(lib_id "ScottoKeebs:Placeholder_Keyswitch")
-		(at 199.39 191.77 0)
+		(at 203.2 184.15 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "a4a37898-c175-455d-8e44-11939f255192")
-		(property "Reference" "S10"
-			(at 199.39 184.15 0)
+		(property "Reference" "S8"
+			(at 210.82 184.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5109,15 +5183,15 @@
 			)
 		)
 		(property "Value" "Keyswitch"
-			(at 199.39 186.69 0)
+			(at 210.82 186.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "PCM_Switch_Keyboard_Hotswap_Kailh:SW_Hotswap_Kailh_MX_1.00u"
-			(at 199.39 191.77 0)
+		(property "Footprint" "ScottoKeebs_Scotto:MX_Hotswap_1.00u"
+			(at 203.2 184.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5126,7 +5200,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 199.39 191.77 0)
+			(at 203.2 184.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5135,7 +5209,7 @@
 			)
 		)
 		(property "Description" "Push button switch, normally open, two pins, 45° tilted"
-			(at 199.39 191.77 0)
+			(at 203.2 184.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5152,7 +5226,7 @@
 		(instances
 			(project "kicad"
 				(path "/ca9ba2d9-89c9-46e3-92f6-4a1ef1b0894f"
-					(reference "S10")
+					(reference "S8")
 					(unit 1)
 				)
 			)
@@ -5160,7 +5234,7 @@
 	)
 	(symbol
 		(lib_id "PCM_Diode_AKL:1N4148")
-		(at 214.63 177.8 270)
+		(at 222.25 170.18 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5168,8 +5242,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a4a80363-a6fc-41a4-8f9e-0b3be1dde666")
-		(property "Reference" "D7"
-			(at 217.17 176.5299 90)
+		(property "Reference" "D6"
+			(at 224.79 168.9099 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5178,7 +5252,7 @@
 			)
 		)
 		(property "Value" "1N4148"
-			(at 217.17 179.0699 90)
+			(at 224.79 171.4499 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5186,8 +5260,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "PCM_Diode_THT_AKL:D_DO-35_SOD27_P7.62mm_Horizontal"
-			(at 214.63 177.8 0)
+		(property "Footprint" "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal"
+			(at 222.25 170.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5196,7 +5270,7 @@
 			)
 		)
 		(property "Datasheet" "https://datasheet.octopart.com/1N4148TR-ON-Semiconductor-datasheet-42765246.pdf"
-			(at 214.63 177.8 0)
+			(at 222.25 170.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5205,7 +5279,7 @@
 			)
 		)
 		(property "Description" "DO-35 Diode, Small Signal, Fast Switching, 75V, 150mA, 4ns, Alternate KiCad Library"
-			(at 214.63 177.8 0)
+			(at 222.25 170.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5222,7 +5296,7 @@
 		(instances
 			(project "kicad"
 				(path "/ca9ba2d9-89c9-46e3-92f6-4a1ef1b0894f"
-					(reference "D7")
+					(reference "D6")
 					(unit 1)
 				)
 			)
@@ -5230,16 +5304,15 @@
 	)
 	(symbol
 		(lib_id "ScottoKeebs:Placeholder_Keyswitch")
-		(at 212.09 151.13 0)
+		(at 219.71 143.51 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "a6eebe4f-b589-494d-931b-479e05e1f6cf")
 		(property "Reference" "S3"
-			(at 212.09 143.51 0)
+			(at 227.33 143.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5247,15 +5320,15 @@
 			)
 		)
 		(property "Value" "Keyswitch"
-			(at 212.09 146.05 0)
+			(at 227.33 146.05 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "PCM_Switch_Keyboard_Hotswap_Kailh:SW_Hotswap_Kailh_MX_1.00u"
-			(at 212.09 151.13 0)
+		(property "Footprint" "ScottoKeebs_Scotto:MX_Hotswap_1.00u"
+			(at 219.71 143.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5264,7 +5337,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 212.09 151.13 0)
+			(at 219.71 143.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5273,7 +5346,7 @@
 			)
 		)
 		(property "Description" "Push button switch, normally open, two pins, 45° tilted"
-			(at 212.09 151.13 0)
+			(at 219.71 143.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5298,16 +5371,15 @@
 	)
 	(symbol
 		(lib_id "ScottoKeebs:Placeholder_Keyswitch")
-		(at 186.69 151.13 0)
+		(at 186.69 143.51 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "aaaea099-00f7-4372-80b6-2cd666a8121d")
 		(property "Reference" "S1"
-			(at 186.69 143.51 0)
+			(at 194.31 143.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5315,15 +5387,15 @@
 			)
 		)
 		(property "Value" "Keyswitch"
-			(at 186.69 146.05 0)
+			(at 194.31 146.05 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "PCM_Switch_Keyboard_Hotswap_Kailh:SW_Hotswap_Kailh_MX_1.00u"
-			(at 186.69 151.13 0)
+		(property "Footprint" "ScottoKeebs_Scotto:MX_Hotswap_1.00u"
+			(at 186.69 143.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5332,7 +5404,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 186.69 151.13 0)
+			(at 186.69 143.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5341,7 +5413,7 @@
 			)
 		)
 		(property "Description" "Push button switch, normally open, two pins, 45° tilted"
-			(at 186.69 151.13 0)
+			(at 186.69 143.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5359,6 +5431,77 @@
 			(project ""
 				(path "/ca9ba2d9-89c9-46e3-92f6-4a1ef1b0894f"
 					(reference "S1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Switch:SW_SPDT")
+		(at 278.13 182.88 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ad8e526b-8e77-419c-b05a-7750ddbd5578")
+		(property "Reference" "SW1"
+			(at 278.13 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SW_SPDT"
+			(at 278.13 176.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Button_Switch_THT:SW_Slide_SPDT_Angled_CK_OS102011MA1Q"
+			(at 278.13 182.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 278.13 190.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Switch, single pole double throw"
+			(at 278.13 182.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "1fa60523-1fff-4eb2-a275-eb921e4de2ed")
+		)
+		(pin "3"
+			(uuid "29646c85-33e4-4239-bed3-66050263d087")
+		)
+		(pin "1"
+			(uuid "9efb685e-2783-4e42-a2e9-0adb6890f195")
+		)
+		(instances
+			(project ""
+				(path "/ca9ba2d9-89c9-46e3-92f6-4a1ef1b0894f"
+					(reference "SW1")
 					(unit 1)
 				)
 			)
@@ -5430,7 +5573,8 @@
 	)
 	(symbol
 		(lib_id "power:+3.3V")
-		(at 318.77 171.45 90)
+		(at 317.5 177.8 270)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5438,8 +5582,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "bf1e12f7-fa8d-4a0f-85fc-3f273252c481")
-		(property "Reference" "#PWR07"
-			(at 322.58 171.45 0)
+		(property "Reference" "#PWR03"
+			(at 313.69 177.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5448,7 +5592,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 314.96 171.4501 90)
+			(at 321.31 177.8001 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5457,7 +5601,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 318.77 171.45 0)
+			(at 317.5 177.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5466,7 +5610,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 318.77 171.45 0)
+			(at 317.5 177.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5475,7 +5619,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 318.77 171.45 0)
+			(at 317.5 177.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5489,7 +5633,7 @@
 		(instances
 			(project "kicad"
 				(path "/ca9ba2d9-89c9-46e3-92f6-4a1ef1b0894f"
-					(reference "#PWR07")
+					(reference "#PWR03")
 					(unit 1)
 				)
 			)
@@ -5497,7 +5641,7 @@
 	)
 	(symbol
 		(lib_id "PCM_Diode_AKL:1N4148")
-		(at 189.23 198.12 270)
+		(at 189.23 190.5 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5505,8 +5649,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c44a1934-f644-4e5d-969b-c0230580b906")
-		(property "Reference" "D9"
-			(at 191.77 196.8499 90)
+		(property "Reference" "D7"
+			(at 191.77 189.2299 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5515,7 +5659,7 @@
 			)
 		)
 		(property "Value" "1N4148"
-			(at 191.77 199.3899 90)
+			(at 191.77 191.7699 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5523,8 +5667,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "PCM_Diode_THT_AKL:D_DO-35_SOD27_P7.62mm_Horizontal"
-			(at 189.23 198.12 0)
+		(property "Footprint" "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal"
+			(at 189.23 190.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5533,7 +5677,7 @@
 			)
 		)
 		(property "Datasheet" "https://datasheet.octopart.com/1N4148TR-ON-Semiconductor-datasheet-42765246.pdf"
-			(at 189.23 198.12 0)
+			(at 189.23 190.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5542,7 +5686,7 @@
 			)
 		)
 		(property "Description" "DO-35 Diode, Small Signal, Fast Switching, 75V, 150mA, 4ns, Alternate KiCad Library"
-			(at 189.23 198.12 0)
+			(at 189.23 190.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5559,7 +5703,7 @@
 		(instances
 			(project "kicad"
 				(path "/ca9ba2d9-89c9-46e3-92f6-4a1ef1b0894f"
-					(reference "D9")
+					(reference "D7")
 					(unit 1)
 				)
 			)
@@ -5567,7 +5711,7 @@
 	)
 	(symbol
 		(lib_id "PCM_Diode_AKL:1N4148")
-		(at 201.93 157.48 270)
+		(at 205.74 149.86 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5576,7 +5720,7 @@
 		(fields_autoplaced yes)
 		(uuid "d404ea12-8012-4e64-b68a-8b732740939b")
 		(property "Reference" "D2"
-			(at 204.47 156.2099 90)
+			(at 208.28 148.5899 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5585,7 +5729,7 @@
 			)
 		)
 		(property "Value" "1N4148"
-			(at 204.47 158.7499 90)
+			(at 208.28 151.1299 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5593,8 +5737,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "PCM_Diode_THT_AKL:D_DO-35_SOD27_P7.62mm_Horizontal"
-			(at 201.93 157.48 0)
+		(property "Footprint" "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal"
+			(at 205.74 149.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5603,7 +5747,7 @@
 			)
 		)
 		(property "Datasheet" "https://datasheet.octopart.com/1N4148TR-ON-Semiconductor-datasheet-42765246.pdf"
-			(at 201.93 157.48 0)
+			(at 205.74 149.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5612,7 +5756,7 @@
 			)
 		)
 		(property "Description" "DO-35 Diode, Small Signal, Fast Switching, 75V, 150mA, 4ns, Alternate KiCad Library"
-			(at 201.93 157.48 0)
+			(at 205.74 149.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5636,84 +5780,8 @@
 		)
 	)
 	(symbol
-		(lib_id "ScottoKeebs:OLED_128x64")
-		(at 281.94 149.86 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board no)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "ded74ee0-55a4-4e1e-8f3e-19d714c854b2")
-		(property "Reference" "J1"
-			(at 270.51 151.1301 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "OLED_128x64"
-			(at 270.51 148.5901 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "ScottoKeebs_Components:OLED_128x64"
-			(at 267.97 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.adafruit.com/product/938"
-			(at 281.94 151.13 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 281.94 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "b1a94d5e-508a-41c7-b90a-0e7ad41f7e77")
-		)
-		(pin "2"
-			(uuid "bcef8708-962d-4b65-8df2-704d8f5354f7")
-		)
-		(pin "3"
-			(uuid "68f58e5f-cc28-40cf-8475-8906a5fbe7a3")
-		)
-		(pin "4"
-			(uuid "02ee1385-9e95-4711-82a4-60010dc84b29")
-		)
-		(instances
-			(project ""
-				(path "/ca9ba2d9-89c9-46e3-92f6-4a1ef1b0894f"
-					(reference "J1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "PCM_Diode_AKL:1N4148")
-		(at 189.23 177.8 270)
+		(at 189.23 170.18 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5721,8 +5789,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "eb47a292-b651-4a09-bc06-b407801e0288")
-		(property "Reference" "D5"
-			(at 191.77 176.5299 90)
+		(property "Reference" "D4"
+			(at 191.77 168.9099 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5731,7 +5799,7 @@
 			)
 		)
 		(property "Value" "1N4148"
-			(at 191.77 179.0699 90)
+			(at 191.77 171.4499 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5739,8 +5807,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "PCM_Diode_THT_AKL:D_DO-35_SOD27_P7.62mm_Horizontal"
-			(at 189.23 177.8 0)
+		(property "Footprint" "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal"
+			(at 189.23 170.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5749,7 +5817,7 @@
 			)
 		)
 		(property "Datasheet" "https://datasheet.octopart.com/1N4148TR-ON-Semiconductor-datasheet-42765246.pdf"
-			(at 189.23 177.8 0)
+			(at 189.23 170.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5758,7 +5826,7 @@
 			)
 		)
 		(property "Description" "DO-35 Diode, Small Signal, Fast Switching, 75V, 150mA, 4ns, Alternate KiCad Library"
-			(at 189.23 177.8 0)
+			(at 189.23 170.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5775,75 +5843,7 @@
 		(instances
 			(project "kicad"
 				(path "/ca9ba2d9-89c9-46e3-92f6-4a1ef1b0894f"
-					(reference "D5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "ScottoKeebs:Placeholder_Keyswitch")
-		(at 224.79 191.77 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "f5a38fb9-4335-4ea6-9ff3-41576c5bc72f")
-		(property "Reference" "S12"
-			(at 224.79 184.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Keyswitch"
-			(at 224.79 186.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "PCM_Switch_Keyboard_Hotswap_Kailh:SW_Hotswap_Kailh_MX_1.00u"
-			(at 224.79 191.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 224.79 191.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Push button switch, normally open, two pins, 45° tilted"
-			(at 224.79 191.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "8c1372f1-cfb5-462a-bc55-8bfa51148a67")
-		)
-		(pin "1"
-			(uuid "ae502dbf-d677-42b3-9d89-a5bf4037e204")
-		)
-		(instances
-			(project "kicad"
-				(path "/ca9ba2d9-89c9-46e3-92f6-4a1ef1b0894f"
-					(reference "S12")
+					(reference "D4")
 					(unit 1)
 				)
 			)
