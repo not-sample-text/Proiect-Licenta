@@ -448,7 +448,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "kicad.kicad_pro",
+    "filename": "top.kicad_pro",
     "version": 1
   },
   "net_settings": {
