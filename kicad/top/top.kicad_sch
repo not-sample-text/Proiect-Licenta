@@ -2557,6 +2557,16 @@
 		)
 		(uuid "5be5aad0-31ca-4f94-9c90-4ff9ac2c8a3e")
 	)
+	(text "62 mm board\n35.5 mm pins"
+		(exclude_from_sim no)
+		(at 218.44 110.236 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "6f4a9f7b-a394-44da-919c-d38dd73f3ea4")
+	)
 	(text "Layout"
 		(exclude_from_sim no)
 		(at 316.23 129.54 0)
