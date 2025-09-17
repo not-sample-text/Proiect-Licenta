@@ -5,7 +5,348 @@
 	(uuid "ca9ba2d9-89c9-46e3-92f6-4a1ef1b0894f")
 	(paper "A2")
 	(lib_symbols
-		(symbol "Connector_Generic:Conn_01x15"
+		(symbol "Top-Library:+3.3V"
+			(power)
+			(pin_numbers hide)
+			(pin_names
+				(offset 0) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "#PWR"
+				(at 0 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Value" "+3.3V"
+				(at 0 3.556 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Power symbol creates a global label with name \"+3.3V\""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "global power"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "+3.3V_0_1"
+				(polyline
+					(pts
+						(xy -0.762 1.27) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 2.54) (xy 0.762 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "+3.3V_1_1"
+				(pin power_in line
+					(at 0 0 90)
+					(length 0)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
+		(symbol "Top-Library:1N4148"
+			(pin_numbers hide)
+			(pin_names
+				(offset 1.016) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "D"
+				(at 0 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "1N4148"
+				(at 0 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "PCM_Diode_THT_AKL:D_DO-35_SOD27_P7.62mm_Horizontal"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://datasheet.octopart.com/1N4148TR-ON-Semiconductor-datasheet-42765246.pdf"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "DO-35 Diode, Small Signal, Fast Switching, 75V, 150mA, 4ns, Alternate KiCad Library"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "diode 1N4148"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "TO-???* *_Diode_* *SingleDiode* D_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "1N4148_0_1"
+				(polyline
+					(pts
+						(xy -1.27 0) (xy 1.27 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 1.27) (xy 1.27 -1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 1.27) (xy -1.27 -1.27) (xy 1.27 0) (xy -1.27 1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+			)
+			(symbol "1N4148_0_2"
+				(polyline
+					(pts
+						(xy -2.54 -2.54) (xy 2.54 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 1.778) (xy 1.778 0)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.889 -0.889) (xy -1.778 0) (xy 0.889 0.889) (xy 0 -1.778) (xy -0.889 -0.889)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+			)
+			(symbol "1N4148_1_1"
+				(pin passive line
+					(at 3.81 0 180)
+					(length 2.54)
+					(name "K"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -3.81 0 0)
+					(length 2.54)
+					(name "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(symbol "1N4148_1_2"
+				(pin passive line
+					(at 2.54 2.54 180)
+					(length 0)
+					(name "K"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -2.54 -2.54 0)
+					(length 0)
+					(name "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
+		(symbol "Top-Library:Conn_01x15"
 			(pin_names
 				(offset 1.016) hide)
 			(exclude_from_sim no)
@@ -521,22 +862,25 @@
 				)
 			)
 		)
-		(symbol "Device:RotaryEncoder_Switch"
+		(symbol "Top-Library:GND"
+			(power)
+			(pin_numbers hide)
 			(pin_names
-				(offset 0.254) hide)
+				(offset 0) hide)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "SW"
-				(at 0 6.604 0)
+			(property "Reference" "#PWR"
+				(at 0 -6.35 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(hide yes)
 				)
 			)
-			(property "Value" "RotaryEncoder_Switch"
-				(at 0 -6.604 0)
+			(property "Value" "GND"
+				(at 0 -3.81 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -544,7 +888,101 @@
 				)
 			)
 			(property "Footprint" ""
-				(at -3.81 4.064 0)
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "global power"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "GND_0_1"
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 -1.27) (xy 1.27 -1.27) (xy 0 -2.54) (xy -1.27 -1.27) (xy 0 -1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "GND_1_1"
+				(pin power_in line
+					(at 0 0 270)
+					(length 0)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
+		(symbol "Top-Library:MountingHole_Pad"
+			(pin_numbers hide)
+			(pin_names
+				(offset 1.016) hide)
+			(exclude_from_sim yes)
+			(in_bom no)
+			(on_board yes)
+			(property "Reference" "H"
+				(at 0 6.35 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "MountingHole_Pad"
+				(at 0 4.445 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -553,6 +991,416 @@
 				)
 			)
 			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Mounting Hole with connection"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "mounting hole"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "MountingHole*Pad*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "MountingHole_Pad_0_1"
+				(circle
+					(center 0 1.27)
+					(radius 1.27)
+					(stroke
+						(width 1.27)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "MountingHole_Pad_1_1"
+				(pin input line
+					(at 0 -2.54 90)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
+		(symbol "Top-Library:OLED_128x64"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "J"
+				(at 0 -11.43 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "OLED_128x64"
+				(at 0 -7.62 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "ScottoKeebs_Components:OLED_128x64"
+				(at 0 -13.97 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 1.27 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "OLED_128x64_0_1"
+				(rectangle
+					(start 10.16 -10.16)
+					(end -10.16 0)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+			)
+			(symbol "OLED_128x64_1_1"
+				(pin power_in line
+					(at -3.81 2.54 270)
+					(length 2.54)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -1.27 2.54 270)
+					(length 2.54)
+					(name "VCC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input clock
+					(at 1.27 2.54 270)
+					(length 2.54)
+					(name "SCL"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 3.81 2.54 270)
+					(length 2.54)
+					(name "SDA"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
+		(symbol "Top-Library:Placeholder_Keyswitch"
+			(pin_numbers hide)
+			(pin_names
+				(offset 1.016) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "S"
+				(at 3.048 1.016 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "Keyswitch"
+				(at 0 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Push button switch, normally open, two pins, 45° tilted"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "switch normally-open pushbutton push-button"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Placeholder_Keyswitch_0_1"
+				(circle
+					(center -1.1684 1.1684)
+					(radius 0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.508 2.54) (xy 2.54 -0.508)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.016 1.016) (xy 2.032 2.032)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.54 2.54) (xy -1.524 1.524) (xy -1.524 1.524)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.524 -1.524) (xy 2.54 -2.54) (xy 2.54 -2.54) (xy 2.54 -2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 1.143 -1.1938)
+					(radius 0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at -2.54 2.54 0)
+					(length 0)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 2.54 -2.54 180)
+					(length 0)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
+		(symbol "Top-Library:RotaryEncoder_Switch"
+			(pin_names
+				(offset 0.254) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "SW2"
+				(at -5.334 10.668 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "RotaryEncoder_Switch"
+				(at -5.334 8.128 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" "Top-Library:Encoder_EC11_MX"
+				(at -3.81 4.064 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://www.adafruit.com/product/377"
 				(at 0 6.604 0)
 				(effects
 					(font
@@ -868,6 +1716,42 @@
 						)
 					)
 				)
+				(pin unspecified line
+					(at 0 -7.62 90)
+					(length 2.54)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "MP"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin unspecified line
+					(at 0 7.62 270)
+					(length 2.54)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "MP"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
 				(pin passive line
 					(at 7.62 2.54 180)
 					(length 2.54)
@@ -906,132 +1790,49 @@
 				)
 			)
 		)
-		(symbol "Mechanical:MountingHole_Pad"
-			(pin_numbers hide)
-			(pin_names
-				(offset 1.016) hide)
-			(exclude_from_sim yes)
-			(in_bom no)
-			(on_board yes)
-			(property "Reference" "H"
-				(at 0 6.35 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "MountingHole_Pad"
-				(at 0 4.445 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Mounting Hole with connection"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "mounting hole"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "MountingHole*Pad*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "MountingHole_Pad_0_1"
-				(circle
-					(center 0 1.27)
-					(radius 1.27)
-					(stroke
-						(width 1.27)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "MountingHole_Pad_1_1"
-				(pin input line
-					(at 0 -2.54 90)
-					(length 2.54)
-					(name "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-		)
-		(symbol "PCM_Diode_AKL:1N4148"
-			(pin_numbers hide)
-			(pin_names
-				(offset 1.016) hide)
+		(symbol "Top-Library:SLW-864574-5A-RA-N-D"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "D"
-				(at 0 5.08 0)
+			(property "Reference" "S"
+				(at 19.05 7.62 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify left top)
 				)
 			)
-			(property "Value" "1N4148"
-				(at 0 2.54 0)
+			(property "Value" "SLW-864574-5A-RA-N-D"
+				(at 19.05 5.08 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify left top)
 				)
 			)
-			(property "Footprint" "PCM_Diode_THT_AKL:D_DO-35_SOD27_P7.62mm_Horizontal"
+			(property "Footprint" "SLW8645745ARAND"
+				(at 19.05 -94.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://www.digikey.com/en/products/detail/same-sky-formerly-cui-devices/SLW-864574-5A-RA-N-D/24399231?msockid=3e3afa68a50969ca3057ef1ca4c9684b"
+				(at 19.05 -194.92 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Description" "8.6 x 4.5 x 6.2 mm, 5 mm Raised Slide Actuator, Right Angle, Through Hole, Slide Switch"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1040,467 +1841,91 @@
 					(hide yes)
 				)
 			)
-			(property "Datasheet" "https://datasheet.octopart.com/1N4148TR-ON-Semiconductor-datasheet-42765246.pdf"
-				(at 0 0 0)
+			(property "Height" "5"
+				(at 19.05 -394.92 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify left top)
 					(hide yes)
 				)
 			)
-			(property "Description" "DO-35 Diode, Small Signal, Fast Switching, 75V, 150mA, 4ns, Alternate KiCad Library"
-				(at 0 0 0)
+			(property "Manufacturer_Name" "Same Sky"
+				(at 19.05 -494.92 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify left top)
 					(hide yes)
 				)
 			)
-			(property "ki_keywords" "diode 1N4148"
-				(at 0 0 0)
+			(property "Manufacturer_Part_Number" "SLW-864574-5A-RA-N-D"
+				(at 19.05 -594.92 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify left top)
 					(hide yes)
 				)
 			)
-			(property "ki_fp_filters" "TO-???* *_Diode_* *SingleDiode* D_*"
-				(at 0 0 0)
+			(property "Mouser Part Number" "179-SLW8645745ARAND"
+				(at 19.05 -694.92 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify left top)
 					(hide yes)
 				)
 			)
-			(symbol "1N4148_0_1"
-				(polyline
-					(pts
-						(xy -1.27 0) (xy 1.27 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.27 1.27) (xy 1.27 -1.27)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.27 1.27) (xy -1.27 -1.27) (xy 1.27 0) (xy -1.27 1.27)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-			)
-			(symbol "1N4148_0_2"
-				(polyline
-					(pts
-						(xy -2.54 -2.54) (xy 2.54 2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 1.778) (xy 1.778 0)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.889 -0.889) (xy -1.778 0) (xy 0.889 0.889) (xy 0 -1.778) (xy -0.889 -0.889)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-			)
-			(symbol "1N4148_1_1"
-				(pin passive line
-					(at 3.81 0 180)
-					(length 2.54)
-					(name "K"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -3.81 0 0)
-					(length 2.54)
-					(name "A"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(symbol "1N4148_1_2"
-				(pin passive line
-					(at 2.54 2.54 180)
-					(length 0)
-					(name "K"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -2.54 -2.54 0)
-					(length 0)
-					(name "A"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-		)
-		(symbol "ScottoKeebs:OLED_128x64"
-			(pin_names
-				(offset 1.016)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "J"
-				(at 0 -11.43 0)
+			(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Same-Sky/SLW-864574-5A-RA-N-D?qs=IKkN%2F947nfBrNZ%2FZFlfKbA%3D%3D"
+				(at 19.05 -794.92 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-				)
-			)
-			(property "Value" "OLED_128x64"
-				(at 0 -7.62 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "ScottoKeebs_Components:OLED_128x64"
-				(at 0 -13.97 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
+					(justify left top)
 					(hide yes)
 				)
 			)
-			(property "Datasheet" ""
-				(at 1.27 0 90)
+			(property "Arrow Part Number" "SLW-864574-5A-RA-N-D"
+				(at 19.05 -894.92 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify left top)
 					(hide yes)
 				)
 			)
-			(property "Description" ""
-				(at 0 0 0)
+			(property "Arrow Price/Stock" "https://www.arrow.com/en/products/slw-864574-5a-ra-n-d/cui-devices?utm_currency=USD&region=nac"
+				(at 19.05 -994.92 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify left top)
 					(hide yes)
 				)
 			)
-			(symbol "OLED_128x64_0_1"
+			(symbol "SLW-864574-5A-RA-N-D_1_1"
 				(rectangle
-					(start 10.16 -10.16)
-					(end -10.16 0)
+					(start 5.08 2.54)
+					(end 17.78 -12.7)
 					(stroke
-						(width 0)
+						(width 0.254)
 						(type default)
 					)
 					(fill
 						(type background)
 					)
 				)
-			)
-			(symbol "OLED_128x64_1_1"
-				(pin power_in line
-					(at -3.81 2.54 270)
-					(length 2.54)
-					(name "GND"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at -1.27 2.54 270)
-					(length 2.54)
-					(name "VCC"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input clock
-					(at 1.27 2.54 270)
-					(length 2.54)
-					(name "SCL"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin bidirectional line
-					(at 3.81 2.54 270)
-					(length 2.54)
-					(name "SDA"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-		)
-		(symbol "ScottoKeebs:Placeholder_Keyswitch"
-			(pin_numbers hide)
-			(pin_names
-				(offset 1.016) hide)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "S"
-				(at 3.048 1.016 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Value" "Keyswitch"
-				(at 0 -3.81 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Push button switch, normally open, two pins, 45° tilted"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "switch normally-open pushbutton push-button"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "Placeholder_Keyswitch_0_1"
-				(circle
-					(center -1.1684 1.1684)
-					(radius 0.508)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -0.508 2.54) (xy 2.54 -0.508)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.016 1.016) (xy 2.032 2.032)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -2.54 2.54) (xy -1.524 1.524) (xy -1.524 1.524)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.524 -1.524) (xy 2.54 -2.54) (xy 2.54 -2.54) (xy 2.54 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 1.143 -1.1938)
-					(radius 0.508)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
 				(pin passive line
-					(at -2.54 2.54 0)
-					(length 0)
+					(at 0 -2.54 0)
+					(length 5.08)
 					(name "1"
 						(effects
 							(font
@@ -1517,8 +1942,8 @@
 					)
 				)
 				(pin passive line
-					(at 2.54 -2.54 180)
-					(length 0)
+					(at 0 -5.08 0)
+					(length 5.08)
 					(name "2"
 						(effects
 							(font
@@ -1534,165 +1959,10 @@
 						)
 					)
 				)
-			)
-		)
-		(symbol "Switch:SW_SPDT"
-			(pin_names
-				(offset 0) hide)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "SW"
-				(at 0 5.08 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "SW_SPDT"
-				(at 0 -5.08 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at 0 -7.62 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Switch, single pole double throw"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "switch single-pole double-throw spdt ON-ON"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "SW_SPDT_0_1"
-				(circle
-					(center -2.032 0)
-					(radius 0.4572)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.651 0.254) (xy 1.651 2.286)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 2.032 -2.54)
-					(radius 0.4572)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 2.032 2.54)
-					(radius 0.4572)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "SW_SPDT_1_1"
-				(rectangle
-					(start -3.175 3.81)
-					(end 3.175 -3.81)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
 				(pin passive line
-					(at 5.08 2.54 180)
-					(length 2.54)
-					(name "A"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "B"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 5.08 -2.54 180)
-					(length 2.54)
-					(name "C"
+					(at 0 -7.62 0)
+					(length 5.08)
+					(name "3"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1707,119 +1977,17 @@
 						)
 					)
 				)
-			)
-		)
-		(symbol "power:+3.3V"
-			(power)
-			(pin_numbers hide)
-			(pin_names
-				(offset 0) hide)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "#PWR"
-				(at 0 -3.81 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Value" "+3.3V"
-				(at 0 3.556 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "global power"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "+3.3V_0_1"
-				(polyline
-					(pts
-						(xy -0.762 1.27) (xy 0 2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 0) (xy 0 2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 2.54) (xy 0.762 1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "+3.3V_1_1"
-				(pin power_in line
-					(at 0 0 90)
-					(length 0)
-					(name "~"
+				(pin passive line
+					(at 0 0 0)
+					(length 5.08)
+					(name "MH1"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "1"
+					(number "4"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1827,95 +1995,17 @@
 						)
 					)
 				)
-			)
-		)
-		(symbol "power:GND"
-			(power)
-			(pin_numbers hide)
-			(pin_names
-				(offset 0) hide)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "#PWR"
-				(at 0 -6.35 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Value" "GND"
-				(at 0 -3.81 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "global power"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "GND_0_1"
-				(polyline
-					(pts
-						(xy 0 0) (xy 0 -1.27) (xy 1.27 -1.27) (xy 0 -2.54) (xy -1.27 -1.27) (xy 0 -1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "GND_1_1"
-				(pin power_in line
-					(at 0 0 270)
-					(length 0)
-					(name "~"
+				(pin passive line
+					(at 0 -10.16 0)
+					(length 5.08)
+					(name "MH2"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "1"
+					(number "5"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2029,8 +2119,34 @@
 		(uuid "fbd49288-41ab-49c0-b559-a1f778efcbca")
 	)
 	(no_connect
-		(at 283.21 180.34)
+		(at 267.97 171.45)
+		(uuid "49c22ca0-af12-479e-b726-49684fe17dfa")
+	)
+	(no_connect
+		(at 280.67 218.44)
+		(uuid "59f37f2d-4add-44b3-b3f5-4903766c2c98")
+	)
+	(no_connect
+		(at 280.67 203.2)
+		(uuid "bef56881-dd70-4f35-ba1a-df5831e7b5bd")
+	)
+	(no_connect
+		(at 267.97 173.99)
 		(uuid "c5bd67b7-9a3f-4732-926c-5d0ff4346d3c")
+	)
+	(no_connect
+		(at 267.97 181.61)
+		(uuid "ff6a9cc3-b2e8-4991-883c-0340dd26bca6")
+	)
+	(wire
+		(pts
+			(xy 266.7 179.07) (xy 267.97 179.07)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "00a741c8-7dfd-4867-99c5-0a27c33dd7ed")
 	)
 	(wire
 		(pts
@@ -2054,7 +2170,7 @@
 	)
 	(wire
 		(pts
-			(xy 285.75 153.67) (xy 284.48 153.67)
+			(xy 285.75 151.13) (xy 284.48 151.13)
 		)
 		(stroke
 			(width 0)
@@ -2074,7 +2190,7 @@
 	)
 	(polyline
 		(pts
-			(xy 332.74 165.1) (xy 332.74 161.29)
+			(xy 332.74 161.29) (xy 332.74 161.29)
 		)
 		(stroke
 			(width 0)
@@ -2084,7 +2200,7 @@
 	)
 	(wire
 		(pts
-			(xy 285.75 156.21) (xy 284.48 156.21)
+			(xy 285.75 153.67) (xy 284.48 153.67)
 		)
 		(stroke
 			(width 0)
@@ -2154,7 +2270,7 @@
 	)
 	(polyline
 		(pts
-			(xy 332.74 125.73) (xy 332.74 165.1)
+			(xy 332.74 125.73) (xy 332.74 161.29)
 		)
 		(stroke
 			(width 0)
@@ -2164,7 +2280,7 @@
 	)
 	(wire
 		(pts
-			(xy 285.75 148.59) (xy 284.48 148.59)
+			(xy 285.75 146.05) (xy 284.48 146.05)
 		)
 		(stroke
 			(width 0)
@@ -2234,23 +2350,13 @@
 	)
 	(polyline
 		(pts
-			(xy 332.74 165.1) (xy 332.74 219.71)
+			(xy 332.74 161.29) (xy 332.74 219.71)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "48df497d-1d14-4b50-92b4-16360f71d0be")
-	)
-	(wire
-		(pts
-			(xy 284.48 185.42) (xy 283.21 185.42)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "56c9722a-e331-473a-9b4c-428d2bfdffaf")
 	)
 	(wire
 		(pts
@@ -2454,7 +2560,7 @@
 	)
 	(polyline
 		(pts
-			(xy 254 165.1) (xy 304.8 165.1)
+			(xy 254 161.29) (xy 304.8 161.29)
 		)
 		(stroke
 			(width 0)
@@ -2464,7 +2570,7 @@
 	)
 	(wire
 		(pts
-			(xy 285.75 151.13) (xy 284.48 151.13)
+			(xy 285.75 148.59) (xy 284.48 148.59)
 		)
 		(stroke
 			(width 0)
@@ -2514,7 +2620,7 @@
 	)
 	(polyline
 		(pts
-			(xy 304.8 165.1) (xy 332.74 165.1)
+			(xy 304.8 161.29) (xy 332.74 161.29)
 		)
 		(stroke
 			(width 0)
@@ -2557,16 +2663,6 @@
 		)
 		(uuid "5be5aad0-31ca-4f94-9c90-4ff9ac2c8a3e")
 	)
-	(text "62 mm board\n35.5 mm pins"
-		(exclude_from_sim no)
-		(at 218.44 110.236 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "6f4a9f7b-a394-44da-919c-d38dd73f3ea4")
-	)
 	(text "Layout"
 		(exclude_from_sim no)
 		(at 316.23 129.54 0)
@@ -2580,7 +2676,7 @@
 	)
 	(text "SPDT Switch \nfor Mode Switching"
 		(exclude_from_sim no)
-		(at 280.67 170.18 0)
+		(at 280.67 165.1 0)
 		(effects
 			(font
 				(size 1.905 1.905)
@@ -2590,7 +2686,7 @@
 	)
 	(text "EC11 Rotary Encoder\nwith push button"
 		(exclude_from_sim no)
-		(at 280.67 194.31 0)
+		(at 280.67 193.04 0)
 		(effects
 			(font
 				(size 1.905 1.905)
@@ -2600,7 +2696,7 @@
 	)
 	(text "SSD1306 128 x 32\nOLED Display"
 		(exclude_from_sim no)
-		(at 278.13 136.144 0)
+		(at 278.13 135.89 0)
 		(effects
 			(font
 				(size 1.905 1.905)
@@ -2610,7 +2706,7 @@
 	)
 	(text "Top Board"
 		(exclude_from_sim no)
-		(at 254 119.888 0)
+		(at 254 119.38 0)
 		(effects
 			(font
 				(size 5.08 5.08)
@@ -2666,7 +2762,7 @@
 	)
 	(global_label "OLED_SDA"
 		(shape input)
-		(at 285.75 156.21 0)
+		(at 285.75 153.67 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2676,7 +2772,7 @@
 		)
 		(uuid "2126712d-6445-42a9-95bd-08a9bb5b02bc")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 298.0485 156.21 0)
+			(at 298.0485 153.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2908,7 +3004,7 @@
 	)
 	(global_label "BT_SELECT"
 		(shape input)
-		(at 273.05 182.88 180)
+		(at 267.97 176.53 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2918,7 +3014,7 @@
 		)
 		(uuid "8b442a3a-6b04-4215-ad74-c280ca1f8767")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 260.0864 182.88 0)
+			(at 255.0064 176.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3106,7 +3202,7 @@
 	)
 	(global_label "OLED_SCL"
 		(shape input)
-		(at 285.75 153.67 0)
+		(at 285.75 151.13 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3116,7 +3212,7 @@
 		)
 		(uuid "d3124a95-93b5-4d9a-bb74-283aad935024")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 297.988 153.67 0)
+			(at 297.988 151.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3193,7 +3289,74 @@
 		)
 	)
 	(symbol
-		(lib_id "ScottoKeebs:Placeholder_Keyswitch")
+		(lib_id "Top-Library:GND")
+		(at 309.88 153.67 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "007ac495-5aa6-43c9-8788-d2403c4ef247")
+		(property "Reference" "#PWR8"
+			(at 309.88 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 309.88 158.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 309.88 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 309.88 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 309.88 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "241fbd4b-2afc-4b51-a784-21630b0f09a1")
+		)
+		(instances
+			(project "top"
+				(path "/ca9ba2d9-89c9-46e3-92f6-4a1ef1b0894f"
+					(reference "#PWR8")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Top-Library:Placeholder_Keyswitch")
 		(at 186.69 163.83 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -3217,7 +3380,7 @@
 				)
 			)
 		)
-		(property "Footprint" "ScottoKeebs_Scotto:MX_Hotswap_1.00u"
+		(property "Footprint" "Project-Footprints:MX_Hotswap_1.00u"
 			(at 186.69 163.83 0)
 			(effects
 				(font
@@ -3260,7 +3423,7 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
+		(lib_id "Top-Library:GND")
 		(at 317.5 180.34 90)
 		(mirror x)
 		(unit 1)
@@ -3328,7 +3491,74 @@
 		)
 	)
 	(symbol
-		(lib_id "ScottoKeebs:Placeholder_Keyswitch")
+		(lib_id "Top-Library:GND")
+		(at 323.85 138.43 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "15423f76-6c05-4d46-9538-72330bd5cdce")
+		(property "Reference" "#PWR10"
+			(at 323.85 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 323.85 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 323.85 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 323.85 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 323.85 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "61a33b84-01d9-45c8-b547-6fb53c464d31")
+		)
+		(instances
+			(project "top"
+				(path "/ca9ba2d9-89c9-46e3-92f6-4a1ef1b0894f"
+					(reference "#PWR10")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Top-Library:Placeholder_Keyswitch")
 		(at 203.2 163.83 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -3352,7 +3582,7 @@
 				)
 			)
 		)
-		(property "Footprint" "ScottoKeebs_Scotto:MX_Hotswap_1.00u"
+		(property "Footprint" "Project-Footprints:MX_Hotswap_1.00u"
 			(at 203.2 163.83 0)
 			(effects
 				(font
@@ -3395,7 +3625,7 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
+		(lib_id "Top-Library:GND")
 		(at 289.56 208.28 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -3460,8 +3690,158 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+3.3V")
-		(at 285.75 151.13 270)
+		(lib_id "Top-Library:SLW-864574-5A-RA-N-D")
+		(at 267.97 171.45 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "2836d890-cbd7-4cdb-a780-75cc24146afc")
+		(property "Reference" "SW1"
+			(at 287.02 175.2599 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "SLW-864574-5A-RA-N-D"
+			(at 265.938 186.182 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Project-Footprints:SLW8645745ARAND"
+			(at 287.02 266.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.digikey.com/en/products/detail/same-sky-formerly-cui-devices/SLW-864574-5A-RA-N-D/24399231?msockid=3e3afa68a50969ca3057ef1ca4c9684b"
+			(at 287.02 366.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Description" "8.6 x 4.5 x 6.2 mm, 5 mm Raised Slide Actuator, Right Angle, Through Hole, Slide Switch"
+			(at 267.97 171.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Height" "5"
+			(at 287.02 566.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Name" "Same Sky"
+			(at 287.02 666.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "SLW-864574-5A-RA-N-D"
+			(at 287.02 766.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Mouser Part Number" "179-SLW8645745ARAND"
+			(at 287.02 866.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Same-Sky/SLW-864574-5A-RA-N-D?qs=IKkN%2F947nfBrNZ%2FZFlfKbA%3D%3D"
+			(at 287.02 966.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Arrow Part Number" "SLW-864574-5A-RA-N-D"
+			(at 287.02 1066.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Arrow Price/Stock" "https://www.arrow.com/en/products/slw-864574-5a-ra-n-d/cui-devices?utm_currency=USD&region=nac"
+			(at 287.02 1166.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(pin "4"
+			(uuid "35e10262-fce1-4ed5-8478-4e53bb21193e")
+		)
+		(pin "2"
+			(uuid "5d9f7bef-17cd-4792-b339-3458184449e1")
+		)
+		(pin "1"
+			(uuid "f38b3df1-10f7-4f91-98e7-fa95c2f54d59")
+		)
+		(pin "3"
+			(uuid "e7b213b7-b65b-497b-8365-8f70b39f37f1")
+		)
+		(pin "5"
+			(uuid "02b3033f-788d-4610-8b8e-976c0e0bd7a5")
+		)
+		(instances
+			(project ""
+				(path "/ca9ba2d9-89c9-46e3-92f6-4a1ef1b0894f"
+					(reference "SW1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Top-Library:+3.3V")
+		(at 285.75 148.59 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3470,7 +3850,7 @@
 		(fields_autoplaced yes)
 		(uuid "31aabfff-3df6-4d6a-ad7e-ad4c5b94c41c")
 		(property "Reference" "#PWR02"
-			(at 281.94 151.13 0)
+			(at 281.94 148.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3479,7 +3859,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 289.56 151.1299 90)
+			(at 289.56 148.5899 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3488,7 +3868,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 285.75 151.13 0)
+			(at 285.75 148.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3497,7 +3877,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 285.75 151.13 0)
+			(at 285.75 148.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3506,7 +3886,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 285.75 151.13 0)
+			(at 285.75 148.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3527,17 +3907,16 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 284.48 185.42 90)
+		(lib_id "Top-Library:GND")
+		(at 266.7 179.07 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "35b9630a-71e5-4592-89df-c864d76bd3cc")
 		(property "Reference" "#PWR05"
-			(at 290.83 185.42 0)
+			(at 260.35 179.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3546,16 +3925,15 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 288.29 185.4199 90)
+			(at 261.366 179.07 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
 		(property "Footprint" ""
-			(at 284.48 185.42 0)
+			(at 266.7 179.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3564,7 +3942,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 284.48 185.42 0)
+			(at 266.7 179.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3573,7 +3951,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 284.48 185.42 0)
+			(at 266.7 179.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3594,7 +3972,7 @@
 		)
 	)
 	(symbol
-		(lib_id "PCM_Diode_AKL:1N4148")
+		(lib_id "Top-Library:1N4148")
 		(at 205.74 210.82 270)
 		(unit 1)
 		(exclude_from_sim no)
@@ -3621,7 +3999,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal"
+		(property "Footprint" "Project-Footprints:D_DO-35_SOD27_P7.62mm_Horizontal"
 			(at 205.74 210.82 0)
 			(effects
 				(font
@@ -3664,7 +4042,7 @@
 		)
 	)
 	(symbol
-		(lib_id "ScottoKeebs:Placeholder_Keyswitch")
+		(lib_id "Top-Library:Placeholder_Keyswitch")
 		(at 219.71 184.15 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -3688,7 +4066,7 @@
 				)
 			)
 		)
-		(property "Footprint" "ScottoKeebs_Scotto:MX_Hotswap_1.00u"
+		(property "Footprint" "Project-Footprints:MX_Hotswap_1.00u"
 			(at 219.71 184.15 0)
 			(effects
 				(font
@@ -3731,7 +4109,7 @@
 		)
 	)
 	(symbol
-		(lib_id "PCM_Diode_AKL:1N4148")
+		(lib_id "Top-Library:1N4148")
 		(at 205.74 170.18 270)
 		(unit 1)
 		(exclude_from_sim no)
@@ -3758,7 +4136,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal"
+		(property "Footprint" "Project-Footprints:D_DO-35_SOD27_P7.62mm_Horizontal"
 			(at 205.74 170.18 0)
 			(effects
 				(font
@@ -3801,7 +4179,7 @@
 		)
 	)
 	(symbol
-		(lib_id "PCM_Diode_AKL:1N4148")
+		(lib_id "Top-Library:1N4148")
 		(at 222.25 149.86 270)
 		(unit 1)
 		(exclude_from_sim no)
@@ -3828,7 +4206,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal"
+		(property "Footprint" "Project-Footprints:D_DO-35_SOD27_P7.62mm_Horizontal"
 			(at 222.25 149.86 0)
 			(effects
 				(font
@@ -3871,8 +4249,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Mechanical:MountingHole_Pad")
-		(at 316.23 135.89 0)
+		(lib_id "Top-Library:MountingHole_Pad")
+		(at 309.88 135.89 0)
 		(unit 1)
 		(exclude_from_sim yes)
 		(in_bom no)
@@ -3881,7 +4259,7 @@
 		(fields_autoplaced yes)
 		(uuid "483ac6b9-231c-4a6f-96d0-2ae6dfc40e92")
 		(property "Reference" "H1"
-			(at 318.77 133.3499 0)
+			(at 312.42 133.3499 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3890,7 +4268,7 @@
 			)
 		)
 		(property "Value" "MountingHole_Pad"
-			(at 318.77 135.8899 0)
+			(at 312.42 135.8899 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3899,8 +4277,8 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_2.2mm_M2_DIN965_Pad"
-			(at 316.23 135.89 0)
+		(property "Footprint" "Project-Footprints:MountingHole_2.2mm_M2_DIN965_Pad"
+			(at 309.88 135.89 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3909,7 +4287,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 316.23 135.89 0)
+			(at 309.88 135.89 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3918,7 +4296,7 @@
 			)
 		)
 		(property "Description" "Mounting Hole with connection"
-			(at 316.23 135.89 0)
+			(at 309.88 135.89 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3939,7 +4317,7 @@
 		)
 	)
 	(symbol
-		(lib_id "ScottoKeebs:Placeholder_Keyswitch")
+		(lib_id "Top-Library:Placeholder_Keyswitch")
 		(at 219.71 204.47 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -3963,7 +4341,7 @@
 				)
 			)
 		)
-		(property "Footprint" "ScottoKeebs_Scotto:MX_Hotswap_1.00u"
+		(property "Footprint" "Project-Footprints:MX_Hotswap_1.00u"
 			(at 219.71 204.47 0)
 			(effects
 				(font
@@ -4006,7 +4384,7 @@
 		)
 	)
 	(symbol
-		(lib_id "PCM_Diode_AKL:1N4148")
+		(lib_id "Top-Library:1N4148")
 		(at 189.23 210.82 270)
 		(unit 1)
 		(exclude_from_sim no)
@@ -4033,7 +4411,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal"
+		(property "Footprint" "Project-Footprints:D_DO-35_SOD27_P7.62mm_Horizontal"
 			(at 189.23 210.82 0)
 			(effects
 				(font
@@ -4076,8 +4454,8 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 285.75 148.59 90)
+		(lib_id "Top-Library:GND")
+		(at 285.75 146.05 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4086,7 +4464,7 @@
 		(fields_autoplaced yes)
 		(uuid "51799619-3173-4519-bd1b-92d486f11f92")
 		(property "Reference" "#PWR01"
-			(at 292.1 148.59 0)
+			(at 292.1 146.05 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4095,7 +4473,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 289.56 148.5899 90)
+			(at 289.56 146.0499 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4104,7 +4482,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 285.75 148.59 0)
+			(at 285.75 146.05 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4113,7 +4491,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 285.75 148.59 0)
+			(at 285.75 146.05 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4122,7 +4500,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 285.75 148.59 0)
+			(at 285.75 146.05 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4143,7 +4521,7 @@
 		)
 	)
 	(symbol
-		(lib_id "PCM_Diode_AKL:1N4148")
+		(lib_id "Top-Library:1N4148")
 		(at 205.74 190.5 270)
 		(unit 1)
 		(exclude_from_sim no)
@@ -4170,7 +4548,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal"
+		(property "Footprint" "Project-Footprints:D_DO-35_SOD27_P7.62mm_Horizontal"
 			(at 205.74 190.5 0)
 			(effects
 				(font
@@ -4213,7 +4591,7 @@
 		)
 	)
 	(symbol
-		(lib_id "ScottoKeebs:Placeholder_Keyswitch")
+		(lib_id "Top-Library:Placeholder_Keyswitch")
 		(at 186.69 204.47 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -4237,7 +4615,7 @@
 				)
 			)
 		)
-		(property "Footprint" "ScottoKeebs_Scotto:MX_Hotswap_1.00u"
+		(property "Footprint" "Project-Footprints:MX_Hotswap_1.00u"
 			(at 186.69 204.47 0)
 			(effects
 				(font
@@ -4280,7 +4658,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector_Generic:Conn_01x15")
+		(lib_id "Top-Library:Conn_01x15")
 		(at 312.42 195.58 0)
 		(mirror y)
 		(unit 1)
@@ -4307,7 +4685,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x15_P2.54mm_Vertical"
+		(property "Footprint" "Project-Footprints:PinHeader_1x15_P2.54mm_Vertical"
 			(at 312.42 195.58 0)
 			(effects
 				(font
@@ -4389,7 +4767,7 @@
 		)
 	)
 	(symbol
-		(lib_id "ScottoKeebs:Placeholder_Keyswitch")
+		(lib_id "Top-Library:Placeholder_Keyswitch")
 		(at 203.2 204.47 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -4413,7 +4791,7 @@
 				)
 			)
 		)
-		(property "Footprint" "ScottoKeebs_Scotto:MX_Hotswap_1.00u"
+		(property "Footprint" "Project-Footprints:MX_Hotswap_1.00u"
 			(at 203.2 204.47 0)
 			(effects
 				(font
@@ -4456,7 +4834,7 @@
 		)
 	)
 	(symbol
-		(lib_id "PCM_Diode_AKL:1N4148")
+		(lib_id "Top-Library:1N4148")
 		(at 222.25 210.82 270)
 		(unit 1)
 		(exclude_from_sim no)
@@ -4484,7 +4862,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal"
+		(property "Footprint" "Project-Footprints:D_DO-35_SOD27_P7.62mm_Horizontal"
 			(at 222.25 210.82 0)
 			(effects
 				(font
@@ -4527,7 +4905,7 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
+		(lib_id "Top-Library:GND")
 		(at 271.78 210.82 270)
 		(unit 1)
 		(exclude_from_sim no)
@@ -4592,7 +4970,74 @@
 		)
 	)
 	(symbol
-		(lib_id "PCM_Diode_AKL:1N4148")
+		(lib_id "Top-Library:GND")
+		(at 323.85 153.67 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "7335cd2d-ae1d-478a-9931-d1223c21b8a6")
+		(property "Reference" "#PWR9"
+			(at 323.85 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 323.85 158.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 323.85 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 323.85 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 323.85 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "0a85b005-b2f2-4506-903f-0771b4c67e30")
+		)
+		(instances
+			(project "top"
+				(path "/ca9ba2d9-89c9-46e3-92f6-4a1ef1b0894f"
+					(reference "#PWR9")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Top-Library:1N4148")
 		(at 222.25 190.5 270)
 		(unit 1)
 		(exclude_from_sim no)
@@ -4619,7 +5064,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal"
+		(property "Footprint" "Project-Footprints:D_DO-35_SOD27_P7.62mm_Horizontal"
 			(at 222.25 190.5 0)
 			(effects
 				(font
@@ -4662,7 +5107,7 @@
 		)
 	)
 	(symbol
-		(lib_id "ScottoKeebs:Placeholder_Keyswitch")
+		(lib_id "Top-Library:Placeholder_Keyswitch")
 		(at 219.71 163.83 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -4686,7 +5131,7 @@
 				)
 			)
 		)
-		(property "Footprint" "ScottoKeebs_Scotto:MX_Hotswap_1.00u"
+		(property "Footprint" "Project-Footprints:MX_Hotswap_1.00u"
 			(at 219.71 163.83 0)
 			(effects
 				(font
@@ -4729,7 +5174,74 @@
 		)
 	)
 	(symbol
-		(lib_id "ScottoKeebs:Placeholder_Keyswitch")
+		(lib_id "Top-Library:GND")
+		(at 309.88 138.43 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "7d451755-81a3-4732-af92-c4fd3dec050c")
+		(property "Reference" "#PWR11"
+			(at 309.88 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 309.88 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 309.88 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 309.88 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 309.88 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "111445ab-d431-4c2a-bf28-e255201701bd")
+		)
+		(instances
+			(project "top"
+				(path "/ca9ba2d9-89c9-46e3-92f6-4a1ef1b0894f"
+					(reference "#PWR11")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Top-Library:Placeholder_Keyswitch")
 		(at 203.2 143.51 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -4753,7 +5265,7 @@
 				)
 			)
 		)
-		(property "Footprint" "ScottoKeebs_Scotto:MX_Hotswap_1.00u"
+		(property "Footprint" "Project-Footprints:MX_Hotswap_1.00u"
 			(at 203.2 143.51 0)
 			(effects
 				(font
@@ -4796,7 +5308,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:RotaryEncoder_Switch")
+		(lib_id "Top-Library:RotaryEncoder_Switch")
 		(at 280.67 210.82 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -4805,7 +5317,7 @@
 		(dnp no)
 		(uuid "86b65d91-c75a-4c2f-a67e-adfdd309838e")
 		(property "Reference" "SW2"
-			(at 275.336 200.152 0)
+			(at 275.082 197.612 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4814,7 +5326,7 @@
 			)
 		)
 		(property "Value" "RotaryEncoder_Switch"
-			(at 275.336 202.692 0)
+			(at 275.082 200.152 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4822,7 +5334,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "ScottoKeebs_Scotto:Encoder_EC11_MX"
+		(property "Footprint" "Project-Footprints:Encoder_EC11_MX"
 			(at 276.86 206.756 0)
 			(effects
 				(font
@@ -4864,6 +5376,12 @@
 		(pin "C"
 			(uuid "3b0e7461-d12f-4b8f-89ea-bdab5d2e2799")
 		)
+		(pin "MP"
+			(uuid "79379784-fb3a-48a9-8295-fcd2da6686ee")
+		)
+		(pin "MP"
+			(uuid "0dfefd4c-5aa9-4260-8a98-35e63e9184e7")
+		)
 		(instances
 			(project ""
 				(path "/ca9ba2d9-89c9-46e3-92f6-4a1ef1b0894f"
@@ -4874,8 +5392,8 @@
 		)
 	)
 	(symbol
-		(lib_id "ScottoKeebs:OLED_128x64")
-		(at 281.94 152.4 270)
+		(lib_id "Top-Library:OLED_128x64")
+		(at 281.94 149.86 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4883,7 +5401,7 @@
 		(dnp no)
 		(uuid "8d660b4c-be05-4a9d-ad5c-56400c4a80da")
 		(property "Reference" "J1"
-			(at 264.16 158.75 90)
+			(at 264.16 156.21 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4891,15 +5409,15 @@
 			)
 		)
 		(property "Value" "OLED_128x64"
-			(at 264.16 161.29 90)
+			(at 264.16 158.75 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "ScottoKeebs_Components:OLED_128x64"
-			(at 267.97 152.4 0)
+		(property "Footprint" "Project-Footprints:OLED_128x64"
+			(at 267.97 149.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4908,7 +5426,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 281.94 153.67 90)
+			(at 281.94 151.13 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4917,7 +5435,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 281.94 152.4 0)
+			(at 281.94 149.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4947,7 +5465,7 @@
 		)
 	)
 	(symbol
-		(lib_id "PCM_Diode_AKL:1N4148")
+		(lib_id "Top-Library:1N4148")
 		(at 189.23 149.86 270)
 		(unit 1)
 		(exclude_from_sim no)
@@ -4974,7 +5492,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal"
+		(property "Footprint" "Project-Footprints:D_DO-35_SOD27_P7.62mm_Horizontal"
 			(at 189.23 149.86 0)
 			(effects
 				(font
@@ -5017,7 +5535,7 @@
 		)
 	)
 	(symbol
-		(lib_id "ScottoKeebs:Placeholder_Keyswitch")
+		(lib_id "Top-Library:Placeholder_Keyswitch")
 		(at 186.69 184.15 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -5041,7 +5559,7 @@
 				)
 			)
 		)
-		(property "Footprint" "ScottoKeebs_Scotto:MX_Hotswap_1.00u"
+		(property "Footprint" "Project-Footprints:MX_Hotswap_1.00u"
 			(at 186.69 184.15 0)
 			(effects
 				(font
@@ -5084,8 +5602,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Mechanical:MountingHole_Pad")
-		(at 316.23 158.75 0)
+		(lib_id "Top-Library:MountingHole_Pad")
+		(at 323.85 151.13 0)
 		(unit 1)
 		(exclude_from_sim yes)
 		(in_bom no)
@@ -5094,7 +5612,7 @@
 		(fields_autoplaced yes)
 		(uuid "a2dd6989-92c4-4d66-a453-ecb0f11dc26e")
 		(property "Reference" "H4"
-			(at 318.77 156.2099 0)
+			(at 326.39 148.5899 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5103,7 +5621,7 @@
 			)
 		)
 		(property "Value" "MountingHole_Pad"
-			(at 318.77 158.7499 0)
+			(at 326.39 151.1299 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5112,8 +5630,8 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_2.2mm_M2_DIN965_Pad"
-			(at 316.23 158.75 0)
+		(property "Footprint" "Project-Footprints:MountingHole_2.2mm_M2_DIN965_Pad"
+			(at 323.85 151.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5122,7 +5640,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 316.23 158.75 0)
+			(at 323.85 151.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5131,7 +5649,7 @@
 			)
 		)
 		(property "Description" "Mounting Hole with connection"
-			(at 316.23 158.75 0)
+			(at 323.85 151.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5152,8 +5670,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Mechanical:MountingHole_Pad")
-		(at 316.23 151.13 0)
+		(lib_id "Top-Library:MountingHole_Pad")
+		(at 309.88 151.13 0)
 		(unit 1)
 		(exclude_from_sim yes)
 		(in_bom no)
@@ -5162,7 +5680,7 @@
 		(fields_autoplaced yes)
 		(uuid "a444b400-8756-4764-8042-192c94c8b8a5")
 		(property "Reference" "H3"
-			(at 318.77 148.5899 0)
+			(at 312.42 148.5899 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5171,7 +5689,7 @@
 			)
 		)
 		(property "Value" "MountingHole_Pad"
-			(at 318.77 151.1299 0)
+			(at 312.42 151.1299 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5180,8 +5698,8 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_2.2mm_M2_DIN965_Pad"
-			(at 316.23 151.13 0)
+		(property "Footprint" "Project-Footprints:MountingHole_2.2mm_M2_DIN965_Pad"
+			(at 309.88 151.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5190,7 +5708,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 316.23 151.13 0)
+			(at 309.88 151.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5199,7 +5717,7 @@
 			)
 		)
 		(property "Description" "Mounting Hole with connection"
-			(at 316.23 151.13 0)
+			(at 309.88 151.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5220,7 +5738,7 @@
 		)
 	)
 	(symbol
-		(lib_id "ScottoKeebs:Placeholder_Keyswitch")
+		(lib_id "Top-Library:Placeholder_Keyswitch")
 		(at 203.2 184.15 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -5244,7 +5762,7 @@
 				)
 			)
 		)
-		(property "Footprint" "ScottoKeebs_Scotto:MX_Hotswap_1.00u"
+		(property "Footprint" "Project-Footprints:MX_Hotswap_1.00u"
 			(at 203.2 184.15 0)
 			(effects
 				(font
@@ -5287,7 +5805,7 @@
 		)
 	)
 	(symbol
-		(lib_id "PCM_Diode_AKL:1N4148")
+		(lib_id "Top-Library:1N4148")
 		(at 222.25 170.18 270)
 		(unit 1)
 		(exclude_from_sim no)
@@ -5314,7 +5832,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal"
+		(property "Footprint" "Project-Footprints:D_DO-35_SOD27_P7.62mm_Horizontal"
 			(at 222.25 170.18 0)
 			(effects
 				(font
@@ -5357,7 +5875,7 @@
 		)
 	)
 	(symbol
-		(lib_id "ScottoKeebs:Placeholder_Keyswitch")
+		(lib_id "Top-Library:Placeholder_Keyswitch")
 		(at 219.71 143.51 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -5381,7 +5899,7 @@
 				)
 			)
 		)
-		(property "Footprint" "ScottoKeebs_Scotto:MX_Hotswap_1.00u"
+		(property "Footprint" "Project-Footprints:MX_Hotswap_1.00u"
 			(at 219.71 143.51 0)
 			(effects
 				(font
@@ -5424,7 +5942,7 @@
 		)
 	)
 	(symbol
-		(lib_id "ScottoKeebs:Placeholder_Keyswitch")
+		(lib_id "Top-Library:Placeholder_Keyswitch")
 		(at 186.69 143.51 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -5448,7 +5966,7 @@
 				)
 			)
 		)
-		(property "Footprint" "ScottoKeebs_Scotto:MX_Hotswap_1.00u"
+		(property "Footprint" "Project-Footprints:MX_Hotswap_1.00u"
 			(at 186.69 143.51 0)
 			(effects
 				(font
@@ -5491,78 +6009,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Switch:SW_SPDT")
-		(at 278.13 182.88 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "ad8e526b-8e77-419c-b05a-7750ddbd5578")
-		(property "Reference" "SW1"
-			(at 278.13 173.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "SW_SPDT"
-			(at 278.13 176.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Button_Switch_THT:SW_Slide_SPDT_Angled_CK_OS102011MA1Q"
-			(at 278.13 182.88 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 278.13 190.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Switch, single pole double throw"
-			(at 278.13 182.88 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "1fa60523-1fff-4eb2-a275-eb921e4de2ed")
-		)
-		(pin "3"
-			(uuid "29646c85-33e4-4239-bed3-66050263d087")
-		)
-		(pin "1"
-			(uuid "9efb685e-2783-4e42-a2e9-0adb6890f195")
-		)
-		(instances
-			(project ""
-				(path "/ca9ba2d9-89c9-46e3-92f6-4a1ef1b0894f"
-					(reference "SW1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3.3V")
+		(lib_id "Top-Library:+3.3V")
 		(at 317.5 177.8 270)
 		(mirror x)
 		(unit 1)
@@ -5630,7 +6077,7 @@
 		)
 	)
 	(symbol
-		(lib_id "PCM_Diode_AKL:1N4148")
+		(lib_id "Top-Library:1N4148")
 		(at 189.23 190.5 270)
 		(unit 1)
 		(exclude_from_sim no)
@@ -5657,7 +6104,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal"
+		(property "Footprint" "Project-Footprints:D_DO-35_SOD27_P7.62mm_Horizontal"
 			(at 189.23 190.5 0)
 			(effects
 				(font
@@ -5700,8 +6147,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Mechanical:MountingHole_Pad")
-		(at 316.23 143.51 0)
+		(lib_id "Top-Library:MountingHole_Pad")
+		(at 323.85 135.89 0)
 		(unit 1)
 		(exclude_from_sim yes)
 		(in_bom no)
@@ -5710,7 +6157,7 @@
 		(fields_autoplaced yes)
 		(uuid "d03b78d1-4401-41fe-95c6-3bceb6417a49")
 		(property "Reference" "H2"
-			(at 318.77 140.9699 0)
+			(at 326.39 133.3499 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5719,7 +6166,7 @@
 			)
 		)
 		(property "Value" "MountingHole_Pad"
-			(at 318.77 143.5099 0)
+			(at 326.39 135.8899 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5728,8 +6175,8 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_2.2mm_M2_DIN965_Pad"
-			(at 316.23 143.51 0)
+		(property "Footprint" "Project-Footprints:MountingHole_2.2mm_M2_DIN965_Pad"
+			(at 323.85 135.89 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5738,7 +6185,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 316.23 143.51 0)
+			(at 323.85 135.89 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5747,7 +6194,7 @@
 			)
 		)
 		(property "Description" "Mounting Hole with connection"
-			(at 316.23 143.51 0)
+			(at 323.85 135.89 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5768,7 +6215,7 @@
 		)
 	)
 	(symbol
-		(lib_id "PCM_Diode_AKL:1N4148")
+		(lib_id "Top-Library:1N4148")
 		(at 205.74 149.86 270)
 		(unit 1)
 		(exclude_from_sim no)
@@ -5795,7 +6242,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal"
+		(property "Footprint" "Project-Footprints:D_DO-35_SOD27_P7.62mm_Horizontal"
 			(at 205.74 149.86 0)
 			(effects
 				(font
@@ -5838,7 +6285,7 @@
 		)
 	)
 	(symbol
-		(lib_id "PCM_Diode_AKL:1N4148")
+		(lib_id "Top-Library:1N4148")
 		(at 189.23 170.18 270)
 		(unit 1)
 		(exclude_from_sim no)
@@ -5865,7 +6312,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal"
+		(property "Footprint" "Project-Footprints:D_DO-35_SOD27_P7.62mm_Horizontal"
 			(at 189.23 170.18 0)
 			(effects
 				(font
