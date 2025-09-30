@@ -1,3 +1,6 @@
+# i was dumb and accidentally added raw images
+*.cr2
+
 # KiCad .gitignore file
 # Excludes cache, backups, and temporary files while preserving footprints and symbols
 
