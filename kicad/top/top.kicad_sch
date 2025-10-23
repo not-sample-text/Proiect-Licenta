@@ -5,6 +5,144 @@
 	(uuid "ca9ba2d9-89c9-46e3-92f6-4a1ef1b0894f")
 	(paper "A4")
 	(lib_symbols
+		(symbol "ScottoKeebs:OLED_128x32"
+			(pin_names
+				(offset 1.016)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "J"
+				(at 0 -6.35 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "OLED_128x32"
+				(at 0 6.35 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "ScottoKeebs_Components:OLED_128x32"
+				(at 0 8.89 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 1.27 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "OLED_128x32_0_1"
+				(rectangle
+					(start 0 5.08)
+					(end 15.24 -5.08)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+			)
+			(symbol "OLED_128x32_1_1"
+				(pin power_in line
+					(at -2.54 -3.81 0)
+					(length 2.54)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -2.54 -1.27 0)
+					(length 2.54)
+					(name "VCC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input clock
+					(at -2.54 1.27 0)
+					(length 2.54)
+					(name "SCL"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at -2.54 3.81 0)
+					(length 2.54)
+					(name "SDA"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "Top-Library:+3.3V"
 			(power)
 			(pin_numbers hide)
@@ -1051,144 +1189,6 @@
 						)
 					)
 					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-		)
-		(symbol "Top-Library:OLED_128x64"
-			(pin_names
-				(offset 1.016)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "J"
-				(at 0 -11.43 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "OLED_128x64"
-				(at 0 -7.62 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "ScottoKeebs_Components:OLED_128x64"
-				(at 0 -13.97 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 1.27 0 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "OLED_128x64_0_1"
-				(rectangle
-					(start 10.16 -10.16)
-					(end -10.16 0)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-			)
-			(symbol "OLED_128x64_1_1"
-				(pin power_in line
-					(at -3.81 2.54 270)
-					(length 2.54)
-					(name "GND"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at -1.27 2.54 270)
-					(length 2.54)
-					(name "VCC"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input clock
-					(at 1.27 2.54 270)
-					(length 2.54)
-					(name "SCL"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin bidirectional line
-					(at 3.81 2.54 270)
-					(length 2.54)
-					(name "SDA"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2748,7 +2748,7 @@
 	)
 	(global_label "ROW0"
 		(shape input)
-		(at 208.28 109.22 0)
+		(at 208.28 121.92 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2758,7 +2758,7 @@
 		)
 		(uuid "11c57c66-f6f2-409b-899d-744b0032bcfa")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 216.5266 109.22 0)
+			(at 216.5266 121.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2770,7 +2770,7 @@
 	)
 	(global_label "OLED_SDA"
 		(shape input)
-		(at 208.28 129.54 0)
+		(at 208.28 99.06 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2780,7 +2780,7 @@
 		)
 		(uuid "18581f98-145f-4fd4-b7a5-edb43bbe2974")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 220.5785 129.54 0)
+			(at 220.5785 99.06 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2836,7 +2836,7 @@
 	)
 	(global_label "ENC_DT"
 		(shape input)
-		(at 208.28 114.3 0)
+		(at 208.28 124.46 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2846,7 +2846,7 @@
 		)
 		(uuid "3fdab613-efe4-4687-b2f0-1080d4e3c670")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 218.2199 114.3 0)
+			(at 218.2199 124.46 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2858,7 +2858,7 @@
 	)
 	(global_label "COL0"
 		(shape input)
-		(at 208.28 119.38 0)
+		(at 208.28 104.14 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2868,7 +2868,7 @@
 		)
 		(uuid "42bb8dfc-865e-4673-8bce-82f1278f9765")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 216.1033 119.38 0)
+			(at 216.1033 104.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2968,7 +2968,7 @@
 	)
 	(global_label "BT_SELECT"
 		(shape input)
-		(at 208.28 101.6 0)
+		(at 208.28 111.76 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2978,7 +2978,7 @@
 		)
 		(uuid "6f100558-6b0d-4ce7-805f-94c1bf2078eb")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 221.2436 101.6 0)
+			(at 221.2436 111.76 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2990,7 +2990,7 @@
 	)
 	(global_label "OLED_SCL"
 		(shape input)
-		(at 208.28 127 0)
+		(at 208.28 101.6 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3000,7 +3000,7 @@
 		)
 		(uuid "72cf7a66-0b1f-482b-ae65-01d3298aa44f")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 220.518 127 0)
+			(at 220.518 101.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3012,7 +3012,7 @@
 	)
 	(global_label "ROW1"
 		(shape input)
-		(at 208.28 106.68 0)
+		(at 208.28 119.38 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3022,7 +3022,7 @@
 		)
 		(uuid "767fa6a3-4c63-4633-a829-0ec0a5eeaf09")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 216.5266 106.68 0)
+			(at 216.5266 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3078,7 +3078,7 @@
 	)
 	(global_label "COL1"
 		(shape input)
-		(at 208.28 121.92 0)
+		(at 208.28 106.68 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3088,7 +3088,7 @@
 		)
 		(uuid "9023ebbe-6ea5-49c4-ab3f-e3d316d0a17d")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 216.1033 121.92 0)
+			(at 216.1033 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3100,7 +3100,7 @@
 	)
 	(global_label "ENC_CLK"
 		(shape input)
-		(at 208.28 111.76 0)
+		(at 208.28 127 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3110,7 +3110,7 @@
 		)
 		(uuid "a7894b4a-0a92-4086-8591-10a435545ea4")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 219.5504 111.76 0)
+			(at 219.5504 127 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3122,7 +3122,7 @@
 	)
 	(global_label "ROW2"
 		(shape input)
-		(at 208.28 104.14 0)
+		(at 208.28 116.84 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3132,7 +3132,7 @@
 		)
 		(uuid "bcba17ad-7c85-4c84-be75-5dddaaad93ac")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 216.5266 104.14 0)
+			(at 216.5266 116.84 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3166,7 +3166,7 @@
 	)
 	(global_label "COL2"
 		(shape input)
-		(at 208.28 124.46 0)
+		(at 208.28 109.22 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3176,7 +3176,7 @@
 		)
 		(uuid "c930e65e-cb03-4756-8e9e-e56b0fe85443")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 216.1033 124.46 0)
+			(at 216.1033 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3276,7 +3276,7 @@
 	)
 	(global_label "ENC_SW"
 		(shape input)
-		(at 208.28 116.84 0)
+		(at 208.28 129.54 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3286,7 +3286,7 @@
 		)
 		(uuid "de411b8e-6b32-4ea6-aa8a-5fa9b2b783da")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 218.6432 116.84 0)
+			(at 218.6432 129.54 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3298,7 +3298,7 @@
 	)
 	(global_label "ROW3"
 		(shape input)
-		(at 208.28 99.06 0)
+		(at 208.28 114.3 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3308,7 +3308,7 @@
 		)
 		(uuid "fd33603b-ae0b-4cf5-a96f-7e46069ec994")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 216.5266 99.06 0)
+			(at 216.5266 114.3 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4066,6 +4066,80 @@
 			(project "kicad"
 				(path "/ca9ba2d9-89c9-46e3-92f6-4a1ef1b0894f"
 					(reference "D11")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "ScottoKeebs:OLED_128x32")
+		(at 172.72 66.04 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "37a224ed-c4b8-4ad1-815f-32090dc04430")
+		(property "Reference" "J1"
+			(at 165.1 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "OLED_128x32"
+			(at 165.1 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "ScottoKeebs_Components:OLED_128x32"
+			(at 172.72 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 172.72 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 172.72 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "3"
+			(uuid "61032e19-a18f-4e08-95e5-44ee677c55a9")
+		)
+		(pin "2"
+			(uuid "9c0ff9c0-7bcd-4235-9110-c665d7e85807")
+		)
+		(pin "1"
+			(uuid "bb6cec9d-038f-4959-a62b-e116db6e9b02")
+		)
+		(pin "4"
+			(uuid "cbd8b95a-a704-4e81-8bf3-adcb63b42ae5")
+		)
+		(instances
+			(project ""
+				(path "/ca9ba2d9-89c9-46e3-92f6-4a1ef1b0894f"
+					(reference "J1")
 					(unit 1)
 				)
 			)
@@ -5678,79 +5752,6 @@
 			(project ""
 				(path "/ca9ba2d9-89c9-46e3-92f6-4a1ef1b0894f"
 					(reference "SW2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Top-Library:OLED_128x64")
-		(at 172.72 66.04 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "8d660b4c-be05-4a9d-ad5c-56400c4a80da")
-		(property "Reference" "J1"
-			(at 154.94 72.39 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "OLED_128x64"
-			(at 154.94 74.93 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Project-Footprints:OLED_128x64"
-			(at 158.75 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 172.72 67.31 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 172.72 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "f4d8fe27-9f0e-43c6-9d3a-52ed0e336b4c")
-		)
-		(pin "4"
-			(uuid "c9212be5-76a1-401a-8634-8bc4f4e96d02")
-		)
-		(pin "3"
-			(uuid "34dacd8f-891c-482e-9845-d99d9f573f7c")
-		)
-		(pin "2"
-			(uuid "29d67f23-11fc-488e-8725-5cc5d1d50dda")
-		)
-		(instances
-			(project ""
-				(path "/ca9ba2d9-89c9-46e3-92f6-4a1ef1b0894f"
-					(reference "J1")
 					(unit 1)
 				)
 			)
