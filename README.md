@@ -146,7 +146,7 @@ _PCB Superior - Vedere spate arătând pistele și conexiunile_
 ![Bottom PCB Design](Documentatie/bottom_pcb.png)
 _PCB Inferior - Placă controler cu footprint ProS3_
 
-### Схеме
+### Scheme
 
 - [Schemă Placă Superioară](Documentatie/top_schematic.pdf)
 - [Schemă Placă Inferioară](Documentatie/bottom_schematic.pdf)
