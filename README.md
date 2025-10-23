@@ -1,225 +1,225 @@
 # ESP32 Macropad - Proiect Licență
 
-A custom 12-key mechanical macropad built around the ESP32-S3, featuring programmable mechanical switches, a rotary encoder, OLED display, and dual connectivity modes (USB/Bluetooth).
+Un macropad personalizat cu 12 taste mecanice, construit pe baza ESP32-S3, cu taste mecanice programabile, encoder rotativ, display OLED și două moduri de conectivitate (USB/Bluetooth).
 
 ![Top PCB View 1](Documentatie/top_pcb_1.png)
 ![Top PCB View 2](Documentatie/top_pcb_2.png)
 
-## 📋 Table of Contents
+## Cuprins
 
-- [Overview](#overview)
-- [Features](#features)
-- [Hardware Components](#hardware-components)
-- [PCB Design](#pcb-design)
+- [Prezentare Generală](#prezentare-generală)
+- [Caracteristici](#caracteristici)
+- [Componente Hardware](#componente-hardware)
+- [Design PCB](#design-pcb)
 - [Firmware](#firmware)
-- [Connectivity](#connectivity)
-- [Gallery](#gallery)
-- [License](#license)
+- [Conectivitate](#conectivitate)
+- [Galerie](#galerie)
+- [Licență](#licență)
 
-## 🔍 Overview
+## Prezentare Generală
 
-This project is a productivity-focused macropad designed for customizable workflows. Built with the Unexpected Maker ProS3, it combines mechanical switches with smart features like battery monitoring via NeoPixel LED, an OLED display for visual feedback, and seamless switching between wired and wireless modes.
+Acest proiect este un macropad dedicat productivității, proiectat pentru fluxuri de lucru personalizabile. Construit cu Unexpected Maker ProS3, combină taste mecanice cu funcții inteligente precum monitorizarea bateriei prin LED NeoPixel, un display OLED pentru feedback vizual și comutare fără întreruperi între modurile cu fir și wireless.
 
-## ✨ Features
+## Caracteristici
 
-- **12 Mechanical Keys**: Hot-swappable MX-style mechanical switches
-- **Rotary Encoder**: EC11-compatible encoder with push-button for volume control and menu navigation
-- **OLED Display**: 128x32 SSD1306 OLED screen (0.91" diagonal) showing:
-  - Battery level indicator
-  - Active layer information
-  - Last pressed key/shortcut
-  - Connection status
-- **Dual Connectivity**: Toggle between USB HID and Bluetooth/BLE HID modes
-- **Power Management**: SPDT switch for low-power mode
-- **Battery Indicator**: NeoPixel LED with color-coded battery status:
-  - Green (>80%): Solid green
-  - Yellow-Orange (20-80%): Gradient color
-  - Red (<20%): Flashing red
-- **Three Programmable Layers**:
-  1. Extended function keys (F13-F24) for application shortcuts
-  2. Common shortcuts (CTRL+Z, ALT+TAB, etc.)
-  3. Script execution keys
+- **12 Taste Mecanice**: Taste mecanice hot-swappable stil MX
+- **Encoder Rotativ**: Encoder compatibil EC11 cu buton pentru controlul volumului și navigarea în meniu
+- **Display OLED**: Ecran OLED SSD1306 128x32 (diagonală 0.91") care afișează:
+  - Indicatorul nivelului bateriei
+  - Informații despre stratul activ
+  - Ultima tastă/scurtătură apăsată
+  - Starea conexiunii
+- **Conectivitate Duală**: Comutare între modurile USB HID și Bluetooth/BLE HID
+- **Management Putere**: Switch SPDT pentru modul de consum redus
+- **Indicator Baterie**: LED NeoPixel cu stare baterie codificată prin culoare:
+  - Verde (>80%): Verde solid
+  - Galben-Portocaliu (20-80%): Gradient de culoare
+  - Roșu (<20%): Roșu intermitent
+- **Trei Straturi Programabile**:
+  1. Taste de funcții extinse (F13-F24) pentru scurtături în aplicații
+  2. Scurtături comune (CTRL+Z, ALT+TAB, etc.)
+  3. Taste pentru execuție scripturi
 
-## 🔧 Hardware Components
+## Componente Hardware
 
-### Main Components
+### Componente Principale
 
-- **Unexpected Maker ProS3**: ESP32-S3 based development board with USB-C and built-in battery charging
-- **Rotary Encoder**: EC11-compatible encoder with integrated switch
-- **OLED Display**: SSD1306 128x32 I2C OLED display
-- **Mechanical Switches**: 12x MX-compatible hot-swap sockets
-- **SPDT Switch**: ON-OFF toggle for power management
+- **Unexpected Maker ProS3**: Placă de dezvoltare bazată pe ESP32-S3 cu USB-C și încărcare baterie integrată
+- **Encoder Rotativ**: Encoder compatibil EC11 cu switch integrat
+- **Display OLED**: Display OLED SSD1306 128x32 I2C
+- **Taste Mecanice**: 12x socket-uri hot-swap compatibile MX
+- **Switch SPDT**: Switch ON-OFF pentru managementul puterii
 
-### Passive Components
+### Componente Pasive
 
-- **Diodes**: 1N4148 fast-switching THT diodes for anti-ghosting protection
-- **Pull-up Resistors**: 10kΩ SMD 0805 resistors
-- **Decoupling Capacitor**: 100nF SMD 1206 capacitor
+- **Diode**: Diode THT 1N4148 cu comutare rapidă pentru protecție anti-ghosting
+- **Rezistoare Pull-up**: Rezistoare SMD 0805 de 10kΩ
+- **Condensator de Decuplare**: Condensator SMD 1206 de 100nF
 
-### Pin Reference
+### Referință Pini
 
 ![ProS3 Pin Reference](Documentatie/ProS3_Pin_Reference.png)
 
-## 🛠 PCB Design
+## Design PCB
 
-The project consists of a two-layer PCB design created in KiCad:
+Proiectul constă într-un design PCB cu două straturi, creat în KiCad:
 
-### Top Board (Main Control)
+### Placa de Sus (Control Principal)
 
-The top board houses the user interface components:
+Placa superioară găzduiește componentele interfeței cu utilizatorul:
 
-- 12 mechanical switch sockets in a 3x4 matrix layout
-- Rotary encoder position
-- OLED display connector
-- Mode selection switch
-- Header pins for connecting to the bottom board
+- 12 socket-uri pentru taste mecanice în layout matrice 3x4
+- Poziție encoder rotativ
+- Conector display OLED
+- Switch selectare mod
+- Pini header pentru conectare la placa de jos
 
 ![Top Schematic](Documentatie/top_schematic.pdf)
 ![Top Layout](Documentatie/top_layout.pdf)
 
-### Bottom Board (Controller)
+### Placa de Jos (Controler)
 
-The bottom board contains the main controller and power management:
+Placa inferioară conține controlerul principal și managementul puterii:
 
-- Unexpected Maker ProS3 footprint
-- Battery monitoring circuitry
-- Voltage regulation components
-- Protection diodes
-- Mounting holes for assembly
+- Footprint Unexpected Maker ProS3
+- Circuiterie monitorizare baterie
+- Componente reglare tensiune
+- Diode de protecție
+- Găuri de montare pentru asamblare
 
 ![Bottom PCB](Documentatie/bottom_pcb.png)
 ![Bottom Schematic](Documentatie/bottom_schematic.pdf)
 ![Bottom Layout](Documentatie/bottom_layout.pdf)
 
-## 💻 Firmware
+## Firmware
 
-### Battery Monitoring
+### Monitorizare Baterie
 
-The firmware includes intelligent battery monitoring with visual feedback through the onboard NeoPixel LED:
+Firmware-ul include monitorizarea inteligentă a bateriei cu feedback vizual prin LED-ul NeoPixel integrat:
 
 ```cpp
-// Battery voltage thresholds for 3.7V LiPo
+// Praguri tensiune baterie pentru LiPo 3.7V
 const float VOLTAGE_FULL = 4.20;  // 100%
 const float VOLTAGE_EMPTY = 3.30; // 0%
 ```
 
-**Color Indicators:**
+**Indicatori Culoare:**
 
-- **Green**: Battery level above 80%
-- **Gradient (Green→Yellow→Red)**: Battery level between 20-80%
-- **Flashing Red**: Battery level below 20% (critical)
+- **Verde**: Nivel baterie peste 80%
+- **Gradient (Verde→Galben→Roșu)**: Nivel baterie între 20-80%
+- **Roșu Intermitent**: Nivel baterie sub 20% (critic)
 
-The system reads battery voltage through the A13 analog pin and updates the LED status every second.
+Sistemul citește tensiunea bateriei prin pinul analog A13 și actualizează starea LED-ului în fiecare secundă.
 
-### Dependencies
+### Dependențe
 
-- `Adafruit_NeoPixel`: For controlling the RGB LED
+- `Adafruit_NeoPixel`: Pentru controlul LED-ului RGB
 
-## 🔌 Connectivity
+## Conectivitate
 
-The macropad supports two main communication protocols:
+Macropad-ul suportă două protocoale principale de comunicare:
 
 ### USB HID
 
-- Standard USB connection via USB-C port
-- Low latency, no pairing required
-- Suitable for desktop/workstation use
+- Conexiune USB standard prin port USB-C
+- Latență redusă, fără necesitatea asocierii
+- Potrivit pentru utilizare desktop/workstation
 
 ### Bluetooth/BLE HID
 
-- Wireless connectivity for portable use
-- Supports multiple device pairing
-- Battery-powered operation
+- Conectivitate wireless pentru utilizare portabilă
+- Suportă asocierea cu multiple dispozitive
+- Funcționare pe baterie
 
-Users can switch between modes using the rotary encoder and monitor the active connection on the OLED display.
+Utilizatorii pot comuta între moduri folosind encoderul rotativ și pot monitoriza conexiunea activă pe display-ul OLED.
 
-## 📸 Gallery
+## Galerie
 
-### PCB Designs
+### Design-uri PCB
 
 ![Top PCB Design 1](Documentatie/top_pcb_1.png)
-_Top PCB - Front view showing switch layout and component placement_
+_PCB Superior - Vedere frontală arătând layout-ul tastelor și plasarea componentelor_
 
 ![Top PCB Design 2](Documentatie/top_pcb_2.png)
-_Top PCB - Back view showing traces and connections_
+_PCB Superior - Vedere spate arătând pistele și conexiunile_
 
 ![Bottom PCB Design](Documentatie/bottom_pcb.png)
-_Bottom PCB - Controller board with ProS3 footprint_
+_PCB Inferior - Placă controler cu footprint ProS3_
 
-### Schematics
+### Схеме
 
-- [Top Board Schematic](Documentatie/top_schematic.pdf)
-- [Bottom Board Schematic](Documentatie/bottom_schematic.pdf)
+- [Schemă Placă Superioară](Documentatie/top_schematic.pdf)
+- [Schemă Placă Inferioară](Documentatie/bottom_schematic.pdf)
 
-### PCB Layouts
+### Layout-uri PCB
 
-- [Top Board Layout](Documentatie/top_layout.pdf)
-- [Bottom Board Layout](Documentatie/bottom_layout.pdf)
+- [Layout Placă Superioară](Documentatie/top_layout.pdf)
+- [Layout Placă Inferioară](Documentatie/bottom_layout.pdf)
 
-## 📦 Project Structure
+## Structura Proiectului
 
 ```
 Proiect-Licenta/
 ├── Code/
 │   └── battery_neopixel/
-│       └── battery_neopixel.ino      # Battery monitoring firmware
+│       └── battery_neopixel.ino      # Firmware monitorizare baterie
 ├── Documentatie/
-│   ├── Documentatie.md                # Project documentation (Romanian)
-│   ├── ProS3_Pin_Reference.png       # ESP32-S3 pinout reference
-│   ├── top_pcb_1.png                 # Top PCB render (front)
-│   ├── top_pcb_2.png                 # Top PCB render (back)
-│   ├── bottom_pcb.png                # Bottom PCB render
-│   ├── top_schematic.pdf             # Top board schematic
-│   ├── bottom_schematic.pdf          # Bottom board schematic
-│   ├── top_layout.pdf                # Top board layout
-│   └── bottom_layout.pdf             # Bottom board layout
+│   ├── Documentatie.md                # Documentație proiect (Română)
+│   ├── ProS3_Pin_Reference.png       # Referință pinout ESP32-S3
+│   ├── top_pcb_1.png                 # Randare PCB superior (față)
+│   ├── top_pcb_2.png                 # Randare PCB superior (spate)
+│   ├── bottom_pcb.png                # Randare PCB inferior
+│   ├── top_schematic.pdf             # Schemă placă superioară
+│   ├── bottom_schematic.pdf          # Schemă placă inferioară
+│   ├── top_layout.pdf                # Layout placă superioară
+│   └── bottom_layout.pdf             # Layout placă inferioară
 ├── kicad/
-│   ├── top/                          # Top PCB KiCad project files
-│   └── bottom/                       # Bottom PCB KiCad project files
-└── scottokeebs_kicad_libs/           # Custom KiCad libraries for mechanical keyboards
+│   ├── top/                          # Fișiere proiect KiCad PCB superior
+│   └── bottom/                       # Fișiere proiect KiCad PCB inferior
+└── scottokeebs_kicad_libs/           # Biblioteci KiCad personalizate pentru tastaturi mecanice
 ```
 
-## 🚀 Getting Started
+## Primii Pași
 
-### Hardware Assembly
+### Asamblare Hardware
 
-1. Order PCBs using the gerber files from the KiCad project
-2. Solder passive components (diodes, resistors, capacitors) on both boards
-3. Install hot-swap sockets on the top board
-4. Solder header pins between top and bottom boards
-5. Mount the ProS3 on the bottom board
-6. Connect the OLED display and rotary encoder
-7. Install mechanical switches
+1. Comandați PCB-uri folosind fișierele gerber din proiectul KiCad
+2. Lipire componente pasive (diode, rezistoare, condensatoare) pe ambele plăci
+3. Instalare socket-uri hot-swap pe placa superioară
+4. Lipire pini header între plăcile superioară și inferioară
+5. Montare ProS3 pe placa inferioară
+6. Conectare display OLED și encoder rotativ
+7. Instalare taste mecanice
 
-### Firmware Upload
+### Încărcare Firmware
 
-1. Install Arduino IDE with ESP32 board support
-2. Install required libraries:
+1. Instalare Arduino IDE cu suport pentru plăci ESP32
+2. Instalare biblioteci necesare:
    - Adafruit NeoPixel
-3. Open `Code/battery_neopixel/battery_neopixel.ino`
-4. Select "Unexpected Maker ProS3" as the board
-5. Upload the firmware
+3. Deschidere `Code/battery_neopixel/battery_neopixel.ino`
+4. Selectare "Unexpected Maker ProS3" ca placă
+5. Încărcare firmware
 
-### Software Configuration
+### Configurare Software
 
-_Firmware for keyboard functionality coming soon_
+_Firmware pentru funcționalitatea tastaturii în curând_
 
-## 🤝 Contributing
+## Contribuții
 
-This is a university thesis project (Proiect Licență). Suggestions and feedback are welcome!
+Acesta este un proiect de licență universitară. Sugestii și feedback sunt binevenite!
 
-## 📄 License
+## Licență
 
-This project includes components from [ScottoKeebs](https://github.com/joe-scotto/scottokeebs), which are used under their respective licenses.
+Acest proiect include componente de la [ScottoKeebs](https://github.com/joe-scotto/scottokeebs), care sunt utilizate sub licențele lor respective.
 
-## 🙏 Acknowledgments
+## Mulțumiri
 
-- [Unexpected Maker](https://unexpectedmaker.com/) for the ProS3 board
-- [ScottoKeebs](https://github.com/joe-scotto/scottokeebs) for KiCad keyboard libraries and footprints
-- The mechanical keyboard community for inspiration and resources
+- [Unexpected Maker](https://unexpectedmaker.com/) pentru placa ProS3
+- [ScottoKeebs](https://github.com/joe-scotto/scottokeebs) pentru bibliotecile KiCad și footprint-urile pentru tastaturi
+- Comunitatea de tastaturi mecanice pentru inspirație și resurse
 
 ---
 
-**Project Status**: In Development 🚧
+**Stare Proiect**: În Dezvoltare
 
-_Created as part of a Bachelor's Thesis (Licență) project_
+_Creat ca parte a unui proiect de licență_
