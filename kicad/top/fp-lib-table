@@ -1,4 +1,4 @@
 (fp_lib_table
   (version 7)
-  (lib (name "Project-Footprints")(type "KiCad")(uri "${KIPRJMOD}/Imports/Footprints.pretty")(options "")(descr ""))
+  (lib (name "Top-Footprints")(type "KiCad")(uri "/home/user/Desktop/Proiect-Licenta/kicad/Imports/Footprints/Top-Footprints.pretty")(options "")(descr ""))
 )

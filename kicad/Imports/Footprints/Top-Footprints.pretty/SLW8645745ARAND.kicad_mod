@@ -1,0 +1,497 @@
+(footprint "SLW8645745ARAND"
+	(version 20240108)
+	(generator "pcbnew")
+	(generator_version "8.0")
+	(layer "F.Cu")
+	(descr "SLW-864574-5A-RA-N-D-3")
+	(tags "Switch")
+	(property "Reference" "REF**"
+		(at -5.15 0 -90)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "300e7468-6fe1-4f3b-8bea-54b0cd85433a")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.254)
+			)
+		)
+	)
+	(property "Value" "SLW-864574-5A-RA-N-D"
+		(at 2 2.5 180)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "7282e0fe-c59c-43dd-b770-e3215d343cd4")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.254)
+			)
+		)
+	)
+	(property "Footprint" "Project-Footprints:SLW8645745ARAND"
+		(at 0 0 180)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "b3d831c3-892a-40af-aae3-d86e362f3c82")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" "https://www.digikey.com/en/products/detail/same-sky-formerly-cui-devices/SLW-864574-5A-RA-N-D/24399231?msockid=3e3afa68a50969ca3057ef1ca4c9684b"
+		(at 0 0 180)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "092e029c-e19e-4ff0-a803-1c3653be71be")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" "8.6 x 4.5 x 6.2 mm, 5 mm Raised Slide Actuator, Right Angle, Through Hole, Slide Switch"
+		(at 0 0 180)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "957c880d-8f64-49da-8402-3fedc005662e")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Height" "5"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "be4af206-2c5a-4437-933f-70b69a98e5eb")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Manufacturer_Name" "Same Sky"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "ba90aa3c-368c-4f97-ac2a-f721347c2287")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Manufacturer_Part_Number" "SLW-864574-5A-RA-N-D"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "0cfa334d-003c-45ad-b72b-1aa95b22b254")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Mouser Part Number" "179-SLW8645745ARAND"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "fce7e156-8350-4795-a826-d5daff90b983")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Same-Sky/SLW-864574-5A-RA-N-D?qs=IKkN%2F947nfBrNZ%2FZFlfKbA%3D%3D"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "35826433-4f2f-4b90-a058-55385371b9a3")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Arrow Part Number" "SLW-864574-5A-RA-N-D"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "30e49853-b0fa-4358-9811-6cdfb2ce31a9")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Arrow Price/Stock" "https://www.arrow.com/en/products/slw-864574-5a-ra-n-d/cui-devices?utm_currency=USD&region=nac"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "80f384a4-f324-4c33-b59c-4f9db3a07543")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr through_hole)
+	(fp_line
+		(start -2.3 -2.25)
+		(end 6.3 -2.25)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "be321f5f-aae6-4199-97e3-ddac3d66d09c")
+	)
+	(fp_line
+		(start -2.3 -1.5)
+		(end -2.3 -2.25)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "1fb265c1-e06a-40e0-bc99-46ccc5ce5058")
+	)
+	(fp_line
+		(start -2.3 2.25)
+		(end -2.3 1.5)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "3633cfe4-b1ec-47e7-b5ab-e661cdbeb588")
+	)
+	(fp_line
+		(start 0 -2.9)
+		(end 0 -2.9)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "615cf259-96d9-48d8-81a2-662cb63bf629")
+	)
+	(fp_line
+		(start 0 -2.8)
+		(end 0 -2.8)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "a1f28a3e-cce7-4911-97cb-db9aa6485968")
+	)
+	(fp_line
+		(start 0 2.25)
+		(end 0 7.25)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "891f078f-175a-424e-bc2f-a796cf3f00f2")
+	)
+	(fp_line
+		(start 0 7.25)
+		(end 2 7.25)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "31166612-b058-46f4-9bd7-cccc6c095931")
+	)
+	(fp_line
+		(start 2 7.25)
+		(end 2 2.25)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "71a8c3ca-94e6-4e1e-ac5c-07adb75b4872")
+	)
+	(fp_line
+		(start 6.3 -2.25)
+		(end 6.3 -1.5)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "f5cbf673-fc2a-4917-a089-a2317f3ef46d")
+	)
+	(fp_line
+		(start 6.3 1.5)
+		(end 6.3 2.25)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "53adc8f7-39af-43ac-bbe5-166f501eaf9c")
+	)
+	(fp_line
+		(start 6.3 2.25)
+		(end -2.3 2.25)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "86b3c9ac-8e04-4e08-9c69-cf16b3e45df5")
+	)
+	(fp_arc
+		(start 0 -2.9)
+		(mid 0.05 -2.85)
+		(end 0 -2.8)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "a3258714-0d20-4c73-8826-e62337d0c747")
+	)
+	(fp_arc
+		(start 0 -2.8)
+		(mid -0.05 -2.85)
+		(end 0 -2.9)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "c9b1a434-0899-4ea4-af42-49da8aee88a2")
+	)
+	(fp_line
+		(start -4.195 -3.25)
+		(end 8.195 -3.25)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "534aada4-ada4-49a7-83fb-3b9bd325c197")
+	)
+	(fp_line
+		(start -4.195 8.25)
+		(end -4.195 -3.25)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "9d2a79a8-5dd8-4304-93ee-37349f072000")
+	)
+	(fp_line
+		(start 8.195 -3.25)
+		(end 8.195 8.25)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "febb15e3-fa2c-428c-90f4-d381c63525e1")
+	)
+	(fp_line
+		(start 8.195 8.25)
+		(end -4.195 8.25)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "d766eaed-83db-4788-92b5-669bf72480ce")
+	)
+	(fp_line
+		(start -2.3 -2.25)
+		(end 6.3 -2.25)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "443e8365-df06-4db5-9453-7d79125a25ef")
+	)
+	(fp_line
+		(start -2.3 2.25)
+		(end -2.3 -2.25)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "1a89aad5-32d3-43e2-80ac-5f7fc8cca1d3")
+	)
+	(fp_line
+		(start 0 7.25)
+		(end 0 2.25)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "7a2f2cf8-dbb3-4a74-8826-5db380e43366")
+	)
+	(fp_line
+		(start 2 2.25)
+		(end 2 7.25)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "e79ecfe4-aa4b-47ab-a525-bf5a91954148")
+	)
+	(fp_line
+		(start 2 7.25)
+		(end 0 7.25)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "2d038643-800d-41a8-8345-02db7ec91594")
+	)
+	(fp_line
+		(start 6.3 -2.25)
+		(end 6.3 2.25)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "6c2958de-69ab-4a6b-b2f2-721200de4fb2")
+	)
+	(fp_line
+		(start 6.3 2.25)
+		(end -2.3 2.25)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "9f91e0f3-aba8-4832-a2fc-dcef8d16aff5")
+	)
+	(fp_text user "${REFERENCE}"
+		(at -5.15 0 -90)
+		(layer "F.Fab")
+		(uuid "6e4afff8-80e0-4780-8271-bf74ad31b18d")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.254)
+			)
+		)
+	)
+	(pad "1" thru_hole rect
+		(at 0 0)
+		(size 1.337 1.337)
+		(drill 0.78)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(teardrops
+			(best_length_ratio 0.5)
+			(max_length 1)
+			(best_width_ratio 1)
+			(max_width 2)
+			(curve_points 0)
+			(filter_ratio 0.9)
+			(enabled yes)
+			(allow_two_segments yes)
+			(prefer_zone_connections yes)
+		)
+		(uuid "634589f9-8ca3-4f26-9e64-51a4478cc06b")
+	)
+	(pad "2" thru_hole circle
+		(at 2 0)
+		(size 1.337 1.337)
+		(drill 0.78)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(teardrops
+			(best_length_ratio 0.5)
+			(max_length 1)
+			(best_width_ratio 1)
+			(max_width 2)
+			(curve_points 0)
+			(filter_ratio 0.9)
+			(enabled yes)
+			(allow_two_segments yes)
+			(prefer_zone_connections yes)
+		)
+		(uuid "85534ce9-0e01-4725-a38b-b466b9d1a08d")
+	)
+	(pad "3" thru_hole circle
+		(at 4 0)
+		(size 1.337 1.337)
+		(drill 0.78)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(teardrops
+			(best_length_ratio 0.5)
+			(max_length 1)
+			(best_width_ratio 1)
+			(max_width 2)
+			(curve_points 0)
+			(filter_ratio 0.9)
+			(enabled yes)
+			(allow_two_segments yes)
+			(prefer_zone_connections yes)
+		)
+		(uuid "3556227c-045e-45ed-8aec-2f7cfe901665")
+	)
+	(pad "4" thru_hole circle
+		(at -2.1 0)
+		(size 2.19 2.19)
+		(drill 1.46)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "dcbd5dc3-7d98-4fad-8fe7-01e2c6be6e51")
+	)
+	(pad "5" thru_hole circle
+		(at 6.1 0)
+		(size 2.19 2.19)
+		(drill 1.46)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "0f3397f1-3135-4b1b-bdf8-5900dffc78da")
+	)
+	(model "${KIPRJMOD}/Imports/3d/SLW-864574-5A-RA-N-D.stp"
+		(offset
+			(xyz 1.98999998 0 0.2300000007)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)
