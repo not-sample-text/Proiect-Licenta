@@ -12,6 +12,9 @@
 *.lck
 ~*
 
+# Freecad backups
+*.FCBak
+
 # KiCad cache files
 fp-info-cache
 *.cache
