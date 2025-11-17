@@ -9,7 +9,7 @@
 		(at 0 -8 0)
 		(layer "F.SilkS")
 		(hide yes)
-		(uuid "a640f392-9a28-4ced-823e-46d37e16e8a1")
+		(uuid "88486e9a-0808-4e8f-819b-b13701c65fb3")
 		(effects
 			(font
 				(size 1 1)
@@ -21,7 +21,7 @@
 		(at 0 8 0)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "711e5ade-0e20-4a74-a64a-ca2cf3dc146b")
+		(uuid "b6b8abf8-3447-4e3b-bcb6-090b0074322f")
 		(effects
 			(font
 				(size 1 1)
@@ -29,12 +29,12 @@
 			)
 		)
 	)
-	(property "Footprint" "Project-Footprints:Encoder_EC11_MX"
+	(property "Footprint" "Top-Footprints:Encoder_EC11_MX"
 		(at 0 0 0)
 		(unlocked yes)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "21b1ad8f-4c7c-42da-a513-d345e1ce6ab7")
+		(uuid "f6c07813-1f49-4256-a223-67f702eabc6c")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -47,7 +47,7 @@
 		(unlocked yes)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "f03582a4-f5e0-41df-95f3-54133e93e3ec")
+		(uuid "2daf4231-c9da-4b20-9f1e-417d040094f0")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -60,7 +60,7 @@
 		(unlocked yes)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "6e0a2670-2735-4480-92b5-fc5db2d11d90")
+		(uuid "f6ccc4d2-6ee6-454a-ae66-a6dd95946162")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -77,7 +77,7 @@
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "12aa1730-0617-4507-b3c3-aa477d143477")
+		(uuid "4b59d3e9-9085-492d-8d4b-917426ce6162")
 	)
 	(fp_line
 		(start -6 5.8)
@@ -87,7 +87,7 @@
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "adccbcc1-e980-4eab-bf10-5bbd929c9e1a")
+		(uuid "f00f6ff9-5ec3-43d4-aaa8-6ca4ae361de8")
 	)
 	(fp_line
 		(start -5 -5.8)
@@ -97,7 +97,7 @@
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "f96cb463-b61d-4471-a4a5-29d5b9537805")
+		(uuid "99584d54-eaad-4c69-bd85-3c0daea2677d")
 	)
 	(fp_line
 		(start -2 5.8)
@@ -107,7 +107,7 @@
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "f14eeaea-b7f1-483d-99b0-234d370ec905")
+		(uuid "27eef67a-57e3-4589-91df-d2227b5a12f7")
 	)
 	(fp_line
 		(start 5.5 -5.8)
@@ -117,7 +117,7 @@
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "529b3f8f-a32d-4157-a0e3-84c31ce4636d")
+		(uuid "17b6cc48-eb62-445a-8a5f-7c59384100f7")
 	)
 	(fp_line
 		(start 5.5 -5.8)
@@ -127,7 +127,7 @@
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "08fd5354-5183-4c08-81e4-190a76da2ee5")
+		(uuid "c130db63-0845-4109-b501-3e3d5fde1e0e")
 	)
 	(fp_line
 		(start 5.5 5.8)
@@ -137,7 +137,7 @@
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "b08cb002-0d93-4ded-b634-d39527ddf713")
+		(uuid "61d9366a-214a-463e-bb6d-70e5f1b17d0d")
 	)
 	(fp_rect
 		(start -8.5 -8.5)
@@ -148,7 +148,7 @@
 		)
 		(fill none)
 		(layer "F.CrtYd")
-		(uuid "bfb36533-f2d4-4430-9909-1daac1288797")
+		(uuid "2bbe2365-a69d-49ca-8976-932072ea8897")
 	)
 	(fp_line
 		(start -3 0)
@@ -158,7 +158,7 @@
 			(type solid)
 		)
 		(layer "F.Fab")
-		(uuid "520c2023-b371-4e19-921b-5464c3782274")
+		(uuid "4d3e9ab0-15cb-4e99-a395-970f9616e8d8")
 	)
 	(fp_line
 		(start 0 -3)
@@ -168,7 +168,7 @@
 			(type solid)
 		)
 		(layer "F.Fab")
-		(uuid "bb35d549-885d-4448-9b17-7d2c45e54542")
+		(uuid "71c39b42-42c7-462a-97b2-197b7ded0ada")
 	)
 	(fp_circle
 		(center 0 0)
@@ -179,12 +179,12 @@
 		)
 		(fill none)
 		(layer "F.Fab")
-		(uuid "694e154f-74dd-471b-b08e-ff960eba7ed9")
+		(uuid "9b3347ae-e5c8-4c5f-87ab-e32951823f24")
 	)
 	(fp_text user "${REFERENCE}"
 		(at 3.6 3.8 0)
 		(layer "F.Fab")
-		(uuid "a3695489-883c-4fcb-b3c8-7b3723f04835")
+		(uuid "2f6aa884-173a-4c6e-b42a-6a14938188ff")
 		(effects
 			(font
 				(size 1 1)
@@ -196,12 +196,7 @@
 		(at -7.5 -2.5)
 		(size 2 2)
 		(drill 1)
-		(layers "*.Cu" "*.Mask" "In1.Cu" "In2.Cu" "In3.Cu" "In4.Cu" "In5.Cu" "In6.Cu"
-			"In7.Cu" "In8.Cu" "In9.Cu" "In10.Cu" "In11.Cu" "In12.Cu" "In13.Cu" "In14.Cu"
-			"In15.Cu" "In16.Cu" "In17.Cu" "In18.Cu" "In19.Cu" "In20.Cu" "In21.Cu"
-			"In22.Cu" "In23.Cu" "In24.Cu" "In25.Cu" "In26.Cu" "In27.Cu" "In28.Cu"
-			"In29.Cu" "In30.Cu"
-		)
+		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
 		(teardrops
 			(best_length_ratio 0.5)
@@ -214,18 +209,13 @@
 			(allow_two_segments yes)
 			(prefer_zone_connections yes)
 		)
-		(uuid "b4dfbc87-640c-4be7-9106-659441fa87a0")
+		(uuid "dbf7ec54-e5df-4c29-b32c-4a74dfbac201")
 	)
 	(pad "B" thru_hole circle
 		(at -7.5 2.5)
 		(size 2 2)
 		(drill 1)
-		(layers "*.Cu" "*.Mask" "In1.Cu" "In2.Cu" "In3.Cu" "In4.Cu" "In5.Cu" "In6.Cu"
-			"In7.Cu" "In8.Cu" "In9.Cu" "In10.Cu" "In11.Cu" "In12.Cu" "In13.Cu" "In14.Cu"
-			"In15.Cu" "In16.Cu" "In17.Cu" "In18.Cu" "In19.Cu" "In20.Cu" "In21.Cu"
-			"In22.Cu" "In23.Cu" "In24.Cu" "In25.Cu" "In26.Cu" "In27.Cu" "In28.Cu"
-			"In29.Cu" "In30.Cu"
-		)
+		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
 		(teardrops
 			(best_length_ratio 0.5)
@@ -238,18 +228,13 @@
 			(allow_two_segments yes)
 			(prefer_zone_connections yes)
 		)
-		(uuid "56c748a5-efb1-40fc-909d-06a2f7ce7e7e")
+		(uuid "5dd2ea7d-56f4-498e-b025-36c488bb272e")
 	)
 	(pad "C" thru_hole circle
 		(at -7.5 0)
 		(size 2 2)
 		(drill 1)
-		(layers "*.Cu" "*.Mask" "In1.Cu" "In2.Cu" "In3.Cu" "In4.Cu" "In5.Cu" "In6.Cu"
-			"In7.Cu" "In8.Cu" "In9.Cu" "In10.Cu" "In11.Cu" "In12.Cu" "In13.Cu" "In14.Cu"
-			"In15.Cu" "In16.Cu" "In17.Cu" "In18.Cu" "In19.Cu" "In20.Cu" "In21.Cu"
-			"In22.Cu" "In23.Cu" "In24.Cu" "In25.Cu" "In26.Cu" "In27.Cu" "In28.Cu"
-			"In29.Cu" "In30.Cu"
-		)
+		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
 		(teardrops
 			(best_length_ratio 0.5)
@@ -262,44 +247,29 @@
 			(allow_two_segments yes)
 			(prefer_zone_connections yes)
 		)
-		(uuid "0ad46f74-38a2-422d-9194-fcd96401730c")
+		(uuid "26ff3429-76c3-4a5b-b01d-4360e2cee13c")
 	)
 	(pad "MP" thru_hole rect
 		(at 0 -5.6)
 		(size 3.2 2)
 		(drill oval 2.8 1.5)
-		(layers "*.Cu" "*.Mask" "In1.Cu" "In2.Cu" "In3.Cu" "In4.Cu" "In5.Cu" "In6.Cu"
-			"In7.Cu" "In8.Cu" "In9.Cu" "In10.Cu" "In11.Cu" "In12.Cu" "In13.Cu" "In14.Cu"
-			"In15.Cu" "In16.Cu" "In17.Cu" "In18.Cu" "In19.Cu" "In20.Cu" "In21.Cu"
-			"In22.Cu" "In23.Cu" "In24.Cu" "In25.Cu" "In26.Cu" "In27.Cu" "In28.Cu"
-			"In29.Cu" "In30.Cu"
-		)
+		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
-		(uuid "5ababf1d-127c-4786-8023-fb889d01208d")
+		(uuid "7e3bcb2a-9f80-4c07-a213-033ecc25a339")
 	)
 	(pad "MP" thru_hole rect
 		(at 0 5.6)
 		(size 3.2 2)
 		(drill oval 2.8 1.5)
-		(layers "*.Cu" "*.Mask" "In1.Cu" "In2.Cu" "In3.Cu" "In4.Cu" "In5.Cu" "In6.Cu"
-			"In7.Cu" "In8.Cu" "In9.Cu" "In10.Cu" "In11.Cu" "In12.Cu" "In13.Cu" "In14.Cu"
-			"In15.Cu" "In16.Cu" "In17.Cu" "In18.Cu" "In19.Cu" "In20.Cu" "In21.Cu"
-			"In22.Cu" "In23.Cu" "In24.Cu" "In25.Cu" "In26.Cu" "In27.Cu" "In28.Cu"
-			"In29.Cu" "In30.Cu"
-		)
+		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
-		(uuid "0b0ade17-9871-4cf4-bf1a-ce931e096764")
+		(uuid "6c28a68a-4f0e-43ae-8079-c82e1438f486")
 	)
 	(pad "S1" thru_hole circle
 		(at 7 2.5)
 		(size 2 2)
 		(drill 1)
-		(layers "*.Cu" "*.Mask" "In1.Cu" "In2.Cu" "In3.Cu" "In4.Cu" "In5.Cu" "In6.Cu"
-			"In7.Cu" "In8.Cu" "In9.Cu" "In10.Cu" "In11.Cu" "In12.Cu" "In13.Cu" "In14.Cu"
-			"In15.Cu" "In16.Cu" "In17.Cu" "In18.Cu" "In19.Cu" "In20.Cu" "In21.Cu"
-			"In22.Cu" "In23.Cu" "In24.Cu" "In25.Cu" "In26.Cu" "In27.Cu" "In28.Cu"
-			"In29.Cu" "In30.Cu"
-		)
+		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
 		(teardrops
 			(best_length_ratio 0.5)
@@ -312,18 +282,13 @@
 			(allow_two_segments yes)
 			(prefer_zone_connections yes)
 		)
-		(uuid "0f8b4729-1a7b-4097-ae43-402ffcbae5dd")
+		(uuid "521ceab1-f1f5-46e6-91bf-21974b789cff")
 	)
 	(pad "S2" thru_hole circle
 		(at 7 -2.5)
 		(size 2 2)
 		(drill 1)
-		(layers "*.Cu" "*.Mask" "In1.Cu" "In2.Cu" "In3.Cu" "In4.Cu" "In5.Cu" "In6.Cu"
-			"In7.Cu" "In8.Cu" "In9.Cu" "In10.Cu" "In11.Cu" "In12.Cu" "In13.Cu" "In14.Cu"
-			"In15.Cu" "In16.Cu" "In17.Cu" "In18.Cu" "In19.Cu" "In20.Cu" "In21.Cu"
-			"In22.Cu" "In23.Cu" "In24.Cu" "In25.Cu" "In26.Cu" "In27.Cu" "In28.Cu"
-			"In29.Cu" "In30.Cu"
-		)
+		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
 		(teardrops
 			(best_length_ratio 0.5)
@@ -336,9 +301,9 @@
 			(allow_two_segments yes)
 			(prefer_zone_connections yes)
 		)
-		(uuid "bde40600-e88b-42a4-97aa-7aa5356ad617")
+		(uuid "4ad39319-cf67-464a-a675-246dd6813f4a")
 	)
-	(model "${KIPRJMOD}/Imports/3d/EC11.step"
+	(model "${TOP_3D}/EC11.step"
 		(offset
 			(xyz 0 0 0)
 		)

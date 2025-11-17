@@ -7,7 +7,7 @@
 		(at 0 0 0)
 		(layer "F.SilkS")
 		(hide yes)
-		(uuid "f5b1b922-e15f-4d64-bb3a-c73c3c987cd8")
+		(uuid "efbed394-2221-4d44-97bf-b48dc04dae21")
 		(effects
 			(font
 				(size 1.5 1.5)
@@ -19,7 +19,7 @@
 		(at 0.75 0 0)
 		(layer "F.SilkS")
 		(hide yes)
-		(uuid "1c9a64e2-bbef-464c-a93e-66199b727c92")
+		(uuid "5e950e12-2487-4c52-aea4-114e127b5122")
 		(effects
 			(font
 				(size 1.5 1.5)
@@ -27,11 +27,11 @@
 			)
 		)
 	)
-	(property "Footprint" "Project-Footprints:nubcat_10mm"
+	(property "Footprint" "Top-Footprints:nubcat_10mm"
 		(at 0 0 0)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "9d107f5f-68cb-43b9-8186-522058981ecb")
+		(uuid "5fbeec1e-546b-4689-9156-c7913a3b4e61")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -43,7 +43,7 @@
 		(at 0 0 0)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "884ff99a-515d-4bc5-baff-017dc4a1b5f5")
+		(uuid "f17180a8-ad41-4fc1-89f8-7a24695c3c30")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -55,7 +55,7 @@
 		(at 0 0 0)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "371ecd91-d1e6-40bc-9486-90f1e67b3990")
+		(uuid "a5c3b0d0-ae0d-4f30-b79a-26c806b96186")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -75,7 +75,7 @@
 		)
 		(fill solid)
 		(layer "F.SilkS")
-		(uuid "18c4794d-018d-4a32-af0b-6ecabcdfbf4b")
+		(uuid "2156611d-d167-48d4-9ceb-ade6ac9b073e")
 	)
 	(fp_poly
 		(pts
@@ -89,7 +89,7 @@
 		)
 		(fill solid)
 		(layer "F.SilkS")
-		(uuid "bd425097-bd99-49d2-ab55-930b3ea1b3d4")
+		(uuid "c9a735af-cd88-4873-b268-5756e1346d52")
 	)
 	(fp_poly
 		(pts
@@ -107,7 +107,7 @@
 		)
 		(fill solid)
 		(layer "F.SilkS")
-		(uuid "81494c64-2fa8-4e19-bee4-f8a7987d9484")
+		(uuid "c36460c7-656d-408d-9c95-c2ff787f0508")
 	)
 	(fp_poly
 		(pts
@@ -126,7 +126,7 @@
 		)
 		(fill solid)
 		(layer "F.SilkS")
-		(uuid "480fa6d1-82da-458f-8721-790cea6e4c09")
+		(uuid "c4add07d-bfab-4453-9fc1-dfa7bae1027e")
 	)
 	(fp_poly
 		(pts
@@ -180,6 +180,6 @@
 		)
 		(fill solid)
 		(layer "F.SilkS")
-		(uuid "46338fb8-967c-411c-9e43-2a136a58691c")
+		(uuid "d6dd7905-2780-4da1-bc09-439c57322fa0")
 	)
 )

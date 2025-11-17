@@ -7,7 +7,7 @@
 		(at 7.75 10 0)
 		(layer "F.SilkS")
 		(hide yes)
-		(uuid "59fd11ef-44fb-469b-ab5f-1a9b1f9e929a")
+		(uuid "74c799fe-ac29-4bb8-aa4c-cbefd1cd5753")
 		(effects
 			(font
 				(size 1 1)
@@ -19,7 +19,7 @@
 		(at 4 -4.5 0)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "a394911d-ecdb-4dc9-8eef-69f48c2592a5")
+		(uuid "54c7e381-31b4-48d9-a280-3ff4976e8ff0")
 		(effects
 			(font
 				(size 1 1)
@@ -27,11 +27,11 @@
 			)
 		)
 	)
-	(property "Footprint" "ScottoKeebs_Components:OLED_128x32"
+	(property "Footprint" "Top-Footprints:OLED_128x32"
 		(at 0 -3 0)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "ef1d2d55-3fa9-4420-9cab-954c0874fffc")
+		(uuid "025b2807-578a-44d2-8ee7-be899e86b73c")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -43,7 +43,7 @@
 		(at -2 -9.5 0)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "f8f6c78e-bc98-4aa4-875b-6594aee27a2d")
+		(uuid "b996aaa1-d464-4f4c-a15f-ca9248cbd281")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -55,7 +55,7 @@
 		(at -7 -7.5 0)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "852e1b62-11b7-484d-aadb-8ec0eb01b1f6")
+		(uuid "887a9b3e-ed3a-4068-8933-43e2db3a9d88")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -72,7 +72,7 @@
 			(type solid)
 		)
 		(layer "Dwgs.User")
-		(uuid "9398faef-02af-431f-aa93-fac5106dd044")
+		(uuid "ef8eb10c-31d7-44fc-9406-72a3180a549f")
 	)
 	(fp_line
 		(start 7.06 2.22)
@@ -82,7 +82,7 @@
 			(type solid)
 		)
 		(layer "Dwgs.User")
-		(uuid "a1b20b30-0db2-4308-b9aa-d4fa6c76780c")
+		(uuid "ed64f538-3f95-4984-8a56-13f39dde0ead")
 	)
 	(fp_line
 		(start 7.06 2.22)
@@ -92,7 +92,7 @@
 			(type solid)
 		)
 		(layer "Dwgs.User")
-		(uuid "6913eee3-2d31-41c3-a2ea-b4418fd0313b")
+		(uuid "28324a25-52ce-450d-8095-eefc88eecacb")
 	)
 	(fp_line
 		(start 7.06 7.74)
@@ -102,7 +102,7 @@
 			(type solid)
 		)
 		(layer "Dwgs.User")
-		(uuid "87c582ab-c248-4a74-9555-0fcebc71faa5")
+		(uuid "4eb1a42e-ba95-4a96-8ff5-60e96dd384e0")
 	)
 	(fp_line
 		(start 29.44 7.74)
@@ -112,7 +112,7 @@
 			(type solid)
 		)
 		(layer "Dwgs.User")
-		(uuid "67251d4f-1d49-475e-a2e3-3a09324d591c")
+		(uuid "f4430c3c-955c-433e-9398-dd45c78499ab")
 	)
 	(fp_line
 		(start 35.75 0)
@@ -122,7 +122,7 @@
 			(type solid)
 		)
 		(layer "Dwgs.User")
-		(uuid "f47f7fa0-2483-4239-a7b6-766f671f8e5c")
+		(uuid "fd981573-9739-43fa-8f9b-47e1ea076378")
 	)
 	(fp_rect
 		(start 0 0)
@@ -133,7 +133,7 @@
 		)
 		(fill none)
 		(layer "F.CrtYd")
-		(uuid "0d5d9e37-93cc-4598-865c-64ba4e56c4de")
+		(uuid "0d5fe15c-3032-471b-a8ea-79c532db6108")
 	)
 	(pad "1" thru_hole rect
 		(at 1.6 9.8 180)
@@ -152,7 +152,7 @@
 			(allow_two_segments yes)
 			(prefer_zone_connections yes)
 		)
-		(uuid "9794243e-6a53-4717-904c-7e72dd9031ac")
+		(uuid "57d4b981-df1e-402d-bc51-c63b3b16b046")
 	)
 	(pad "2" thru_hole oval
 		(at 1.6 7.26 180)
@@ -171,7 +171,7 @@
 			(allow_two_segments yes)
 			(prefer_zone_connections yes)
 		)
-		(uuid "d1c98187-1dea-40cc-afd7-e2be36596444")
+		(uuid "dee70d4b-d688-4489-acfe-07c836142a69")
 	)
 	(pad "3" thru_hole oval
 		(at 1.6 4.72 180)
@@ -190,7 +190,7 @@
 			(allow_two_segments yes)
 			(prefer_zone_connections yes)
 		)
-		(uuid "9cae47e2-bc96-4be6-a2a6-00a31d767db3")
+		(uuid "d13474e8-38f3-4f81-b695-9b88e449a95e")
 	)
 	(pad "4" thru_hole oval
 		(at 1.6 2.18 180)
@@ -209,11 +209,11 @@
 			(allow_two_segments yes)
 			(prefer_zone_connections yes)
 		)
-		(uuid "1dccee16-7f7a-4071-829a-6352b97c5cb4")
+		(uuid "40b06fcb-4159-4edb-94a9-eb6c392dd192")
 	)
-	(model "/home/user/Desktop/Proiect-Licenta/scottokeebs_kicad_libs/Extras/ScottoKicad/3dmodels/ScottoKeebs_Components.3dshapes/OLED_128x32.step"
+	(model "${TOP_3D}/OLED_128x32.step"
 		(offset
-			(xyz 18.5 -5.5 0)
+			(xyz 18.5 -5.5 2.54)
 		)
 		(scale
 			(xyz 1 1 1)
