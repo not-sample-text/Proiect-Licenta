@@ -6,8 +6,8 @@ Un macropad mecanic personalizat cu 12 taste, bazat pe microcontrolerul ESP32-S3
 
 |                Vedere de Sus                 |                    Vedere de Jos                    |
 | :------------------------------------------: | :-------------------------------------------------: |
-|    ![PCB Top](docs/images/render-top.png)     |     ![PCB Bottom](docs/images/render-bottom.png)     |
-| ![PCB Top Angled](docs/images/render-top-angled.png) | ![PCB Bottom Angled](docs/images/render-bottom-angled.png) |
+|    ![PCB Top](images/render-top.png)     |     ![PCB Bottom](images/render-bottom.png)     |
+| ![PCB Top Angled](images/render-top-angled.png) | ![PCB Bottom Angled](images/render-bottom-angled.png) |
 
 ---
 
