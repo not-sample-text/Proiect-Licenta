@@ -4,10 +4,10 @@ Un macropad mecanic personalizat cu 12 taste, bazat pe microcontrolerul ESP32-S3
 
 ## Galerie
 
-|                Vedere de Sus                 |                    Vedere de Jos                    |
-| :------------------------------------------: | :-------------------------------------------------: |
-|    ![PCB Top](docs/images/top_pcb_1.png)     |     ![PCB Bottom](docs/images/bottom_pcb_1.png)     |
-| ![PCB Top Angled](docs/images/top_pcb_2.png) | ![PCB Bottom Angled](docs/images/bottom_pcb__2.png) |
+|                  Vedere de Sus                  |                     Vedere de Jos                     |
+| :---------------------------------------------: | :---------------------------------------------------: |
+|        ![PCB Top](images/render-top.png)        |        ![PCB Bottom](images/render-bottom.png)        |
+| ![PCB Top Angled](images/render-top-angled.png) | ![PCB Bottom Angled](images/render-bottom-angled.png) |
 
 ---
 
@@ -15,7 +15,7 @@ Un macropad mecanic personalizat cu 12 taste, bazat pe microcontrolerul ESP32-S3
 
 Acest depozit conține întreaga suită de inginerie (Hardware, Firmware și Software) pentru un macropad programabil, realizat ca proiect de licență. Dispozitivul este conceput pentru productivitate, permițând utilizatorilor să creeze scurtături personalizate, macro-uri și straturi (layers) de funcții pentru a eficientiza fluxul de lucru.
 
-**Pentru documentația tehnică detaliată, vă rugăm să consultați [Fișierul de Documentație](docs/Documentatie.md).**
+**Pentru documentația tehnică detaliată, vă rugăm să consultați [Fișierul de Documentație](Documentatie.md).**
 
 ## Structura Proiectului
 
@@ -78,7 +78,7 @@ Schemele complete și layout-urile PCB se află în folderul [`hardware/pcb`](ha
 ## Ghid de Utilizare
 
 1.  **Fabricare PCB:** Utilizați fișierele KiCad din `hardware/pcb` pentru a genera fișierele Gerber și a comanda plăcile.
-2.  **Asamblare Hardware:** Lipiți componentele conform layout-ului PCB. Un ghid detaliat de asamblare este disponibil în [documentație](docs/Documentatie.md).
+2.  **Asamblare Hardware:** Lipiți componentele conform layout-ului PCB. Un ghid detaliat de asamblare este disponibil în [documentație](Documentatie.md).
 3.  **Scriere Firmware:** Încărcați codul din folderul `firmware/` pe placa ProS3.
 4.  **Configurare:** Deschideți Configuratorul Web (găzduit prin GitHub Pages sau local), proiectați straturile dorite și exportați fișierul JSON.
 5.  **Rulare Listener:** Porniți aplicația Python Host Listener pentru a sincroniza configurația și a activa funcțiile avansate.
