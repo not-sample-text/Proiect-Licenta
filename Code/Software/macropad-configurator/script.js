@@ -249,6 +249,9 @@ document.addEventListener("DOMContentLoaded", () => {
 					value: value,
 					type: layerIdx === 1 ? "SHORTCUT" : layerIdx === 2 ? "SCRIPT" : "APP"
 				};
+
+				// --- NEW: Save to LocalStorage ---
+				PersistenceHandler.saveToLocal();
 			}
 
 			// Refresh Grid
@@ -266,6 +269,93 @@ document.addEventListener("DOMContentLoaded", () => {
 			});
 			ModalHandler.setupRecorder();
 			ModalHandler.setupFilePickers();
+		}
+	};
+
+	const PersistenceHandler = {
+		// Key for LocalStorage
+		STORAGE_KEY: "macropad_config_v1",
+
+		// 1. Save current state to Browser Memory
+		saveToLocal: () => {
+			try {
+				localStorage.setItem(
+					PersistenceHandler.STORAGE_KEY,
+					JSON.stringify(configData)
+				);
+				console.log("Auto-saved to LocalStorage");
+			} catch (e) {
+				console.warn("LocalStorage failed (likely disabled):", e);
+			}
+		},
+
+		// 2. Load from Browser Memory
+		loadFromLocal: () => {
+			const saved = localStorage.getItem(PersistenceHandler.STORAGE_KEY);
+			if (saved) {
+				try {
+					const parsed = JSON.parse(saved);
+					PersistenceHandler.applyConfig(parsed);
+					console.log("Restored from LocalStorage");
+					return true;
+				} catch (e) {
+					console.error("Corrupt LocalStorage data", e);
+					return false;
+				}
+			}
+			return false;
+		},
+
+		// 3. Import from File
+		initImport: () => {
+			const fileInput = document.getElementById("import-file-input");
+			const importBtn = document.getElementById("btn-import-json");
+
+			// Link button to hidden input
+			importBtn.addEventListener("click", () => fileInput.click());
+
+			// Handle File Selection
+			fileInput.addEventListener("change", (e) => {
+				const file = e.target.files[0];
+				if (!file) return;
+
+				const reader = new FileReader();
+				reader.onload = (event) => {
+					try {
+						const parsed = JSON.parse(event.target.result);
+						PersistenceHandler.applyConfig(parsed);
+						alert("Configuration imported successfully!");
+
+						// Also save this import to local storage immediately
+						PersistenceHandler.saveToLocal();
+					} catch (err) {
+						alert("Error: Invalid JSON file.");
+						console.error(err);
+					}
+				};
+				reader.readAsText(file);
+
+				// Reset input so you can load the same file again if needed
+				fileInput.value = "";
+			});
+		},
+
+		// 4. Helper to Apply Data & Refresh UI
+		applyConfig: (newData) => {
+			// Validate basic structure (Array of 4 layers)
+			if (!Array.isArray(newData) || newData.length !== 4) {
+				throw new Error("Invalid Config Structure");
+			}
+
+			// Update the Global Data Model
+			// We use splice to replace contents without breaking the const reference
+			configData.splice(0, configData.length, ...newData);
+
+			// Refresh UI
+			// If a layer is active, refresh grid. If not, it will refresh on next click.
+			if (state.activeLayerIndex !== -1) {
+				KeyHandler.updateFromData(state.activeLayerIndex);
+			}
 		}
 	};
 
@@ -329,7 +419,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		triggerRotation: (direction) => {
 			const DETENTS = 20;
 			const DEGREES_PER_CLICK = 360 / DETENTS;
-			const VOL_STEP = 2;
+			const VOL_STEP = 5;
 
 			if (direction === "right") state.knobRotation += DEGREES_PER_CLICK;
 			else state.knobRotation -= DEGREES_PER_CLICK;
@@ -446,7 +536,15 @@ document.addEventListener("DOMContentLoaded", () => {
 	KnobHandler.init();
 	ExportHandler.init();
 	ResizerHandler.init();
+	PersistenceHandler.initImport(); // Setup the Import listener
 
-	// Auto-start
-	if (dom.sidebarHeaders.length > 0) dom.sidebarHeaders[0].click();
+	// 1. Try to load from LocalStorage
+	const hasData = PersistenceHandler.loadFromLocal();
+
+	// 2. Auto-start
+	// If we have data, the UI is already updated in memory,
+	// clicking the header will render it to the screen.
+	if (dom.sidebarHeaders.length > 0) {
+		dom.sidebarHeaders[0].click();
+	}
 });

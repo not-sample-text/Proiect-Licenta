@@ -13,9 +13,17 @@
 
   <div class="navbar">
     <div class="title">Macropad Customization Service</div>
-    <button id="btn-export-json" class="btn-primary" style="font-size: 0.8rem;">
-      <i class="ti ti-download"></i> Export JSON
-    </button>
+
+    <div style="display: flex; gap: 10px; margin-left: auto;">
+      <input type="file" id="import-file-input" hidden accept=".json">
+      <button id="btn-import-json" class="btn-secondary" style="font-size: 0.8rem;">
+        <i class="ti ti-upload"></i> Import
+      </button>
+
+      <button id="btn-export-json" class="btn-primary" style="font-size: 0.8rem;">
+        <i class="ti ti-download"></i> Export JSON
+      </button>
+    </div>
   </div>
 
   <div class="sidebar">
