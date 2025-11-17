@@ -1,4 +1,4 @@
 (sym_lib_table
   (version 7)
-  (lib (name "Top-Symbols")(type "KiCad")(uri "/home/user/Desktop/Proiect-Licenta/kicad/Imports/Symbols/Top-Symbols.kicad_sym")(options "")(descr ""))
+  (lib (name "Top-Symbols")(type "KiCad")(uri "${KIPRJMOD}/../Imports/Symbols/Top-Symbols.kicad_sym")(options "")(descr ""))
 )
