@@ -39,10 +39,13 @@ export const SidebarHandler = {
 							);
 							if (headers[index]) headers[index].click();
 						}
+
 						KeyHandler.simulatePress(keyId);
 						const label =
 							keyData && keyData.label ? keyData.label : "Unassigned";
 						OLEDHandler.updateMain(label);
+
+						// ! FIX: Prevent opening modal on Layer 1 (Index 0)
 						if (state.activeLayerIndex > 0) {
 							setTimeout(() => ModalHandler.open(keyId, label), 300);
 						}
@@ -62,13 +65,11 @@ export const SidebarHandler = {
 		const backBtn = document.getElementById("back-to-layers-btn");
 		if (backBtn) {
 			backBtn.addEventListener("click", () => {
-				// ! RESTORE LOGIC: Go back to the last accessed layer
 				const targetIndex =
 					state.lastActiveLayerIndex !== undefined &&
 					state.lastActiveLayerIndex !== -1
 						? state.lastActiveLayerIndex
 						: 0;
-
 				const headers = document.querySelectorAll(
 					".sidebar .category-header[data-layer]"
 				);
@@ -77,10 +78,9 @@ export const SidebarHandler = {
 		}
 	},
 
+	// ... (Rest of the file is unchanged from previous version) ...
 	toggleLayer: (index, header) => {
 		SidebarHandler.switchView("KEYS");
-
-		// Show Layers List, Hide Controls
 		document.getElementById("sidebar-layers-view").classList.remove("hidden");
 		document.getElementById("sidebar-controls-view").classList.add("hidden");
 
@@ -117,23 +117,17 @@ export const SidebarHandler = {
 	},
 
 	switchToSettings: () => {
-		// ! SAVE STATE: Remember where we were
 		if (state.activeLayerIndex !== -1) {
 			state.lastActiveLayerIndex = state.activeLayerIndex;
 		}
-
-		// Hide Layers List, Show Controls
 		document.getElementById("sidebar-layers-view").classList.add("hidden");
 		document.getElementById("sidebar-controls-view").classList.remove("hidden");
-
-		// Close all accordions visually
 		document
 			.querySelectorAll(".sidebar .key-list")
 			.forEach((el) => el.classList.remove("open"));
 		document
 			.querySelectorAll(".sidebar .category-icon")
 			.forEach((el) => el.classList.remove("open"));
-
 		dom.title.innerText = "LIGHTING & SETTINGS";
 		SidebarHandler.switchView("LIGHTING");
 		state.activeLayerIndex = -1;
@@ -143,7 +137,6 @@ export const SidebarHandler = {
 	switchView: (viewName) => {
 		const keyContainer = document.querySelector(".macropad-container");
 		const lightingView = document.querySelector(".lighting-view");
-
 		if (viewName === "LIGHTING") {
 			keyContainer.classList.add("hidden");
 			lightingView.classList.remove("hidden");

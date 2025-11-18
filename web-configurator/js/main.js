@@ -7,13 +7,13 @@ import { ResizerHandler } from "./handlers/resizer.js";
 import { OLEDHandler } from "./handlers/oled.js";
 import { LightingHandler } from "./handlers/lighting.js";
 import { PersistenceHandler } from "./utils/storage.js";
+import { state } from "./state.js";
 
 document.addEventListener("DOMContentLoaded", () => {
 	// 1. Render Initial Sidebar
 	SidebarHandler.render();
 
 	// 2. Bind Listeners
-	// ! FIX: Only select actual Layer headers (ignore the Settings header)
 	const headers = document.querySelectorAll(
 		".sidebar .category-header[data-layer]"
 	);
@@ -25,6 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	dom.keys.forEach((key) => {
 		key.addEventListener("click", () => {
+			// ! FIX: Prevent editing on Layer 1
+			if (state.activeLayerIndex === 0) return;
+
 			const text = key.innerText;
 			OLEDHandler.updateMain(text);
 			// Only open modal if keys are visible

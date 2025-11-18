@@ -1,4 +1,4 @@
-import { configData } from "../state.js";
+import { configData, defaultLayer1Keys } from "../state.js"; // ! Import default keys
 import { KeyHandler } from "../handlers/key.js";
 import { SidebarHandler } from "../handlers/sidebar.js";
 import { LightingHandler } from "../handlers/lighting.js";
@@ -24,7 +24,7 @@ export const PersistenceHandler = {
 			try {
 				let parsed = JSON.parse(saved);
 
-				// ! MIGRATION: Handle old Array format
+				// MIGRATION: Handle old Array format
 				if (Array.isArray(parsed)) {
 					console.log("Migrating legacy config...");
 					parsed = {
@@ -54,9 +54,15 @@ export const PersistenceHandler = {
 			throw new Error("Invalid Config Structure");
 		}
 
+		// 1. Load the data
 		configData.layers = newData.layers;
 		configData.lighting = newData.lighting;
 
+		// ! FIX: Force Layer 1 (Index 0) to be Immutable Defaults
+		// This fixes the "Unassigned" bug if LocalStorage had empty data for Layer 1
+		configData.layers[0].keys = { ...defaultLayer1Keys };
+
+		// 2. Refresh UI
 		SidebarHandler.render();
 		LightingHandler.refresh();
 
