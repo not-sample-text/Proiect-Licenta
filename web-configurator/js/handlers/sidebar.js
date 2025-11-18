@@ -39,16 +39,12 @@ export const SidebarHandler = {
 							);
 							if (headers[index]) headers[index].click();
 						}
-
 						KeyHandler.simulatePress(keyId);
 						const label =
 							keyData && keyData.label ? keyData.label : "Unassigned";
 						OLEDHandler.updateMain(label);
-
-						// ! FIX: Prevent opening modal on Layer 1 (Index 0)
-						if (state.activeLayerIndex > 0) {
-							setTimeout(() => ModalHandler.open(keyId, label), 300);
-						}
+						// Allow clicking items in sidebar to open modal even on Layer 0
+						setTimeout(() => ModalHandler.open(keyId, label), 300);
 					});
 					listContainer.appendChild(li);
 				}
@@ -78,7 +74,6 @@ export const SidebarHandler = {
 		}
 	},
 
-	// ... (Rest of the file is unchanged from previous version) ...
 	toggleLayer: (index, header) => {
 		SidebarHandler.switchView("KEYS");
 		document.getElementById("sidebar-layers-view").classList.remove("hidden");
@@ -103,12 +98,8 @@ export const SidebarHandler = {
 		OLEDHandler.updateHeader(name, index);
 		KeyHandler.updateFromData(index);
 
-		if (state.activeLayerIndex === 0) {
-			dom.macropad.classList.add("read-only");
-			keyList.classList.add("read-only-list");
-		} else {
-			dom.macropad.classList.remove("read-only");
-		}
+		// ! FIX: Removed Read-Only class logic. All layers are interactive.
+		dom.macropad.classList.remove("read-only");
 	},
 
 	toggleSidebar: () => {

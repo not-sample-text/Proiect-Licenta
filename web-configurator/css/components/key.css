@@ -39,20 +39,7 @@
 	box-shadow: none;
 }
 
-/* Key Read-Only State (When Layer 1 is selected) */
-.macropad-container.read-only .key {
-	cursor: default;
-	opacity: 0.3;
-	color: #888;
-	background-color: #222;
-	box-shadow: none;
-	border-bottom-width: 2px;
-	transform: translateY(2px);
-}
-
-.macropad-container.read-only .key:hover {
-	filter: none;
-}
+/* Note: Removed .read-only styles to allow interaction on Layer 1 */
 
 /* Unassigned Key State */
 .key.unassigned-key {

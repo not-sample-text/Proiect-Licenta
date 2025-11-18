@@ -24,7 +24,6 @@ export const ModalHandler = {
 			const result = keys.join(" + ");
 			dom.modal.shortcutDisplay.innerText = result;
 			dom.modal.shortcutValue.value = result;
-
 			if (!["Control", "Shift", "Alt", "Meta"].includes(e.key)) {
 				recorder.blur();
 				recorder.classList.remove("recording");
@@ -58,7 +57,11 @@ export const ModalHandler = {
 		const savedKeyData = configData[state.activeLayerIndex].keys[keyId];
 		const savedValue = savedKeyData ? savedKeyData.value : "";
 
-		if (state.activeLayerIndex === 1) {
+		// ! FIX: Handle Layer 0 (FN Keys)
+		if (state.activeLayerIndex === 0) {
+			// We show NO input containers. Only the Name input (handled by default) is visible.
+			// This prevents changing the underlying function.
+		} else if (state.activeLayerIndex === 1) {
 			document
 				.getElementById("input-container-shortcut")
 				.classList.remove("hidden");
@@ -81,13 +84,27 @@ export const ModalHandler = {
 		let displayName = dom.modal.labelInput.value.trim();
 		let value = "";
 
+		// ! FIX: Handle Layer 0 Saving (Nickname only)
+		if (layerIdx === 0) {
+			if (!displayName) displayName = configData.layers[0].keys[keyId].value; // Revert to Fxx if empty
+
+			// Only update label. Keep existing Value and Type.
+			configData.layers[0].keys[keyId].label = displayName;
+
+			PersistenceHandler.saveToLocal();
+			KeyHandler.updateFromData(layerIdx);
+			SidebarHandler.render();
+			ModalHandler.close();
+			return; // Exit early
+		}
+
+		// Logic for Layers 1, 2, 3
 		if (layerIdx === 1) value = dom.modal.shortcutValue.value;
 		else if (layerIdx === 2) value = dom.modal.scriptDisplay.value;
 		else if (layerIdx === 3) value = dom.modal.appInput.value;
 
-		// Nickname Validation
 		if (!value) {
-			delete configData[layerIdx].keys[keyId];
+			delete configData.layers[layerIdx].keys[keyId];
 			PersistenceHandler.saveToLocal();
 			KeyHandler.updateFromData(layerIdx);
 			SidebarHandler.render();
@@ -99,7 +116,7 @@ export const ModalHandler = {
 			displayName = value;
 		}
 
-		configData[layerIdx].keys[keyId] = {
+		configData.layers[layerIdx].keys[keyId] = {
 			label: displayName,
 			value: value,
 			type: layerIdx === 1 ? "SHORTCUT" : layerIdx === 2 ? "SCRIPT" : "APP"

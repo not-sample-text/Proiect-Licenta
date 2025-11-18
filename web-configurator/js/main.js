@@ -25,17 +25,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	dom.keys.forEach((key) => {
 		key.addEventListener("click", () => {
-			// ! FIX: Prevent editing on Layer 1
-			if (state.activeLayerIndex === 0) return;
-
 			const text = key.innerText;
 			OLEDHandler.updateMain(text);
+
 			// Only open modal if keys are visible
 			if (
 				!document
 					.querySelector(".macropad-container")
 					.classList.contains("hidden")
 			) {
+				// ! FIX: Removed the check that blocked Layer 0 clicks
 				ModalHandler.open(key.getAttribute("data-id"), text);
 			}
 		});
