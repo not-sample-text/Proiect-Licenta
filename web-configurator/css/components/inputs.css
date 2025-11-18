@@ -1,0 +1,53 @@
+/* --- Dynamic Input Containers --- */
+.input-type-container.hidden {
+	display: none;
+}
+
+/* Shortcut Recorder Box */
+.shortcut-recorder {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	padding: 12px;
+	background-color: var(--navbar-bg-color);
+	border: 2px dashed #555;
+	border-radius: var(--radius-sm);
+
+	color: #888;
+	font-family: inherit;
+	cursor: pointer;
+	outline: none;
+	transition: all 0.2s ease;
+}
+
+.shortcut-recorder:focus,
+.shortcut-recorder.recording {
+	border-color: #3b82f6;
+	background-color: rgba(59, 130, 246, 0.1);
+	color: var(--text-color);
+}
+
+#shortcut-display {
+	font-weight: bold;
+	letter-spacing: 1px;
+}
+
+/* File Uploader Layout */
+.file-uploader {
+	display: flex;
+	gap: var(--spacing-sm);
+}
+
+.file-uploader input[type="text"] {
+	flex-grow: 1;
+}
+
+.file-btn {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	white-space: nowrap;
+	padding: var(--spacing-sm) var(--spacing-md);
+	cursor: pointer;
+}

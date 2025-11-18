@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
   <title>Macropad Web Configurator</title>
 </head>
@@ -12,6 +12,12 @@
 <body>
 
   <div class="navbar">
+    <div class="hamburger-menu" id="hamburger-btn">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+
     <div class="title">Macropad Web Configurator</div>
 
     <div style="display: flex; gap: 10px; margin-left: auto;">
@@ -26,113 +32,53 @@
     </div>
   </div>
 
-  <div class="sidebar">
-
+  <div class="sidebar" id="main-sidebar">
     <ul>
-      <!-- Layer 1 -->
       <li>
-        <span class="category-header">
+        <span class="category-header" data-layer="0">
           <i class="ti ti-caret-right-filled category-icon"></i>
-          <p class="category">Layer 1 - F13-F24</p>
+          <p class="category">Layer 1 - FN Keys</p>
         </span>
-        <ul class="key-list">
-          <li>[C0R0]: F13</li>
-          <li>[C1R0]: F14</li>
-          <li>[C2R0]: F15</li>
-          <li>[C0R1]: F16</li>
-          <li>[C1R1]: F17</li>
-          <li>[C2R1]: F18</li>
-          <li>[C0R2]: F19</li>
-          <li>[C1R2]: F20</li>
-          <li>[C2R2]: F21</li>
-          <li>[C0R3]: F22</li>
-          <li>[C1R3]: F23</li>
-          <li>[C2R3]: F24</li>
-        </ul>
+        <ul class="key-list" id="layer-list-0"></ul>
       </li>
 
-      <!-- Layer 2 -->
       <li>
-        <span class="category-header">
+        <span class="category-header" data-layer="1">
           <i class="ti ti-caret-right-filled category-icon"></i>
           <p class="category">Layer 2 - Shortcuts</p>
         </span>
-        <ul class="key-list">
-          <li>[C0R0]: Copy (Ctrl+C)</li>
-          <li>[C1R0]: Paste (Ctrl+V)</li>
-          <li>[C2R0]: Cut (Ctrl+X)</li>
-          <li>[C0R1]: Undo (Ctrl+Z)</li>
-          <li>[C1R1]: Redo (Ctrl+Y)</li>
-          <li>[C2R1]: Save (Ctrl+S)</li>
-          <li>[C0R2]: Select All (Ctrl+A)</li>
-          <li>[C1R2]: Find (Ctrl+F)</li>
-          <li>[C2R2]: New Tab (Ctrl+T)</li>
-          <li>[C0R3]: Close Tab (Ctrl+W)</li>
-          <li>[C1R3]: Task Manager</li>
-          <li>[C2R3]: Mute Mic</li>
-        </ul>
+        <ul class="key-list" id="layer-list-1"></ul>
       </li>
 
-      <!-- Layer 3 -->
       <li>
-        <span class="category-header">
+        <span class="category-header" data-layer="2">
           <i class="ti ti-caret-right-filled category-icon"></i>
           <p class="category">Layer 3 - Commands</p>
         </span>
-        <ul class="key-list">
-          <li>[C0R0]: Git Commit</li>
-          <li>[C1R0]: Git Push</li>
-          <li>[C2R0]: Git Pull</li>
-          <li>[C0R1]: Run Build</li>
-          <li>[C1R1]: Run Tests</li>
-          <li>[C2R1]: Start Server</li>
-          <li>[C0R2]: Stop Server</li>
-          <li>[C1R2]: Docker Up</li>
-          <li>[C2R2]: Docker Down</li>
-          <li>[C0R3]: SSH to Prod</li>
-          <li>[C1R3]: NPM Install</li>
-          <li>[C2R3]: Clean Cache</li>
-        </ul>
+        <ul class="key-list" id="layer-list-2"></ul>
       </li>
 
-      <!-- Layer 4 -->
       <li>
-        <span class="category-header">
+        <span class="category-header" data-layer="3">
           <i class="ti ti-caret-right-filled category-icon"></i>
-          <p class="category">Layer 4 - Open Apps</p>
+          <p class="category">Layer 4 - Launcher</p>
         </span>
-        <ul class="key-list">
-          <li>[C0R0]: Open Chrome</li>
-          <li>[C1R0]: Open VSCode</li>
-          <li>[C2R0]: Open Spotify</li>
-          <li>[C0R1]: Open Terminal</li>
-          <li>[C1R1]: Open Files</li>
-          <li>[C2R1]: Open Obsidian</li>
-          <li>[C0R2]: Open Slack</li>
-          <li>[C1R2]: Open Discord</li>
-          <li>[C2R2]: Open Notion</li>
-          <li>[C0R3]: Open Postman</li>
-          <li>[C1R3]: Open Figma</li>
-          <li>[C2R3]: Open Putty</li>
-        </ul>
+        <ul class="key-list" id="layer-list-3"></ul>
       </li>
-
     </ul>
 
+    <div class="resizer"></div>
   </div>
 
   <main>
-
     <h2 id="layer-title">Select Layer</h2>
 
     <div class="macropad-container">
       <div class="oled-screen">
         <div class="oled-header">
           <span id="oled-layer-name">FN KEYS</span>
-
           <div class="oled-status-icons">
             <i class="ti ti-bluetooth"></i>
-
             <span class="battery-percent">85%</span>
             <div class="battery-wrapper">
               <i class="ti ti-battery-3"></i>
@@ -140,7 +86,6 @@
             </div>
           </div>
         </div>
-
         <div class="oled-main">
           <span id="oled-display-text">Ready</span>
         </div>
@@ -152,15 +97,12 @@
       <div class="key" data-id="C0R0">C0R0</div>
       <div class="key" data-id="C1R0">C1R0</div>
       <div class="key" data-id="C2R0">C2R0</div>
-
       <div class="key" data-id="C0R1">C0R1</div>
       <div class="key" data-id="C1R1">C1R1</div>
       <div class="key" data-id="C2R1">C2R1</div>
-
       <div class="key" data-id="C0R2">C0R2</div>
       <div class="key" data-id="C1R2">C1R2</div>
       <div class="key" data-id="C2R2">C2R2</div>
-
       <div class="key" data-id="C0R3">C0R3</div>
       <div class="key" data-id="C1R3">C1R3</div>
       <div class="key" data-id="C2R3">C2R3</div>
@@ -172,23 +114,21 @@
       <div class="modal-header">
         <h3>Edit Key: <span id="modal-key-id">...</span></h3>
       </div>
-
       <div class="modal-body">
         <div class="form-group">
           <label for="key-label">Display Name</label>
           <input type="text" id="key-label" placeholder="e.g., Copy">
           <small>What shows up on the screen/sidebar.</small>
         </div>
-
         <div id="input-container-shortcut" class="form-group input-type-container hidden">
           <label>Shortcut Combination</label>
           <div class="shortcut-recorder" tabindex="0">
             <span id="shortcut-display">Click to Record...</span>
             <i class="ti ti-keyboard"></i>
           </div>
-          <input type="hidden" id="shortcut-value"> <small>Focus the box and press your key combination.</small>
+          <input type="hidden" id="shortcut-value">
+          <small>Focus the box and press your key combination.</small>
         </div>
-
         <div id="input-container-script" class="form-group input-type-container hidden">
           <label>Select Script</label>
           <div class="file-uploader">
@@ -200,7 +140,6 @@
           </div>
           <small>Supports .bat, .sh, .ps1, .py</small>
         </div>
-
         <div id="input-container-app" class="form-group input-type-container hidden">
           <label>Application Path / Command</label>
           <div class="file-uploader">
@@ -213,7 +152,6 @@
           <small>Enter a system command or browse for an executable.</small>
         </div>
       </div>
-
       <div class="modal-footer">
         <button id="btn-cancel" class="btn-secondary">Cancel</button>
         <button id="btn-save" class="btn-primary">Save Config</button>
@@ -221,7 +159,7 @@
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script type="module" src="js/main.js"></script>
 </body>
 
 </html>

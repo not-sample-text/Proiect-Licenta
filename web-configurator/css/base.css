@@ -1,0 +1,25 @@
+/* --- Global Reset & Body --- */
+body {
+	font-family: "FiraCode Nerd Font Regular", monospace;
+	color: var(--text-color);
+	background-color: var(--bg-color);
+	margin: 0;
+	padding: 0;
+	width: 100vw;
+	height: 100vh;
+
+	/* * Prevent body scroll, we scroll inside panels */
+	overflow: hidden;
+
+	/* ! Flexbox Layout for the whole page (Sidebar | Main) */
+	display: flex;
+	flex-direction: row;
+
+	/* * Push everything down below the fixed navbar */
+	padding-top: var(--navbar-height);
+	box-sizing: border-box;
+}
+
+li {
+	list-style-type: none;
+}

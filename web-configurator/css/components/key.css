@@ -1,0 +1,65 @@
+/* --- Keycaps --- */
+.key {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	font-weight: bold;
+	font-size: 0.9rem;
+	text-align: center;
+	line-height: 1.2;
+	word-wrap: break-word;
+	color: var(--text-color);
+
+	padding: var(--spacing-xs);
+
+	background-color: var(--sidebar-bg-color);
+	border-radius: var(--radius-md);
+	border-bottom: 4px solid rgba(0, 0, 0, 0.3);
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+	cursor: pointer;
+	transition: all 0.1s ease;
+}
+
+@media (prefers-color-scheme: light) {
+	.key {
+		border-bottom: 4px solid #bfbfbf;
+	}
+}
+
+.key:hover {
+	filter: brightness(1.1);
+}
+
+.key:active,
+.key.pressed-simulation {
+	transform: translateY(4px);
+	border-bottom-width: 0px;
+	box-shadow: none;
+}
+
+/* Key Read-Only State (When Layer 1 is selected) */
+.macropad-container.read-only .key {
+	cursor: default;
+	opacity: 0.3;
+	color: #888;
+	background-color: #222;
+	box-shadow: none;
+	border-bottom-width: 2px;
+	transform: translateY(2px);
+}
+
+.macropad-container.read-only .key:hover {
+	filter: none;
+}
+
+/* Unassigned Key State */
+.key.unassigned-key {
+	color: #666;
+	font-style: italic;
+	font-size: 0.8rem;
+	background-color: rgba(0, 0, 0, 0.2);
+	outline-style: dashed;
+	outline-width: 2px;
+}

@@ -1,0 +1,68 @@
+/* --- OLED Screen --- */
+.oled-screen {
+	grid-column: span 2;
+
+	display: flex;
+	flex-direction: column;
+
+	background-color: #000;
+	border: 2px solid #333;
+	border-radius: var(--radius-sm);
+	box-shadow: inset 0 0 10px rgba(174, 238, 255, 0.1);
+	color: #fff;
+	font-family: "FiraCode Nerd Font Mono", monospace;
+	overflow: hidden;
+}
+
+@media (prefers-color-scheme: light) {
+	.oled-screen {
+		border-color: #aaa;
+		background-color: #222;
+	}
+}
+
+.oled-header {
+	height: 25%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 8px;
+	border-bottom: 1px solid #333;
+	font-size: 0.65rem;
+}
+
+.oled-status-icons {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.battery-wrapper {
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+
+.charging-indicator {
+	position: absolute;
+	left: -4px;
+	font-size: 0.6rem;
+	color: #fff;
+}
+
+.oled-main {
+	height: 75%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#oled-display-text {
+	font-size: 1.1rem;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 95%;
+}

@@ -1,0 +1,69 @@
+/* --- Rotary Encoder (Aluminum Knob) --- */
+.rotary-encoder {
+	grid-column: span 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	perspective: 500px;
+}
+
+.knob {
+	width: var(--knob-size);
+	height: var(--knob-size);
+	border-radius: var(--radius-round);
+	position: relative;
+
+	/* * Stacked gradients: Texture on top, Metallic color on bottom */
+	background: repeating-radial-gradient(
+			circle at 50% 50%,
+			transparent 0,
+			transparent 1px,
+			rgba(0, 0, 0, 0.05) 2px,
+			transparent 3px
+		),
+		conic-gradient(
+			from 180deg,
+			#e0e0e0 0%,
+			#ffffff 15%,
+			#d0d0d0 30%,
+			#bfbfbf 50%,
+			#d0d0d0 70%,
+			#ffffff 85%,
+			#e0e0e0 100%
+		);
+
+	border: 2px dashed #a0a0a0;
+	box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5),
+		inset 0 1px 2px rgba(255, 255, 255, 0.8),
+		inset 0 -2px 5px rgba(0, 0, 0, 0.2);
+
+	cursor: grab;
+	transition: transform 0.1s ease-out;
+}
+
+/* Knob Indicator Triangle */
+.knob::after {
+	content: "";
+	position: absolute;
+	top: 12%;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 0;
+	height: 0;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-bottom: 8px solid #222;
+	filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.5));
+}
+
+.knob:active {
+	cursor: grabbing;
+	transform: scale(0.96);
+}
+
+/* Knob Nav Mode State (Blue Glow) */
+.rotary-encoder.nav-mode .knob {
+	border-color: #3b82f6;
+	box-shadow: 0 0 15px rgba(59, 130, 246, 0.6),
+		inset 0 0 10px rgba(59, 130, 246, 0.3);
+}

@@ -1,0 +1,41 @@
+:root {
+	/* * Color Palette */
+	--bg-color: #0c0a09;
+	--navbar-bg-color: #1c1917;
+	--sidebar-bg-color: #292524;
+	--text-color: #e7e5e4;
+	--key-list-color: #c7c5c4;
+
+	/* * Layout Dimensions */
+	--navbar-height: 60px;
+	--sidebar-min-width: 250px;
+	--sidebar-max-width: 500px;
+	--sidebar-width: 300px;
+
+	/* * Component Dimensions */
+	--key-size: 100px;
+	--knob-size: 75px;
+
+	/* * Spacing System */
+	--spacing-xs: 5px;
+	--spacing-sm: 10px;
+	--spacing-md: 15px;
+	--spacing-lg: 20px;
+	--spacing-xl: 30px;
+
+	/* * Borders & Radii */
+	--radius-sm: 6px;
+	--radius-md: 12px;
+	--radius-lg: 20px;
+	--radius-round: 50%;
+}
+
+@media (prefers-color-scheme: light) {
+	:root {
+		--bg-color: #f0f0f0;
+		--sidebar-bg-color: #e0e0e0;
+		--navbar-bg-color: #d0d0d0;
+		--text-color: #202020;
+		--key-list-color: #303030;
+	}
+}
