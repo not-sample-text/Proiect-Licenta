@@ -1,4 +1,4 @@
-/* Navbar */
+/* --- Navbar --- */
 .navbar {
 	position: fixed;
 	top: 0;
@@ -21,7 +21,12 @@
 	white-space: nowrap;
 }
 
-/* Sidebar */
+#btn-export-json {
+	margin-left: 0;
+	z-index: 101;
+}
+
+/* --- Sidebar --- */
 .sidebar {
 	position: relative;
 	width: var(--sidebar-width);
@@ -123,8 +128,12 @@
 	cursor: default;
 	opacity: 0.6;
 }
+.sidebar .key-list.read-only-list li:hover {
+	background-color: transparent;
+	color: var(--key-list-color);
+}
 
-/* Main Area */
+/* --- Main Area --- */
 main {
 	flex-grow: 1;
 	position: relative;
@@ -145,25 +154,44 @@ main {
 	opacity: 0.8;
 }
 
-/* Macropad Container */
+/* --- Macropad Container (The Top PCB Chassis) --- */
 .macropad-container {
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+
+	/* ! FIXED DIMENSIONS using Idealistic Variables */
+	width: var(--board-width);
+	height: var(--board-height);
+
+	/* ! FIX: Box Sizing to match Lighting View */
+	box-sizing: border-box;
+
 	display: grid;
 	grid-template-columns: repeat(3, var(--key-size));
 	grid-template-rows: repeat(5, var(--key-size));
 	gap: var(--spacing-md);
 	padding: var(--spacing-xl);
+
+	/* Center Grid content */
+	align-content: center;
+	justify-content: center;
+
 	background-color: #353535;
 	border-radius: var(--radius-lg);
+
 	border-top: 2px solid #444;
 	border-left: 2px solid #444;
 	border-right: 4px solid #1a1a1a;
 	border-bottom: 8px solid #1a1a1a;
 	box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
 }
+
+.macropad-container.hidden {
+	display: none !important;
+}
+
 @media (prefers-color-scheme: light) {
 	.macropad-container {
 		background-color: #e6e6e6;

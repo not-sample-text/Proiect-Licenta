@@ -12,16 +12,22 @@
 	--sidebar-max-width: 500px;
 	--sidebar-width: 300px;
 
-	/* * Component Dimensions */
+	/* * Component Dimensions (Idealistic / Original Scale) */
 	--key-size: 100px;
 	--knob-size: 75px;
 
-	/* * Spacing System */
+	/* * Spacing System (Original) */
 	--spacing-xs: 5px;
 	--spacing-sm: 10px;
-	--spacing-md: 15px;
+	--spacing-md: 15px; /* Standard gap */
 	--spacing-lg: 20px;
-	--spacing-xl: 30px;
+	--spacing-xl: 30px; /* Standard padding */
+
+	/* * Board Dimensions (Calculated from Grid) */
+	/* Width: 3 cols * 100 + 2 gaps * 15 + 2 padding * 30 = 390px */
+	/* Height: 5 rows * 100 + 4 gaps * 15 + 2 padding * 30 = 620px */
+	--board-width: 390px;
+	--board-height: 620px;
 
 	/* * Borders & Radii */
 	--radius-sm: 6px;

@@ -25,7 +25,6 @@
       <button id="btn-import-json" class="btn-secondary" style="font-size: 0.8rem;">
         <i class="ti ti-upload"></i> Import
       </button>
-
       <button id="btn-export-json" class="btn-primary" style="font-size: 0.8rem;">
         <i class="ti ti-download"></i> Export JSON
       </button>
@@ -33,39 +32,78 @@
   </div>
 
   <div class="sidebar" id="main-sidebar">
-    <ul>
-      <li>
-        <span class="category-header" data-layer="0">
-          <i class="ti ti-caret-right-filled category-icon"></i>
-          <p class="category">Layer 1 - FN Keys</p>
-        </span>
-        <ul class="key-list" id="layer-list-0"></ul>
-      </li>
 
-      <li>
-        <span class="category-header" data-layer="1">
-          <i class="ti ti-caret-right-filled category-icon"></i>
-          <p class="category">Layer 2 - Shortcuts</p>
-        </span>
-        <ul class="key-list" id="layer-list-1"></ul>
-      </li>
+    <div id="sidebar-layers-view">
+      <ul>
+        <li>
+          <span class="category-header" data-layer="0">
+            <i class="ti ti-caret-right-filled category-icon"></i>
+            <p class="category">Layer 1 - FN Keys</p>
+          </span>
+          <ul class="key-list" id="layer-list-0"></ul>
+        </li>
+        <li>
+          <span class="category-header" data-layer="1">
+            <i class="ti ti-caret-right-filled category-icon"></i>
+            <p class="category">Layer 2 - Shortcuts</p>
+          </span>
+          <ul class="key-list" id="layer-list-1"></ul>
+        </li>
+        <li>
+          <span class="category-header" data-layer="2">
+            <i class="ti ti-caret-right-filled category-icon"></i>
+            <p class="category">Layer 3 - Commands</p>
+          </span>
+          <ul class="key-list" id="layer-list-2"></ul>
+        </li>
+        <li>
+          <span class="category-header" data-layer="3">
+            <i class="ti ti-caret-right-filled category-icon"></i>
+            <p class="category">Layer 4 - Launcher</p>
+          </span>
+          <ul class="key-list" id="layer-list-3"></ul>
+        </li>
+      </ul>
 
-      <li>
-        <span class="category-header" data-layer="2">
-          <i class="ti ti-caret-right-filled category-icon"></i>
-          <p class="category">Layer 3 - Commands</p>
-        </span>
-        <ul class="key-list" id="layer-list-2"></ul>
-      </li>
+      <div style="margin-top: 10px; border-top: 1px solid #444; padding-top: 10px;">
+        <div class="category-header" id="sidebar-settings-btn">
+          <i class="ti ti-settings category-icon" style="transform: none;"></i>
+          <p class="category">Lighting & Settings</p>
+        </div>
+      </div>
+    </div>
 
-      <li>
-        <span class="category-header" data-layer="3">
-          <i class="ti ti-caret-right-filled category-icon"></i>
-          <p class="category">Layer 4 - Launcher</p>
-        </span>
-        <ul class="key-list" id="layer-list-3"></ul>
-      </li>
-    </ul>
+    <div id="sidebar-controls-view" class="lighting-controls-panel hidden">
+      <div class="category-header" id="back-to-layers-btn" style="margin-bottom: 15px; padding-left:0;">
+        <i class="ti ti-arrow-left"></i>
+        <p class="category">Back to Layers</p>
+      </div>
+
+      <div class="control-group">
+        <label>Effect Mode</label>
+        <select id="light-mode">
+          <option value="SOLID">Solid Color</option>
+          <option value="RAINBOW">Rainbow Wave</option>
+          <option value="BREATHING">Breathing</option>
+          <option value="REACTIVE">Reactive</option>
+          <option value="OFF">Off</option>
+        </select>
+      </div>
+      <div class="control-group">
+        <label>Color <span id="color-hex">#00E5FF</span></label>
+        <div class="color-picker-wrapper">
+          <input type="color" id="light-color" value="#00e5ff">
+        </div>
+      </div>
+      <div class="control-group">
+        <label>Brightness <span id="val-brightness">50%</span></label>
+        <input type="range" id="light-brightness" min="0" max="255">
+      </div>
+      <div class="control-group">
+        <label>Speed <span id="val-speed">10</span></label>
+        <input type="range" id="light-speed" min="1" max="20">
+      </div>
+    </div>
 
     <div class="resizer"></div>
   </div>
@@ -107,6 +145,51 @@
       <div class="key" data-id="C1R3">C1R3</div>
       <div class="key" data-id="C2R3">C2R3</div>
     </div>
+
+    <div class="lighting-view hidden">
+      <div class="chassis-shape">
+        <div class="pcb-column left">
+          <div class="led-component" data-index="0">
+            <div class="emitter"></div>
+          </div>
+          <div class="led-component" data-index="1">
+            <div class="emitter"></div>
+          </div>
+          <div class="led-component" data-index="2">
+            <div class="emitter"></div>
+          </div>
+          <div class="led-component" data-index="3">
+            <div class="emitter"></div>
+          </div>
+          <div class="led-component" data-index="4">
+            <div class="emitter"></div>
+          </div>
+        </div>
+        <div class="pcb-column center">
+          <div class="esp32-component">
+            <span class="chip-label">ESP32-S3</span>
+          </div>
+        </div>
+        <div class="pcb-column right">
+          <div class="led-component" data-index="5">
+            <div class="emitter"></div>
+          </div>
+          <div class="led-component" data-index="6">
+            <div class="emitter"></div>
+          </div>
+          <div class="led-component" data-index="7">
+            <div class="emitter"></div>
+          </div>
+          <div class="led-component" data-index="8">
+            <div class="emitter"></div>
+          </div>
+          <div class="led-component" data-index="9">
+            <div class="emitter"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </main>
 
   <div id="config-modal" class="modal-overlay hidden">
@@ -127,7 +210,6 @@
             <i class="ti ti-keyboard"></i>
           </div>
           <input type="hidden" id="shortcut-value">
-          <small>Focus the box and press your key combination.</small>
         </div>
         <div id="input-container-script" class="form-group input-type-container hidden">
           <label>Select Script</label>
@@ -138,10 +220,9 @@
             </label>
             <input type="file" id="script-file-input" hidden>
           </div>
-          <small>Supports .bat, .sh, .ps1, .py</small>
         </div>
         <div id="input-container-app" class="form-group input-type-container hidden">
-          <label>Application Path / Command</label>
+          <label>Application Path</label>
           <div class="file-uploader">
             <input type="text" id="app-path-input" placeholder="e.g., chrome.exe">
             <label for="app-file-input" class="btn-secondary file-btn">
@@ -149,7 +230,6 @@
             </label>
             <input type="file" id="app-file-input" hidden accept=".exe,.app,.lnk">
           </div>
-          <small>Enter a system command or browse for an executable.</small>
         </div>
       </div>
       <div class="modal-footer">

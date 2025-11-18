@@ -1,6 +1,8 @@
 // Application State
 export const state = {
-	activeLayerIndex: -1,
+	activeLayerIndex: 0,
+	lastActiveLayerIndex: 0, // ! NEW: Remembers where we were before going to Settings
+	activeView: "KEYS",
 	isKnobNavMode: false,
 	volume: 50,
 	knobRotation: 0
@@ -21,12 +23,20 @@ for (let r = 0; r < 4; r++) {
 }
 
 // The Source of Truth for Configuration
-export const configData = [
-	{ id: 0, name: "FN Keys", keys: layer1Keys },
-	{ id: 1, name: "Shortcuts", keys: {} },
-	{ id: 2, name: "Commands", keys: {} },
-	{ id: 3, name: "Launcher", keys: {} }
-];
+export const configData = {
+	layers: [
+		{ id: 0, name: "FN Keys", keys: layer1Keys },
+		{ id: 1, name: "Shortcuts", keys: {} },
+		{ id: 2, name: "Commands", keys: {} },
+		{ id: 3, name: "Launcher", keys: {} }
+	],
+	lighting: {
+		mode: "SOLID",
+		brightness: 128,
+		speed: 10,
+		color: "#00e5ff"
+	}
+};
 
 export const layerNameMap = {
 	"Layer 1 - FN Keys": "FN KEYS",

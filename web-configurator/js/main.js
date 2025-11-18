@@ -1,11 +1,11 @@
 import { dom } from "./dom.js";
-import { state } from "./state.js";
 import { SidebarHandler } from "./handlers/sidebar.js";
 import { ModalHandler } from "./handlers/modal.js";
 import { KnobHandler } from "./handlers/knob.js";
 import { IOHandler } from "./handlers/io.js";
 import { ResizerHandler } from "./handlers/resizer.js";
 import { OLEDHandler } from "./handlers/oled.js";
+import { LightingHandler } from "./handlers/lighting.js";
 import { PersistenceHandler } from "./utils/storage.js";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -13,7 +13,10 @@ document.addEventListener("DOMContentLoaded", () => {
 	SidebarHandler.render();
 
 	// 2. Bind Listeners
-	const headers = document.querySelectorAll(".sidebar .category-header");
+	// ! FIX: Only select actual Layer headers (ignore the Settings header)
+	const headers = document.querySelectorAll(
+		".sidebar .category-header[data-layer]"
+	);
 	headers.forEach((header, index) => {
 		header.addEventListener("click", () =>
 			SidebarHandler.toggleLayer(index, header)
@@ -24,19 +27,27 @@ document.addEventListener("DOMContentLoaded", () => {
 		key.addEventListener("click", () => {
 			const text = key.innerText;
 			OLEDHandler.updateMain(text);
-			if (state.activeLayerIndex > 0) {
+			// Only open modal if keys are visible
+			if (
+				!document
+					.querySelector(".macropad-container")
+					.classList.contains("hidden")
+			) {
 				ModalHandler.open(key.getAttribute("data-id"), text);
 			}
 		});
 	});
 
-	dom.hamburger.addEventListener("click", SidebarHandler.toggleSidebar);
+	if (dom.hamburger) {
+		dom.hamburger.addEventListener("click", SidebarHandler.toggleSidebar);
+	}
 
 	// 3. Initialize Sub-Systems
 	ModalHandler.init();
 	KnobHandler.init();
 	IOHandler.init();
 	ResizerHandler.init();
+	LightingHandler.init();
 
 	// 4. Load Data
 	PersistenceHandler.loadFromLocal();

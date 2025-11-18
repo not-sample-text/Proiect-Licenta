@@ -3,7 +3,8 @@ import { configData } from "../state.js";
 
 export const KeyHandler = {
 	updateFromData: (layerIndex) => {
-		const layerKeys = configData[layerIndex].keys;
+		// ! FIX: use .layers array
+		const layerKeys = configData.layers[layerIndex].keys;
 
 		dom.keys.forEach((key) => {
 			const id = key.getAttribute("data-id");
