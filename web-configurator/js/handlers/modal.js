@@ -24,6 +24,7 @@ export const ModalHandler = {
 			const result = keys.join(" + ");
 			dom.modal.shortcutDisplay.innerText = result;
 			dom.modal.shortcutValue.value = result;
+
 			if (!["Control", "Shift", "Alt", "Meta"].includes(e.key)) {
 				recorder.blur();
 				recorder.classList.remove("recording");
@@ -54,13 +55,13 @@ export const ModalHandler = {
 			.querySelectorAll(".input-type-container")
 			.forEach((el) => el.classList.add("hidden"));
 
-		const savedKeyData = configData[state.activeLayerIndex].keys[keyId];
+		// ! FIX: Access configData.layers array properly
+		const savedKeyData = configData.layers[state.activeLayerIndex].keys[keyId];
 		const savedValue = savedKeyData ? savedKeyData.value : "";
 
-		// ! FIX: Handle Layer 0 (FN Keys)
+		// Handle Layer 0 (FN Keys) - Only Name input is shown (default behavior)
 		if (state.activeLayerIndex === 0) {
-			// We show NO input containers. Only the Name input (handled by default) is visible.
-			// This prevents changing the underlying function.
+			// Intentionally empty: Layer 0 allows renaming but has no extra inputs
 		} else if (state.activeLayerIndex === 1) {
 			document
 				.getElementById("input-container-shortcut")
@@ -95,7 +96,7 @@ export const ModalHandler = {
 			KeyHandler.updateFromData(layerIdx);
 			SidebarHandler.render();
 			ModalHandler.close();
-			return; // Exit early
+			return;
 		}
 
 		// Logic for Layers 1, 2, 3
