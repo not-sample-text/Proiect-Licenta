@@ -6,12 +6,11 @@ Acest document descrie în detaliu specificațiile tehnice, arhitectura software
 
 ## 1. Arhitectura Sistemului
 
-Proiectul este structurat în patru domenii inginerești distincte, care colaborează pentru a oferi funcționalitatea completă:
+Proiectul este structurat în trei domenii inginerești distincte, care colaborează pentru a oferi funcționalitatea completă:
 
 1.  **Hardware (PCB & Mecanică):** Baza fizică a dispozitivului, proiectată în KiCad.
 2.  **Firmware (Embedded C++):** Codul care rulează pe microcontrolerul ESP32-S3, gestionând intrările fizice și comunicația.
 3.  **Configurator Web (Frontend):** Interfața grafică pentru utilizator, utilizată pentru a defini comportamentul tastelor.
-4.  **Host Listener (Backend Desktop):** Serviciul care rulează pe PC pentru a executa comenzi complexe.
 
 ## 2. Specificații Hardware
 
@@ -70,24 +69,11 @@ Aceasta este o aplicație web statică (HTML/CSS/JS) găzduită local sau pe Git
   3.  **Commands:** Execuție de scripturi (ex: .bat, .py).
   4.  **Launcher:** Lansare de aplicații (ex: .exe).
 
-### 3.2. Host Listener (Backend)
-
-Un serviciu scris în Python care rulează în fundal pe calculatorul gazdă.
-
-- **Rol:** Interceptează comenzile trimise de macropad pe canalul Serial USB pentru funcțiile avansate (Straturile 3 și 4).
-- **Flux de date:**
-  1.  Utilizatorul apasă o tastă pe macropad.
-  2.  Firmware-ul trimite un cod unic (ex: `CMD_L3_K1`) prin Serial.
-  3.  Listener-ul primește codul.
-  4.  Listener-ul consultă fișierul `config.json` local pentru a vedea ce acțiune corespunde acelui cod.
-  5.  Listener-ul execută acțiunea pe PC (ex: deschide Spotify).
-
-### 3.3. Firmware (Embedded)
+### 3.2. Firmware (Embedded)
 
 Software-ul care rulează pe ESP32-S3.
 
-- **Mod HID (Human Interface Device):** Pentru Straturile 1 și 2, macropad-ul se comportă ca o tastatură standard (USB sau Bluetooth). Sistemul de operare recunoaște tastele nativ.
-- **Mod Serial (CDC):** Pentru Straturile 3 și 4, macropad-ul trimite date seriale către Host Listener, ocolind limitările driver-ului standard de tastatură.
+- **Mod HID (Human Interface Device):** Macropad-ul se comportă ca o tastatură standard (USB sau Bluetooth), permițând trimiterea de comenzi recunoscute nativ de orice sistem de operare. Firmware-ul citește fișierul de configurare și traduce apăsările de taste în comenzi HID corespunzătoare.
 
 ## 4. Design PCB și Galerie
 
@@ -111,4 +97,4 @@ Fișierele complete de design (Scheme electrice și Layout PCB) se găsesc în f
 2.  **Lipire:** Începeți cu componentele SMD de pe placa inferioară (rezistori, LED-uri). Continuați cu diodele THT și soclurile pe placa superioară.
 3.  **Asamblare Mecanică:** Folosiți distanțierele M2.5 pentru a uni cele două plăci. Asigurați-vă că pinii de legătură (Pin Headers) sunt aliniați corect.
 4.  **Componente Finale:** Introduceți switch-urile în socluri și montați capacele de taste (keycaps).
-5.  **Software:** Conectați dispozitivul la PC, porniți Host Listener-ul și utilizați Configuratorul Web pentru prima setare.
+5.  **Software:** Conectați dispozitivul la PC și utilizați Configuratorul Web pentru prima setare.

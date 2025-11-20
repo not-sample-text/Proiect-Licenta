@@ -19,12 +19,11 @@ Acest depozit conține întreaga suită de inginerie (Hardware, Firmware și Sof
 
 ## Structura Proiectului
 
-Proiectul este organizat în patru domenii principale de inginerie:
+Proiectul este organizat în trei domenii principale de inginerie:
 
 - **`hardware/`**: Conține fișierele de proiectare PCB în KiCad (`pcb/`) și modelele 3D pentru carcasă (`case/`).
 - **`firmware/`**: Codul sursă C++/Arduino care rulează pe microcontrolerul ESP32-S3.
 - **`web-configurator/`**: O interfață grafică bazată pe browser pentru configurarea tastelor și a straturilor.
-- **`host-listener/`**: O aplicație Python care rulează pe PC pentru a executa comenzi avansate (deschiderea aplicațiilor, rularea de scripturi).
 
 ## Funcționalități
 
@@ -32,12 +31,11 @@ Proiectul este organizat în patru domenii principale de inginerie:
 - **Encoder Rotativ:** Include un buton integrat pentru navigarea intuitivă în meniuri, controlul volumului și alte funcții.
 - **Ecran OLED:** Un afișaj SSD1306 de 0.91" oferă feedback în timp real despre stratul activ, starea conexiunii și nivelul bateriei.
 - **Configurare Web:** Remaparea tastelor și crearea de macro-uri printr-o interfață vizuală drag-and-drop, fără a fi necesară scrierea de cod.
-- **Integrare Host Avansată:** Declanșează scripturi personalizate pe PC și lansează aplicații prin intermediul listener-ului Python.
 - **Conectivitate Duală:** Comutare fluidă între conexiunea prin cablu USB-C și cea wireless Bluetooth/BLE HID.
 
 ## Ecosistemul Software
 
-Acest proiect utilizează o arhitectură compusă din 3 părți pentru a gestiona configurarea:
+Acest proiect utilizează o arhitectură compusă din 2 părți pentru a gestiona configurarea:
 
 ### 1. Configurator Web
 
@@ -47,21 +45,12 @@ Situat în [`web-configurator/`](web-configurator/), aceasta este o aplicație H
 - Generează un fișier `config.json` care conține configurația personalizată.
 - Suportă salvarea automată în memoria locală și importul configurațiilor anterioare.
 
-### 2. Host Listener (Aplicație Gazdă)
-
-Situat în [`host-listener/`](host-listener/), acest script Python rulează în fundal pe computer (Windows/Linux/macOS).
-
-- Detectează fișierul `config.json` generat de instrumentul web.
-- Ascultă comenzile de date specifice trimise de Macropad prin USB Serial.
-- Execută sarcini complexe pe care o tastatură nu le poate face singură (ex: "Deschide Chrome", "Rulează Script Deploy").
-
-### 3. Firmware
+### 2. Firmware
 
 Situat în [`firmware/`](firmware/), scris în C++ pentru ESP32-S3.
 
 - Gestionează scanarea matricei fizice de taste și randarea pe ecranul OLED.
-- Funcționează ca o tastatură HID standard pentru Straturile 1 și 2.
-- Funcționează ca un dispozitiv Serial pentru Straturile 3 și 4 (comunicând cu Host Listener).
+- Funcționează ca o tastatură HID standard (prin USB sau Bluetooth) pentru a trimite comenzi către sistemul de operare, pe baza configurației încărcate.
 
 ## Prezentare Generală Hardware
 
@@ -81,7 +70,6 @@ Schemele complete și layout-urile PCB se află în folderul [`hardware/pcb`](ha
 2.  **Asamblare Hardware:** Lipiți componentele conform layout-ului PCB. Un ghid detaliat de asamblare este disponibil în [documentație](Documentatie.md).
 3.  **Scriere Firmware:** Încărcați codul din folderul `firmware/` pe placa ProS3.
 4.  **Configurare:** Deschideți Configuratorul Web (găzduit prin GitHub Pages sau local), proiectați straturile dorite și exportați fișierul JSON.
-5.  **Rulare Listener:** Porniți aplicația Python Host Listener pentru a sincroniza configurația și a activa funcțiile avansate.
 
 ## Mulțumiri
 

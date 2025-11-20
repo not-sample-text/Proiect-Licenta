@@ -10,20 +10,36 @@ A custom 12-key mechanical macropad based on the ESP32-S3, featuring programmabl
 
 This repository contains the hardware design files for a versatile and programmable macropad created as a university thesis project. It's designed for productivity, allowing users to create custom shortcuts, macros, and function layers to streamline their workflows.
 
-**For detailed technical documentation, please see the [Documentation File](Documentatie/Documentatie.md) (Romanian).**
+**For detailed technical documentation, please see the [Documentation File](docs/Documentatie.md) (Romanian).**
 
 ## Project Status
 
-:warning: **In Development:** The hardware design (KiCad PCB files) is complete. The firmware is under active development, and guides for assembly and usage will be updated as the project progresses.
+:warning: **In Development:** The hardware and web configurator are complete. The firmware is under active development. Guides for assembly and usage will be updated as the project progresses.
 
 ## Features
 
 - **12 Hot-Swappable Mechanical Keys:** Customize the feel of your macropad with any MX-style switches.
+- **Web-Based Configuration:** An intuitive browser-based UI allows you to remap keys and create macros without needing to write any code.
 - **Rotary Encoder:** Includes a push-button for intuitive menu navigation, volume control, and more.
 - **OLED Display:** A 0.91" SSD1306 screen provides real-time feedback on active layers, connection status, and battery level.
 - **Dual Connectivity:** Seamlessly switch between a wired USB-C connection and wireless Bluetooth/BLE HID.
-- **Programmable Layers:** The custom firmware will support multiple layers for different applications and use cases.
+- **Programmable Layers:** The firmware reads a user-generated config file to support multiple layers for different applications and use cases.
 - **Power Management:** An on-board switch allows the device to enter a low-power state to conserve battery.
+
+## Software Ecosystem
+
+This project uses a 2-part architecture to manage configuration:
+
+### 1. Web Configurator
+
+Located in the [`web-configurator/`](web-configurator/) directory, this is a standalone HTML/JS application.
+
+-   **Purpose:** Allows the user to visually design their key layouts, shortcuts, and macros across multiple layers.
+-   **Output:** Generates a `config.json` file containing the complete custom configuration. This file is then placed on the host computer for the firmware to access (details on synchronization will be provided later).
+
+### 2. Firmware
+
+The firmware is responsible for reading the `config.json` and applying the defined behavior to the macropad. It acts as a standard HID Keyboard, translating user-defined layouts into keypresses that the operating system can understand.
 
 ## Hardware Overview
 
