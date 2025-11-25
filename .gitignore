@@ -11,6 +11,8 @@
 *~
 *.lck
 ~*
+*missing3D*
+*log*
 
 # Freecad backups
 *.FCBak
