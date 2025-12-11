@@ -4841,7 +4841,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "Bottom-Footprints:LED_SK6812MINI_PLCC4_3.5x3.5mm_P1.75mm"
+		(property "Footprint" "Bottom-Footprints:SK6812-MINI-E"
 			(at 92.71 124.46 0)
 			(effects
 				(font
@@ -5216,7 +5216,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "Bottom-Footprints:LED_SK6812MINI_PLCC4_3.5x3.5mm_P1.75mm"
+		(property "Footprint" "Bottom-Footprints:SK6812-MINI-E"
 			(at 123.19 160.02 0)
 			(effects
 				(font
@@ -5696,7 +5696,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "Bottom-Footprints:LED_SK6812MINI_PLCC4_3.5x3.5mm_P1.75mm"
+		(property "Footprint" "Bottom-Footprints:SK6812-MINI-E"
 			(at 106.68 160.02 0)
 			(effects
 				(font
@@ -6236,7 +6236,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "Bottom-Footprints:LED_SK6812MINI_PLCC4_3.5x3.5mm_P1.75mm"
+		(property "Footprint" "Bottom-Footprints:SK6812-MINI-E"
 			(at 142.24 124.46 0)
 			(effects
 				(font
@@ -6753,7 +6753,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "Bottom-Footprints:LED_SK6812MINI_PLCC4_3.5x3.5mm_P1.75mm"
+		(property "Footprint" "Bottom-Footprints:SK6812-MINI-E"
 			(at 156.21 160.02 0)
 			(effects
 				(font
@@ -7167,7 +7167,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "Bottom-Footprints:LED_SK6812MINI_PLCC4_3.5x3.5mm_P1.75mm"
+		(property "Footprint" "Bottom-Footprints:SK6812-MINI-E"
 			(at 109.22 124.46 0)
 			(effects
 				(font
@@ -8384,7 +8384,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "Bottom-Footprints:LED_SK6812MINI_PLCC4_3.5x3.5mm_P1.75mm"
+		(property "Footprint" "Bottom-Footprints:SK6812-MINI-E"
 			(at 158.75 124.46 0)
 			(effects
 				(font
@@ -8460,7 +8460,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "Bottom-Footprints:LED_SK6812MINI_PLCC4_3.5x3.5mm_P1.75mm"
+		(property "Footprint" "Bottom-Footprints:SK6812-MINI-E"
 			(at 125.73 124.46 0)
 			(effects
 				(font
@@ -10556,7 +10556,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "Bottom-Footprints:LED_SK6812MINI_PLCC4_3.5x3.5mm_P1.75mm"
+		(property "Footprint" "Bottom-Footprints:SK6812-MINI-E"
 			(at 139.7 160.02 0)
 			(effects
 				(font
@@ -11168,7 +11168,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "Bottom-Footprints:LED_SK6812MINI_PLCC4_3.5x3.5mm_P1.75mm"
+		(property "Footprint" "Bottom-Footprints:SK6812-MINI-E"
 			(at 90.17 160.02 0)
 			(effects
 				(font
