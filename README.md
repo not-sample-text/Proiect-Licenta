@@ -1,80 +1,71 @@
-# ESP32-S3 Macropad - Thesis Project
+# PROS3 Macropad: A Fully-Programmable Custom Mechanical Macropad
 
-A custom 12-key mechanical macropad based on the ESP32-S3, featuring programmable keys, a rotary encoder, an OLED display, and dual-mode connectivity (USB/Bluetooth).
-
-![Top PCB Render](Documentatie/top_pcb_1.png)
+The PROS3 Macropad is a versatile, open-source 12-key macropad built around the powerful ESP32-S3. Designed as a university thesis project, it features a rotary encoder, OLED display, RGB underglow, and a complete software ecosystem for deep customization.
 
 ---
 
-## About This Project
+## Gallery
 
-This repository contains the hardware design files for a versatile and programmable macropad created as a university thesis project. It's designed for productivity, allowing users to create custom shortcuts, macros, and function layers to streamline their workflows.
+A collection of renders and videos showcasing the hardware.
 
-**For detailed technical documentation, please see the [Documentation File](docs/Documentatie.md) (Romanian).**
+|                   Top View                    |                     Bottom View                     |
+| :-------------------------------------------: | :-------------------------------------------------: |
+| ![Top PCB Render](docs/images/render-top.png) | ![Bottom PCB Render](docs/images/render-bottom.png) |
 
-## Project Status
+---
 
-:warning: **In Development:** The hardware and web configurator are complete. The firmware is under active development. Guides for assembly and usage will be updated as the project progresses.
+## About The Project
+
+This repository contains the complete engineering files (hardware, firmware, and software) for a highly programmable macropad designed to streamline digital workflows.
+
+The project is built on three pillars:
+
+1.  **Hardware:** A custom two-part PCB design with a 3D-printable case. It's designed for assembly by hobbyists with through-hole components and hot-swap sockets.
+2.  **Firmware:** Custom C++ code running on the ESP32-S3. It manages input, the OLED display, lighting, and communication with the host computer.
+3.  **Software Suite:** A powerful combination of a web-based configurator (for creating keymaps) and a Python-based host application (for executing complex actions like running scripts or launching programs).
+
+This architecture allows the macropad to go beyond simple keystrokes and act as a powerful automation tool.
+
+**For a complete technical deep-dive, please see the [Full Technical Documentation](docs/Documentation.md).**
+**(Pentru documentația în limba română, consultați [acest document](docs/Documentatie.md)).**
+
+---
 
 ## Features
 
-- **12 Hot-Swappable Mechanical Keys:** Customize the feel of your macropad with any MX-style switches.
-- **Web-Based Configuration:** An intuitive browser-based UI allows you to remap keys and create macros without needing to write any code.
-- **Rotary Encoder:** Includes a push-button for intuitive menu navigation, volume control, and more.
-- **OLED Display:** A 0.91" SSD1306 screen provides real-time feedback on active layers, connection status, and battery level.
+- **12 Hot-Swappable Mechanical Keys:** Customize your macropad with any MX-style switches, no soldering required.
+- **Rotary Encoder with Push-Button:** Perfect for volume control, scrolling through timelines, or cycling through layers.
+- **OLED Display:** Get real-time feedback on your current layer, connection status, and more.
+- **Powerful Layering System:** Switch between 4 distinct layers to multiply your available keys.
+- **Dual-Mode Actions:**
+  - **HID Mode:** Send standard keystrokes and shortcuts that work on any OS without drivers.
+  - **Host Control Mode:** Trigger complex actions on your computer—like launching apps or running scripts—using the provided host listener application.
+- **Web-Based Configurator:** A user-friendly, browser-based UI for remapping keys, creating macros, and configuring lighting. No coding required.
+- **RGB Underglow:** 10 addressable RGB LEDs for brilliant lighting effects, managed by FastLED.
 - **Dual Connectivity:** Seamlessly switch between a wired USB-C connection and wireless Bluetooth/BLE HID.
-- **Programmable Layers:** The firmware reads a user-generated config file to support multiple layers for different applications and use cases.
-- **Power Management:** An on-board switch allows the device to enter a low-power state to conserve battery.
 
-## Software Ecosystem
-
-This project uses a 2-part architecture to manage configuration:
-
-### 1. Web Configurator
-
-Located in the [`web-configurator/`](web-configurator/) directory, this is a standalone HTML/JS application.
-
--   **Purpose:** Allows the user to visually design their key layouts, shortcuts, and macros across multiple layers.
--   **Output:** Generates a `config.json` file containing the complete custom configuration. This file is then placed on the host computer for the firmware to access (details on synchronization will be provided later).
-
-### 2. Firmware
-
-The firmware is responsible for reading the `config.json` and applying the defined behavior to the macropad. It acts as a standard HID Keyboard, translating user-defined layouts into keypresses that the operating system can understand.
-
-## Hardware Overview
-
-- **Microcontroller:** Unexpected Maker ProS3 (ESP32-S3)
-- **Design:** A two-board design separates the user interface components (keys, encoder) from the main controller board.
-- **Components:**
-  - 12x MX-compatible hot-swap sockets
-  - EC11-compatible rotary encoder
-  - SSD1306 128x32 I2C OLED display
-  - 1N4148 diodes for anti-ghosting
-
-The full schematics, PCB layouts, and (eventually) Bill of Materials are located in this `Documentatie` folder.
-
-## Firmware
-
-The firmware for this macropad is being custom-written in C/C++ to leverage the specific features of the ESP32-S3. It will not use existing frameworks like QMK or ZMK. Key development goals include implementing the layer system, HID communication (USB & BLE), and OLED screen management.
+---
 
 ## Getting Started
 
-1.  **Fabricate PCBs:** Use the KiCad files in this repository to generate Gerbers and order the PCBs.
-2.  **Assemble Hardware:** Solder the components according to the PCB layout. A detailed assembly guide is available in the [documentation](Documentatie/Documentatie.md).
-3.  **Flash Firmware:** Once the firmware is released, it can be flashed onto the ProS3 board. Instructions will be provided.
+Ready to build your own? Here's a high-level overview of the process:
 
-## Future Plans
+1.  **Build the Hardware:** Use the KiCad files in the [`hardware/`](hardware/) directory to fabricate the PCBs and source the components from the Bill of Materials.
+2.  **Flash the Firmware:** Use PlatformIO to compile and upload the firmware from the [`firmware/`](firmware/) directory to the ESP32-S3.
+3.  **Configure Your Layout:** Open the `web-configurator/index.html` file in a browser to create your custom keymaps and export the `config.json` file.
+4.  **Run the Host App:** Install the Python dependencies and run the `listener.py` script from the [`host-listener/`](host-listener/) directory to unlock the full capabilities of the command and launcher layers.
 
-- Finalize and release the custom firmware.
-- Generate a detailed Bill of Materials (BOM).
-- Design and release files for a 3D-printable enclosure.
+For a detailed, step-by-step guide, please refer to the **[Complete User Workflow section in the documentation](docs/Documentation.md#5-complete-user-workflow)**.
+
+---
 
 ## Acknowledgements
 
-- **[Unexpected Maker](https://unexpectedmaker.com/)** for the excellent ProS3 board.
-- **[ScottoKeebs](https://github.com/joe-scotto/scottokeebs)** for the KiCad libraries and footprints for mechanical keyboards.
-- The mechanical keyboard community for endless inspiration.
+This project was made possible by the following open-source projects and communities:
+
+- **[ScottoKeebs](https://github.com/joe-scotto/scottokeebs)**: For the KiCad libraries and footprints for mechanical keyboards.
+- **The Mechanical Keyboard Community**: For providing a constant source of inspiration and knowledge.
 
 ## License
 
-The hardware design files are provided as-is. This project includes components from third-party libraries which are subject to their own licenses.
+The hardware and software are provided as-is under a permissive license. This project includes components from third-party libraries which are subject to their own licenses. Please see the individual source files for more details.

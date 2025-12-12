@@ -1,82 +1,71 @@
-# Macropad cu ESP32-S3 - Proiect de Licență
+# Macropad PROS3: O Tastatură Mecanică Personalizată, Complet Programabilă
 
-Un macropad mecanic personalizat cu 12 taste, bazat pe microcontrolerul ESP32-S3. Dispozitivul include un encoder rotativ, ecran OLED și conectivitate duală (USB/Bluetooth).
+Macropad-ul PROS3 este o tastatură mecanică (macropad) versatilă, open-source, cu 12 taste, construită în jurul puternicului microcontroler ESP32-S3. Proiectat ca un proiect de licență, acesta dispune de un encoder rotativ, un ecran OLED, iluminare RGB (underglow) și un ecosistem software complet pentru o personalizare profundă.
+
+---
 
 ## Galerie
 
-|                  Vedere de Sus                  |                     Vedere de Jos                     |
-| :---------------------------------------------: | :---------------------------------------------------: |
-|        ![PCB Top](images/render-top.png)        |        ![PCB Bottom](images/render-bottom.png)        |
-| ![PCB Top Angled](images/render-top-angled.png) | ![PCB Bottom Angled](images/render-bottom-angled.png) |
+O colecție de randări și videoclipuri care prezintă hardware-ul.
+
+|               Vedere de Sus               |                Vedere de Jos                 |
+| :---------------------------------------: | :------------------------------------------: |
+| ![Randare PCB Sus](images/render-top.png) | ![Randare PCB Jos](images/render-bottom.png) |
 
 ---
 
 ## Despre Proiect
 
-Acest depozit conține întreaga suită de inginerie (Hardware, Firmware și Software) pentru un macropad programabil, realizat ca proiect de licență. Dispozitivul este conceput pentru productivitate, permițând utilizatorilor să creeze scurtături personalizate, macro-uri și straturi (layers) de funcții pentru a eficientiza fluxul de lucru.
+Acest depozit (repository) conține fișierele complete de inginerie (hardware, firmware și software) pentru un macropad programabil, conceput pentru a eficientiza fluxurile de lucru digitale.
 
-**Pentru documentația tehnică detaliată, vă rugăm să consultați [Fișierul de Documentație](Documentatie.md).**
+Proiectul este construit pe trei piloni:
 
-## Structura Proiectului
+1.  **Hardware:** Un design PCB personalizat, format din două plăci, cu o carcasă ce poate fi printată 3D. Este conceput pentru a fi asamblat de pasionați, folosind componente through-hole și socluri hot-swap.
+2.  **Firmware:** Cod C++ personalizat care rulează pe ESP32-S3. Acesta gestionează input-ul, ecranul OLED, iluminarea și comunicarea cu computerul gazdă.
+3.  **Suită Software:** O combinație puternică între un configurator web (pentru crearea de mapări de taste) și o aplicație gazdă bazată pe Python (pentru executarea de acțiuni complexe, cum ar fi rularea de scripturi sau lansarea de programe).
 
-Proiectul este organizat în trei domenii principale de inginerie:
+Această arhitectură permite macropad-ului să depășească simpla trimitere de taste și să acționeze ca o unealtă puternică de automatizare.
 
-- **`hardware/`**: Conține fișierele de proiectare PCB în KiCad (`pcb/`) și modelele 3D pentru carcasă (`case/`).
-- **`firmware/`**: Codul sursă C++/Arduino care rulează pe microcontrolerul ESP32-S3.
-- **`web-configurator/`**: O interfață grafică bazată pe browser pentru configurarea tastelor și a straturilor.
+**Pentru o analiză tehnică completă, vă rugăm să consultați [Documentația Tehnică Completă (ENG)](Documentation.md).**
+**(Pentru documentația în limba română, consultați [acest document](Documentatie.md)).**
+
+---
 
 ## Funcționalități
 
-- **12 Taste Mecanice Hot-Swap:** Posibilitatea de a personaliza experiența de tastare folosind orice switch-uri compatibile MX.
-- **Encoder Rotativ:** Include un buton integrat pentru navigarea intuitivă în meniuri, controlul volumului și alte funcții.
-- **Ecran OLED:** Un afișaj SSD1306 de 0.91" oferă feedback în timp real despre stratul activ, starea conexiunii și nivelul bateriei.
-- **Configurare Web:** Remaparea tastelor și crearea de macro-uri printr-o interfață vizuală drag-and-drop, fără a fi necesară scrierea de cod.
-- **Conectivitate Duală:** Comutare fluidă între conexiunea prin cablu USB-C și cea wireless Bluetooth/BLE HID.
+- **12 Taste Mecanice Hot-Swap:** Personalizați-vă macropad-ul cu orice switch-uri stil MX, fără a necesita lipire.
+- **Encoder Rotativ cu Buton:** Perfect pentru controlul volumului, navigarea prin cronologii video sau comutarea între straturi (layers).
+- **Ecran OLED:** Obțineți feedback în timp real despre stratul curent, starea conexiunii și multe altele.
+- **Sistem Puternic de Straturi (Layers):** Comutați între 4 straturi distincte pentru a multiplica numărul de taste disponibile.
+- **Acțiuni în Mod Dual:**
+  - **Mod HID:** Trimiteți apăsări de taste și scurtături standard care funcționează pe orice sistem de operare fără drivere.
+  - **Mod Control Gazdă:** Declansați acțiuni complexe pe computerul dvs. — cum ar fi lansarea de aplicații sau rularea de scripturi — folosind aplicația de ascultare (listener) furnizată.
+- **Configurator Bazat pe Web:** O interfață de utilizator prietenoasă, bazată pe browser, pentru remaparea tastelor, crearea de macrouri și configurarea iluminării. Nu este necesară programarea.
+- **Iluminare RGB (Underglow):** 10 LED-uri RGB adresabile pentru efecte de iluminare strălucitoare, gestionate de biblioteca FastLED.
+- **Conectivitate Duală:** Comutați fără probleme între o conexiune prin cablu USB-C și cea wireless Bluetooth/BLE HID.
 
-## Ecosistemul Software
+---
 
-Acest proiect utilizează o arhitectură compusă din 2 părți pentru a gestiona configurarea:
+## Ghid de Inițiere
 
-### 1. Configurator Web
+Sunteți gata să vă construiți propriul macropad? Iată o prezentare generală a procesului:
 
-Situat în [`web-configurator/`](web-configurator/), aceasta este o aplicație HTML/JS independentă.
+1.  **Construiți Hardware-ul:** Folosiți fișierele KiCad din directorul [`hardware/`](../hardware/) pentru a fabrica PCB-urile și pentru a procura componentele din Lista de Materiale (BOM).
+2.  **Instalați Firmware-ul:** Folosiți PlatformIO pentru a compila și încărca firmware-ul din directorul [`firmware/`](../firmware/) pe ESP32-S3.
+3.  **Configurați Layout-ul:** Deschideți fișierul `web-configurator/index.html` într-un browser pentru a crea mapările de taste personalizate și pentru a exporta fișierul `config.json`.
+4.  **Rulați Aplicația Gazdă:** Instalați dependențele Python și rulați scriptul `listener.py` din directorul [`host-listener/`](../host-listener/) pentru a debloca toate capabilitățile straturilor de comandă și lansator.
 
-- Vizualizează arhitectura cu 4 straturi (Taste F, Scurtături, Comenzi, Lansator).
-- Generează un fișier `config.json` care conține configurația personalizată.
-- Suportă salvarea automată în memoria locală și importul configurațiilor anterioare.
+Pentru un ghid detaliat, pas cu pas, vă rugăm să consultați secțiunea **[Flux de Utilizare Complet din documentație](Documentatie.md#5-flux-de-utilizare-complet)**.
 
-### 2. Firmware
-
-Situat în [`firmware/`](firmware/), scris în C++ pentru ESP32-S3.
-
-- Gestionează scanarea matricei fizice de taste și randarea pe ecranul OLED.
-- Funcționează ca o tastatură HID standard (prin USB sau Bluetooth) pentru a trimite comenzi către sistemul de operare, pe baza configurației încărcate.
-
-## Prezentare Generală Hardware
-
-- **Microcontroler:** Unexpected Maker ProS3 (ESP32-S3)
-- **Design:** Un design cu două plăci PCB care separă componentele de interfață (taste, encoder) de placa principală de control.
-- **Componente:**
-  - 12x Socluri Hot-Swap compatibile MX
-  - Encoder rotativ compatibil EC11
-  - Ecran OLED I2C SSD1306 128x32
-  - Diode 1N4148 pentru anti-ghosting
-
-Schemele complete și layout-urile PCB se află în folderul [`hardware/pcb`](hardware/pcb).
-
-## Ghid de Utilizare
-
-1.  **Fabricare PCB:** Utilizați fișierele KiCad din `hardware/pcb` pentru a genera fișierele Gerber și a comanda plăcile.
-2.  **Asamblare Hardware:** Lipiți componentele conform layout-ului PCB. Un ghid detaliat de asamblare este disponibil în [documentație](Documentatie.md).
-3.  **Scriere Firmware:** Încărcați codul din folderul `firmware/` pe placa ProS3.
-4.  **Configurare:** Deschideți Configuratorul Web (găzduit prin GitHub Pages sau local), proiectați straturile dorite și exportați fișierul JSON.
+---
 
 ## Mulțumiri
 
-- **[Unexpected Maker](https://unexpectedmaker.com/)** pentru placa de dezvoltare ProS3.
-- **[ScottoKeebs](https://github.com/joe-scotto/scottokeebs)** pentru bibliotecile KiCad și amprentele pentru tastaturi mecanice.
-- Comunității de tastaturi mecanice pentru inspirație.
+Acest proiect a fost posibil datorită următoarelor proiecte open-source și comunități:
+
+- **[ScottoKeebs](https://github.com/joe-scotto/scottokeebs)**: Pentru bibliotecile KiCad și amprentele pentru tastaturi mecanice.
+- **Comunitatea de Tastaturi Mecanice**: Pentru că a oferit o sursă constantă de inspirație și cunoștințe.
 
 ## Licență
 
-Fișierele de design hardware sunt oferite "ca atare" (as-is). Acest proiect include componente din biblioteci terțe care sunt supuse propriilor licențe.
+Hardware-ul și software-ul sunt furnizate "ca atare" (as-is) sub o licență permisivă. Acest proiect include componente din biblioteci terțe care sunt supuse propriilor licențe. Vă rugăm să consultați fișierele sursă individuale pentru mai multe detalii.
