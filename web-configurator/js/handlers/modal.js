@@ -4,30 +4,62 @@ import { PersistenceHandler } from "../utils/storage.js";
 import { KeyHandler } from "./key.js";
 import { SidebarHandler } from "./sidebar.js";
 
+// Track the global keyboard handler for cleanup
+let globalKeydownHandler = null;
+
 export const ModalHandler = {
 	setupRecorder: () => {
 		const recorder = document.querySelector(".shortcut-recorder");
+
+		// Start recording
 		recorder.addEventListener("click", () => {
 			recorder.classList.add("recording");
 			dom.modal.shortcutDisplay.innerText = "Listening...";
-		});
-		recorder.addEventListener("keydown", (e) => {
-			e.preventDefault();
-			const keys = [];
-			if (e.ctrlKey) keys.push("Ctrl");
-			if (e.shiftKey) keys.push("Shift");
-			if (e.altKey) keys.push("Alt");
-			if (e.metaKey) keys.push("Meta");
-			if (!["Control", "Shift", "Alt", "Meta"].includes(e.key)) {
-				keys.push(e.key.toUpperCase());
-			}
-			const result = keys.join(" + ");
-			dom.modal.shortcutDisplay.innerText = result;
-			dom.modal.shortcutValue.value = result;
+			recorder.focus();
 
-			if (!["Control", "Shift", "Alt", "Meta"].includes(e.key)) {
-				recorder.blur();
+			// Add global document-level listener to catch ALL keyboard events
+			globalKeydownHandler = (e) => {
+				// Prevent ALL default browser behavior while recording
+				e.preventDefault();
+				e.stopPropagation();
+
+				const keys = [];
+				if (e.ctrlKey) keys.push("Ctrl");
+				if (e.shiftKey) keys.push("Shift");
+				if (e.altKey) keys.push("Alt");
+				if (e.metaKey) keys.push("Meta");
+
+				// Only add the main key if it's not a modifier
+				if (!["Control", "Shift", "Alt", "Meta"].includes(e.key)) {
+					keys.push(e.key.toUpperCase());
+				}
+
+				const result = keys.join(" + ");
+				dom.modal.shortcutDisplay.innerText = result;
+				dom.modal.shortcutValue.value = result;
+
+				// End recording when a non-modifier key is pressed
+				if (!["Control", "Shift", "Alt", "Meta"].includes(e.key)) {
+					recorder.blur();
+					recorder.classList.remove("recording");
+					// Remove the global listener
+					document.removeEventListener("keydown", globalKeydownHandler, true);
+					globalKeydownHandler = null;
+				}
+			};
+
+			// Use capture phase (true) to catch the event before any other handlers
+			document.addEventListener("keydown", globalKeydownHandler, true);
+		});
+
+		// Handle blur (user clicked away)
+		recorder.addEventListener("blur", () => {
+			if (recorder.classList.contains("recording")) {
 				recorder.classList.remove("recording");
+				if (globalKeydownHandler) {
+					document.removeEventListener("keydown", globalKeydownHandler, true);
+					globalKeydownHandler = null;
+				}
 			}
 		});
 	},
@@ -130,6 +162,18 @@ export const ModalHandler = {
 	},
 
 	close: () => {
+		// Clean up global keyboard listener if still active
+		if (globalKeydownHandler) {
+			document.removeEventListener("keydown", globalKeydownHandler, true);
+			globalKeydownHandler = null;
+		}
+
+		// Remove recording state from recorder if still active
+		const recorder = document.querySelector(".shortcut-recorder");
+		if (recorder) {
+			recorder.classList.remove("recording");
+		}
+
 		dom.modal.overlay.classList.add("hidden");
 	},
 
