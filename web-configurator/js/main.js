@@ -1,6 +1,7 @@
 import { dom } from "./dom.js";
 import { SidebarHandler } from "./handlers/sidebar.js";
 import { ModalHandler } from "./handlers/modal.js";
+import { WelcomeHandler } from "./handlers/welcome.js";
 import { KnobHandler } from "./handlers/knob.js";
 import { IOHandler } from "./handlers/io.js";
 import { ResizerHandler } from "./handlers/resizer.js";
@@ -46,13 +47,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	// 3. Initialize Sub-Systems
 	ModalHandler.init();
+	WelcomeHandler.init();
 	KnobHandler.init();
 	IOHandler.init();
 	ResizerHandler.init();
 	LightingHandler.init();
 
-	// 4. Load Data
-	PersistenceHandler.loadFromLocal();
+	// 4. Load Data (if nothing in localStorage, offer sample config)
+	const loaded = PersistenceHandler.loadFromLocal();
+	if (!loaded) {
+		// Show the dedicated welcome modal for first-run
+		WelcomeHandler.show();
+	}
 
 	// 5. Auto-open first layer
 	if (headers.length > 0) headers[0].click();

@@ -65,6 +65,11 @@ input:focus {
 	gap: var(--spacing-sm);
 	margin-top: var(--spacing-lg);
 }
+
+/* Reduce letter spacing for welcome modal text to make letters closer */
+#welcome-modal .modal-body p {
+	letter-spacing: 0px;
+}
 button {
 	padding: 8px 20px;
 	border: none;

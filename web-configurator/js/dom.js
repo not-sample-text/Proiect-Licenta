@@ -22,7 +22,16 @@ export const dom = {
 		scriptDisplay: document.getElementById("script-path-display"),
 		appInput: document.getElementById("app-path-input"),
 		cancelBtn: document.getElementById("btn-cancel"),
-		saveBtn: document.getElementById("btn-save")
+		resetBtn: document.getElementById("btn-reset"),
+		saveBtn: document.getElementById("btn-save"),
+		samplePrompt: document.getElementById("sample-prompt"),
+		sampleLoadBtn: document.getElementById("btn-sample-load"),
+		sampleCancelBtn: document.getElementById("btn-sample-cancel")
+	},
+	welcome: {
+		overlay: document.getElementById("welcome-modal"),
+		loadBtn: document.getElementById("btn-welcome-load"),
+		skipBtn: document.getElementById("btn-welcome-skip")
 	},
 	exportBtn: document.getElementById("btn-export-json"),
 	importBtn: document.getElementById("btn-import-json"),
