@@ -48,7 +48,7 @@
 
 - [ ] Enable the ESP32-S3 native USB stack (TinyUSB) as a composite device: **Keyboard + CDC Serial**
 - [ ] Implement HID keyboard reports — send single keys and modifier combos (`Ctrl+Shift+P`, etc.)
-- [ ] Implement HID consumer control reports for media keys (volume up/down via encoder on Layer 0/1)
+- [x] Implement HID consumer control reports for media keys (volume up/down via encoder on Layer 0/1)
 - [ ] Make sure HID descriptors are minimal and spec-compliant to avoid driver issues across OSes
 
 ### 1.7 BLE HID

@@ -1,6 +1,16 @@
 /**
  * @file matrix.h
- * @brief Key matrix scanner for the PROS3 Macropad.
+ * @brief Key matrix scanner implementation for the PROS3 Macropad.
+ *
+ * This file defines the interface for scanning a 3×4 key matrix. It includes
+ * hardware debouncing, interrupt-driven scanning, and low-latency event generation.
+ * The matrix scanner is responsible for detecting key presses and releases,
+ * debouncing the signals, and pushing the resulting events to the global input queue.
+ *
+ * Key Features:
+ * - Active-low column scanning with external pull-ups on rows.
+ * - Interrupt-based wakeup on any row change for power efficiency.
+ * - Configurable debounce time to ensure reliable key detection.
  *
  * Implements a 3×4 key matrix scanner with:
  * - Hardware debouncing (time-based)

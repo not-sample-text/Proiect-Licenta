@@ -1,6 +1,17 @@
 /**
  * @file debug.h
- * @brief Leveled debug logging for the PROS3 Macropad.
+ * @brief Debug logging utilities for the PROS3 Macropad firmware.
+ *
+ * This file provides macros and utilities for leveled debug logging, allowing
+ * developers to trace the firmware's behavior during development and testing.
+ * The logging system supports compile-time log level selection and runtime
+ * control for enabling or disabling verbose logging.
+ *
+ * Key Features:
+ * - Compile-time log levels (OFF, ERROR, WARN, INFO, VERBOSE).
+ * - Runtime control via serial commands to toggle verbose logging.
+ * - Timestamped log messages for profiling and debugging.
+ * - Integration with the USB CDC serial interface for log output.
  *
  * Compile-time levels (set -DDEBUG_LEVEL=n in platformio.ini):
  *   0 = OFF   — all macros compile to nothing

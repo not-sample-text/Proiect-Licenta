@@ -1,15 +1,17 @@
 /**
  * @file input_events.h
- * @brief Lightweight event queue for macropad input events.
+ * @brief Event queue implementation for macropad input handling.
  *
- * Implements a lock-free ring buffer for input events (key presses/releases,
- * encoder rotations). Designed to be ISR-safe for enqueueing events from
- * interrupt handlers.
+ * This file defines a lightweight, lock-free ring buffer for storing input
+ * events such as key presses/releases and encoder rotations. The event queue
+ * is designed to be ISR-safe, allowing interrupt handlers to enqueue events
+ * without blocking the main application loop.
  *
- * Responsibilities:
- * - Store input events in a FIFO queue
- * - Provide ISR-safe enqueue operation
- * - Provide main-loop dequeue operation
+ * Key Features:
+ * - FIFO (First-In-First-Out) queue for predictable event processing.
+ * - ISR-safe enqueue operation for real-time input handling.
+ * - Simple dequeue operation for the main application loop.
+ * - Support for multiple event types, including key and encoder events.
  */
 
 #pragma once

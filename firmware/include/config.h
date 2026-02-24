@@ -1,20 +1,17 @@
 /**
  * @file config.h
- * @brief Configuration file management for the PROS3 Macropad.
+ * @brief Configuration management for the PROS3 Macropad firmware.
  *
- * Handles loading and parsing the config.json file from LittleFS.
- * The config structure stores all user-defined settings:
- * - Layer 1-3 key mappings
- * - RGB lighting preferences
- * - Power management timeouts
- * - Layer names (optional)
+ * This file provides the interface for managing the macropad's configuration,
+ * including loading, parsing, and validating the `config.json` file stored in
+ * the LittleFS filesystem. The configuration includes user-defined settings
+ * such as key mappings, RGB lighting preferences, and power management timeouts.
  *
- * Responsibilities:
- * - Mount LittleFS filesystem
- * - Load config.json from storage
- * - Parse and validate JSON structure
- * - Provide parsed configuration to other modules
- * - Handle config upload from host (future)
+ * Key Responsibilities:
+ * - Mounting the LittleFS filesystem and accessing the configuration file.
+ * - Parsing the JSON structure and validating its contents.
+ * - Providing a structured representation of the configuration to other modules.
+ * - Supporting future extensions for dynamic configuration updates.
  */
 
 #pragma once

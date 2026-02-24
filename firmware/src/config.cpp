@@ -85,18 +85,18 @@ bool config_load() {
     }
     
     // Extract RGB config if present
-    if (g_config_doc.containsKey("rgb")) {
-        JsonObject rgb = g_config_doc["rgb"];
-        if (rgb.containsKey("brightness")) {
+    if (g_config_doc["rgb"].is<JsonObject>()) {
+        JsonObject rgb = g_config_doc["rgb"].as<JsonObject>();
+        if (rgb["brightness"].is<int>()) {
             g_rgb_config.brightness = rgb["brightness"];
         }
-        if (rgb.containsKey("mode")) {
+        if (rgb["mode"].is<const char*>()) {
             g_rgb_config.mode = rgb["mode"];
         }
-        if (rgb.containsKey("speed")) {
+        if (rgb["speed"].is<int>()) {
             g_rgb_config.speed = rgb["speed"];
         }
-        if (rgb.containsKey("color")) {
+        if (rgb["color"].is<const char*>()) {
             // Color can be a string like "#FF00FF" or a number
             if (rgb["color"].is<const char*>()) {
                 const char* color_str = rgb["color"];
@@ -168,7 +168,7 @@ const char* config_get_key_action(uint8_t layer, uint8_t col, uint8_t row) {
     snprintf(path, sizeof(path), "layers[%d].keys[%d][%d]", layer, row, col);
     
     // Navigate JSON path
-    if (!g_config_doc.containsKey("layers")) {
+    if (!g_config_doc["layers"].is<JsonArray>()) {
         return nullptr;
     }
     
@@ -178,7 +178,7 @@ const char* config_get_key_action(uint8_t layer, uint8_t col, uint8_t row) {
     }
     
     JsonObject layer_obj = layers[layer];
-    if (!layer_obj.containsKey("keys")) {
+    if (!layer_obj["keys"].is<JsonArray>()) {
         return nullptr;
     }
     
@@ -207,26 +207,28 @@ const RGBConfig& config_get_rgb() {
 
 // ── Power Settings ──────────────────────────────────────────────
 uint32_t config_get_idle_timeout_sec() {
-    if (!g_config_loaded || !g_config_doc.containsKey("power")) {
+    if (!g_config_loaded || !g_config_doc.is<JsonObject>()) {
         return 0;  // Use firmware default
     }
     
-    JsonObject power = g_config_doc["power"];
-    if (power.containsKey("idle_timeout_sec")) {
-        return power["idle_timeout_sec"];
+    // Correct JSON key access
+    if (g_config_doc["power"]["idle_timeout_sec"].is<int>()) {
+        uint32_t idle_timeout = g_config_doc["power"]["idle_timeout_sec"].as<int>();
+        // Handle idle timeout
     }
     
     return 0;
 }
 
 uint32_t config_get_oled_dim_timeout_sec() {
-    if (!g_config_loaded || !g_config_doc.containsKey("power")) {
+    if (!g_config_loaded || !g_config_doc.is<JsonObject>()) {
         return 0;  // Use firmware default
     }
     
-    JsonObject power = g_config_doc["power"];
-    if (power.containsKey("oled_dim_timeout_sec")) {
-        return power["oled_dim_timeout_sec"];
+    // Correct JSON key access
+    if (g_config_doc["power"]["oled_dim_timeout_sec"].is<int>()) {
+        uint32_t oled_dim_timeout = g_config_doc["power"]["oled_dim_timeout_sec"].as<int>();
+        // Handle OLED dim timeout
     }
     
     return 0;

@@ -18,6 +18,7 @@
 #include "config.h"
 #include "layers.h"
 #include "keymap.h"
+#include "usb_hid.h"
 
 // ── Global State ────────────────────────────────────────────────
 bool g_debug_enabled = true;  // Runtime debug toggle (default: ON)
@@ -57,6 +58,8 @@ void setup() {
         delay(100);
     }
 
+    setup_usb_hid();
+
     DBG_INFO("Boot complete — entering main loop");
 }
 
@@ -80,6 +83,7 @@ void loop() {
     //   - Lighting update
 
     delay(1);   // yield to RTOS; will be replaced by proper scheduling
+    usb_hid_task();
 }
 
 // ── Pin initialisation ──────────────────────────────────────────
@@ -254,21 +258,23 @@ static void process_input_events() {
             KeyAction action;
             if (!keymap_get_action(current_layer, event.col, event.row, action)) {
                 DBG_WARN("No action for Layer %s C%dR%d", 
-                         layers_get_name(current_layer), event.col, event.row);
+                        layers_get_name(current_layer), event.col, event.row);
                 continue;
             }
             
             // Dispatch based on action type
             bool is_press = (event.type == EVENT_KEY_PRESS);
             
+            // Move variable declaration outside the switch
+            EventType proto_evt;
             switch (action.type) {
                 case ACTION_HID_KEY:
                     DBG_INFO("%s: HID Key 0x%02X (mods: 0x%02X) — C%dR%d [%s]",
-                             is_press ? "PRESS" : "RELEASE",
-                             action.hid_key.keycode,
-                             action.hid_key.modifiers,
-                             event.col, event.row,
-                             layers_get_name(current_layer));
+                            is_press ? "PRESS" : "RELEASE",
+                            action.hid_key.keycode,
+                            action.hid_key.modifiers,
+                            event.col, event.row,
+                            layers_get_name(current_layer));
                     // TODO: hid_send_key(action.hid_key.keycode, 
                     //                    action.hid_key.modifiers, is_press);
                     break;
@@ -276,25 +282,25 @@ static void process_input_events() {
                 case ACTION_HID_MEDIA:
                     if (is_press) {  // Media keys only on press
                         DBG_INFO("PRESS: HID Media 0x%04X — C%dR%d [%s]",
-                                 action.hid_media.usage_code,
-                                 event.col, event.row,
-                                 layers_get_name(current_layer));
+                                action.hid_media.usage_code,
+                                event.col, event.row,
+                                layers_get_name(current_layer));
                         // TODO: hid_send_media(action.hid_media.usage_code);
                     }
                     break;
                     
                 case ACTION_SERIAL_SEND:
                     DBG_INFO("%s: Serial protocol — C%dR%d [%s]",
-                             is_press ? "PRESS" : "RELEASE",
-                             event.col, event.row,
-                             layers_get_name(current_layer));
+                            is_press ? "PRESS" : "RELEASE",
+                            event.col, event.row,
+                            layers_get_name(current_layer));
+                    proto_evt = is_press ? EVT_KEY_PRESS : EVT_KEY_RELEASE;
                     // Send protocol byte
-                    EventType proto_evt = is_press ? EVT_KEY_PRESS : EVT_KEY_RELEASE;
                     protocol_send(Serial, current_layer, event.col, event.row, proto_evt);
                     break;
                     
-                default:
-                    DBG_WARN("Unknown action type: %d", action.type);
+                case ACTION_NONE:
+                    DBG_INFO("No action for this event");
                     break;
             }
         }
