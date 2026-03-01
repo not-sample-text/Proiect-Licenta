@@ -77,6 +77,17 @@ bool config_save(const char* json_data, size_t length);
  */
 const char* config_get_key_action(uint8_t layer, uint8_t col, uint8_t row);
 
+/**
+ * Get the label for a specific key on a layer.
+ * Returns the human-readable label shown on OLED when key is pressed.
+ * 
+ * @param layer Layer number (0-3)
+ * @param col Column (0-2)
+ * @param row Row (0-3)
+ * @return Label string from config, or NULL if not defined
+ */
+const char* config_get_key_label(uint8_t layer, uint8_t col, uint8_t row);
+
 // ── RGB Lighting Settings ───────────────────────────────────────
 struct RGBConfig {
     uint8_t  brightness;     // 0-255

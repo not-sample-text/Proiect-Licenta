@@ -19,7 +19,7 @@ static const uint8_t LAYER0_DEFAULT_KEYS[12] = {
 
 // ── Initialization ──────────────────────────────────────────────
 void keymap_init() {
-    DBG_INFO("Keymap system initialized");
+    DBG_INFO("KM", "Keymap system initialized");
 }
 
 // ── Key Mapping ─────────────────────────────────────────────────
@@ -50,7 +50,7 @@ bool keymap_get_action(Layer layer, uint8_t col, uint8_t row, KeyAction& action)
     }
     
     // Fallback for Layer 1: Use Layer 0 defaults
-    DBG_VERBOSE("No config for Layer %d C%dR%d, using Layer 0 default", 
+    DBG_VERBOSE("KM", "No config for Layer %d C%dR%d, using Layer 0 default", 
                 layer, col, row);
     action.type = ACTION_HID_KEY;
     action.hid_key.keycode = LAYER0_DEFAULT_KEYS[row * 3 + col];

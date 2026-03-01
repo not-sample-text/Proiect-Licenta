@@ -7,6 +7,7 @@
  * - Direction tracking (CW/CCW)
  * - Button press/release detection with debouncing
  * - Detent filtering (prevents spurious events)
+ * - Mode switching (volume control / layer cycling)
  *
  * Responsibilities:
  * - Monitor encoder CLK and DT pins via interrupt
@@ -21,6 +22,12 @@
 #include <Arduino.h>
 #include "pins.h"
 #include "input_events.h"
+
+// ── Encoder Mode ────────────────────────────────────────────────
+enum EncoderMode {
+    ENCODER_MODE_VOLUME,    // Rotation controls volume up/down
+    ENCODER_MODE_LAYER      // Rotation cycles layers up/down
+};
 
 // ── Configuration ───────────────────────────────────────────────
 struct EncoderConfig {
@@ -78,6 +85,25 @@ int32_t encoder_get_position();
  * Reset the encoder position to zero.
  */
 void encoder_reset_position();
+
+// ── Mode Control ────────────────────────────────────────────────
+/**
+ * Get the current encoder mode.
+ * @return ENCODER_MODE_VOLUME or ENCODER_MODE_LAYER
+ */
+EncoderMode encoder_get_mode();
+
+/**
+ * Set the encoder mode.
+ * @param mode New encoder mode
+ */
+void encoder_set_mode(EncoderMode mode);
+
+/**
+ * Toggle encoder mode between volume and layer.
+ * @return New mode after toggle
+ */
+EncoderMode encoder_toggle_mode();
 
 // ── Interrupt Handlers ──────────────────────────────────────────
 /**

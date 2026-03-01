@@ -23,11 +23,11 @@ static const char* LAYER_NAMES[LAYER_COUNT] = {
 
 // ── Initialization ──────────────────────────────────────────────
 void layers_init() {
-    DBG_INFO("Initializing layer system...");
+    DBG_INFO("LYR", "Initializing layer system...");
     
     g_current_layer = g_layer_config.default_layer;
     
-    DBG_INFO("Layer system initialized (default: %s)", 
+    DBG_INFO("LYR", "Layer system initialized (default: %s)", 
              layers_get_name(g_current_layer));
 }
 
@@ -39,7 +39,7 @@ Layer layers_get_current() {
 bool layers_set(Layer layer) {
     // Validate layer
     if (layer >= LAYER_COUNT) {
-        DBG_ERROR("Invalid layer: %d", layer);
+        DBG_ERROR("LYR", "Invalid layer: %d", layer);
         return false;
     }
     
@@ -54,7 +54,7 @@ bool layers_set(Layer layer) {
     // Switch layer
     g_current_layer = layer;
     
-    DBG_INFO("Layer changed: %s → %s", 
+    DBG_INFO("LYR", "Layer changed: %s → %s", 
              layers_get_name(old_layer), 
              layers_get_name(layer));
     

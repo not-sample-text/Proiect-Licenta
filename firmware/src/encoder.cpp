@@ -20,6 +20,9 @@ static bool     g_button_state = false;         // Current debounced state
 static bool     g_button_raw = false;           // Raw state from last read
 static uint32_t g_button_debounce_time = 0;     // Timestamp of last state change
 
+// ── Encoder Mode ────────────────────────────────────────────────
+static EncoderMode g_encoder_mode = ENCODER_MODE_VOLUME;  // Default to volume control
+
 // ── State Machine Lookup Table ──────────────────────────────────
 // Quadrature encoding state transition table
 // Returns: +1 for CW, -1 for CCW, 0 for invalid/noise
@@ -44,7 +47,7 @@ static const int8_t ENCODER_TABLE[16] = {
 
 // ── Initialization ──────────────────────────────────────────────
 void encoder_init() {
-    DBG_INFO("Initializing rotary encoder...");
+    DBG_INFO("ENC", "Initializing rotary encoder...");
     
     // Read initial state of CLK and DT
     uint8_t clk = digitalRead(PIN_ENC_CLK) ? 1 : 0;
@@ -61,12 +64,12 @@ void encoder_init() {
                     encoder_rotation_isr, 
                     CHANGE);
     
-    DBG_VERBOSE("  CLK interrupt: GPIO %d", PIN_ENC_CLK);
-    DBG_VERBOSE("  DT interrupt: GPIO %d", PIN_ENC_DT);
-    DBG_VERBOSE("  SW pin: GPIO %d (debounce: %d ms)", 
+    DBG_VERBOSE("ENC", "  CLK interrupt: GPIO %d", PIN_ENC_CLK);
+    DBG_VERBOSE("ENC", "  DT interrupt: GPIO %d", PIN_ENC_DT);
+    DBG_VERBOSE("ENC", "  SW pin: GPIO %d (debounce: %d ms)", 
                 PIN_ENC_SW, g_encoder_config.debounce_ms);
     
-    DBG_INFO("Encoder initialized (detent steps: %d)", g_encoder_config.detent_steps);
+    DBG_INFO("ENC", "Encoder initialized (detent steps: %d)", g_encoder_config.detent_steps);
 }
 
 // ── Processing ──────────────────────────────────────────────────
@@ -100,9 +103,9 @@ void encoder_process() {
             event.timestamp = now;
             
             if (!g_input_queue.enqueue(event)) {
-                DBG_WARN("Input queue full, dropped encoder button event");
+                DBG_WARN("ENC", "Input queue full, dropped encoder button event");
             } else {
-                DBG_VERBOSE("Encoder button %s", is_pressed ? "PRESS" : "RELEASE");
+                DBG_VERBOSE("ENC", "Encoder button %s", is_pressed ? "PRESS" : "RELEASE");
             }
             
             // Reset power idle timer
@@ -170,4 +173,25 @@ void IRAM_ATTR encoder_rotation_isr() {
     
     // Save current state for next iteration
     g_encoder_last_state = current_state;
+}
+
+// ── Mode Control ────────────────────────────────────────────────
+EncoderMode encoder_get_mode() {
+    return g_encoder_mode;
+}
+
+void encoder_set_mode( EncoderMode mode) {
+    if (g_encoder_mode != mode) {
+        g_encoder_mode = mode;
+        DBG_INFO("ENC", "Encoder mode: %s", 
+                 mode == ENCODER_MODE_VOLUME ? "VOLUME" : "LAYER");
+    }
+}
+
+EncoderMode encoder_toggle_mode() {
+    EncoderMode new_mode = (g_encoder_mode == ENCODER_MODE_VOLUME) 
+                           ? ENCODER_MODE_LAYER 
+                           : ENCODER_MODE_VOLUME;
+    encoder_set_mode(new_mode);
+    return new_mode;
 }

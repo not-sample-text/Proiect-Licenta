@@ -19,7 +19,7 @@ static volatile bool g_scan_needed = false;  // Flag set by ISR
 
 // ── Initialization ──────────────────────────────────────────────
 void matrix_init() {
-    DBG_INFO("Initializing key matrix scanner...");
+    DBG_INFO("MATRIX", "Initializing key matrix scanner...");
     
     // Clear state arrays
     for (uint8_t r = 0; r < MATRIX_ROWS; r++) {
@@ -35,10 +35,10 @@ void matrix_init() {
         attachInterrupt(digitalPinToInterrupt(ROW_PINS[r]), 
                         matrix_row_isr, 
                         CHANGE);
-        DBG_VERBOSE("  Attached interrupt to ROW%d (GPIO %d)", r, ROW_PINS[r]);
+        DBG_VERBOSE("MATRIX", "  Attached interrupt to ROW%d (GPIO %d)", r, ROW_PINS[r]);
     }
     
-    DBG_INFO("Matrix scanner initialized (debounce: %d ms)", g_matrix_config.debounce_ms);
+    DBG_INFO("MATRIX", "Matrix scanner initialized (debounce: %d ms)", g_matrix_config.debounce_ms);
 }
 
 // ── Scanning ────────────────────────────────────────────────────
@@ -82,9 +82,9 @@ void matrix_scan() {
                     event.timestamp = now;
                     
                     if (!g_input_queue.enqueue(event)) {
-                        DBG_WARN("Input queue full, dropped key event C%dR%d", c, r);
+                        DBG_WARN("MATRIX", "Input queue full, dropped key event C%dR%d", c, r);
                     } else {
-                        DBG_VERBOSE("Key %s: C%dR%d", 
+                        DBG_VERBOSE("MATRIX", "Key %s: C%dR%d", 
                                     is_pressed ? "PRESS" : "RELEASE", c, r);
                     }
                     

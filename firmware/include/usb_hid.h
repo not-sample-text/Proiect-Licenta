@@ -18,11 +18,21 @@
  * - Providing an interface for other modules to send HID reports.
  */
 
+// Consumer Control Usage IDs
+#define HID_USAGE_CONSUMER_VOLUME_INCREMENT  0x00E9
+#define HID_USAGE_CONSUMER_VOLUME_DECREMENT  0x00EA
+#define HID_USAGE_CONSUMER_MUTE              0x00E2
+
 // Function declarations
 void send_hid_report(uint8_t keycode);
+void hid_send_key(uint8_t keycode, uint8_t modifiers, bool is_press);
 void send_consumer_report(uint16_t usage_code);
-void hid_task(void);
 void setup_usb_hid(void);
 void usb_hid_task(void);
+
+// Volume control helpers
+void hid_volume_up(void);
+void hid_volume_down(void);
+void hid_volume_mute(void);
 
 #endif // USB_HID_H

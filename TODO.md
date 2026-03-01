@@ -44,22 +44,22 @@
 - [x] Layers 1–3: read mappings from a `config.json` stored in LittleFS/SPIFFS
 - [x] Add safe fallback — if config is missing or corrupt, default to Layer 0 behavior on all layers
 
-### 1.6 USB HID
+### 1.6 USB HID ✅
 
-- [ ] Enable the ESP32-S3 native USB stack (TinyUSB) as a composite device: **Keyboard + CDC Serial**
-- [ ] Implement HID keyboard reports — send single keys and modifier combos (`Ctrl+Shift+P`, etc.)
+- [x] Enable the ESP32-S3 native USB stack (TinyUSB) as a composite device: **Keyboard + CDC Serial**
+- [x] Implement HID keyboard reports — send single keys and modifier combos (`Ctrl+Shift+P`, etc.)
 - [x] Implement HID consumer control reports for media keys (volume up/down via encoder on Layer 0/1)
-- [ ] Make sure HID descriptors are minimal and spec-compliant to avoid driver issues across OSes
+- [x] Make sure HID descriptors are minimal and spec-compliant to avoid driver issues across OSes
 
-### 1.7 BLE HID
+### 1.7 BLE HID ✅
 
-- [ ] Integrate NimBLE (lightweight) for Bluetooth Low Energy HID
-- [ ] Implement BLE HID keyboard + consumer control services mirroring the USB HID feature set
-- [ ] Add secure pairing (just-works or passkey via OLED display)
-- [ ] Implement a hardware or software toggle (slide switch / long-press) to switch between USB and BLE modes
-- [ ] When in BLE mode, disable the USB HID interface cleanly (and vice-versa) to avoid conflicts
+- [x] Integrate NimBLE (lightweight) for Bluetooth Low Energy HID
+- [x] Implement BLE HID keyboard + consumer control services mirroring the USB HID feature set
+- [x] Add secure pairing (just-works or passkey via OLED display)
+- [x] Implement a hardware or software toggle (slide switch / long-press) to switch between USB and BLE modes
+- [x] When in BLE mode, disable the USB HID interface cleanly (and vice-versa) to avoid conflicts
 
-### 1.8 Serial Communication (Host Listener Protocol)
+### 1.8 Serial Communication (Host Listener Protocol) ✅
 
 The old `L2:C0R1` format (9 bytes + newline) is replaced with a **compact single-byte key ID** scheme:
 
@@ -73,34 +73,34 @@ The old `L2:C0R1` format (9 bytes + newline) is replaced with a **compact single
 This encodes every possible event in **1 byte** (sent as 2 hex chars + `\n` = 3 bytes total, vs 10 before). Example: Layer 2, Col 1, Row 3, press → `0b10_01_11_00` → `0x9C` → send `9C\n`.
 
 - [x] Define the compact protocol in a shared header (`protocol.h`) with encode/decode helpers
-- [ ] On Layers 2 & 3, send the encoded byte over **USB CDC serial**
-- [ ] On Layers 2 & 3, send the same encoded byte over **BLE Serial (Nordic UART Service)** when in BLE mode
+- [x] On Layers 2 & 3, send the encoded byte over **USB CDC serial**
+- [x] On Layers 2 & 3, send the same encoded byte over **BLE Serial (Nordic UART Service)** when in BLE mode
 - [x] Prefix debug/log lines with `#` so the listener can trivially separate data from debug output on the same channel
 - [ ] (Optional) Add a lightweight handshake / heartbeat so the host listener can detect connection state
-- [ ] Ensure serial output does not block — use a small TX buffer and drop if full
+- [x] Ensure serial output does not block — use a small TX buffer and drop if full
 
-### 1.9 OLED Display
+### 1.9 OLED Display ✅
 
-- [ ] Initialize SSD1306 128×32 via I²C using U8g2
-- [ ] Display: current layer name, connection mode (USB / BLE), and a status icon area
-- [ ] Keep draw calls efficient — only redraw on state change, not every loop iteration
-- [ ] Add a simple screen-off timeout that ties into the power management idle timer
+- [x] Initialize SSD1306 128×32 via I²C using U8g2
+- [x] Display: current layer name, connection mode (USB / BLE), and a status icon area
+- [x] Keep draw calls efficient — only redraw on state change, not every loop iteration
+- [x] Add a simple screen-off timeout that ties into the power management idle timer
 
-### 1.10 RGB Underglow
+### 1.10 RGB Underglow ✅
 
-- [ ] Initialize 10× SK6812MINI via FastLED on the correct data pin
-- [ ] Implement a few built-in effects: solid color, breathing, rainbow cycle
-- [ ] Accept color, brightness, speed, and mode from the `config.json` lighting section
-- [ ] Cap max brightness in firmware to protect current draw, especially on battery/BLE mode
+- [x] Initialize 10× SK6812MINI via FastLED on the correct data pin
+- [x] Implement a few built-in effects: solid color, breathing, rainbow cycle
+- [x] Accept color, brightness, speed, and mode from the `config.json` lighting section
+- [x] Cap max brightness in firmware to protect current draw, especially on battery/BLE mode
 
-### 1.11 Config Loading (via USB from Host Listener)
+### 1.11 Config Loading (via USB from Host Listener) ✅
 
-- [ ] Mount LittleFS/SPIFFS partition at boot
-- [ ] Implement a USB serial command to receive a new `config.json` from the host listener (e.g., a `CFG:` prefixed transfer or a simple chunked write protocol)
-- [ ] Write the received config to the LittleFS/SPIFFS filesystem and acknowledge success/failure back over serial
-- [ ] Parse the stored `config.json` at boot using ArduinoJson
-- [ ] Validate the structure on load — reject gracefully and fall back to defaults on error
-- [ ] Trigger a live reload of layer mappings and lighting settings when a new config is received (no reboot required)
+- [x] Mount LittleFS/SPIFFS partition at boot
+- [x] Implement a USB serial command to receive a new `config.json` from the host listener (e.g., a `CFG:` prefixed transfer or a simple chunked write protocol)
+- [x] Write the received config to the LittleFS/SPIFFS filesystem and acknowledge success/failure back over serial
+- [x] Parse the stored `config.json` at boot using ArduinoJson
+- [x] Validate the structure on load — reject gracefully and fall back to defaults on error
+- [x] Trigger a live reload of layer mappings and lighting settings when a new config is received (no reboot required)
 
 ---
 

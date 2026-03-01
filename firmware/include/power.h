@@ -2,99 +2,95 @@
  * @file power.h
  * @brief Power management for the PROS3 Macropad.
  *
- * Handles light-sleep mode, peripheral power gating, and idle detection
- * to maximize battery life in BLE mode and reduce power draw in USB mode.
+ * Three-tier power system:
+ * 1. Active (full speed) - During active use
+ * 2. Auto light sleep - CPU scales down, BLE stays connected
+ * 3. Deep sleep - Last resort, BLE disconnects, full reboot on wake
  */
 
 #pragma once
 
 #include <Arduino.h>
-#include <driver/gpio.h>
-#include <esp_sleep.h>
-#include <esp_pm.h>
 
-// ── Configuration ───────────────────────────────────────────────
-/**
- * Power management configuration — all thresholds in milliseconds.
- */
-struct PowerConfig {
-    uint32_t idle_timeout_ms;       // Time before entering light-sleep (default: 60000 = 1 min)
-    uint32_t oled_dim_timeout_ms;   // Time before dimming OLED (default: 30000 = 30s)
-    bool     sleep_enabled;         // Master switch for sleep mode
-    
-    PowerConfig()
-        : idle_timeout_ms(60000)
-        , oled_dim_timeout_ms(30000)
-        , sleep_enabled(true)
-    {}
+// ── Power Modes ─────────────────────────────────────────────────
+enum PowerMode {
+    POWER_MODE_ACTIVE,      // Full speed
+    POWER_MODE_LIGHT_SLEEP, // CPU scales down, auto light sleep
+    POWER_MODE_DEEP_SLEEP   // Everything off except RTC
 };
 
-extern PowerConfig g_power_config;
+// ── Configuration ───────────────────────────────────────────────
+#define POWER_SAVE_TIMEOUT       10000   // 10s no activity → auto light sleep
+#define DEEP_SLEEP_TIMEOUT       30000   // 30s no activity → deep sleep
+#define DISCONNECTED_TIMEOUT     120000  // 2 min disconnected → deep sleep
 
 // ── Initialization ──────────────────────────────────────────────
 /**
- * Initialize power management subsystem.
- * - Configures CPU frequency and power domains
- * - Disables unused peripherals (WiFi, BT radio if not needed)
- * - Sets up wake sources for light-sleep
+ * Initialize power management system.
+ * Sets up wake sources and initial power mode.
  */
 void power_init();
 
-/**
- * Configure wake sources for light-sleep.
- * - All key matrix GPIOs (rows)
- * - Encoder GPIOs (CLK, DT, SW)
- * - VBUS sense (for USB plug detection)
- */
-void power_configure_wake_sources();
-
 // ── Activity Tracking ───────────────────────────────────────────
 /**
- * Reset the idle timer — call whenever user input is detected.
- * (key press, encoder rotation, encoder button, etc.)
+ * Record user activity (key press, encoder turn, etc.).
+ * Resets idle timer and switches to active mode if needed.
  */
 void power_activity();
 
 /**
- * Check if the device should enter sleep mode.
- * @return true if idle timeout expired and sleep is enabled
+ * Get milliseconds since last activity.
  */
-bool power_should_sleep();
+unsigned long power_get_idle_time();
 
-// ── Sleep Control ───────────────────────────────────────────────
+// ── Mode Control ────────────────────────────────────────────────
 /**
- * Enter light-sleep mode.
- * - Gates LED power via load switch
- * - Turns off OLED
- * - Puts ESP32-S3 into light-sleep
- * - Wakes on any configured GPIO interrupt
+ * Enable active mode (full speed).
+ * Called automatically by power_activity().
  */
-void power_enter_sleep();
+void power_set_active();
 
 /**
- * Wake from sleep and restore peripherals.
- * Called automatically after wake — use to restore state.
+ * Enable automatic light sleep mode.
+ * CPU scales between max/min freq, BLE stays connected.
  */
-void power_wake();
-
-// ── Peripheral Power Gating ─────────────────────────────────────
-/**
- * Control the LED power rail via TPS22918 load switch.
- * @param enable true = power on, false = power off
- * 
- * Note: Assumes a GPIO controls the load switch enable pin.
- * If your hardware doesn't have this, these are no-ops.
- */
-void power_set_leds(bool enable);
+void power_enable_light_sleep();
 
 /**
- * Check if device is running on USB power (vs battery).
- * @return true if VBUS is present
+ * Enter deep sleep.
+ * Everything off except RTC. Full reboot on wake.
+ * Wake source: encoder button.
  */
-bool power_is_usb_powered();
+void power_enter_deep_sleep();
 
-// ── Utility ─────────────────────────────────────────────────────
+// ── Idle Check ──────────────────────────────────────────────────
 /**
- * Get time since last activity (in milliseconds).
+ * Check idle timeout and transition power modes as needed.
+ * Should be called regularly from main loop.
  */
-uint32_t power_get_idle_time();
+void power_check_idle();
+
+// ── Battery Monitoring ──────────────────────────────────────────
+/**
+ * Read battery voltage in millivolts.
+ * Returns 0 if battery monitoring is not available.
+ */
+uint16_t power_get_battery_mv();
+
+/**
+ * Get battery charge level as percentage (0-100).
+ * Returns 0 if battery monitoring is not available.
+ */
+uint8_t power_get_battery_percent();
+
+/**
+ * Check if device is currently charging.
+ * @return true if VBUS is present and battery is not full
+ */
+bool power_is_charging();
+
+/**
+ * Check if USB power is connected.
+ * @return true if VBUS is detected
+ */
+bool power_is_usb_connected();

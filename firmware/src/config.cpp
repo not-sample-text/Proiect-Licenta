@@ -15,26 +15,26 @@ static RGBConfig g_rgb_config;
 
 // ── Initialization ──────────────────────────────────────────────
 bool config_init() {
-    DBG_INFO("Initializing configuration system...");
+    DBG_INFO("CFG", "Initializing configuration system...");
     
     // Mount LittleFS
     if (!LittleFS.begin(true)) {  // format on fail = true
-        DBG_ERROR("Failed to mount LittleFS");
+        DBG_ERROR("CFG", "Failed to mount LittleFS");
         return false;
     }
     
     // Get filesystem info
     size_t total, used;
     config_get_fs_info(&total, &used);
-    DBG_INFO("  LittleFS mounted: %u KB total, %u KB used", 
+    DBG_INFO("CFG", "  LittleFS mounted: %u KB total, %u KB used", 
              total / 1024, used / 1024);
     
     // Attempt to load config
     if (config_load()) {
-        DBG_INFO("Configuration loaded successfully");
+        DBG_INFO("CFG", "Configuration loaded successfully");
         return true;
     } else {
-        DBG_WARN("Using default configuration");
+        DBG_WARN("CFG", "Using default configuration");
         return false;
     }
 }
@@ -43,7 +43,7 @@ bool config_init() {
 bool config_load() {
     // Check if config file exists
     if (!LittleFS.exists(CONFIG_FILE_PATH)) {
-        DBG_WARN("Config file not found: %s", CONFIG_FILE_PATH);
+        DBG_WARN("CFG", "Config file not found: %s", CONFIG_FILE_PATH);
         g_config_loaded = false;
         return false;
     }
@@ -51,7 +51,7 @@ bool config_load() {
     // Open file
     File file = LittleFS.open(CONFIG_FILE_PATH, "r");
     if (!file) {
-        DBG_ERROR("Failed to open config file");
+        DBG_ERROR("CFG", "Failed to open config file");
         g_config_loaded = false;
         return false;
     }
@@ -59,27 +59,27 @@ bool config_load() {
     // Check file size
     size_t file_size = file.size();
     if (file_size == 0 || file_size > CONFIG_MAX_SIZE) {
-        DBG_ERROR("Invalid config file size: %u bytes", file_size);
+        DBG_ERROR("CFG", "Invalid config file size: %u bytes", file_size);
         file.close();
         g_config_loaded = false;
         return false;
     }
     
-    DBG_VERBOSE("Loading config file (%u bytes)...", file_size);
+    DBG_VERBOSE("CFG", "Loading config file (%u bytes)...", file_size);
     
     // Parse JSON
     DeserializationError error = deserializeJson(g_config_doc, file);
     file.close();
     
     if (error) {
-        DBG_ERROR("Failed to parse config JSON: %s", error.c_str());
+        DBG_ERROR("CFG", "Failed to parse config JSON: %s", error.c_str());
         g_config_loaded = false;
         return false;
     }
     
     // Validate basic structure
     if (!g_config_doc.is<JsonObject>()) {
-        DBG_ERROR("Config root must be a JSON object");
+        DBG_ERROR("CFG", "Config root must be a JSON object");
         g_config_loaded = false;
         return false;
     }
@@ -110,7 +110,7 @@ bool config_load() {
     }
     
     g_config_loaded = true;
-    DBG_INFO("Config parsed OK");
+    DBG_INFO("CFG", "Config parsed OK");
     return true;
 }
 
@@ -121,24 +121,24 @@ bool config_is_loaded() {
 // ── Saving ──────────────────────────────────────────────────────
 bool config_save(const char* json_data, size_t length) {
     if (length == 0 || length > CONFIG_MAX_SIZE) {
-        DBG_ERROR("Invalid config size: %u bytes", length);
+        DBG_ERROR("CFG", "Invalid config size: %u bytes", length);
         return false;
     }
     
-    DBG_INFO("Saving config (%u bytes)...", length);
+    DBG_INFO("CFG", "Saving config (%u bytes)...", length);
     
     // Validate JSON before saving
     JsonDocument test_doc;
     DeserializationError error = deserializeJson(test_doc, json_data, length);
     if (error) {
-        DBG_ERROR("Invalid JSON: %s", error.c_str());
+        DBG_ERROR("CFG", "Invalid JSON: %s", error.c_str());
         return false;
     }
     
     // Write to file
     File file = LittleFS.open(CONFIG_FILE_PATH, "w");
     if (!file) {
-        DBG_ERROR("Failed to open config file for writing");
+        DBG_ERROR("CFG", "Failed to open config file for writing");
         return false;
     }
     
@@ -146,11 +146,11 @@ bool config_save(const char* json_data, size_t length) {
     file.close();
     
     if (written != length) {
-        DBG_ERROR("Failed to write complete config");
+        DBG_ERROR("CFG", "Failed to write complete config");
         return false;
     }
     
-    DBG_INFO("Config saved successfully");
+    DBG_INFO("CFG", "Config saved successfully");
     
     // Reload the config
     return config_load();
@@ -162,12 +162,11 @@ const char* config_get_key_action(uint8_t layer, uint8_t col, uint8_t row) {
         return nullptr;
     }
     
-    // Build key path: layers[L].keys[R][C]
-    // (row-major order in config)
-    char path[32];
-    snprintf(path, sizeof(path), "layers[%d].keys[%d][%d]", layer, row, col);
+    // Build key position string: "C{col}R{row}"
+    char key_pos[16];  // Increased buffer size to avoid truncation warnings
+    snprintf(key_pos, sizeof(key_pos), "C%dR%d", col, row);
     
-    // Navigate JSON path
+    // Navigate to layers[layer].keys[key_pos]
     if (!g_config_doc["layers"].is<JsonArray>()) {
         return nullptr;
     }
@@ -178,23 +177,65 @@ const char* config_get_key_action(uint8_t layer, uint8_t col, uint8_t row) {
     }
     
     JsonObject layer_obj = layers[layer];
-    if (!layer_obj["keys"].is<JsonArray>()) {
+    if (!layer_obj["keys"].is<JsonObject>()) {
         return nullptr;
     }
     
-    JsonArray keys = layer_obj["keys"];
-    if (row >= keys.size()) {
+    JsonObject keys = layer_obj["keys"];
+    
+    // Check if key exists
+    JsonVariant key_variant = keys[key_pos];
+    if (key_variant.isNull() || !key_variant.is<JsonObject>()) {
         return nullptr;
     }
     
-    JsonArray key_row = keys[row];
-    if (col >= key_row.size()) {
+    JsonObject key_obj = key_variant.as<JsonObject>();
+    
+    // Return "value" field
+    if (key_obj["value"].is<const char*>()) {
+        return key_obj["value"];
+    }
+    
+    return nullptr;
+}
+
+const char* config_get_key_label(uint8_t layer, uint8_t col, uint8_t row) {
+    if (!g_config_loaded) {
         return nullptr;
     }
     
-    // Return action string (or null if not a string)
-    if (key_row[col].is<const char*>()) {
-        return key_row[col];
+    // Build key position string: "C{col}R{row}"
+    char key_pos[16];  // Increased buffer size to avoid truncation warnings
+    snprintf(key_pos, sizeof(key_pos), "C%dR%d", col, row);
+    
+    // Navigate to layers[layer].keys[key_pos]
+    if (!g_config_doc["layers"].is<JsonArray>()) {
+        return nullptr;
+    }
+    
+    JsonArray layers = g_config_doc["layers"];
+    if (layer >= layers.size()) {
+        return nullptr;
+    }
+    
+    JsonObject layer_obj = layers[layer];
+    if (!layer_obj["keys"].is<JsonObject>()) {
+        return nullptr;
+    }
+    
+    JsonObject keys = layer_obj["keys"];
+    
+    // Check if key exists
+    JsonVariant key_variant = keys[key_pos];
+    if (key_variant.isNull() || !key_variant.is<JsonObject>()) {
+        return nullptr;
+    }
+    
+    JsonObject key_obj = key_variant.as<JsonObject>();
+    
+    // Return "label" field
+    if (key_obj["label"].is<const char*>()) {
+        return key_obj["label"];
     }
     
     return nullptr;
@@ -213,8 +254,7 @@ uint32_t config_get_idle_timeout_sec() {
     
     // Correct JSON key access
     if (g_config_doc["power"]["idle_timeout_sec"].is<int>()) {
-        uint32_t idle_timeout = g_config_doc["power"]["idle_timeout_sec"].as<int>();
-        // Handle idle timeout
+        return g_config_doc["power"]["idle_timeout_sec"].as<int>();
     }
     
     return 0;
@@ -227,8 +267,7 @@ uint32_t config_get_oled_dim_timeout_sec() {
     
     // Correct JSON key access
     if (g_config_doc["power"]["oled_dim_timeout_sec"].is<int>()) {
-        uint32_t oled_dim_timeout = g_config_doc["power"]["oled_dim_timeout_sec"].as<int>();
-        // Handle OLED dim timeout
+        return g_config_doc["power"]["oled_dim_timeout_sec"].as<int>();
     }
     
     return 0;
