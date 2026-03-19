@@ -553,8 +553,8 @@
 		(uuid "041ea3da-7880-4b6c-b354-2e96c6a00099")
 	)
 	(gr_line
-		(start 92.7 40)
-		(end 85.43977 40)
+		(start 92.7 39.5)
+		(end 85.43977 39.5)
 		(stroke
 			(width 0.05)
 			(type solid)
@@ -775,6 +775,17 @@
 		(uuid "22b36a10-905c-49f6-85a6-cd62da1e930c")
 	)
 	(gr_arc
+		(start 92.7 39.5)
+		(mid 92.912132 39.587868)
+		(end 93 39.8)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(layer "Edge.Cuts")
+		(uuid "233091fb-77c5-4444-a6ee-db609696ac7a")
+	)
+	(gr_arc
 		(start 142.959541 124.26618)
 		(mid 143.171654 124.354061)
 		(end 143.259541 124.56618)
@@ -797,7 +808,7 @@
 		(uuid "27818405-fd90-4fae-82d7-c98a00776dfe")
 	)
 	(gr_line
-		(start 93 40.3)
+		(start 93 39.8)
 		(end 93 48.7)
 		(stroke
 			(width 0.05)
@@ -1277,17 +1288,6 @@
 		(layer "Edge.Cuts")
 		(uuid "8d9c84fd-bf38-472f-80b1-fd2fb2caf198")
 	)
-	(gr_arc
-		(start 85.43977 40)
-		(mid 85.227657 39.912121)
-		(end 85.13977 39.7)
-		(stroke
-			(width 0.05)
-			(type default)
-		)
-		(layer "Edge.Cuts")
-		(uuid "8ea8d18d-8c5e-4ee9-90f4-98cd0210f4a0")
-	)
 	(gr_line
 		(start 91.159541 137.96618)
 		(end 91.159541 124.56618)
@@ -1538,6 +1538,17 @@
 		(layer "Edge.Cuts")
 		(uuid "d01cb67d-483c-4dd9-a410-20bcfd267957")
 	)
+	(gr_arc
+		(start 85.43977 39.5)
+		(mid 85.227638 39.412132)
+		(end 85.13977 39.2)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(layer "Edge.Cuts")
+		(uuid "d36eb5c9-a0b9-4f14-858b-9291fda9b9ec")
+	)
 	(gr_line
 		(start 129.259541 99.86618)
 		(end 129.259541 86.46618)
@@ -1655,7 +1666,7 @@
 		(uuid "e38fa475-2b5c-4cad-b04b-ecb7b2a45356")
 	)
 	(gr_line
-		(start 85.13977 39.7)
+		(start 85.13977 39.2)
 		(end 85.13977 35.37884)
 		(stroke
 			(width 0.05)
@@ -1706,17 +1717,6 @@
 		)
 		(layer "Edge.Cuts")
 		(uuid "e65f200a-e04e-4926-a24e-67a2e3284945")
-	)
-	(gr_arc
-		(start 92.7 40)
-		(mid 92.912132 40.087868)
-		(end 93 40.3)
-		(stroke
-			(width 0.05)
-			(type default)
-		)
-		(layer "Edge.Cuts")
-		(uuid "e67dd836-efc1-4755-acd8-be5b8b854b67")
 	)
 	(gr_line
 		(start 123.909541 100.16618)
