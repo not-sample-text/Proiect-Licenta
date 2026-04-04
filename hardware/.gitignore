@@ -1,0 +1,31 @@
+# KiCad temporary and backup files
+*.tmp
+*.bak
+*.bck
+*~
+*.lck
+~*
+*log*
+
+# KiCad cache files
+fp-info-cache
+*.cache
+
+# KiCad backup/rescue artifacts
+*-backups/
+*save*
+*-rescue.lib
+*-rescue.dcm
+*-rescue.kicad_sym
+
+# KiCad local settings
+*.kicad_prl
+
+# FreeCAD backups
+*.FCBak
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+*.swp
+*.swo

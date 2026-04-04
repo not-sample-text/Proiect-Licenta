@@ -1,0 +1,12 @@
+# Generated output
+generated-config.json
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Optional tooling outputs
+node_modules/
