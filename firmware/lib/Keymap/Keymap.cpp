@@ -3,8 +3,8 @@
  * @brief Key mapping resolution implementation.
  */
 
-#include "keymap.h"
-#include "config.h"
+#include "Keymap.h"
+#include "Config.h"
 #include "debug.h"
 #include <cstring>
 

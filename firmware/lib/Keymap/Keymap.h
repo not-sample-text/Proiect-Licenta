@@ -20,7 +20,7 @@
 #pragma once
 
 #include <Arduino.h>
-#include "layers.h"
+#include "Layers.h"
 
 // ── Action Types ────────────────────────────────────────────────
 enum ActionType : uint8_t {

@@ -3,9 +3,9 @@
  * @brief Key matrix scanner implementation.
  */
 
-#include "matrix.h"
+#include "Matrix.h"
 #include "debug.h"
-#include "power.h"
+#include "Power.h"
 
 // ── Configuration ───────────────────────────────────────────────
 MatrixConfig g_matrix_config;

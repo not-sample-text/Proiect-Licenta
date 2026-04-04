@@ -33,7 +33,7 @@
 
 #include <Arduino.h>
 #include "pins.h"
-#include "input_events.h"
+#include "InputEvents.h"
 
 // ── Configuration ───────────────────────────────────────────────
 struct MatrixConfig {

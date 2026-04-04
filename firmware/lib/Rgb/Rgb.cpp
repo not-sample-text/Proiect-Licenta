@@ -3,9 +3,9 @@
  * @brief RGB underglow implementation using FastLED.
  */
 
-#include "rgb.h"
+#include "Rgb.h"
 #include "pins.h"
-#include "config.h"
+#include "Config.h"
 #include "debug.h"
 #include <FastLED.h>
 

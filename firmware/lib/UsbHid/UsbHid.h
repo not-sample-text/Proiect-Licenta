@@ -29,6 +29,7 @@ void hid_send_key(uint8_t keycode, uint8_t modifiers, bool is_press);
 void send_consumer_report(uint16_t usage_code);
 void setup_usb_hid(void);
 void usb_hid_task(void);
+bool usb_hid_is_ready(void);
 
 // Volume control helpers
 void hid_volume_up(void);

@@ -41,7 +41,7 @@ void power_activity();
 /**
  * Get milliseconds since last activity.
  */
-unsigned long power_get_idle_time();
+uint32_t power_get_idle_time();
 
 // ── Mode Control ────────────────────────────────────────────────
 /**
@@ -57,11 +57,29 @@ void power_set_active();
 void power_enable_light_sleep();
 
 /**
- * Enter deep sleep.
+ * Enter normal deep sleep.
  * Everything off except RTC. Full reboot on wake.
- * Wake source: encoder button.
+ * Wake source: any key press on matrix rows.
  */
 void power_enter_deep_sleep();
+
+/**
+ * Enter shutdown deep sleep.
+ * Everything off except RTC. Full reboot on wake.
+ * Wake source: USB VBUS plug-in only.
+ */
+void power_enter_shutdown_sleep();
+
+/**
+ * Request user-initiated shutdown deep sleep.
+ */
+void power_request_shutdown();
+
+/**
+ * Consume and clear pending shutdown request.
+ * @return true if a shutdown request was pending
+ */
+bool power_consume_shutdown_request();
 
 // ── Idle Check ──────────────────────────────────────────────────
 /**
@@ -94,3 +112,9 @@ bool power_is_charging();
  * @return true if VBUS is detected
  */
 bool power_is_usb_connected();
+
+/**
+ * Control LED power rail through TPS22918DBVR EN.
+ * @param enabled true = LED rail ON, false = LED rail OFF
+ */
+void power_set_led_rail(bool enabled);

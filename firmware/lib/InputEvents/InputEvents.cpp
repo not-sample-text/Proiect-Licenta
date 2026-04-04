@@ -3,7 +3,7 @@
  * @brief Input event queue implementation.
  */
 
-#include "input_events.h"
+#include "InputEvents.h"
 #include "debug.h"
 
 // ── Global Instance ─────────────────────────────────────────────

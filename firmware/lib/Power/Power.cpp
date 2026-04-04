@@ -3,16 +3,19 @@
  * @brief Power management implementation.
  */
 
-#include "power.h"
+#include "Power.h"
 #include "pins.h"
 #include "debug.h"
+#include "Oled.h"
+#include "Rgb.h"
 #include <esp_sleep.h>
 #include <esp_pm.h>
 #include <driver/gpio.h>
 
 // ── State ───────────────────────────────────────────────────────
-static unsigned long g_last_activity_ms = 0;
+static uint32_t g_last_activity_ms = 0;
 static PowerMode g_current_mode = POWER_MODE_ACTIVE;
+static volatile bool g_shutdown_requested = false;
 
 // ── Initialization ──────────────────────────────────────────────
 void power_init() {
@@ -24,10 +27,10 @@ void power_init() {
     
     // Configure battery voltage ADC pin
     pinMode(PIN_VBAT, INPUT);
+    pinMode(PIN_VBUS_SENSE, INPUT);
+    pinMode(PIN_LED_POWER_EN, OUTPUT);
+    power_set_led_rail(true);
     analogSetAttenuation(ADC_11db);  // 0-3.3V range
-    
-    // Configure encoder button as wake source for deep sleep
-    esp_sleep_enable_ext0_wakeup((gpio_num_t)PIN_ENC_SW, 0); // Wake on LOW (button press)
     
     DBG_INFO("PWR", "Power management initialized (Active mode)");
 }
@@ -42,7 +45,7 @@ void power_activity() {
     }
 }
 
-unsigned long power_get_idle_time() {
+uint32_t power_get_idle_time() {
     return millis() - g_last_activity_ms;
 }
 
@@ -72,9 +75,9 @@ void power_enable_light_sleep() {
     
     DBG_INFO("PWR", "Enabling AUTO LIGHT SLEEP (CPU scales, BLE connected)");
     
-    // Allow CPU to scale between 80-10 MHz and auto-sleep between BLE events
+    // Keep CPU at the lowest configured frequency and allow auto light sleep.
     esp_pm_config_esp32s3_t pm_config = {
-        .max_freq_mhz = 80,
+        .max_freq_mhz = 10,
         .min_freq_mhz = 10,
         .light_sleep_enable = true
     };
@@ -84,8 +87,32 @@ void power_enable_light_sleep() {
 }
 
 void power_enter_deep_sleep() {
-    DBG_INFO("PWR", "Entering DEEP SLEEP (idle: %lu ms). Press encoder to wake.", 
+    DBG_INFO("PWR", "Entering NORMAL DEEP SLEEP (idle: %lu ms). Wake source: key press.",
              power_get_idle_time());
+
+    // Ensure all visible lighting is fully off before shutdown.
+    rgb_off();
+    oled_sleep();
+    power_set_led_rail(false);
+
+    // In normal deep sleep, any key press should wake the device.
+    // Matrix scan uses active-low columns; drive all columns low so a pressed key
+    // pulls a row low and can trigger ext1 wakeup.
+    for (uint8_t c = 0; c < MATRIX_COLS; c++) {
+        pinMode(COL_PINS[c], OUTPUT);
+        digitalWrite(COL_PINS[c], LOW);
+    }
+
+    for (uint8_t r = 0; r < MATRIX_ROWS; r++) {
+        pinMode(ROW_PINS[r], INPUT);
+    }
+
+    esp_sleep_disable_wakeup_source(ESP_SLEEP_WAKEUP_ALL);
+    uint64_t row_mask = 0;
+    for (uint8_t r = 0; r < MATRIX_ROWS; r++) {
+        row_mask |= (1ULL << ROW_PINS[r]);
+    }
+    esp_sleep_enable_ext1_wakeup(row_mask, ESP_EXT1_WAKEUP_ANY_LOW);
     
     // Flush serial output
     Serial.flush();
@@ -99,12 +126,37 @@ void power_enter_deep_sleep() {
     esp_deep_sleep_start();
 }
 
+void power_enter_shutdown_sleep() {
+    DBG_INFO("PWR", "Entering SHUTDOWN DEEP SLEEP. Wake source: USB plug-in only.");
+
+    rgb_off();
+    oled_sleep();
+    power_set_led_rail(false);
+
+    esp_sleep_disable_wakeup_source(ESP_SLEEP_WAKEUP_ALL);
+    esp_sleep_enable_ext1_wakeup((1ULL << PIN_VBUS_SENSE), ESP_EXT1_WAKEUP_ANY_HIGH);
+
+    Serial.flush();
+    delay(10);
+    esp_deep_sleep_start();
+}
+
+void power_request_shutdown() {
+    g_shutdown_requested = true;
+}
+
+bool power_consume_shutdown_request() {
+    const bool pending = g_shutdown_requested;
+    g_shutdown_requested = false;
+    return pending;
+}
+
 // ── Idle Check ──────────────────────────────────────────────────
 void power_check_idle() {
-    unsigned long idle_time = power_get_idle_time();
+    uint32_t idle_time = power_get_idle_time();
     
-    // Deep sleep after 30s idle
-    if (idle_time > DEEP_SLEEP_TIMEOUT) {
+    // Normal deep sleep after timeout only when running on battery.
+    if (idle_time > DEEP_SLEEP_TIMEOUT && !power_is_usb_connected()) {
         DBG_INFO("PWR", "Idle timeout exceeded (%lu ms)", idle_time);
         power_enter_deep_sleep();
         // Execution does not return
@@ -166,4 +218,8 @@ bool power_is_charging() {
 
 bool power_is_usb_connected() {
     return digitalRead(PIN_VBUS_SENSE) == HIGH;
+}
+
+void power_set_led_rail(bool enabled) {
+    digitalWrite(PIN_LED_POWER_EN, enabled ? HIGH : LOW);
 }

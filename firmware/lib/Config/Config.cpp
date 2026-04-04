@@ -3,7 +3,7 @@
  * @brief Configuration file management implementation.
  */
 
-#include "config.h"
+#include "Config.h"
 #include "debug.h"
 #include <LittleFS.h>
 #include <ArduinoJson.h>

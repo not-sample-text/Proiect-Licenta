@@ -3,7 +3,7 @@
  * @brief Layer state management implementation.
  */
 
-#include "layers.h"
+#include "Layers.h"
 #include "debug.h"
 
 // ── Configuration ───────────────────────────────────────────────

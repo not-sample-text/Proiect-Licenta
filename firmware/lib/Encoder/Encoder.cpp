@@ -3,9 +3,9 @@
  * @brief Rotary encoder implementation.
  */
 
-#include "encoder.h"
+#include "Encoder.h"
 #include "debug.h"
-#include "power.h"
+#include "Power.h"
 
 // ── Configuration ───────────────────────────────────────────────
 EncoderConfig g_encoder_config;

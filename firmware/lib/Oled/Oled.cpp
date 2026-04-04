@@ -3,10 +3,10 @@
  * @brief OLED display implementation using U8g2 library.
  */
 
-#include "oled.h"
+#include "Oled.h"
 #include "pins.h"
 #include "debug.h"
-#include "power.h"
+#include "Power.h"
 #include <U8g2lib.h>
 #include <Wire.h>
 

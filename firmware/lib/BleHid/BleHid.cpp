@@ -3,7 +3,7 @@
  * @brief BLE HID implementation using NimBLE.
  */
 
-#include "ble_hid.h"
+#include "BleHid.h"
 #include "pins.h"
 #include "debug.h"
 #include <NimBLEDevice.h>

@@ -8,7 +8,7 @@
 
 #include <Arduino.h>
 #include <tusb.h>
-#include "usb_hid.h"
+#include "UsbHid.h"
 #include "debug.h"
 
 // HID Report Descriptor
@@ -78,6 +78,10 @@ void setup_usb_hid() {
 // Call this in the main loop
 void usb_hid_task() {
     tud_task();  // Handle USB events
+}
+
+bool usb_hid_is_ready() {
+    return tud_hid_ready();
 }
 
 // ── Volume Control Helpers ──────────────────────────────────────

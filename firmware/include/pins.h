@@ -43,4 +43,5 @@ static constexpr uint8_t ROW_PINS[MATRIX_ROWS] = { PIN_ROW0, PIN_ROW1, PIN_ROW2,
 // ── Sensing / Status ────────────────────────────────────────────
 #define PIN_VBUS_SENSE  21   // USB 5 V detection (RTC wake-capable)
 #define PIN_VBAT        10   // Battery voltage sense (ADC with voltage divider)
-#define PIN_LED_STATUS  16   // On-board status LED
+#define PIN_LED_POWER_EN 16  // TPS22918DBVR EN: HIGH=LED rail ON, LOW=LED rail OFF
+#define PIN_LED_STATUS   PIN_LED_POWER_EN
