@@ -1,14 +1,11 @@
 #include <Arduino.h>
-#include <MacropadApp.h>
-
-namespace {
-MacropadApp g_app;
-}
+#include "MacropadApp/MacropadApp.h"
 
 void setup() {
-    g_app.begin();
+    MacropadApp::begin();
 }
 
 void loop() {
-    g_app.run();
+    MacropadApp::run();
+    delay(1); // Small yield for RTOS
 }
