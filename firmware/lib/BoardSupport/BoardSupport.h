@@ -1,7 +1,12 @@
 #pragma once
 
+/**
+ * @brief Handles core hardware initialization.
+ */
 class BoardSupport {
 public:
-    void begin();
-    void boot_blink();
+    /**
+     * @brief Initializes critical board resources (Serial, I2C, Power Rail).
+     */
+    static void begin();
 };

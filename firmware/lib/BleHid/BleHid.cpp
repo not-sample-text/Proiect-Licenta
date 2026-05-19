@@ -4,7 +4,7 @@
  */
 
 #include "BleHid.h"
-#include "pins.h"
+#include "BoardSupport/pins.h"
 #include "debug.h"
 #include <NimBLEDevice.h>
 #include <NimBLEServer.h>
