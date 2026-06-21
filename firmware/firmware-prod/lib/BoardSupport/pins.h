@@ -8,7 +8,7 @@
 #define PIN_VBUS_SENSE  21  // USB 5V detection
 
 // ── Key Matrix (3 columns × 4 rows) ────────────────────────────
-#define PIN_COL0        36
+// #define PIN_COL0        15
 #define PIN_COL1        37
 #define PIN_COL2        35
 
