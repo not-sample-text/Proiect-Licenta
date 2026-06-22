@@ -1,20 +1,20 @@
 #include "BoardSupport.h"
 #include "config.h"
+#include <Arduino.h>
 #include <Wire.h>
 
 void BoardSupport::begin() {
-    // Isolate the unused TPS22918 power line by forcing it flat LOW
-    pinMode(kLedPwrEnPin, OUTPUT);
-    digitalWrite(kLedPwrEnPin, LOW);
+    // Isolate unused paths to prevent leakage current
+    pinMode(kLegacyTpsEnablePin, OUTPUT);
+    digitalWrite(kLegacyTpsEnablePin, LOW);
+    pinMode(kLegacyRgbDataPin, OUTPUT);
+    digitalWrite(kLegacyRgbDataPin, LOW);
 
-    // Route RF pathways to use the external antenna explicitly
+    // Force external antenna selection
     pinMode(kAntennaPin, OUTPUT);
     digitalWrite(kAntennaPin, HIGH);
 
-    // Enable LDO2 to power the onboard status pixel
-    pinMode(kLdo2EnablePin, OUTPUT);
-    digitalWrite(kLdo2EnablePin, HIGH);
-
+    // Initialize interactive lines
     pinMode(kBtSelectPin, INPUT_PULLUP);
     pinMode(kVbusSensePin, INPUT);
 
@@ -27,25 +27,22 @@ bool BoardSupport::isUsbConnected() {
 }
 
 bool BoardSupport::isBleSwitchActive() {
-    return digitalRead(kBtSelectPin) == HIGH;
+    // Inverted logic: HIGH (Up) is USB mode, LOW (Down) is BLE mode
+    return digitalRead(kBtSelectPin) == LOW;
 }
 
 void BoardSupport::enterDeepSleep(bool shutdownMode) {
-    digitalWrite(kLedPwrEnPin, LOW);
-    
     if (shutdownMode) {
-        // Wake source for manual shutdown is strictly USB attachment going high
-        esp_deep_sleep_enable_gpio_wakeup_bitmask(1ULL << kVbusSensePin, ESP_GPIO_WAKEUP_GPIO_HIGH);
+        // Wake up only when VBUS goes high (USB Plugged In)
+        esp_sleep_enable_ext1_wakeup(1ULL << kVbusSensePin, ESP_EXT1_WAKEUP_ANY_HIGH);
     } else {
-        configureInactivityWakeup();
+        // Inactivity wake up: Wake up on any row or encoder button low transition
+        uint64_t mask = (1ULL << kEncoderSwPin);
+        for (uint8_t i = 0; i < kMatrixRowCount; i++) {
+            mask |= (1ULL << kMatrixRowPins[i]);
+        }
+        esp_sleep_enable_ext1_wakeup(mask, ESP_EXT1_WAKEUP_ANY_LOW);
     }
+    
     esp_deep_sleep_start();
-}
-
-void BoardSupport::configureInactivityWakeup() {
-    // Enable any key press or encoder interaction to wake from idle deep sleep
-    for (uint8_t pin : kMatrixRowPins) {
-        esp_deep_sleep_enable_gpio_wakeup_bitmask(1ULL << pin, ESP_GPIO_WAKEUP_GPIO_LOW);
-    }
-    esp_deep_sleep_enable_gpio_wakeup_bitmask(1ULL << kEncoderSwPin, ESP_GPIO_WAKEUP_GPIO_LOW);
 }

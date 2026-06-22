@@ -1,0 +1,11 @@
+#include <Arduino.h>
+
+class BleHid {
+public:
+    static void begin();
+    static void sendKey(uint16_t keycode, uint8_t modifiers, bool isPressed);
+    static void sendConsumerKey(uint16_t consumerUsageId, bool isPressed);
+    static void updateBatteryLevel(uint8_t percentage);
+    static bool isBondedAndConnected();
+    static void setPasskeyShowCallback(void (*callback)(uint32_t));
+};

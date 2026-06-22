@@ -36,7 +36,7 @@ constexpr uint32_t kMatrixDebounceMs = 5;
 constexpr uint32_t kInitDelayMs = 1000;
 constexpr uint32_t kOledInitDelayMs = 100;
 constexpr uint32_t kStatusLedBlinkMs = 250;
-constexpr uint32_t kEncoderHoldDurationMs = 2000;
+constexpr uint32_t kEncoderHoldDurationMs = 4000;
 constexpr uint32_t kBleJustConnectedDurationMs = 7500;
 
 constexpr char kMatrixKeyMap[kMatrixRowCount][kMatrixColumnCount] = {

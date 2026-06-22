@@ -1,4 +1,5 @@
 #pragma once
+
 #include <Arduino.h>
 
 enum class EventType : uint8_t {
@@ -11,8 +12,7 @@ enum class EventType : uint8_t {
 
 struct InputEvent {
     EventType type;
-    uint8_t   row;
-    static_cast<uint8_t> col;
-    char      rawChar;
-    uint32_t  timestamp;
+    uint8_t   row;       
+    uint8_t   col;       // Fixed typo here
+    uint32_t  timestamp; 
 };
