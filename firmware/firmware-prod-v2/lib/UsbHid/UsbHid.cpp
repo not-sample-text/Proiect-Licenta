@@ -1,11 +1,14 @@
 #include "UsbHid.h"
 #include <USB.h>
 #include <USBHIDKeyboard.h>
+#include <USBHIDConsumerControl.h>
 
 USBHIDKeyboard Keyboard;
+USBHIDConsumerControl Consumer;
 
 void UsbHid::begin() {
     Keyboard.begin();
+    Consumer.begin();
     USB.begin();
     Serial.println("Direct Raw USB HID Stack Loaded.");
 }
@@ -43,10 +46,8 @@ void UsbHid::sendKey(uint16_t keycode, uint8_t modifiers, bool isPressed) {
 // Emits consumer report ticks directly over the hardware USB endpoints
 void UsbHid::sendConsumerKey(uint16_t consumerUsageId, bool isPressed) {
     if (isPressed) {
-        // Map common standard consumer identifiers directly onto core execution commands
-        if (consumerUsageId == 0x00E9) Keyboard.pressRaw(0x00E9); // Volume Up
-        if (consumerUsageId == 0x00EA) Keyboard.pressRaw(0x00EA); // Volume Down
+        Consumer.press(consumerUsageId);
     } else {
-        Keyboard.releaseAll();
+        Consumer.release();
     }
 }

@@ -9,7 +9,8 @@ public:
 
     static uint8_t getCurrentLayer() { return currentLayer; }
     static bool isBleMode() { return bleModeActive; }
-    static char getLastKey() { return lastKey; } // Public getter for OledHandler
+    static const char* getLastKeyLabel() { return lastKeyLabel; }
+    static void resetActivityTimer() { lastActivityMs = millis(); }
 
 private:
     static void processEvents();
@@ -19,8 +20,7 @@ private:
     static bool bleModeActive;
     static bool lastBleSwitchState;
     static uint32_t lastActivityMs;
-    static char lastKey;
+    static const char* lastKeyLabel;
 
-    static constexpr uint32_t LIGHT_SLEEP_TIMEOUT_MS = 10000; // 10s
-    static constexpr uint32_t DEEP_SLEEP_TIMEOUT_MS = 30000;  // 30s
+    static constexpr uint32_t DEEP_SLEEP_TIMEOUT_MS = 300000;  // Bumped to 5 minutes
 };
