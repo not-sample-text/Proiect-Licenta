@@ -7,12 +7,22 @@
 class BatteryManager {
 public:
     static bool getPercent(uint8_t& percent) {
-        uint16_t socRaw = 0;
-        if (!read16(kFuelGaugeSocRegister, socRaw)) return false;
-        uint16_t whole = socRaw >> 8;
-        uint8_t fractional = static_cast<uint8_t>(socRaw & 0xFF);
-        uint16_t rounded = whole + ((fractional >= 128) ? 1 : 0);
-        percent = (rounded > 100) ? 100 : static_cast<uint8_t>(rounded);
+        uint16_t voltageMv = 0;
+        if (!getVoltageMv(voltageMv)) return false;
+
+        // Custom piecewise discharge curve for 650mAh 3.7V LiPo
+        if (voltageMv >= 4100) {
+            percent = 100;
+        } else if (voltageMv >= 3850) {
+            percent = map(voltageMv, 3850, 4100, 50, 100);
+        } else if (voltageMv >= 3650) {
+            percent = map(voltageMv, 3650, 3850, 10, 50);
+        } else if (voltageMv >= 3300) {
+            percent = map(voltageMv, 3300, 3650, 0, 10);
+        } else {
+            percent = 0;
+        }
+        
         return true;
     }
 

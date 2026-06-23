@@ -1,11 +1,14 @@
 #pragma once
+
 #include <Arduino.h>
 
 class BoardSupport {
 public:
     static void begin();
-    static bool isUsbConnected();
+    
     static bool isBleSwitchActive();
-    static void enterDeepSleep(bool shutdownMode);
-    static void configureInactivityWakeup();
+    static bool isUsbConnected();
+    
+    // Configures auto light sleep and triggers deep sleep vectors
+    static void enterDeepSleep(bool hardShutdown);
 };

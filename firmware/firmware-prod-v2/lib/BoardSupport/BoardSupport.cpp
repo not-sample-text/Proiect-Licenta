@@ -1,48 +1,65 @@
 #include "BoardSupport.h"
 #include "config.h"
-#include <Arduino.h>
-#include <Wire.h>
+#include "esp_sleep.h"
+#include "esp_pm.h"
+#include "driver/rtc_io.h"
 
 void BoardSupport::begin() {
-    // Isolate unused paths to prevent leakage current
-    pinMode(kLegacyTpsEnablePin, OUTPUT);
-    digitalWrite(kLegacyTpsEnablePin, LOW);
-    pinMode(kLegacyRgbDataPin, OUTPUT);
-    digitalWrite(kLegacyRgbDataPin, LOW);
-
-    // Force external antenna selection
-    pinMode(kAntennaPin, OUTPUT);
-    digitalWrite(kAntennaPin, HIGH);
-
-    // Initialize interactive lines
     pinMode(kBtSelectPin, INPUT_PULLUP);
-    pinMode(kVbusSensePin, INPUT);
+    pinMode(kVbusSensePin, INPUT_PULLDOWN);
 
-    Serial.begin(115200);
-    Wire.begin(kOledSdaPin, kOledSclPin);
-}
-
-bool BoardSupport::isUsbConnected() {
-    return digitalRead(kVbusSensePin) == HIGH;
+    // Dynamic Power Management & Auto Light Sleep
+    // Drops CPU down to 40MHz during idle times to preserve battery
+    #if CONFIG_PM_ENABLE
+    esp_pm_config_t pm_config = {
+        .max_freq_mhz = 240,
+        .min_freq_mhz = 40,
+        .light_sleep_enable = true
+    };
+    esp_pm_configure(&pm_config);
+    #endif
 }
 
 bool BoardSupport::isBleSwitchActive() {
-    // Inverted logic: HIGH (Up) is USB mode, LOW (Down) is BLE mode
-    return digitalRead(kBtSelectPin) == LOW;
+    return digitalRead(kBtSelectPin) == LOW; 
 }
 
-void BoardSupport::enterDeepSleep(bool shutdownMode) {
-    if (shutdownMode) {
-        // Wake up only when VBUS goes high (USB Plugged In)
-        esp_sleep_enable_ext1_wakeup(1ULL << kVbusSensePin, ESP_EXT1_WAKEUP_ANY_HIGH);
+bool BoardSupport::isUsbConnected() {
+    // Pin 21 pulled down; goes high when 5V USB is plugged in
+    return digitalRead(kVbusSensePin) == HIGH;
+}
+
+void BoardSupport::enterDeepSleep(bool hardShutdown) {
+    if (hardShutdown) {
+        // Hard Shutdown (4s Encoder Hold)
+        // Ignored Matrix, wakes strictly when USB is plugged in
+        // Pin 21 is RTC_GPIO10 on the S3, fully supporting EXT0 wake
+        esp_sleep_enable_ext0_wakeup((gpio_num_t)kVbusSensePin, 1); 
     } else {
-        // Inactivity wake up: Wake up on any row or encoder button low transition
-        uint64_t mask = (1ULL << kEncoderSwPin);
-        for (uint8_t i = 0; i < kMatrixRowCount; i++) {
-            mask |= (1ULL << kMatrixRowPins[i]);
+        // Timeout Sleep (Inactivity)
+        // Wakes on ANY Matrix key press, Encoder button, or USB plug in
+        
+        uint64_t wakeMask = 0;
+        
+        // Add VBUS
+        wakeMask |= (1ULL << kVbusSensePin);
+        
+        // Add Encoder Switch
+        wakeMask |= (1ULL << kEncoderSwPin);
+        
+        // Add Matrix Rows (Assuming they pull HIGH upon press, adjust if they pull LOW)
+        for(uint8_t i = 0; i < kMatrixRowCount; i++) {
+            wakeMask |= (1ULL << kMatrixRowPins[i]);
         }
-        esp_sleep_enable_ext1_wakeup(mask, ESP_EXT1_WAKEUP_ANY_LOW);
+        
+        // Add Matrix Cols
+        for(uint8_t i = 0; i < kMatrixColumnCount; i++) {
+            wakeMask |= (1ULL << kMatrixColPins[i]);
+        }
+
+        // Configure EXT1 vector to wake on any mapped pin going HIGH
+        esp_sleep_enable_ext1_wakeup(wakeMask, ESP_EXT1_WAKEUP_ANY_HIGH);
     }
-    
+
     esp_deep_sleep_start();
 }

@@ -46,9 +46,8 @@ const char* getLayerLongName(uint8_t layer) {
 
 const char* getEncoderModeString() {
     switch (currentEncoderMode) {
-        case 0:  return "NAVIGATION";
-        case 1:  return "VOLUME";
-        case 2:  return "LAYER SELECT";
+        case 0:  return "VOLUME";
+        case 1:  return "LAYER SELECT";
         default: return "UNKNOWN";
     }
 }
@@ -58,17 +57,26 @@ void OledHandler::update() {
     display.setTextWrap(false);
 
     if (MacropadApp::isBleMode() && displayPasskeyActive) {
+        // Render the clear, oversized passkey pairing screen
+        int16_t x1, y1;
+        uint16_t w, h;
+        
         display.setFont(nullptr);
         display.setTextSize(1);
-        display.setCursor(16, 4);
-        display.print("BLE PAIRING PASSKEY:");
         
-        display.setTextSize(3);
+        const char* pinPrompt = "ENTER THIS PIN:";
+        display.getTextBounds(pinPrompt, 0, 0, &x1, &y1, &w, &h);
+        display.setCursor((128 - w) / 2, 2);
+        display.print(pinPrompt);
+        
+        display.setTextSize(2);
         char passkeyStr[8];
         snprintf(passkeyStr, 8, "%06u", bleSecurePasskeyCached);
         
-        display.setCursor(10, 24);
+        display.getTextBounds(passkeyStr, 0, 16, &x1, &y1, &w, &h);
+        display.setCursor((128 - w) / 2, 16);
         display.print(passkeyStr);
+        
         display.display();
         return;
     }
@@ -80,7 +88,6 @@ void OledHandler::update() {
 
     int currentX = 120;
 
-    // Grab the real battery percentage instead of the hardcoded 57%
     uint8_t currentBatPercent = 0; 
     BatteryManager::getPercent(currentBatPercent);
     
@@ -119,9 +126,6 @@ void OledHandler::update() {
     display.display();
 }
 
-void OledHandler::nextScreen() {}
-void OledHandler::previousScreen() {}
-
 void OledHandler::clear() {
     display.clearDisplay();
     display.display();
@@ -129,21 +133,24 @@ void OledHandler::clear() {
 
 void OledHandler::showBootAnimation() {
     display.clearDisplay();
-    for (int16_t i = 0; i < 64; i += 8) {
-        display.drawFastHLine(64 - i, 16, i * 2, SSD1306_WHITE);
+    
+    for (int16_t x = 0; x <= SCREEN_WIDTH; x += 4) {
+        display.fillRect(0, 0, x, SCREEN_HEIGHT, SSD1306_WHITE);
         display.display();
-        delay(15);
     }
     delay(150);
 }
 
 void OledHandler::showSleepAnimation() {
-    for (int16_t i = 0; i < 16; i += 2) {
-        display.drawFastHLine(0, i, 128, SSD1306_WHITE);
-        display.drawFastHLine(0, 31 - i, 128, SSD1306_WHITE);
+    display.fillRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, SSD1306_WHITE);
+    display.display();
+    delay(50);
+
+    for (int16_t x = 0; x <= SCREEN_WIDTH; x += 4) {
+        display.fillRect(0, 0, x, SCREEN_HEIGHT, SSD1306_BLACK);
         display.display();
-        delay(20);
     }
+    
     display.clearDisplay();
     display.display();
 }

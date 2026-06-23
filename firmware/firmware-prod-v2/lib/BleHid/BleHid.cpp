@@ -10,7 +10,10 @@ static NimBLECharacteristic* batteryLevelChar = nullptr;
 
 static bool connectedState = false;
 static bool bondedState = false;
+
+// Callbacks to drive the OLED
 static void (*onPasskeyDisplay)(uint32_t) = nullptr;
+static void (*onPasskeyClear)() = nullptr;
 
 static uint8_t keyboardReportBuffer[8] = {0};
 
@@ -59,7 +62,11 @@ static const uint8_t hidReportMap[] = {
 class ServerCallbacks : public NimBLEServerCallbacks {
     void onConnect(NimBLEServer* pServer, ble_gap_conn_desc* desc) override {
         connectedState = true;
-        bondedState = true; // "Just Works" establishes encrypted bond immediately
+        
+        // Request Fast Connection Parameters for instant, low-latency keystrokes
+        // Min interval: 7.5ms (6 * 1.25), Max interval: 15ms (12 * 1.25)
+        pServer->updateConnParams(desc->conn_handle, 6, 12, 0, 400);
+        
         RgbHandler::setBleState(BleLedState::kJustConnected);
     }
 
@@ -71,13 +78,39 @@ class ServerCallbacks : public NimBLEServerCallbacks {
     }
 };
 
+class SecurityCallbacks : public NimBLESecurityCallbacks {
+    uint32_t onPassKeyRequest() override { return 0; }
+    
+    void onPassKeyNotify(uint32_t pass_key) override {
+        if (onPasskeyDisplay) onPasskeyDisplay(pass_key);
+    }
+    
+    bool onConfirmPIN(uint32_t pass_key) override { return true; }
+    bool onSecurityRequest() override { return true; }
+    
+    void onAuthenticationComplete(ble_gap_conn_desc* desc) override {
+        if (desc->sec_state.encrypted) {
+            bondedState = true;
+            if (onPasskeyClear) onPasskeyClear(); // Clear OLED once successfully paired
+        } else {
+            // Disconnect if pairing fails
+            NimBLEDevice::getServer()->disconnect(desc->conn_handle);
+        }
+    }
+};
+
 void BleHid::setPasskeyShowCallback(void (*callback)(uint32_t)) {
     onPasskeyDisplay = callback;
 }
 
+void BleHid::setPasskeyClearCallback(void (*callback)()) {
+    onPasskeyClear = callback;
+}
+
 void BleHid::begin() {
-    NimBLEDevice::init("ApexPad-v1.1");
-    NimBLEDevice::deleteAllBonds(); 
+    NimBLEDevice::init("ApexPad");
+    // DELETED: NimBLEDevice::deleteAllBonds(); -> Fixes the amnesia bug. 
+    // The ESP32 will now remember the PC across reboots.
     
     NimBLEServer* server = NimBLEDevice::createServer();
     server->setCallbacks(new ServerCallbacks());
@@ -100,18 +133,19 @@ void BleHid::begin() {
 
     hidDevice->startServices();
 
-    // ── FIX: "Just Works" Security Model (Directly mirroring BleKeyboard library) ──
+    // Secure Pairing Model with PIN generation enabled
     NimBLEDevice::setSecurityAuth(true, true, true);
-    NimBLEDevice::setSecurityIOCap(BLE_HS_IO_NO_INPUT_OUTPUT);
+    NimBLEDevice::setSecurityIOCap(BLE_HS_IO_DISPLAY_ONLY); // Forces PC to ask for PIN
     NimBLEDevice::setSecurityInitKey(BLE_SM_PAIR_KEY_DIST_ENC | BLE_SM_PAIR_KEY_DIST_ID);
     NimBLEDevice::setSecurityRespKey(BLE_SM_PAIR_KEY_DIST_ENC | BLE_SM_PAIR_KEY_DIST_ID);
+    NimBLEDevice::setSecurityCallbacks(new SecurityCallbacks());
 
     NimBLEAdvertising* advertising = NimBLEDevice::getAdvertising();
     advertising->setAppearance(0x03C1); 
     advertising->addServiceUUID(hidDevice->hidService()->getUUID());
     advertising->start();
 
-    Serial.println("Secure BLE Stack fully armed and broadcasting (Just Works Model).");
+    Serial.println("Secure BLE Stack armed. NVS Bonding Active. Fast Latency Enabled.");
 }
 
 bool BleHid::isBondedAndConnected() {

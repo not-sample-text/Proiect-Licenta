@@ -13,18 +13,17 @@
 #include "BleHid.h"
 
 enum EncoderMode : uint8_t {
-    MODE_NAV = 0,   
-    MODE_VOL = 1,   
-    MODE_LYR = 2    
+    MODE_VOL = 0,   
+    MODE_LYR = 1    
 };
 
 uint8_t MacropadApp::currentLayer = 0;
 bool MacropadApp::bleModeActive = false;
 bool MacropadApp::lastBleSwitchState = false;
 uint32_t MacropadApp::lastActivityMs = 0;
-const char* MacropadApp::lastKeyLabel = "IDLE";
+char MacropadApp::currentLabel[32] = "IDLE";
 
-EncoderMode currentEncoderMode = MODE_NAV;
+EncoderMode currentEncoderMode = MODE_VOL;
 uint32_t bleSecurePasskeyCached = 0;
 bool displayPasskeyActive = false;
 
@@ -36,6 +35,11 @@ void displayPasskeyOnOled(uint32_t passkey) {
     displayPasskeyActive = true;
     MacropadApp::resetActivityTimer(); 
     OledHandler::update(); 
+}
+
+void clearPasskeyOnOled() {
+    displayPasskeyActive = false;
+    OledHandler::update();
 }
 
 void MacropadApp::begin() {
@@ -64,6 +68,7 @@ void MacropadApp::begin() {
     RgbHandler::begin();
 
     BleHid::setPasskeyShowCallback(displayPasskeyOnOled);
+    BleHid::setPasskeyClearCallback(clearPasskeyOnOled);
 
     if (bleModeActive) {
         Serial.println("Booting strictly into BLE Transport...");
@@ -96,13 +101,29 @@ void MacropadApp::run() {
         ESP.restart();
     }
 
-    static uint32_t lastBleBatteryUpdate = 0;
-    if (bleModeActive && (now - lastBleBatteryUpdate >= 30000 || lastBleBatteryUpdate == 0)) {
+    static uint32_t lastBatteryUpdate = 0;
+    if (now - lastBatteryUpdate >= 30000 || lastBatteryUpdate == 0) {
         uint8_t batPct = 0;
         if (BatteryManager::getPercent(batPct)) {
-            BleHid::updateBatteryLevel(batPct);
+            if (bleModeActive) {
+                BleHid::updateBatteryLevel(batPct);
+            }
+            
+            // Redundant hardware protection: cutoff if battery is critically low and not plugged in
+            if (batPct == 0 && !BoardSupport::isUsbConnected()) {
+                OledHandler::showSleepAnimation();
+                OledHandler::clear();
+                BoardSupport::enterDeepSleep(true); 
+            }
         }
-        lastBleBatteryUpdate = now;
+        lastBatteryUpdate = now;
+    }
+
+    static bool lastVbusState = BoardSupport::isUsbConnected();
+    bool currentVbus = BoardSupport::isUsbConnected();
+    if (currentVbus != lastVbusState) {
+        lastVbusState = currentVbus;
+        OledHandler::update(); 
     }
 
     MatrixScanner::scan();
@@ -125,23 +146,33 @@ void MacropadApp::processEvents() {
                 KeyAction action = LayoutLoader::getKeyAction(currentLayer, event.row, event.col);
                 
                 if (!action.isValid) {
-                    lastKeyLabel = "UNUSED";
+                    strncpy(currentLabel, "UNUSED", sizeof(currentLabel) - 1);
+                    currentLabel[sizeof(currentLabel) - 1] = '\0';
                     OledHandler::update();
                     return; 
                 }
 
-                lastKeyLabel = action.label.c_str();
+                strncpy(currentLabel, action.label.c_str(), sizeof(currentLabel) - 1);
+                currentLabel[sizeof(currentLabel) - 1] = '\0';
 
                 if (action.type == "KEY" || action.type == "SHORTCUT") {
-                    HidCode code = KeymapTranslator::translate(action.value);
+                    HidCode code;
+                    
+                    if (currentLayer == 0) {
+                        uint8_t linearKeyIndex = (event.row * kMatrixColumnCount) + event.col;
+                        code.keycode = 104 + linearKeyIndex; 
+                        code.modifiers = 0;
+                    } else {
+                        code = KeymapTranslator::translate(action.value);
+                    }
+
                     if (bleModeActive) BleHid::sendKey(code.keycode, code.modifiers, true); 
                     else               UsbHid::sendKey(code.keycode, code.modifiers, true);
                 } 
                 
                 if (action.type == "APP" || action.type == "SCRIPT") {
                     uint8_t packed = LayoutLoader::getPackedByte(currentLayer, event.row, event.col);
-                    Serial.print("[CMD]");
-                    Serial.write(packed);
+                    Serial.printf("[CMD:%02X]\n", packed);
                 }
                 
                 OledHandler::update();
@@ -150,8 +181,18 @@ void MacropadApp::processEvents() {
 
             case EventType::KeyRelease: {
                 KeyAction action = LayoutLoader::getKeyAction(currentLayer, event.row, event.col);
+                
                 if (action.isValid && (action.type == "KEY" || action.type == "SHORTCUT")) {
-                    HidCode code = KeymapTranslator::translate(action.value);
+                    HidCode code;
+
+                    if (currentLayer == 0) {
+                        uint8_t linearKeyIndex = (event.row * kMatrixColumnCount) + event.col;
+                        code.keycode = 104 + linearKeyIndex;
+                        code.modifiers = 0;
+                    } else {
+                        code = KeymapTranslator::translate(action.value);
+                    }
+
                     if (bleModeActive) BleHid::sendKey(code.keycode, code.modifiers, false);
                     else               UsbHid::sendKey(code.keycode, code.modifiers, false);
                 }
@@ -159,35 +200,42 @@ void MacropadApp::processEvents() {
             }
 
             case EventType::EncoderCW:
-                if (currentEncoderMode == MODE_NAV) OledHandler::nextScreen();
-                else if (currentEncoderMode == MODE_VOL) {
+                if (currentEncoderMode == MODE_VOL) {
+                    strncpy(currentLabel, "Volume Up", sizeof(currentLabel) - 1);
                     if (bleModeActive) BleHid::sendConsumerKey(0x00E9, true);  
                     else               UsbHid::sendConsumerKey(0x00E9, true);
                     delay(5);
                     if (bleModeActive) BleHid::sendConsumerKey(0x00E9, false); 
                     else               UsbHid::sendConsumerKey(0x00E9, false);
                 } else if (currentEncoderMode == MODE_LYR) {
+                    strncpy(currentLabel, "Next Layer", sizeof(currentLabel) - 1);
                     currentLayer = (currentLayer + 1) % 4;
-                    OledHandler::update();
                 }
+                currentLabel[sizeof(currentLabel) - 1] = '\0';
+                OledHandler::update();
                 break;
 
             case EventType::EncoderCCW:
-                if (currentEncoderMode == MODE_NAV) OledHandler::previousScreen();
-                else if (currentEncoderMode == MODE_VOL) {
+                if (currentEncoderMode == MODE_VOL) {
+                    strncpy(currentLabel, "Volume Down", sizeof(currentLabel) - 1);
                     if (bleModeActive) BleHid::sendConsumerKey(0x00EA, true);  
                     else               UsbHid::sendConsumerKey(0x00EA, true);
                     delay(5);
                     if (bleModeActive) BleHid::sendConsumerKey(0x00EA, false); 
                     else               UsbHid::sendConsumerKey(0x00EA, false);
                 } else if (currentEncoderMode == MODE_LYR) {
+                    strncpy(currentLabel, "Previous Layer", sizeof(currentLabel) - 1);
                     currentLayer = (currentLayer == 0) ? 3 : currentLayer - 1;
-                    OledHandler::update();
                 }
+                currentLabel[sizeof(currentLabel) - 1] = '\0';
+                OledHandler::update();
                 break;
 
             case EventType::EncoderButton:
-                currentEncoderMode = (EncoderMode)((currentEncoderMode + 1) % 3);
+                currentEncoderMode = (EncoderMode)((currentEncoderMode + 1) % 2);
+                if (currentEncoderMode == MODE_VOL) strncpy(currentLabel, "Mode: Volume", sizeof(currentLabel) - 1);
+                else strncpy(currentLabel, "Mode: Layer", sizeof(currentLabel) - 1);
+                currentLabel[sizeof(currentLabel) - 1] = '\0';
                 OledHandler::update();
                 break;
         }
@@ -199,10 +247,11 @@ void MacropadApp::checkInactivityTimeout(uint32_t now) {
         lastActivityMs = now;
         return;
     }
+    
     uint32_t elapsed = now - lastActivityMs;
     if (elapsed >= DEEP_SLEEP_TIMEOUT_MS) {
         OledHandler::showSleepAnimation();
         OledHandler::clear(); 
-        BoardSupport::enterDeepSleep(false); 
+        BoardSupport::enterDeepSleep(false);
     } 
 }

@@ -1,6 +1,7 @@
 #pragma once
+
 #include <Arduino.h>
-#include <ArduinoJson.h>
+#include <cstdint>
 
 struct HidCode {
     uint8_t keycode;
@@ -9,9 +10,6 @@ struct HidCode {
 
 class KeymapTranslator {
 public:
-    static void init(); // Added declaration
-    static HidCode translate(String value);
-private:
-    static JsonDocument libDoc;
-    static JsonObject lib;
+    static void init();
+    static HidCode translate(const String& value);
 };
