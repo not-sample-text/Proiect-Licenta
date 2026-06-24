@@ -505,7 +505,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "production/",
+      "plot": "../../../docs/schematics/",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "../../case/bottom.step",

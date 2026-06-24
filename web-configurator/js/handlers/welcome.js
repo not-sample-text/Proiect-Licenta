@@ -1,32 +1,35 @@
 import { dom } from "../dom.js";
-import { PersistenceHandler } from "../utils/storage.js";
-// import { sampleConfig } from "../sampleConfig.js";
+import { TourHandler } from "./tour.js";
+import { ModalHandler } from "./modal.js";
 
 export const WelcomeHandler = {
-	init: () => {
-		if (!dom.welcome || !dom.welcome.loadBtn) return;
-		dom.welcome.loadBtn.addEventListener("click", async () => {
-			try {
-				const res = await fetch("./generated-config.json");
-				if (!res.ok) throw new Error("Failed to fetch generated-config.json");
-				const parsed = await res.json();
-				PersistenceHandler.applyConfig(parsed);
-				PersistenceHandler.saveToLocal();
-			} catch (e) {
-				console.error("Failed applying sample config", e);
-			}
-			WelcomeHandler.hide();
-		});
-		dom.welcome.skipBtn.addEventListener("click", () => {
-			WelcomeHandler.hide();
-		});
-	},
-	show: () => {
-		if (!dom.welcome || !dom.welcome.overlay) return;
-		dom.welcome.overlay.classList.remove("hidden");
-	},
-	hide: () => {
-		if (!dom.welcome || !dom.welcome.overlay) return;
-		dom.welcome.overlay.classList.add("hidden");
-	}
+    init: () => {
+        if (!dom.welcome || !dom.welcome.overlay) return;
+
+        const skipBtn = document.getElementById("btn-welcome-skip");
+        const tourBtn = document.getElementById("btn-welcome-tour");
+
+        if (skipBtn) {
+            skipBtn.addEventListener("click", () => {
+                WelcomeHandler.hide();
+                // Short delay so the modal can fade out before showing the next one
+                setTimeout(() => ModalHandler.showSamplePrompt(), 300);
+            });
+        }
+
+        if (tourBtn) {
+            tourBtn.addEventListener("click", () => {
+                WelcomeHandler.hide();
+                setTimeout(() => TourHandler.start(), 300);
+            });
+        }
+    },
+    show: () => {
+        if (!dom.welcome || !dom.welcome.overlay) return;
+        dom.welcome.overlay.classList.remove("hidden");
+    },
+    hide: () => {
+        if (!dom.welcome || !dom.welcome.overlay) return;
+        dom.welcome.overlay.classList.add("hidden");
+    }
 };

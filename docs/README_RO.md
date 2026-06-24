@@ -6,11 +6,19 @@ Macropad-ul PROS3 este o tastatură mecanică (macropad) versatilă, open-source
 
 ## Galerie
 
-O colecție de randări și videoclipuri care prezintă hardware-ul.
+O colecție de randări care prezintă hardware-ul.
 
-|               Vedere de Sus               |                Vedere de Jos                 |
-| :---------------------------------------: | :------------------------------------------: |
-| ![Randare PCB Sus](images/render-top.png) | ![Randare PCB Jos](images/render-bottom.png) |
+|               Placă de Sus               |                   Placă de Sus (unghi)                   |
+| :--------------------------------------: | :------------------------------------------------------: |
+| ![Placă de Sus](images/render-plate.png) | ![Placă de Sus în unghi](images/render-plate-angled.png) |
+
+|               Vedere de Sus               |                        Sus (unghi)                        |
+| :---------------------------------------: | :-------------------------------------------------------: |
+| ![Randare PCB Sus](images/render-top.png) | ![Randare PCB Sus în unghi](images/render-top-angled.png) |
+
+|                Vedere de Jos                 |                         Jos (unghi)                          |
+| :------------------------------------------: | :----------------------------------------------------------: |
+| ![Randare PCB Jos](images/render-bottom.png) | ![Randare PCB Jos în unghi](images/render-bottom-angled.png) |
 
 ---
 
@@ -22,7 +30,7 @@ Proiectul este construit pe trei piloni:
 
 1.  **Hardware:** Un design PCB personalizat, format din două plăci, cu o carcasă ce poate fi printată 3D. Este conceput pentru a fi asamblat de pasionați, folosind componente through-hole și socluri hot-swap.
 2.  **Firmware:** Cod C++ personalizat care rulează pe ESP32-S3. Acesta gestionează input-ul, ecranul OLED, iluminarea și comunicarea cu computerul gazdă.
-3.  **Suită Software:** O combinație puternică între un configurator web (pentru crearea de mapări de taste) și o aplicație gazdă bazată pe Python (pentru executarea de acțiuni complexe, cum ar fi rularea de scripturi sau lansarea de programe).
+3.  **Suită Software:** O combinație puternică între un configurator web static (pentru crearea vizuală a mapărilor de taste) și un daemon de fundal (background daemon) bazat pe Python, fără interfață grafică (headless), pentru executarea acțiunilor complexe la nivel de sistem de operare printr-o interfață localizată în system tray.
 
 Această arhitectură permite macropad-ului să depășească simpla trimitere de taste și să acționeze ca o unealtă puternică de automatizare.
 
@@ -38,9 +46,9 @@ Această arhitectură permite macropad-ului să depășească simpla trimitere d
 - **Ecran OLED:** Obțineți feedback în timp real despre stratul curent, starea conexiunii și multe altele.
 - **Sistem Puternic de Straturi (Layers):** Comutați între 4 straturi distincte pentru a multiplica numărul de taste disponibile.
 - **Acțiuni în Mod Dual:**
-  - **Mod HID:** Trimiteți apăsări de taste și scurtături standard care funcționează pe orice sistem de operare fără drivere.
-  - **Mod Control Gazdă:** Declansați acțiuni complexe pe computerul dvs. — cum ar fi lansarea de aplicații sau rularea de scripturi — folosind aplicația de ascultare (listener) furnizată.
-- **Configurator Bazat pe Web:** O interfață de utilizator prietenoasă, bazată pe browser, pentru remaparea tastelor, crearea de macrouri și configurarea iluminării. Nu este necesară programarea.
+    - **Mod HID:** Trimiteți apăsări de taste și scurtături standard care funcționează pe orice sistem de operare fără drivere.
+    - **Mod Control Gazdă:** Declanșați acțiuni complexe pe computerul dvs. — cum ar fi lansarea de aplicații native sau rularea de scripturi shell — folosind daemonul de fundal cu funcție de auto-descoperire.
+- **Configurator Bazat pe Web:** O interfață de utilizator prietenoasă, bazată pe browser, fără dependențe (zero-dependency), pentru remaparea tastelor, crearea de macrouri și configurarea iluminării. Include un tur interactiv ghidat și export inteligent în format JSON.
 - **Iluminare RGB (Underglow):** 10 LED-uri RGB adresabile pentru efecte de iluminare strălucitoare, gestionate de biblioteca FastLED.
 - **Conectivitate Duală:** Comutați fără probleme între o conexiune prin cablu USB-C și cea wireless Bluetooth/BLE HID.
 
@@ -48,12 +56,10 @@ Această arhitectură permite macropad-ului să depășească simpla trimitere d
 
 ## Ghid de Inițiere
 
-Sunteți gata să vă construiți propriul macropad? Iată o prezentare generală a procesului:
-
 1.  **Construiți Hardware-ul:** Folosiți fișierele KiCad din directorul [`hardware/`](../hardware/) pentru a fabrica PCB-urile și pentru a procura componentele din Lista de Materiale (BOM).
 2.  **Instalați Firmware-ul:** Folosiți PlatformIO pentru a compila și încărca firmware-ul din directorul [`firmware/`](../firmware/) pe ESP32-S3.
-3.  **Configurați Layout-ul:** Deschideți fișierul `web-configurator/index.html` într-un browser pentru a crea mapările de taste personalizate și pentru a exporta fișierul `config.json`.
-4.  **Rulați Aplicația Gazdă:** Instalați dependențele Python și rulați scriptul `listener.py` din directorul [`host-listener/`](../host-listener/) pentru a debloca toate capabilitățile straturilor de comandă și lansator.
+3.  **Configurați Layout-ul:** Accesați Configuratorul Web (local sau prin GitHub Pages) pentru a vă crea mapările de taste personalizate și exportați fișierul `config.json` direct în folderul Descărcări (Downloads).
+4.  **Rulați Daemonul Gazdă:** Descărcați executabilul standalone de pe pagina Releases (sau rulați scriptul Python). Acesta se conectează automat la hardware, detectează fișierul de configurare și rulează invizibil în system tray pentru a debloca straturile de comandă și lansator.
 
 Pentru un ghid detaliat, pas cu pas, vă rugăm să consultați secțiunea **[Flux de Utilizare Complet din documentație](Documentatie.md#5-flux-de-utilizare-complet)**.
 

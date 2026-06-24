@@ -2,274 +2,294 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
-  <title>Macropad Web Configurator</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+    <title>Macropad Web Configurator</title>
 </head>
 
 <body>
 
-  <div class="navbar">
-    <div class="hamburger-menu active" id="hamburger-btn">
-      <div class="bar"></div>
-      <div class="bar"></div>
-      <div class="bar"></div>
-    </div>
-
-    <div class="title">Macropad Web Configurator</div>
-
-    <div style="display: flex; gap: 10px; margin-left: auto;">
-      <input type="file" id="import-file-input" hidden accept=".json">
-      <button id="btn-import-json" class="btn-secondary" style="font-size: 0.8rem;">
-        <i class="ti ti-upload"></i> Import
-      </button>
-
-      <button id="btn-export-json" class="btn-primary" style="font-size: 0.8rem;">
-        <i class="ti ti-download"></i> Export JSON
-      </button>
-    </div>
-  </div>
-
-  <div class="sidebar" id="main-sidebar">
-
-    <div id="sidebar-layers-view">
-      <ul>
-        <li>
-          <span class="category-header" data-layer="0">
-            <i class="ti ti-caret-right-filled category-icon"></i>
-            <p class="category">Layer 1 - FN Keys</p>
-          </span>
-          <ul class="key-list" id="layer-list-0"></ul>
-        </li>
-        <li>
-          <span class="category-header" data-layer="1">
-            <i class="ti ti-caret-right-filled category-icon"></i>
-            <p class="category">Layer 2 - Shortcuts</p>
-          </span>
-          <ul class="key-list" id="layer-list-1"></ul>
-        </li>
-        <li>
-          <span class="category-header" data-layer="2">
-            <i class="ti ti-caret-right-filled category-icon"></i>
-            <p class="category">Layer 3 - Commands</p>
-          </span>
-          <ul class="key-list" id="layer-list-2"></ul>
-        </li>
-        <li>
-          <span class="category-header" data-layer="3">
-            <i class="ti ti-caret-right-filled category-icon"></i>
-            <p class="category">Layer 4 - Launcher</p>
-          </span>
-          <ul class="key-list" id="layer-list-3"></ul>
-        </li>
-      </ul>
-
-      <div style="margin-top: 10px; border-top: 1px solid #444; padding-top: 10px;">
-        <div class="category-header" id="sidebar-settings-btn">
-          <i class="ti ti-settings category-icon" style="transform: none;"></i>
-          <p class="category">Lighting & Settings</p>
+    <div class="navbar">
+        <div class="hamburger-menu active" id="hamburger-btn">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
         </div>
-      </div>
-    </div>
 
-    <div id="sidebar-controls-view" class="lighting-controls-panel hidden">
-      <div class="category-header" id="back-to-layers-btn" style="margin-bottom: 15px; padding-left:0;">
-        <i class="ti ti-arrow-left"></i>
-        <p class="category">Back to Layers</p>
-      </div>
+        <div class="title">Macropad Web Configurator</div>
 
-      <div class="control-group">
-        <label>Effect Mode</label>
-        <select id="light-mode">
-          <option value="SOLID">Solid Color</option>
-          <option value="RAINBOW">Rainbow Wave</option>
-          <option value="BREATHING">Breathing</option>
-          <option value="REACTIVE">Reactive</option>
-          <option value="OFF">Off</option>
-        </select>
-      </div>
-      <div class="control-group">
-        <label>Color <span id="color-hex">#00E5FF</span></label>
-        <div class="color-picker-wrapper">
-          <input type="color" id="light-color" value="#00e5ff">
+        <div style="display: flex; gap: 10px; margin-left: auto;">
+            <input type="file" id="import-file-input" hidden accept=".json">
+            <button id="btn-import-json" class="btn-secondary" style="font-size: 0.8rem;">
+                <i class="ti ti-upload"></i> Import
+            </button>
+
+            <button id="btn-export-json" class="btn-primary" style="font-size: 0.8rem;">
+                <i class="ti ti-download"></i> Export JSON
+            </button>
         </div>
-      </div>
-      <div class="control-group">
-        <label>Brightness <span id="val-brightness">50%</span></label>
-        <input type="range" id="light-brightness" min="0" max="255">
-      </div>
-      <div class="control-group">
-        <label>Speed <span id="val-speed">10</span></label>
-        <input type="range" id="light-speed" min="1" max="20">
-      </div>
     </div>
 
-    <div class="resizer"></div>
-  </div>
+    <div class="sidebar" id="main-sidebar">
 
-  <main>
-    <h2 id="layer-title">Select Layer</h2>
+        <div id="sidebar-layers-view">
+            <ul>
+                <li>
+                    <span class="category-header" data-layer="0">
+                        <i class="ti ti-caret-right-filled category-icon"></i>
+                        <p class="category">Layer 1 - FN Keys</p>
+                    </span>
+                    <ul class="key-list" id="layer-list-0"></ul>
+                </li>
+                <li>
+                    <span class="category-header" data-layer="1">
+                        <i class="ti ti-caret-right-filled category-icon"></i>
+                        <p class="category">Layer 2 - Shortcuts</p>
+                    </span>
+                    <ul class="key-list" id="layer-list-1"></ul>
+                </li>
+                <li>
+                    <span class="category-header" data-layer="2">
+                        <i class="ti ti-caret-right-filled category-icon"></i>
+                        <p class="category">Layer 3 - Commands</p>
+                    </span>
+                    <ul class="key-list" id="layer-list-2"></ul>
+                </li>
+                <li>
+                    <span class="category-header" data-layer="3">
+                        <i class="ti ti-caret-right-filled category-icon"></i>
+                        <p class="category">Layer 4 - Launcher</p>
+                    </span>
+                    <ul class="key-list" id="layer-list-3"></ul>
+                </li>
+            </ul>
 
-    <div class="macropad-container">
-      <div class="oled-screen">
-        <div class="oled-header">
-          <span id="oled-layer-name">FN KEYS</span>
-          <div class="oled-status-icons">
-            <i class="ti ti-bluetooth"></i>
-            <span class="battery-percent">85%</span>
-            <div class="battery-wrapper">
-              <i class="ti ti-battery-3"></i>
-              <i class="ti ti-bolt charging-indicator"></i>
+            <div style="margin-top: 10px; border-top: 1px solid #444; padding-top: 10px;">
+                <div class="category-header" id="sidebar-settings-btn">
+                    <i class="ti ti-settings category-icon" style="transform: none;"></i>
+                    <p class="category">Lighting & Settings</p>
+                </div>
             </div>
-          </div>
         </div>
-        <div class="oled-main">
-          <span id="oled-display-text">Ready</span>
-        </div>
-      </div>
-      <div class="rotary-encoder">
-        <div class="knob"></div>
-      </div>
 
-      <div class="key" data-id="C0R0">C0R0</div>
-      <div class="key" data-id="C1R0">C1R0</div>
-      <div class="key" data-id="C2R0">C2R0</div>
-      <div class="key" data-id="C0R1">C0R1</div>
-      <div class="key" data-id="C1R1">C1R1</div>
-      <div class="key" data-id="C2R1">C2R1</div>
-      <div class="key" data-id="C0R2">C0R2</div>
-      <div class="key" data-id="C1R2">C1R2</div>
-      <div class="key" data-id="C2R2">C2R2</div>
-      <div class="key" data-id="C0R3">C0R3</div>
-      <div class="key" data-id="C1R3">C1R3</div>
-      <div class="key" data-id="C2R3">C2R3</div>
+        <div id="sidebar-controls-view" class="lighting-controls-panel hidden">
+            <div class="category-header" id="back-to-layers-btn" style="margin-bottom: 15px; padding-left:0;">
+                <i class="ti ti-arrow-left"></i>
+                <p class="category">Back to Layers</p>
+            </div>
+
+            <div class="control-group">
+                <label>Effect Mode</label>
+                <select id="light-mode">
+                    <option value="SOLID">Solid Color</option>
+                    <option value="RAINBOW">Rainbow Wave</option>
+                    <option value="BREATHING">Breathing</option>
+                    <option value="REACTIVE">Reactive</option>
+                    <option value="OFF">Off</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label>Color <span id="color-hex">#00E5FF</span></label>
+                <div class="color-picker-wrapper">
+                    <input type="color" id="light-color" value="#00e5ff">
+                </div>
+            </div>
+            <div class="control-group">
+                <label>Brightness <span id="val-brightness">50%</span></label>
+                <input type="range" id="light-brightness" min="0" max="255">
+            </div>
+            <div class="control-group">
+                <label>Speed <span id="val-speed">10</span></label>
+                <input type="range" id="light-speed" min="1" max="20">
+            </div>
+        </div>
+
+        <div class="resizer"></div>
     </div>
 
-    <div class="lighting-view hidden">
-      <div class="chassis-shape">
-        <div class="pcb-column left">
-          <div class="led-component" data-index="0">
-            <div class="emitter"></div>
-          </div>
-          <div class="led-component" data-index="1">
-            <div class="emitter"></div>
-          </div>
-          <div class="led-component" data-index="2">
-            <div class="emitter"></div>
-          </div>
-          <div class="led-component" data-index="3">
-            <div class="emitter"></div>
-          </div>
-          <div class="led-component" data-index="4">
-            <div class="emitter"></div>
-          </div>
+    <main>
+        <h2 id="layer-title">Select Layer</h2>
+
+        <div class="macropad-container">
+            <div class="oled-screen">
+                <div class="oled-header">
+                    <span id="oled-layer-name">FN KEYS</span>
+                    <div class="oled-status-icons">
+                        <i class="ti ti-bluetooth"></i>
+                        <span class="battery-percent">85%</span>
+                        <div class="battery-wrapper">
+                            <i class="ti ti-battery-3"></i>
+                            <i class="ti ti-bolt charging-indicator"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="oled-main">
+                    <span id="oled-display-text">Ready</span>
+                </div>
+            </div>
+            <div class="rotary-encoder">
+                <div class="knob"></div>
+            </div>
+
+            <div class="key" data-id="C0R0">C0R0</div>
+            <div class="key" data-id="C1R0">C1R0</div>
+            <div class="key" data-id="C2R0">C2R0</div>
+            <div class="key" data-id="C0R1">C0R1</div>
+            <div class="key" data-id="C1R1">C1R1</div>
+            <div class="key" data-id="C2R1">C2R1</div>
+            <div class="key" data-id="C0R2">C0R2</div>
+            <div class="key" data-id="C1R2">C1R2</div>
+            <div class="key" data-id="C2R2">C2R2</div>
+            <div class="key" data-id="C0R3">C0R3</div>
+            <div class="key" data-id="C1R3">C1R3</div>
+            <div class="key" data-id="C2R3">C2R3</div>
         </div>
-        <div class="pcb-column center">
-          <div class="esp32-component">
-            <span class="chip-label">ESP32-S3</span>
-          </div>
+
+        <div class="lighting-view hidden">
+            <div class="chassis-shape">
+                <div class="pcb-column left">
+                    <div class="led-component" data-index="0">
+                        <div class="emitter"></div>
+                    </div>
+                    <div class="led-component" data-index="1">
+                        <div class="emitter"></div>
+                    </div>
+                    <div class="led-component" data-index="2">
+                        <div class="emitter"></div>
+                    </div>
+                    <div class="led-component" data-index="3">
+                        <div class="emitter"></div>
+                    </div>
+                    <div class="led-component" data-index="4">
+                        <div class="emitter"></div>
+                    </div>
+                </div>
+                <div class="pcb-column center">
+                    <div class="esp32-component">
+                        <span class="chip-label">ESP32-S3</span>
+                    </div>
+                </div>
+                <div class="pcb-column right">
+                    <div class="led-component" data-index="5">
+                        <div class="emitter"></div>
+                    </div>
+                    <div class="led-component" data-index="6">
+                        <div class="emitter"></div>
+                    </div>
+                    <div class="led-component" data-index="7">
+                        <div class="emitter"></div>
+                    </div>
+                    <div class="led-component" data-index="8">
+                        <div class="emitter"></div>
+                    </div>
+                    <div class="led-component" data-index="9">
+                        <div class="emitter"></div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="pcb-column right">
-          <div class="led-component" data-index="5">
-            <div class="emitter"></div>
-          </div>
-          <div class="led-component" data-index="6">
-            <div class="emitter"></div>
-          </div>
-          <div class="led-component" data-index="7">
-            <div class="emitter"></div>
-          </div>
-          <div class="led-component" data-index="8">
-            <div class="emitter"></div>
-          </div>
-          <div class="led-component" data-index="9">
-            <div class="emitter"></div>
-          </div>
+
+    </main>
+
+    <div id="config-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Edit Key: <span id="modal-key-id">...</span></h3>
+            </div>
+            <div class="modal-body">
+                <div id="sample-prompt" class="form-group input-type-container hidden">
+                    <label>Welcome</label>
+                    <div style="display:flex;flex-direction:column;gap:8px;">
+                        <p>Looks like this is your first time on the website. Load a sample configuration to get
+                            started?</p>
+                        <div style="display:flex;gap:8px;justify-content:flex-end;">
+                            <button id="btn-sample-cancel" class="btn-secondary">No Thanks</button>
+                            <button id="btn-sample-load" class="btn-primary">Load Sample</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="key-label">Display Name</label>
+                    <input type="text" id="key-label" placeholder="e.g., Copy">
+                    <small>What shows up on the screen/sidebar.</small>
+                </div>
+                <div id="input-container-shortcut" class="form-group input-type-container hidden">
+                    <label>Shortcut Combination</label>
+                    <div class="shortcut-recorder" tabindex="0">
+                        <span id="shortcut-display">Click to Record...</span>
+                        <i class="ti ti-keyboard"></i>
+                    </div>
+                    <input type="hidden" id="shortcut-value">
+                </div>
+
+                <div id="input-container-script" class="form-group input-type-container hidden">
+                    <label>Script Path or URL</label>
+                    <input type="text" id="script-path-display" placeholder="e.g., C:\Scripts\organize.bat">
+                    <small>Paste the full absolute path or a web link (https://...)</small>
+                </div>
+                <div id="input-container-app" class="form-group input-type-container hidden">
+                    <label>Application Path</label>
+                    <input type="text" id="app-path-input" placeholder="e.g., C:\Windows\system32\calc.exe">
+                    <small>Paste the full absolute path to the executable.</small>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="btn-cancel" class="btn-secondary">Cancel</button>
+                <button id="btn-reset" class="btn-secondary">Reset</button>
+                <button id="btn-save" class="btn-primary">Save</button>
+            </div>
         </div>
-      </div>
     </div>
 
-  </main>
-
-  <div id="config-modal" class="modal-overlay hidden">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3>Edit Key: <span id="modal-key-id">...</span></h3>
-      </div>
-      <div class="modal-body">
-        <div id="sample-prompt" class="form-group input-type-container hidden">
-          <label>Welcome</label>
-          <div style="display:flex;flex-direction:column;gap:8px;">
-            <p>Looks like this is your first time on the website. Load a sample configuration to get started?</p>
+    <div id="sample-prompt" class="form-group input-type-container hidden">
+        <label>Setup Complete</label>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+            <p>Would you like to load a comprehensive sample configuration to get started, or begin with a completely
+                empty slate?</p>
             <div style="display:flex;gap:8px;justify-content:flex-end;">
-              <button id="btn-sample-cancel" class="btn-secondary">No Thanks</button>
-              <button id="btn-sample-load" class="btn-primary">Load Sample</button>
+                <button id="btn-sample-cancel" class="btn-secondary">Empty Slate</button>
+                <button id="btn-sample-load" class="btn-primary">Load Sample Data</button>
             </div>
-          </div>
         </div>
-        <div class="form-group">
-          <label for="key-label">Display Name</label>
-          <input type="text" id="key-label" placeholder="e.g., Copy">
-          <small>What shows up on the screen/sidebar.</small>
-        </div>
-        <div id="input-container-shortcut" class="form-group input-type-container hidden">
-          <label>Shortcut Combination</label>
-          <div class="shortcut-recorder" tabindex="0">
-            <span id="shortcut-display">Click to Record...</span>
-            <i class="ti ti-keyboard"></i>
-          </div>
-          <input type="hidden" id="shortcut-value">
-        </div>
-        <div id="input-container-script" class="form-group input-type-container hidden">
-          <label>Select Script</label>
-          <div class="file-uploader">
-            <input type="text" id="script-path-display" placeholder="No file selected" readonly>
-            <label for="script-file-input" class="btn-secondary file-btn">
-              <i class="ti ti-file-code"></i> Browse
-            </label>
-            <input type="file" id="script-file-input" hidden>
-          </div>
-        </div>
-        <div id="input-container-app" class="form-group input-type-container hidden">
-          <label>Application Path</label>
-          <div class="file-uploader">
-            <input type="text" id="app-path-input" placeholder="e.g., chrome.exe">
-            <label for="app-file-input" class="btn-secondary file-btn">
-              <i class="ti ti-app-window"></i> Locate
-            </label>
-            <input type="file" id="app-file-input" hidden accept=".exe,.app,.lnk">
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button id="btn-cancel" class="btn-secondary">Cancel</button>
-        <button id="btn-reset" class="btn-secondary">Reset</button>
-        <button id="btn-save" class="btn-primary">Save</button>
-      </div>
     </div>
-  </div>
 
-  <!-- Welcome Modal (first-run) -->
-  <div id="welcome-modal" class="modal-overlay hidden">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3>Welcome</h3>
-      </div>
-      <div class="modal-body">
-        <div class="form-group">
-          <p>Looks like this is your first time here. Would you like to load a sample configuration to get started?</p>
+    <div id="welcome-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Welcome to ApexPad</h3>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <p>Looks like this is your first time here. Would you like a quick tour of how the configurator
+                        syncs with your hardware?</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="btn-welcome-skip" class="btn-secondary">Skip Tour</button>
+                <button id="btn-welcome-tour" class="btn-primary">Take a Tour</button>
+            </div>
         </div>
-      </div>
-      <div class="modal-footer">
-        <button id="btn-welcome-skip" class="btn-secondary">No Thanks</button>
-        <button id="btn-welcome-load" class="btn-primary">Load Sample</button>
-      </div>
     </div>
-  </div>
+    <div id="tour-overlay" class="hidden">
+        <div id="tour-highlight"></div>
+        <div id="tour-tooltip">
+            <h3 id="tour-title">Title</h3>
+            <p id="tour-text">Description</p>
+            <div class="tour-footer">
+                <span id="tour-progress">1 / 5</span>
+                <div class="tour-controls">
+                    <button id="btn-tour-close" class="btn-secondary" style="padding: 5px 10px; font-size: 0.8rem;">Skip
+                        Tour</button>
+                    <button id="btn-tour-next" class="btn-primary"
+                        style="padding: 5px 15px; font-size: 0.8rem;">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-  <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/main.js"></script>
 </body>
 
 </html>

@@ -6,11 +6,19 @@ The PROS3 Macropad is a versatile, open-source 12-key macropad built around the 
 
 ## Gallery
 
-A collection of renders and videos showcasing the hardware.
+A collection of renders showcasing the hardware.
 
-|                   Top View                    |                     Bottom View                     |
-| :-------------------------------------------: | :-------------------------------------------------: |
-| ![Top PCB Render](docs/images/render-top.png) | ![Bottom PCB Render](docs/images/render-bottom.png) |
+|                 Top Plate                  |                     Top Plate (Angled)                     |
+| :----------------------------------------: | :--------------------------------------------------------: |
+| ![Top Plate](docs/images/render-plate.png) | ![Top Plate (Angled)](docs/images/render-plate-angled.png) |
+
+|                 Top View                  |                        Top (Angled)                        |
+| :---------------------------------------: | :--------------------------------------------------------: |
+| ![Top Render](docs/images/render-top.png) | ![Top Render (Angled)](docs/images/render-top-angled.png)! |
+
+|                  Bottom Render                  |                         Bottom (Angled)                         |
+| :---------------------------------------------: | :-------------------------------------------------------------: |
+| ![Bottom Render](docs/images/render-bottom.png) | ![Bottom Render (Angled)](docs/images/render-bottom-angled.png) |
 
 ---
 
@@ -20,9 +28,9 @@ This repository contains the complete engineering files (hardware, firmware, and
 
 The project is built on three pillars:
 
-1.  **Hardware:** A custom two-part PCB design with a 3D-printable case. It's designed for assembly by hobbyists with through-hole components and hot-swap sockets.
-2.  **Firmware:** Custom C++ code running on the ESP32-S3. It manages input, the OLED display, lighting, and communication with the host computer.
-3.  **Software Suite:** A powerful combination of a web-based configurator (for creating keymaps) and a Python-based host application (for executing complex actions like running scripts or launching programs).
+1. **Hardware:** A custom two-part PCB design with a 3D-printable case. It's designed for assembly by hobbyists with through-hole components and hot-swap sockets.
+2. **Firmware:** Custom C++ code running on the ESP32-S3. It manages input, the OLED display, lighting, and communication with the host computer.
+3. **Software Suite:** A powerful combination of a static web-based configurator (for visually creating keymaps) and a headless Python-based background daemon (for executing complex OS-level actions via a system tray UI).
 
 This architecture allows the macropad to go beyond simple keystrokes and act as a powerful automation tool.
 
@@ -38,9 +46,9 @@ This architecture allows the macropad to go beyond simple keystrokes and act as 
 - **OLED Display:** Get real-time feedback on your current layer, connection status, and more.
 - **Powerful Layering System:** Switch between 4 distinct layers to multiply your available keys.
 - **Dual-Mode Actions:**
-  - **HID Mode:** Send standard keystrokes and shortcuts that work on any OS without drivers.
-  - **Host Control Mode:** Trigger complex actions on your computer—like launching apps or running scripts—using the provided host listener application.
-- **Web-Based Configurator:** A user-friendly, browser-based UI for remapping keys, creating macros, and configuring lighting. No coding required.
+    - **HID Mode:** Send standard keystrokes and shortcuts that work on any OS without drivers.
+    - **Host Control Mode:** Trigger complex actions on your computer—like launching native apps or executing shell scripts—using the auto-discovering background daemon.
+- **Web-Based Configurator:** A zero-dependency, browser-based UI for remapping keys, creating macros, and configuring lighting. Features a guided interactive tour and smart JSON export.
 - **RGB Underglow:** 10 addressable RGB LEDs for brilliant lighting effects, managed by FastLED.
 - **Dual Connectivity:** Seamlessly switch between a wired USB-C connection and wireless Bluetooth/BLE HID.
 
@@ -48,12 +56,10 @@ This architecture allows the macropad to go beyond simple keystrokes and act as 
 
 ## Getting Started
 
-Ready to build your own? Here's a high-level overview of the process:
-
 1.  **Build the Hardware:** Use the KiCad files in the [`hardware/`](hardware/) directory to fabricate the PCBs and source the components from the Bill of Materials.
 2.  **Flash the Firmware:** Use PlatformIO to compile and upload the firmware from the [`firmware/`](firmware/) directory to the ESP32-S3.
-3.  **Configure Your Layout:** Open the `web-configurator/index.html` file in a browser to create your custom keymaps and export the `config.json` file.
-4.  **Run the Host App:** Install the Python dependencies and run the `listener.py` script from the [`host-listener/`](host-listener/) directory to unlock the full capabilities of the command and launcher layers.
+3.  **Configure Your Layout:** Access the Web Configurator (locally or via GitHub Pages) to design your custom keymaps and export the `config.json` file to your Downloads folder.
+4.  **Run the Host Daemon:** Download the standalone executable from the Releases page (or run the Python script). It automatically connects to the hardware, detects your config file, and runs invisibly in your system tray to unlock the command and launcher layers.
 
 For a detailed, step-by-step guide, please refer to the **[Complete User Workflow section in the documentation](docs/Documentation.md#5-complete-user-workflow)**.
 

@@ -8,13 +8,13 @@ Acest document oferă o privire detaliată, "fără nicio piatră neîntoarsă",
 
 Proiectul este un ecosistem complet, compus din trei părți distincte, dar interconectate: **Hardware**, **Firmware** și o **Suită Software** pentru configurare și interacțiune cu computerul gazdă.
 
-Conceptul de bază este că macropad-ul poate acționa ca un dispozitiv HID simplu (precum o tastatură standard) pentru scurtături de bază, dar poate, de asemenea, să trimită comenzi specializate către o aplicație de ascultare (listener) pe computerul gazdă pentru a efectua sarcini mai complexe, cum ar fi lansarea de aplicații sau rularea de scripturi.
+Conceptul de bază este că macropad-ul poate acționa ca un dispozitiv HID simplu (precum o tastatură standard) pentru scurtături de bază, dar poate, de asemenea, să trimită comenzi specializate către o aplicație de ascultare de fundal (background listener) pe computerul gazdă pentru a efectua sarcini mai complexe, cum ar fi lansarea de aplicații sau rularea de scripturi.
 
 ```mermaid
 graph TD
     subgraph "Computer Gazdă"
         A["Configurator Web (Browser)"] -->|Generează| B["config.json"];
-        C["Listener Gazdă (Script Python)"] -->|Citește| B;
+        C["Daemon Gazdă (Listener de Fundal)"] -->|Citește| B;
     end
 
     subgraph "Dispozitiv Macropad"
@@ -28,15 +28,18 @@ graph TD
     C -- "Execută Acțiuni (ex. Rulează Notepad)" --> F;
 
     style B fill:#f9f,stroke:#333,stroke-width:2px
+
+
 ```
 
 ### Cei Trei Piloni
 
-1.  **Hardware (Dispozitivul Fizic):** Un ansamblu PCB personalizat, format din două plăci, cu 12 taste hot-swap, un encoder rotativ, un ecran OLED și iluminare de fundal RGB.
-2.  **Firmware (C++ Embedded):** Codul care rulează pe microcontrolerul ESP32-S3. Acesta scanează hardware-ul pentru input, gestionează afișajul și iluminarea și comunică cu computerul gazdă prin USB sau Bluetooth.
-3.  **Suita Software (Configurare & Control):**
-    - **Configurator Web:** O interfață grafică (GUI) bazată pe browser care permite unui utilizator să definească mapările tastelor, să creeze macrouri și să personalizeze iluminarea, exportând rezultatele într-un fișier `config.json`.
-    - **Listener Gazdă:** Un script Python care rulează pe computerul utilizatorului. Acesta ascultă comenzi speciale de la firmware și folosește `config.json` pentru a le traduce în acțiuni, cum ar fi rularea unui program sau a unui script shell.
+1. **Hardware (Dispozitivul Fizic):** Un ansamblu PCB personalizat, format din două plăci, cu 12 taste hot-swap, un encoder rotativ, un ecran OLED și iluminare de fundal RGB.
+2. **Firmware (C++ Embedded):** Codul care rulează pe microcontrolerul ESP32-S3. Acesta scanează hardware-ul pentru input, gestionează afișajul și iluminarea și comunică cu computerul gazdă prin USB sau Bluetooth.
+3. **Suita Software (Configurare & Control):**
+
+- **Configurator Web:** O interfață grafică (GUI) statică, bazată pe browser, care permite unui utilizator să definească vizual mapările tastelor, să creeze macrouri și să personalizeze iluminarea, exportând rezultatele într-un fișier `config.json`.
+- **Daemon Gazdă:** O aplicație de fundal (background) bazată pe Python, fără interfață grafică vizibilă (headless), care rulează pe computerul utilizatorului. Ascultă comenzi speciale de la firmware și folosește `config.json` pentru a le traduce în acțiuni la nivel de sistem de operare printr-o interfață în system tray.
 
 ---
 
@@ -49,61 +52,62 @@ Hardware-ul este proiectat pentru a fi atât funcțional, cât și ușor de asam
 #### Placa Superioară (Interfață Utilizator)
 
 | Nume Componentă      | Cant. | Specificație / Valoare | Amprentă / Detaliu        | Scop / Funcție                                                            |
-| :------------------- | :---: | :--------------------- | :------------------------ | :------------------------------------------------------------------------ |
-| **Switch Tastatură** |  12   | Switch Tactil          | `MX_Hotswap_1.00u`        | **Input Utilizator:** Oferă o conexiune electrică momentană.              |
-| **Diodă**            |  12   | 1N4148                 | `D_DO-35_SOD27`           | **Protecție Matrice:** Previne "ghosting-ul".                             |
-| **Encoder Rotativ**  |   1   | EC11 cu buton          | `Encoder_EC11_MX`         | **Input Utilizator:** Input rotațional continuu și buton.                 |
-| **Ecran OLED**       |   1   | SSD1306 128x32         | `OLED_128x32`             | **Afișaj:** Afișează straturi, status baterie și informații de conectare. |
-| **Comutator SPDT**   |   1   | Comutator glisant      | `SLW8645745ARAND`         | **Selecție Mod:** Comutator fizic pentru On/Off sau schimbare mod.        |
-| **Conector Pin**     |   1   | 1x15 Male Header       | `PinHeader_1x15_Vertical` | **Conexiune:** Conectează placa superioară de cea inferioară.             |
+| -------------------- | ----- | ---------------------- | ------------------------- | ------------------------------------------------------------------------- |
+| **Switch Tastatură** | 12    | Switch Tactil          | `MX_Hotswap_1.00u`        | **Input Utilizator:** Oferă o conexiune electrică momentană.              |
+| **Diodă**            | 12    | 1N4148                 | `D_DO-35_SOD27`           | **Protecție Matrice:** Previne "ghosting-ul".                             |
+| **Encoder Rotativ**  | 1     | EC11 cu buton          | `Encoder_EC11_MX`         | **Input Utilizator:** Input rotațional continuu și buton.                 |
+| **Ecran OLED**       | 1     | SSD1306 128x32         | `OLED_128x32`             | **Afișaj:** Afișează straturi, status baterie și informații de conectare. |
+| **Comutator SPDT**   | 1     | Comutator glisant      | `SLW8645745ARAND`         | **Selecție Mod:** Comutator fizic pentru On/Off sau schimbare mod.        |
+| **Conector Pin**     | 1     | 1x15 Male Header       | `PinHeader_1x15_Vertical` | **Conexiune:** Conectează placa superioară de cea inferioară.             |
 
 #### Placa Inferioară (Logică & Alimentare)
 
 | Nume Componentă       | Cant. | Specificație / Valoare | Amprentă / Detaliu        | Scop / Funcție                                                                  |
-| :-------------------- | :---: | :--------------------- | :------------------------ | :------------------------------------------------------------------------------ |
-| **Socket Pin**        |   1   | 1x15 Female Socket     | `PinSocket_1x15_Vertical` | **Conexiune:** Se cuplează cu placa superioară pentru un ansamblu modular.      |
-| **Microcontroler**    |   1   | UM ESP32-S3 Pro        | `DU1 / ProS3_TH`          | **Procesor Principal:** Execuție firmware, I/O și radio WiFi/BLE.               |
-| **Antenă**            |   1   | 2.4 GHz Flexibilă      | `AC10200-100` / U.FL      | **Wireless:** Transmite și recepționează semnale Bluetooth/WiFi.                |
-| **LED RGB**           |  10   | SK6812MINI             | `PLCC4_3.5x3.5mm`         | **Iluminare:** Iluminare de fundal adresabilă, full-color.                      |
-| **Rezistor Pull-Up**  |  10   | 10k $\Omega$           | `R_0805_HandSolder`       | **Stabilizare:** Asigură că pinii de input rămân într-o stare logică ridicată.  |
-| **Rezistor Limitare** |  10   | 470 $\Omega$           | `R_0805_HandSolder`       | **Protecție:** Limitează curentul către LED-uri sau linii de date.              |
-| **Capacitor**         |   1   | 100nF                  | `C_0805_HandSolder`       | **Decuplare:** Filtrează zgomotul electric în apropierea pinilor de alimentare. |
+| --------------------- | ----- | ---------------------- | ------------------------- | ------------------------------------------------------------------------------- |
+| **Socket Pin**        | 1     | 1x15 Female Socket     | `PinSocket_1x15_Vertical` | **Conexiune:** Se cuplează cu placa superioară pentru un ansamblu modular.      |
+| **Microcontroler**    | 1     | UM ESP32-S3 Pro        | `DU1 / ProS3_TH`          | **Procesor Principal:** Execuție firmware, I/O și radio WiFi/BLE.               |
+| **Antenă**            | 1     | 2.4 GHz Flexibilă      | `AC10200-100` / U.FL      | **Wireless:** Transmite și recepționează semnale Bluetooth/WiFi.                |
+| **LED RGB**           | 10    | SK6812MINI             | `PLCC4_3.5x3.5mm`         | **Iluminare:** Iluminare de fundal adresabilă, full-color.                      |
+| **Rezistor Pull-Up**  | 10    | 10k $\Omega$           | `R_0805_HandSolder`       | **Stabilizare:** Asigură că pinii de input rămân într-o stare logică ridicată.  |
+| **Rezistor Limitare** | 10    | 470 $\Omega$           | `R_0805_HandSolder`       | **Protecție:** Limitează curentul către LED-uri sau linii de date.              |
+| **Capacitor**         | 1     | 100nF                  | `C_0805_HandSolder`       | **Decuplare:** Filtrează zgomotul electric în apropierea pinilor de alimentare. |
 
 ### Asignarea Pinilor ESP32-S3
 
 Tabelul de mai jos mapează fiecare semnal la GPIO-ul ESP32-S3 și pinul fizic corespunzător de pe modulul UM ProS3.
 
 | Semnal         | GPIO | Pin ProS3 | RTC Wake | Funcție                            |
-| :------------- | :--: | :-------: | :------: | :--------------------------------- |
-| **COL0**       |  36  |    32     |    Nu    | Coloana 0 — matrice taste          |
-| **COL1**       |  37  |    33     |    Nu    | Coloana 1 — matrice taste          |
-| **COL2**       |  35  |    34     |    Nu    | Coloana 2 — matrice taste          |
-| **ROW0**       |  12  |    17     |    Da    | Rândul 0 — matrice taste           |
-| **ROW1**       |  13  |    16     |    Da    | Rândul 1 — matrice taste           |
-| **ROW2**       |  14  |    15     |    Da    | Rândul 2 — matrice taste           |
-| **ROW3**       |  5   |     9     |    Da    | Rândul 3 — matrice taste           |
-| **ENC_SW**     |  1   |     5     |    Da    | Buton encoder rotativ              |
-| **ENC_CLK**    |  2   |     6     |    Da    | Clock encoder rotativ (A)          |
-| **ENC_DT**     |  4   |     8     |    Da    | Data encoder rotativ (B)           |
-| **OLED_SDA**   |  8   |    29     |    Da    | I²C SDA — OLED SSD1306             |
-| **OLED_SCL**   |  9   |    30     |    Da    | I²C SCL — OLED SSD1306             |
-| **RGB_LEDS**   |  7   |    28     |    Da    | Linie date LED-uri SK6812MINI      |
-| **BT_SELECT**  |  34  |    31     |    Nu    | Comutator glisant BLE / USB        |
-| **VBUS_SENSE** |  21  |    10     |    Da    | Detecție USB 5 V (capabil wake-up) |
-| **LED_STATUS** |  16  |    13     |    Da    | LED status on-board                |
+| -------------- | ---- | --------- | -------- | ---------------------------------- |
+| **COL0**       | 36   | 32        | Nu       | Coloana 0 — matrice taste          |
+| **COL1**       | 37   | 33        | Nu       | Coloana 1 — matrice taste          |
+| **COL2**       | 35   | 34        | Nu       | Coloana 2 — matrice taste          |
+| **ROW0**       | 12   | 17        | Da       | Rândul 0 — matrice taste           |
+| **ROW1**       | 13   | 16        | Da       | Rândul 1 — matrice taste           |
+| **ROW2**       | 14   | 15        | Da       | Rândul 2 — matrice taste           |
+| **ROW3**       | 5    | 9         | Da       | Rândul 3 — matrice taste           |
+| **ENC_SW**     | 1    | 5         | Da       | Buton encoder rotativ              |
+| **ENC_CLK**    | 2    | 6         | Da       | Clock encoder rotativ (A)          |
+| **ENC_DT**     | 4    | 8         | Da       | Data encoder rotativ (B)           |
+| **OLED_SDA**   | 8    | 29        | Da       | I²C SDA — OLED SSD1306             |
+| **OLED_SCL**   | 9    | 30        | Da       | I²C SCL — OLED SSD1306             |
+| **RGB_LEDS**   | 7    | 28        | Da       | Linie date LED-uri SK6812MINI      |
+| **BT_SELECT**  | 34   | 31        | Nu       | Comutator glisant BLE / USB        |
+| **VBUS_SENSE** | 21   | 10        | Da       | Detecție USB 5 V (capabil wake-up) |
+| **LED_STATUS** | 16   | 13        | Da       | LED status on-board                |
 
-> **Notă despre sleep:** Toate GPIO-urile suportă întreruperi și wake din light-sleep. Doar GPIO-urile RTC (0–21) pot genera wake din deep-sleep. Pinii de coloană (35–37) și BT_SELECT (34) _nu_ sunt GPIO-uri RTC; pentru wake din deep-sleep, se setează coloanele HIGH și se folosesc pinii de rând ca sursă de trezire.
+> **Notă despre sleep:** Toate GPIO-urile suportă întreruperi și wake din light-sleep. Doar GPIO-urile RTC (0–21) pot genera wake din deep-sleep. Pinii de coloană (35–37) și BT*SELECT (34) \_nu* sunt GPIO-uri RTC; pentru wake din deep-sleep, se setează coloanele HIGH și se folosesc pinii de rând ca sursă de trezire.
 
 ### Scheme Electrice & Layout
 
 Fișierele de proiectare KiCad complete se găsesc în directorul [`hardware/pcb/`](../hardware/pcb/). Pentru referință rapidă, sunt disponibile și exporturi PDF ale schemelor și layout-urilor:
 
 - **Placa Superioară:**
-  - [Schematic (`schematic-top.pdf`)](schematics/schematic-top.pdf)
-  - [Layout (`layout-top.pdf`)](schematics/layout-top.pdf)
+- [Schematic (`schematic-top.pdf`)](schematics/schematic-top.pdf)
+- [Layout (`layout-top.pdf`)](schematics/layout-top.pdf)
+
 - **Placa Inferioară:**
-  - [Schematic (`schematic-bottom.pdf`)](schematics/schematic-bottom.pdf)
-  - [Layout (`layout-bottom.pdf`)](schematics/layout-bottom.pdf)
+- [Schematic (`schematic-bottom.pdf`)](schematics/schematic-bottom.pdf)
+- [Layout (`layout-bottom.pdf`)](schematics/layout-bottom.pdf)
 
 ---
 
@@ -118,8 +122,8 @@ Firmware-ul este dezvoltat folosind C++ în mediul PlatformIO, care oferă un la
 - **Gestionare Afișaj:** Utilizează biblioteca U8g2 pentru a desena informații pe ecranul OLED, cum ar fi numele stratului curent și mesaje de stare.
 - **Gestionare Iluminare:** Controlează cele 10 LED-uri RGB adresabile folosind biblioteca FastLED.
 - **Comunicație:**
-  - **USB HID:** Pentru straturile 0 și 1, acționează ca o tastatură USB standard, trimițând apăsări de taste și comenzi media (cum ar fi Volum Sus/Jos) care sunt înțelese de orice sistem de operare modern fără drivere.
-  - **USB Serial:** Pentru straturile 2 și 3, trimite o comandă simplă sub formă de șir de caractere prin portul serial (de ex., `L2:C0R1`) pentru a fi interpretată de Listener-ul Gazdă. Portul serial este folosit și pentru mesaje de debugging.
+- **USB HID:** Pentru straturile 0 și 1, acționează ca o tastatură USB standard, trimițând apăsări de taste și comenzi media (cum ar fi Volum Sus/Jos) care sunt înțelese de orice sistem de operare modern fără drivere.
+- **USB Serial:** Pentru straturile 2 și 3, trimite o comandă simplă sub formă de șir de caractere prin portul serial (de ex., `L2:C0R1`) pentru a fi interpretată de Daemonul Gazdă. Portul serial este folosit și pentru mesaje de debugging.
 
 ### Sistemul de Straturi (Layers)
 
@@ -127,7 +131,7 @@ Firmware-ul implementează 4 straturi funcționale distincte. Stratul activ dete
 
 - **Strat 0 (Taste FN):** Hardcodat în firmware. Acest strat trimite tastele funcționale F13 până la F24, care sunt taste non-standard, adesea folosite pentru scurtături specifice aplicațiilor pentru a evita conflictele cu tastele standard de sistem.
 - **Strat 1 (Scurtături):** Acest strat este proiectat pentru a trimite scurtături HID complexe (de ex., `Ctrl+Shift+P`). Firmware-ul parsează `config.json` pentru a trimite combinația corectă de taste modificatoare și taste standard. _(Notă: Parsarea completă este în dezvoltare)._
-- **Strat 2 (Comenzi):** Când o tastă este apăsată pe acest strat, firmware-ul trimite un șir de identificare unic pentru acea tastă prin portul serial USB (de ex., `L2:C0R0`). Acesta **nu** trimite o comandă de tastatură. Listener-ul Gazdă trebuie să ruleze pentru a recepționa acest mesaj și a executa comanda asociată.
+- **Strat 2 (Comenzi):** Când o tastă este apăsată pe acest strat, firmware-ul trimite un șir de identificare unic pentru acea tastă prin portul serial USB (de ex., `L2:C0R0`). Acesta **nu** trimite o comandă de tastatură. Daemonul Gazdă trebuie să ruleze pentru a recepționa acest mesaj și a executa comanda asociată.
 - **Strat 3 (Lansator):** Identic ca mecanism cu Stratul 2, dar folosește un prefix diferit (de ex., `L3:C0R0`). Acest lucru permite utilizatorului să-și organizeze acțiunile semantic (de ex., folosind Stratul 2 pentru scripturi și Stratul 3 pentru lansarea de aplicații).
 
 ---
@@ -136,52 +140,52 @@ Firmware-ul implementează 4 straturi funcționale distincte. Stratul activ dete
 
 ### Configuratorul Web
 
-Configuratorul, localizat în [`web-configurator/`](../web-configurator/), este o aplicație statică HTML, CSS și JavaScript care poate fi rulată direct din sistemul de fișiere sau de pe un server web simplu.
+Configuratorul, localizat în [`web-configurator/`](../web-configurator/), este o aplicație Vanilla JavaScript fără dependențe (zero-dependency) care poate fi rulată direct din sistemul de fișiere sau găzduită static via GitHub Pages.
 
-- **Scop:** Oferă o modalitate prietenoasă, fără cod, de a defini comportamentul macropad-ului.
+- **Scop:** Oferă un mediu prietenos, fără cod, pentru a defini comportamentul macropad-ului.
 - **Funcționalități:**
-  - O reprezentare vizuală a layout-ului macropad-ului.
-  - Configurarea etichetelor și acțiunilor tastelor pentru fiecare dintre cele 4 straturi.
-  - Personalizarea efectelor de iluminare RGB, a culorii și a luminozității.
-  - Import/Export al configurației ca un singur fișier `config.json`.
-  - Setările sunt salvate automat în LocalStorage-ul browser-ului.
+- **Vizualizator Interactiv:** Previzualizare în timp real, bazată pe CSS, a layout-ului macropad-ului și a efectelor de iluminare RGB (underglow).
+- **Căi Absolute (Absolute Pathing):** Direcționează în siguranță aplicațiile locale `.exe` și scripturile (`.bat`, `.py`, `.ps1`) direct către sistemul de operare gazdă.
+- **Export Inteligent:** Generează un fișier structurat `config.json`. Când este salvat în folderul `Downloads` (Descărcări) al sistemului de operare, acesta este detectat și sincronizat automat de daemonul de fundal.
+- **Ghid de Inițiere (Onboarding):** Include un tur interactiv tip "spotlight" pentru a explica sincronizarea hardware-software utilizatorilor noi.
 
-### Listener-ul Gazdă (Host Listener)
+### Daemon Gazdă (Listener de Fundal)
 
-Aceasta este componenta critică ce deblochează întreaga putere a macropad-ului. Scriptul, `host-listener/listener.py`, rulează în fundal pe computerul gazdă.
+Aceasta este componenta critică ce deblochează întreaga putere a macropad-ului. Aplicația (`host-listener/main.py` sau binarul executabil standalone) rulează complet invizibil (headless) în fundal pe computerul gazdă.
 
-- **Scop:** Să asculte comenzi seriale de la macropad (trimise de la straturile 2 și 3) și să execute acțiuni pe sistemul de operare gazdă.
+- **Scop:** Să asculte comenzi seriale de la macropad (trimise de pe straturile 2 și 3) și să execute acțiuni la nivel de sistem de operare.
 - **Cum funcționează:**
-  1.  Scriptul scanează continuu pentru o conexiune serială activă cu macropad-ul.
-  2.  Încarcă fișierul `config.json` în memorie pentru a înțelege ce înseamnă fiecare comandă.
-  3.  Când primește o comandă (de ex., `L2:C1R2`), caută acțiunea corespunzătoare în datele de configurare încărcate.
-  4.  Apoi execută acea acțiune. Aceasta poate fi deschiderea unei adrese URL, rularea unei comenzi shell sau lansarea unei aplicații (`.exe`, `.app`, etc.).
-- **Dependențe:** Scriptul necesită `pyserial` și alte biblioteci. Acestea pot fi instalate prin pip:
-  ```bash
-  pip install -r host-listener/requirements.txt
-  ```
+
+1. **Auto-Descoperire:** La lansare, daemonul scanează automat toate porturile COM disponibile și stabilește o conexiune cu ESP32-S3 folosind o strângere de mână (handshake) serială personalizată de tip Ping/Pong. Nu este necesară selectarea manuală a portului.
+2. **Căutare Inteligentă a Configurației:** Daemonul caută fișierul `config.json` în directorul local, și în folderele `Documents` și `Downloads` ale utilizatorului. Încarcă inteligent cel mai recent fișier modificat și face backup în siguranță versiunilor mai vechi.
+3. **Motor de Execuție:** Când este primită o comandă (de ex., `L2:C1R2`), direcționează acțiunea prin sistemul de operare. Execută nativ scripturi de terminal sau lansează aplicații standard pe baza configurației.
+
+- **Interfață System Tray:** Daemonul este gestionat în întregime prin intermediul unei pictograme din System Tray. De aici, utilizatorii pot forța sincronizarea unei noi configurații, pot recupera un layout pierdut direct din memoria SPIFFS a ESP32-ului sau pot deschide o consolă de depanare live, thread-safe, pentru a monitoriza traficul serial.
 
 ---
 
 ## 5. Flux de Utilizare Complet
 
-Acest ghid descrie procesul complet, de la asamblare la funcționalitate deplină.
+Acest ghid descrie procesul complet, de la asamblare la funcționalitate deplină, utilizând stiva software 1.0.0.
 
-1.  **Construirea Hardware-ului:** Fabricați PCB-urile folosind fișierele KiCad furnizate și procurați toate componentele din BOM. Asamblați placa superioară și cea inferioară folosind distanțiere M2.5.
-2.  **Flash Firmware:**
-    - Instalați Visual Studio Code cu extensia PlatformIO.
-    - Deschideți directorul `firmware/` în VSCode.
-    - Conectați macropad-ul la computer prin USB-C.
-    - Folosiți task-ul "Upload" din PlatformIO pentru a compila și a încărca firmware-ul pe ESP32-S3.
-3.  **Crearea unei Configurații:**
-    - Deschideți fișierul `web-configurator/index.html` în browser.
-    - Proiectați-vă layout-urile. Atribuiți funcții tastelor pe straturile 1, 2 și 3. Setați iluminarea dorită.
-    - Apăsați butonul "Export JSON" pentru a descărca fișierul `config.json`. Salvați-l într-o locație cunoscută (de ex., `Documents/Macropad/config.json`).
-4.  **Rularea Listener-ului Gazdă:**
-    - Deschideți un terminal sau o linie de comandă.
-    - Navigați la directorul `host-listener/`.
-    - Instalați pachetele Python necesare: `pip install -r requirements.txt`.
-    - Rulați aplicația listener: `python listener.py`.
-    - La prima rulare a scriptului, va apărea fereastra sa. Apăsați "Browse..." și localizați fișierul `config.json` pe care l-ați salvat la pasul anterior. Aplicația va memora această locație pentru rulările viitoare.
-    - Aplicația se va conecta automat la macropad. Acum puteți minimiza fereastra, iar aceasta va rula în system tray.
-5.  **Utilizarea Macropad-ului:** Sunteți gata. Macropad-ul va executa acum acțiunile pe care le-ați definit. Apăsările de taste pe straturile 0/1 vor funcționa instantaneu. Apăsările de taste pe straturile 2/3 vor funcționa atâta timp cât Listener-ul Gazdă rulează.
+1. **Construirea Hardware-ului:** Fabricați PCB-urile folosind fișierele KiCad furnizate și procurați toate componentele din BOM. Asamblați placa superioară și cea inferioară folosind distanțiere M2.5.
+2. **Flash Firmware:**
+
+- Instalați Visual Studio Code cu extensia PlatformIO.
+- Deschideți directorul `firmware/` în VSCode.
+- Conectați macropad-ul la computer prin USB-C.
+- Folosiți task-ul "Upload" din PlatformIO pentru a compila și a încărca firmware-ul pe ESP32-S3.
+
+3. **Crearea unei Configurații:**
+
+- Deschideți Configuratorul Web (fie local, fie prin link-ul găzduit pe GitHub Pages).
+- Proiectați-vă layout-urile. Atribuiți taste FN, scurtături de tastatură sau căi absolute pentru scripturi și aplicații.
+- Apăsați "Export JSON" și salvați fișierul direct în folderul `Downloads` (Descărcări) sau `Documents` (Documente) al computerului dvs.
+
+4. **Lansarea Daemonului Gazdă:**
+
+- Descărcați executabilul standalone pentru sistemul dvs. de operare (Windows, macOS sau Linux) de pe pagina GitHub Releases, sau rulați-l prin Python.
+- Rulați aplicația. Aceasta va rula complet invizibil în fundal.
+- Verificați System Tray-ul (sau Menu Bar-ul). Pictograma Macropad va apărea, indicând faptul că a găsit automat fișierul `config.json` și s-a conectat la hardware.
+
+5. **Utilizarea Macropad-ului:** Sunteți gata. Apăsările de taste pe straturile 0 și 1 vor acționa ca o tastatură USB HID standard. Apăsările de taste pe straturile 2 și 3 vor declanșa daemonul de fundal pentru a lansa aplicațiile și scripturile specificate!

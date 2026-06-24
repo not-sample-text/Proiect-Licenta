@@ -1,0 +1,88 @@
+<mxfile host="65bd71144e">
+    <diagram id="hw_loop" name="Hardware Firmware Loop">
+        <mxGraphModel dx="1000" dy="799" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="800" pageHeight="1000" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="HW_START" value="MAIN LOOP" style="ellipse;whiteSpace=wrap;html=1;fontStyle=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+                    <mxGeometry x="360" y="40" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="SCAN_MAT" value="Scan 3x4 Key Matrix" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="340" y="160" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="SCAN_ENC" value="Scan Rotary Encoder" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="340" y="240" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="PROC_INP" value="Process Input" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+                    <mxGeometry x="350" y="320" width="100" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="HID_OUT" value="Send USB/BLE HID&lt;br&gt;(F-Keys / Shortcuts)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+                    <mxGeometry x="180" y="440" width="140" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="SER_OUT" value="Send Serial String&lt;br&gt;(e.g., L2:C1R2)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+                    <mxGeometry x="480" y="440" width="140" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="UPD_OLED" value="Update OLED Display" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="340" y="560" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="DELAY" value="Debounce / Sleep" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
+                    <mxGeometry x="340" y="640" width="120" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_h1" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" parent="1" source="HW_START" target="SCAN_MAT" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_h2" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" parent="1" source="SCAN_MAT" target="SCAN_ENC" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_h3" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" parent="1" source="SCAN_ENC" target="PROC_INP" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_h4" value="Layer 0 / 1" style="endArrow=classic;html=1;exitX=0;exitY=0.5;entryX=0.5;entryY=0;" parent="1" source="PROC_INP" target="HID_OUT" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="250" y="360"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e_h5" value="Layer 2 / 3" style="endArrow=classic;html=1;exitX=1;exitY=0.5;entryX=0.5;entryY=0;" parent="1" source="PROC_INP" target="SER_OUT" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="550" y="360"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e_h6" value="No Input" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" parent="1" source="PROC_INP" target="UPD_OLED" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e_h7" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0;entryY=0.5;" parent="1" source="HID_OUT" target="UPD_OLED" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="250" y="580"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e_h8" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=1;entryY=0.5;" parent="1" source="SER_OUT" target="UPD_OLED" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="550" y="580"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e_h9" style="endArrow=classic;html=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="UPD_OLED" target="DELAY" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="400" y="640" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e_h11" style="endArrow=classic;html=1;exitX=0;exitY=0.5;entryX=0;entryY=0.5;" parent="1" source="DELAY" target="HW_START" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="160" y="660"/>
+                            <mxPoint x="160" y="360"/>
+                            <mxPoint x="160" y="80"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
