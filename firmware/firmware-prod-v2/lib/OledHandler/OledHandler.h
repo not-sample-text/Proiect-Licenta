@@ -13,6 +13,9 @@ public:
     static void showBootAnimation();
     static void showSleepAnimation();
     static void clear();
+    
+    // Full screen blocking system message (used during Config Sync)
+    static void showSystemMessage(const char* msg);
 
 private:
     static Adafruit_SSD1306 display;

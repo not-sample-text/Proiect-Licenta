@@ -57,7 +57,6 @@ void OledHandler::update() {
     display.setTextWrap(false);
 
     if (MacropadApp::isBleMode() && displayPasskeyActive) {
-        // Render the clear, oversized passkey pairing screen
         int16_t x1, y1;
         uint16_t w, h;
         
@@ -123,6 +122,20 @@ void OledHandler::update() {
     display.setCursor(0, 24);
     display.print(getEncoderModeString()); 
 
+    display.display();
+}
+
+void OledHandler::showSystemMessage(const char* msg) {
+    display.clearDisplay();
+    display.setFont(nullptr);
+    display.setTextSize(2);
+    
+    int16_t x1, y1;
+    uint16_t w, h;
+    display.getTextBounds(msg, 0, 10, &x1, &y1, &w, &h);
+    display.setCursor((128 - w) / 2, 10);
+    display.print(msg);
+    
     display.display();
 }
 

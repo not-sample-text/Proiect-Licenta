@@ -11,6 +11,7 @@
 #include "KeymapTranslator.h"
 #include "UsbHid.h"
 #include "BleHid.h"
+#include "SerialManager.h"
 
 enum EncoderMode : uint8_t {
     MODE_VOL = 0,   
@@ -49,6 +50,7 @@ void MacropadApp::begin() {
     
     LayoutLoader::begin();
     KeymapTranslator::init();
+    SerialManager::begin();
 
     if (!LayoutLoader::begin()) {
         Serial.println("[DEBUG] Failed to load config.json from SPIFFS!");
@@ -87,6 +89,9 @@ void MacropadApp::begin() {
 
 void MacropadApp::run() {
     uint32_t now = millis();
+    
+    // Process configuration download/upload streams and remote pings
+    SerialManager::check();
 
     bool currentBleSwitch = BoardSupport::isBleSwitchActive();
     
@@ -109,7 +114,6 @@ void MacropadApp::run() {
                 BleHid::updateBatteryLevel(batPct);
             }
             
-            // Redundant hardware protection: cutoff if battery is critically low and not plugged in
             if (batPct == 0 && !BoardSupport::isUsbConnected()) {
                 OledHandler::showSleepAnimation();
                 OledHandler::clear();
