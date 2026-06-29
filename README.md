@@ -1,3 +1,11 @@
+# Repository Archived
+
+This repository represents the final version submitted for my Bachelor's Thesis.
+
+Active development for this project has moved to [ApexPad](https://github.com/not-sample-text/ApexPad). Please refer to the new repository for the most recent updates, bug fixes, and feature development.
+
+---
+
 # PROS3 Macropad: A Fully-Programmable Custom Mechanical Macropad
 
 The PROS3 Macropad is a versatile, open-source 12-key macropad built around the powerful ESP32-S3. Designed as a university thesis project, it features a rotary encoder, OLED display, RGB underglow, and a complete software ecosystem for deep customization.
