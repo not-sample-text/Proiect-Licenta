@@ -34,11 +34,21 @@ class ExecutionHandler:
         logger.info(f"Launching APP [{label}]: {path}")
         
         try:
-            # Safe cross-platform execution without shell=True
             if sys.platform == 'win32':
-                subprocess.Popen(path, creationflags=subprocess.CREATE_NO_WINDOW)
+                subprocess.Popen(
+                    path, 
+                    creationflags=subprocess.CREATE_NO_WINDOW,
+                    stdin=subprocess.DEVNULL,
+                    stdout=subprocess.DEVNULL,
+                    stderr=subprocess.DEVNULL
+                )
             else:
-                subprocess.Popen(shlex.split(path))
+                subprocess.Popen(
+                    shlex.split(path),
+                    stdin=subprocess.DEVNULL,
+                    stdout=subprocess.DEVNULL,
+                    stderr=subprocess.DEVNULL
+                )
         except Exception as e:
             logger.error(f"Failed to launch APP '{path}': {e}")
 
@@ -64,7 +74,6 @@ class ExecutionHandler:
             
             for venv_name in ["venv", ".venv", "env", ".env"]:
                 if sys.platform == 'win32':
-                    # Fixed: Using python.exe instead of pythonw.exe to prevent stdout crashing
                     possible_exe = os.path.join(script_dir, venv_name, "Scripts", "python.exe")
                 else:
                     possible_exe = os.path.join(script_dir, venv_name, "bin", "python3")
@@ -78,13 +87,11 @@ class ExecutionHandler:
                 cmd = [venv_exe, path]
             else:
                 logger.info("No local venv found. Using global python.")
-                # Fixed: Using python instead of pythonw
                 cmd = ["python", path] if sys.platform == 'win32' else ["python3", path]
 
         elif ext in (".sh", ".bash"):
             cmd = ["bash", path]
         elif ext in (".bat", ".cmd"):
-            # Explicit interpreter bypasses shell=True vulnerability while ensuring execution
             cmd = ["cmd.exe", "/c", path]
         elif ext == ".ps1":
             cmd = ["powershell", "-ExecutionPolicy", "Bypass", "-File", path]
@@ -95,20 +102,30 @@ class ExecutionHandler:
         elif ext == ".scpt":
             cmd = ["osascript", path]
         else:
-            # Strict 3-Way OS Fallback Support
             if sys.platform == 'win32':
                 cmd = ["cmd.exe", "/c", "start", '""', path]
             elif sys.platform == 'darwin':
                 cmd = ["open", path]
             else:
-                # Handles Linux/Debian environments seamlessly
                 cmd = ["xdg-open", path]
         
         try:
-            # Execute with terminal suppression on Windows, standard Popen on Unix-likes
+            # Explicitly redirecting I/O streams to DEVNULL prevents WinError 6 crashes 
+            # when a headless daemon tries to spawn a GUI or standard script.
             if sys.platform == 'win32':
-                subprocess.Popen(cmd, creationflags=subprocess.CREATE_NO_WINDOW)
+                subprocess.Popen(
+                    cmd, 
+                    creationflags=subprocess.CREATE_NO_WINDOW,
+                    stdin=subprocess.DEVNULL,
+                    stdout=subprocess.DEVNULL,
+                    stderr=subprocess.DEVNULL
+                )
             else:
-                subprocess.Popen(cmd)
+                subprocess.Popen(
+                    cmd,
+                    stdin=subprocess.DEVNULL,
+                    stdout=subprocess.DEVNULL,
+                    stderr=subprocess.DEVNULL
+                )
         except Exception as e:
             logger.error(f"Failed to run SCRIPT '{path}': {e}")
