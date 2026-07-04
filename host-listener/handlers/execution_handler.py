@@ -64,7 +64,8 @@ class ExecutionHandler:
             
             for venv_name in ["venv", ".venv", "env", ".env"]:
                 if sys.platform == 'win32':
-                    possible_exe = os.path.join(script_dir, venv_name, "Scripts", "pythonw.exe")
+                    # Fixed: Using python.exe instead of pythonw.exe to prevent stdout crashing
+                    possible_exe = os.path.join(script_dir, venv_name, "Scripts", "python.exe")
                 else:
                     possible_exe = os.path.join(script_dir, venv_name, "bin", "python3")
                 
@@ -77,7 +78,8 @@ class ExecutionHandler:
                 cmd = [venv_exe, path]
             else:
                 logger.info("No local venv found. Using global python.")
-                cmd = ["pythonw", path] if sys.platform == 'win32' else ["python3", path]
+                # Fixed: Using python instead of pythonw
+                cmd = ["python", path] if sys.platform == 'win32' else ["python3", path]
 
         elif ext in (".sh", ".bash"):
             cmd = ["bash", path]
