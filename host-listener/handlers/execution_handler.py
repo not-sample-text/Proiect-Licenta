@@ -9,6 +9,29 @@ logger = get_logger("ExecutionHandler")
 
 class ExecutionHandler:
     @staticmethod
+    def _get_silent_kwargs():
+        """
+        Generates subprocess kwargs that survive PyInstaller --noconsole environments.
+        Forces the OS to safely detach standard I/O streams without crashing.
+        """
+        kwargs = {
+            'stdin': subprocess.DEVNULL,
+            'stdout': subprocess.DEVNULL,
+            'stderr': subprocess.DEVNULL
+        }
+        
+        if sys.platform == 'win32':
+            # PyInstaller specific workaround to prevent WinError 6
+            startupinfo = subprocess.STARTUPINFO()
+            startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+            startupinfo.wShowWindow = 0 # SW_HIDE
+            
+            kwargs['startupinfo'] = startupinfo
+            kwargs['creationflags'] = subprocess.CREATE_NO_WINDOW
+            
+        return kwargs
+
+    @staticmethod
     def execute(action):
         if not action or not isinstance(action, dict):
             return
@@ -35,20 +58,9 @@ class ExecutionHandler:
         
         try:
             if sys.platform == 'win32':
-                subprocess.Popen(
-                    path, 
-                    creationflags=subprocess.CREATE_NO_WINDOW,
-                    stdin=subprocess.DEVNULL,
-                    stdout=subprocess.DEVNULL,
-                    stderr=subprocess.DEVNULL
-                )
+                subprocess.Popen(path, **ExecutionHandler._get_silent_kwargs())
             else:
-                subprocess.Popen(
-                    shlex.split(path),
-                    stdin=subprocess.DEVNULL,
-                    stdout=subprocess.DEVNULL,
-                    stderr=subprocess.DEVNULL
-                )
+                subprocess.Popen(shlex.split(path), **ExecutionHandler._get_silent_kwargs())
         except Exception as e:
             logger.error(f"Failed to launch APP '{path}': {e}")
 
@@ -68,7 +80,6 @@ class ExecutionHandler:
         cmd = []
 
         if ext == ".py":
-            # Smart Venv Detection (Cross-Platform)
             script_dir = os.path.dirname(path)
             venv_exe = None
             
@@ -110,22 +121,6 @@ class ExecutionHandler:
                 cmd = ["xdg-open", path]
         
         try:
-            # Explicitly redirecting I/O streams to DEVNULL prevents WinError 6 crashes 
-            # when a headless daemon tries to spawn a GUI or standard script.
-            if sys.platform == 'win32':
-                subprocess.Popen(
-                    cmd, 
-                    creationflags=subprocess.CREATE_NO_WINDOW,
-                    stdin=subprocess.DEVNULL,
-                    stdout=subprocess.DEVNULL,
-                    stderr=subprocess.DEVNULL
-                )
-            else:
-                subprocess.Popen(
-                    cmd,
-                    stdin=subprocess.DEVNULL,
-                    stdout=subprocess.DEVNULL,
-                    stderr=subprocess.DEVNULL
-                )
+            subprocess.Popen(cmd, **ExecutionHandler._get_silent_kwargs())
         except Exception as e:
             logger.error(f"Failed to run SCRIPT '{path}': {e}")
